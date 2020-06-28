@@ -15,8 +15,8 @@
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="header-left d-flex flex-column flex-md-row align-items-center">
-                  <p class="d-flex align-items-center"><i class="fas fa-envelope"></i>info.deercreative@gmail.com</p>
-                  <p class="d-flex align-items-center"><i class="fas fa-phone"></i>+65 11.188.888</p>
+                  <p class="d-flex align-items-center"><i class="fas fa-envelope"></i>{{ mail}}</p>
+                  <p class="d-flex align-items-center"><i class="fas fa-phone"></i>{{ phone}}</p>
                 </div>
               </div>
               <div class="col-12 col-md-6">
@@ -350,12 +350,13 @@
                 </ul>
                 <div id="tab-1">
                   <div class="row no-gutters-sm">
-                    <div class="col-6 col-md-4 col-lg-3">
-                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="{% static 'assets/images/product/product01.png' %}" alt=""></a>
-                        <h5 class="product-type">Oranges</h5>
-                        <h3 class="product-name">Pure Pineapple</h3>
-                        <h3 class="product-price">$14.00 
-                          <del>$35.00</del>
+                      {% for item in object_list %}
+                        <div class="col-6 col-md-4 col-lg-3">
+                      <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="{{ item.image.url }}" alt=""></a>
+                        <h5 class="product-type">{{ item.sub_category.category.category_name }}</h5>
+                        <h3 class="product-name">{{ item.title}}</h3>
+                        <h3 class="product-price">{{ item.price }}
+                          <del>{{ item.itemdetails.discount_offer }}</del>
                         </h3>
                         <div class="product-select">
                           <button class="add-to-wishlist round-icon-btn coffee"> <i class="icon_heart_alt"></i></button>
@@ -365,6 +366,7 @@
                         </div>
                       </div>
                     </div>
+                      {% endfor %}
                     <div class="col-6 col-md-4 col-lg-3">
                       <div class="product coffee"><a class="product-img" href="shop_detail.html"><img src="{% static 'assets/images/product/product02.png' %}" alt=""></a>
                         <h5 class="product-type">Oranges</h5>

@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # allauth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # my_apps
+    'customer',
+    'shop',
 ]
 
 MIDDLEWARE = [
@@ -76,11 +86,21 @@ WSGI_APPLICATION = 'somikoron_ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_somikoron',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -123,3 +143,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 STATIC_ROOT = 'staticfiles'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "static")
+
+MEDIA_URL = '/media/'
+
+SITE_ID = 1

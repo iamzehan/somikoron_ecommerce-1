@@ -33,10 +33,10 @@ class Items(models.Model):
     # label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField()
+    # image = models.ImageField(u'Images')
 
     def __str__(self):
-        return self.title
+        return str(self.pk) +" "+ self.title
 
     def get_absolute_url(self):
         return reverse("shop:product", kwargs={
@@ -64,7 +64,7 @@ class ItemDetails(models.Model):
     unit = models.CharField(max_length=30, null=True, blank=True)
     stock_quantity = models.IntegerField(null=True, blank=True)
     update_date = models.DateTimeField(auto_now=True)
-    total_views = models.ImageField(default=0)
+    total_views = models.IntegerField(default=0)
     slug = models.SlugField()
     def __str__(self):
         return self.item.title
@@ -72,6 +72,22 @@ class ItemDetails(models.Model):
     class Meta:
         ordering = ['-update_date']
 
+    def get_absolute_url(self):
+        return reverse("shop:itemdetails", kwargs={
+            'slug': self.slug
+        })
+    def get_discounted_price(self):
+        return ( self.item.price) - (
+                    (self.discount_offer * self.item.price) / 100)
+
+class ItemImages(models.Model):
+    item = models.ForeignKey(
+        Items, on_delete=models.CASCADE, related_name='images'
+    )
+    image = models.ImageField(upload_to='media/images/')
+
+    def __str__(self):
+        return str(self.pk) +" "+ self.item.title
 
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -97,3 +113,4 @@ class OrderItem(models.Model):
         if self.item_details.discount_offer>0:
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
+

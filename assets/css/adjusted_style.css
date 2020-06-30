@@ -1,0 +1,29 @@
+/*
+	*****************************************************************
+	*	This version is written by SMN Shuvo										
+	*****************************************************************
+*/
+/************************************
+	-------------------------[Table of contents]----------------------
+	------------------------------------------------------------------
+
+	[Let press Ctrl + f and type of paste the key, then press Enter to search the content ]
+  	content / #[keyword to find]
+    1. HEADER
+      1.1 Logo
+
+*************************************/
+
+/* HEADER */
+/* Logo 
+* I have used an approximate value, change it according to your need
+*/
+
+.col-2{
+  align-content: left;
+}
+
+.col-2 .logo img{
+  height: auto;
+  width: 120px;
+}

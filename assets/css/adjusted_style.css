@@ -55,11 +55,7 @@
 /************************************
 	Category Select
 *************************************/
-.categories-select{
-	background: #cb241b;
-	color: #fff;
-	font-weight: bold;
-}
+
 
 /************************************
 	Footer Logo
@@ -68,3 +64,9 @@
 	height: auto;
 	width: 120px;
 }
+
+.shop-detail_info{
+	padding: 20px;
+}
+
+

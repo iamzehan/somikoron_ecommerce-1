@@ -13,7 +13,11 @@
 	  	1.1 Logo
 			1.1.1 Desktop Menu
 			1.1.2 Mobile Menu 
-      	1.2 Navigation
+		1.2 Navigation
+	2. Footer
+		2.1 Footer Logo
+	3. Category
+		3.1 Category Select
 
 *************************************/
 
@@ -48,3 +52,19 @@
   background-color: #fcfcfc;
 }
 
+/************************************
+	Category Select
+*************************************/
+.categories-select{
+	background: #cb241b;
+	color: #fff;
+	font-weight: bold;
+}
+
+/************************************
+	Footer Logo
+*************************************/
+.footer-logo img{
+	height: auto;
+	width: 120px;
+}

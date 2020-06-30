@@ -10,8 +10,10 @@
 	[Let press Ctrl + f and type of paste the key, then press Enter to search the content ]
   	content / #[keyword to find]
     1. HEADER
-      1.1 Logo
-      1.2 Navigation
+	  	1.1 Logo
+			1.1.1 Desktop Menu
+			1.1.2 Mobile Menu 
+      	1.2 Navigation
 
 *************************************/
 
@@ -26,11 +28,18 @@
 
 
 /************************************
-	Logo
+	Logo - Desktop Menu
 *************************************/
 .col-2 .logo img{
   height: auto;
   width: 120px;
+}
+/************************************
+	Logo - Mobile Menu
+*************************************/
+.mobile-menu_logo img{
+	height: auto;
+	width: 120px;
 }
 /************************************
 	Navigation
@@ -38,3 +47,4 @@
 #main .navigation{
   background-color: #fcfcfc;
 }
+

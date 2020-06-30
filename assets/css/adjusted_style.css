@@ -18,6 +18,8 @@
 		2.1 Footer Logo
 	3. Category
 		3.1 Category Select
+	4. Product
+		4.1 Product Detail
 
 *************************************/
 
@@ -65,6 +67,9 @@
 	width: 120px;
 }
 
+/************************************
+	Product Detail
+*************************************/
 .shop-detail_info{
 	padding: 20px;
 }

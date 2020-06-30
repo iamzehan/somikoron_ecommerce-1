@@ -234,7 +234,7 @@ a {
       outline: 0;
       box-shadow: 0; }
   .normal-btn.coffee {
-    background-color: #f79823;
+    background-color: #cb241b;
     color: #fff;
     font-size: 13px;
     border-radius: 999px;
@@ -245,7 +245,7 @@ a {
     padding: 15px 30px;
     text-transform: uppercase;
     font-family: 'Cera Pro Bold';
-    border: 2px solid #f79823;
+    border: 2px solid #cb241b;
     -webkit-transition: 0.3s ease;
     -moz-transition: 0.3s ease;
     -ms-transition: 0.3s ease;
@@ -254,8 +254,8 @@ a {
     display: inline-block; }
     .normal-btn.coffee:hover {
       background-color: transparent;
-      color: #f79823;
-      border: 2px solid #f79823;
+      color: #cb241b;
+      border: 2px solid #cb241b;
       text-decoration: none; }
     .normal-btn.coffee:focus {
       outline: 0;
@@ -397,7 +397,7 @@ a {
       outline: 0;
       box-shadow: 0; }
   .no-round-btn.coffee {
-    background-color: #f79823;
+    background-color: #cb241b;
     color: #fff;
     font-size: 14px;
     border-radius: 0;
@@ -408,7 +408,7 @@ a {
     padding: 15px 30px;
     text-transform: uppercase;
     font-family: 'Cera Pro Bold';
-    border: 2px solid #f79823;
+    border: 2px solid #cb241b;
     -webkit-transition: 0.3s ease;
     -moz-transition: 0.3s ease;
     -ms-transition: 0.3s ease;
@@ -417,8 +417,8 @@ a {
     display: inline-block; }
     .no-round-btn.coffee:hover {
       background-color: transparent;
-      color: #f79823;
-      border: 2px solid #f79823;
+      color: #cb241b;
+      border: 2px solid #cb241b;
       text-decoration: none; }
     .no-round-btn.coffee:focus {
       outline: 0;
@@ -580,7 +580,7 @@ a {
     transition: 0.3s ease;
     display: inline-block; }
     .round-icon-btn.coffee:hover {
-      background-color: #f79823;
+      background-color: #cb241b;
       color: #fff;
       border: 0px solid #fff;
       text-decoration: none; }
@@ -673,7 +673,7 @@ a {
     margin: auto;
     margin-top: 15px; }
   .title.coffee-underline:after, .coffee-underline.title-bb:after {
-    background-color: #f79823; }
+    background-color: #cb241b; }
 
 .color-subtitle {
   font-family: "Cera Pro Medium";
@@ -692,7 +692,7 @@ a {
   .color-subtitle.coffee {
     font-family: "Cera Pro Medium";
     font-size: 16px;
-    color: #f79823;
+    color: #cb241b;
     line-height: 1;
     display: block; }
 
@@ -713,7 +713,7 @@ a {
   .color-type.coffee {
     font-family: "Cera Pro Bold";
     font-size: 12px;
-    color: #f79823;
+    color: #cb241b;
     line-height: 1;
     display: block; }
 
@@ -1185,7 +1185,7 @@ a {
   .product.pink .product-type {
     color: #fd5f5c; }
   .product.coffee .product-type {
-    color: #f79823; }
+    color: #cb241b; }
   .product:hover {
     border: 0px solid transparent;
     box-shadow: 0px 20px 32px 0 rgba(53, 78, 84, 0.15);
@@ -1470,10 +1470,10 @@ a {
     -o-transition: 0.3s ease;
     transition: 0.3s ease; }
     .mini-product.coffee .mini-product_info a:hover {
-      color: #f79823;
+      color: #cb241b;
       text-decoration: none; }
   .mini-product.coffee:hover .mini-product_img {
-    border: 1px solid #f79823; }
+    border: 1px solid #cb241b; }
   .mini-product .mini-product_img {
     width: 100px;
     height: 100px;
@@ -2935,7 +2935,7 @@ header.coffee .navigation {
     -o-transition: 0.3s ease;
     transition: 0.3s ease; }
     header.coffee .navigation .navgition-menu ul .toggleable .sub-menu li a:hover {
-      color: #f79823;
+      color: #cb241b;
       text-decoration: none; }
   header.coffee .navigation .nav-right_block {
     display: flex;
@@ -2971,7 +2971,7 @@ header.coffee-2 .header-block .header-right .social-link a {
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .header-block .header-right .social-link a:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 header.coffee-2 .header-block .header-right .login a {
@@ -2986,7 +2986,7 @@ header.coffee-2 .header-block .header-right .login a {
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .header-block .header-right .login a:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 header.coffee-2 .navigation .navgition-menu ul .toggleable .menu-item {
@@ -3001,10 +3001,10 @@ header.coffee-2 .navigation .navgition-menu ul .toggleable .menu-item {
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .navigation .navgition-menu ul .toggleable .menu-item:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
   header.coffee-2 .navigation .navgition-menu ul .toggleable .menu-item.active {
-    color: #f79823; }
+    color: #cb241b; }
 
 header.coffee-2 .navigation .navgition-menu ul .toggleable .sub-menu li a {
   font-family: "Cera Pro Regular";
@@ -3018,7 +3018,7 @@ header.coffee-2 .navigation .navgition-menu ul .toggleable .sub-menu li a {
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .navigation .navgition-menu ul .toggleable .sub-menu li a:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 header.coffee-2 .navigation .product-function {
@@ -3032,7 +3032,7 @@ header.coffee-2 .navigation .product-function {
     display: inline-block;
     transition: 0.3s ease; }
     header.coffee-2 .navigation .product-function .function-icon:hover {
-      color: #f79823;
+      color: #cb241b;
       text-decoration: none; }
     header.coffee-2 .navigation .product-function .function-icon:last-child {
       margin-right: 0; }
@@ -3049,11 +3049,11 @@ header.coffee-2 .navigation .product-function {
       transition: 0.3s ease;
       margin-left: 15px; }
       header.coffee-2 .navigation .product-function .function-icon span:hover {
-        color: #f79823;
+        color: #cb241b;
         text-decoration: none; }
 
 header.coffee-2 .navigation-filter .department-menu_block .department-menu {
-  background-color: #f79823; }
+  background-color: #cb241b; }
 
 header.coffee-2 .navigation-filter .department-menu_block .department-dropdown-menu ul li a {
   font-family: "Cera Pro Regular";
@@ -3067,7 +3067,7 @@ header.coffee-2 .navigation-filter .department-menu_block .department-dropdown-m
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .navigation-filter .department-menu_block .department-dropdown-menu ul li a:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 header.coffee-2 .navigation-filter .website-search .filter-search .categories-select_box ul li, header.coffee-2 .navigation-filter .navigation_v2 .website-search_v2 .filter-search .categories-select_box ul li, header.coffee-2 .navigation_v2 .navigation-filter .website-search_v2 .filter-search .categories-select_box ul li {
@@ -3082,7 +3082,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   header.coffee-2 .navigation-filter .website-search .filter-search .categories-select_box ul li:hover, header.coffee-2 .navigation-filter .navigation_v2 .website-search_v2 .filter-search .categories-select_box ul li:hover, header.coffee-2 .navigation_v2 .navigation-filter .website-search_v2 .filter-search .categories-select_box ul li:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 @media (max-width: 576px) {
@@ -3157,7 +3157,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
       display: inline-block;
       transition: 0.3s ease; }
       header.coffee .navigation .nav-right_block .product-function .function-icon:hover {
-        color: #f79823;
+        color: #cb241b;
         text-decoration: none; }
       header.coffee .navigation .nav-right_block .product-function .function-icon span {
         display: inline-block; } }
@@ -3209,7 +3209,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
       display: inline-block;
       transition: 0.3s ease; }
       header.coffee .navigation .nav-right_block .product-function .function-icon:hover {
-        color: #f79823;
+        color: #cb241b;
         text-decoration: none; }
       header.coffee .navigation .nav-right_block .product-function .function-icon span {
         display: inline-block; } }
@@ -3360,7 +3360,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
         .slider_v2 .slider_wrapper .slider-block .slider-content .slider_img img {
           max-height: 270px; }
   .slider_v2 .slick-arrow {
-    background-color: #f79823;
+    background-color: #cb241b;
     color: #fff;
     font-size: 13px;
     border-radius: 999px;
@@ -3371,7 +3371,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     padding: 15px 30px;
     text-transform: uppercase;
     font-family: 'Cera Pro Bold';
-    border: 2px solid #f79823;
+    border: 2px solid #cb241b;
     -webkit-transition: 0.3s ease;
     -moz-transition: 0.3s ease;
     -ms-transition: 0.3s ease;
@@ -3385,8 +3385,8 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     padding: 0; }
     .slider_v2 .slick-arrow:hover {
       background-color: transparent;
-      color: #f79823;
-      border: 2px solid #f79823;
+      color: #cb241b;
+      border: 2px solid #cb241b;
       text-decoration: none; }
     .slider_v2 .slick-arrow:focus {
       outline: 0;
@@ -3584,9 +3584,9 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
           bottom: -10px; }
 
 .feature-products.coffee #tab .tab-control li a.active {
-  color: #f79823; }
+  color: #cb241b; }
   .feature-products.coffee #tab .tab-control li a.active:after {
-    background-color: #f79823; }
+    background-color: #cb241b; }
 
 /************************************
 	Feature Products v2
@@ -3686,7 +3686,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     .banner_v3 .banner-block .banner-text h3 {
       font-family: "Cera Pro Bold";
       font-size: 30px;
-      color: #f79823;
+      color: #cb241b;
       line-height: 26px;
       display: block;
       margin-bottom: 38px; }
@@ -3945,7 +3945,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     .deal-of-week_v3 .deal-of-week_block .dow-info h3 {
       font-family: "Cera Pro Bold";
       font-size: 30px;
-      color: #f79823;
+      color: #cb241b;
       line-height: 1;
       display: block;
       line-height: 48px;
@@ -3965,7 +3965,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
       margin: 0 5px;
       box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.1); }
     .deal-of-week_v3 .deal-of-week_block .dow-info #event-countdown span {
-      color: #f79823; }
+      color: #cb241b; }
 
 /************************************
 	Deal of the week slide
@@ -4149,7 +4149,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     box-shadow: none;
     margin: 0 5px; }
   .deal-of-week_v3 .deal-of-week_block .dow-info #event-countdown span {
-    color: #f79823; }
+    color: #cb241b; }
   .deal-of-week_parallax {
     padding: 60px 0 30px 0; }
     .deal-of-week_parallax .week-product_img {
@@ -4188,7 +4188,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     box-shadow: none;
     margin: 0 5px; }
   .deal-of-week_v3 .deal-of-week_block .dow-info #event-countdown span {
-    color: #f79823; }
+    color: #cb241b; }
   .deal-of-week_parallax {
     padding: 60px 0 30px 0; }
     .deal-of-week_parallax .title, .deal-of-week_parallax .title-bb {
@@ -4225,7 +4225,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
       box-shadow: none;
       margin: 0 5px; }
     .deal-of-week_v3 .deal-of-week_block .dow-info #event-countdown span {
-      color: #f79823; }
+      color: #cb241b; }
   .deal-of-week_parallax {
     padding: 60px 0; }
     .deal-of-week_parallax .title, .deal-of-week_parallax .title-bb {
@@ -4531,11 +4531,11 @@ footer.coffee .footer-quicklink a {
   -o-transition: 0.3s ease;
   transition: 0.3s ease; }
   footer.coffee .footer-quicklink a:hover {
-    color: #f79823;
+    color: #cb241b;
     text-decoration: none; }
 
 footer.coffee .newletter {
-  background-color: #f79823; }
+  background-color: #cb241b; }
   footer.coffee .newletter .newletter_input {
     position: relative; }
     footer.coffee .newletter .newletter_input input {
@@ -4546,7 +4546,7 @@ footer.coffee .newletter {
       right: 0;
       height: 50px;
       background-color: #fff;
-      color: #f79823;
+      color: #cb241b;
       font-size: 16px;
       border-radius: 999px;
       -webkit-border-radius: 999px;
@@ -4567,7 +4567,7 @@ footer.coffee .newletter {
       border-bottom-left-radius: 0; }
       footer.coffee .newletter .newletter_input button:hover {
         background-color: #ffffff96;
-        color: #f79823;
+        color: #cb241b;
         border: 2px solid #ffffff96;
         text-decoration: none; }
       footer.coffee .newletter .newletter_input button:focus {
@@ -4771,7 +4771,7 @@ footer.coffee .newletter {
         width: 25px;
         margin-right: 5px; }
         .home5-product-block .mini-product-title .mini-product_top .mini-product_control button:hover {
-          background-color: #f79823;
+          background-color: #cb241b;
           color: #fff;
           border: 1px solid #ebebeb;
           text-decoration: none; }
@@ -5025,7 +5025,7 @@ footer.coffee .newletter {
   .ogami-introduce .ogami-introduce_block .introduce-info .founder-confirm .founder_name h5 {
     font-family: "Cera Pro Medium";
     font-size: 12px;
-    color: #f79823;
+    color: #cb241b;
     line-height: 1;
     display: block;
     text-transform: uppercase; }
@@ -5063,7 +5063,7 @@ footer.coffee .newletter {
     .delivery-process .delivery-process_holder .delivery-process_wrapper .delivery-process_block .process .process-text h5 {
       font-family: "Cera Pro Bold";
       font-size: 18px;
-      color: #f79823;
+      color: #cb241b;
       line-height: 1;
       display: block;
       margin-bottom: 15px; }
@@ -5154,10 +5154,10 @@ footer.coffee .newletter {
           transition: 0.3s ease;
           margin-right: 20px; }
           .from-blog .news-blog .news-blog_text .news-credit .credit:hover {
-            color: #f79823;
+            color: #cb241b;
             text-decoration: none; }
           .from-blog .news-blog .news-blog_text .news-credit .credit i {
-            color: #f79823;
+            color: #cb241b;
             margin-right: 10px; }
       .from-blog .news-blog .news-blog_text .news-title {
         font-family: "Cera Pro Bold";
@@ -5171,7 +5171,7 @@ footer.coffee .newletter {
         -o-transition: 0.3s ease;
         transition: 0.3s ease; }
         .from-blog .news-blog .news-blog_text .news-title:hover {
-          color: #f79823;
+          color: #cb241b;
           text-decoration: none; }
 
 @media (max-width: 576px) {

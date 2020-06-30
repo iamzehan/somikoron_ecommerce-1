@@ -11,19 +11,30 @@
   	content / #[keyword to find]
     1. HEADER
       1.1 Logo
+      1.2 Navigation
 
 *************************************/
 
 /* HEADER */
-/* Logo 
-* I have used an approximate value, change it according to your need
-*/
+/*
+ * I have used an approximate value, change it according to your need
+ */
 
 .col-2{
   align-content: left;
 }
 
+
+/************************************
+	Logo
+*************************************/
 .col-2 .logo img{
   height: auto;
   width: 120px;
+}
+/************************************
+	Navigation
+*************************************/
+#main .navigation{
+  background-color: #fcfcfc;
 }

@@ -22,4 +22,5 @@ class ItemsAdmin(admin.ModelAdmin):
 
 admin.site.register(Items, ItemsAdmin)
 admin.site.register(ItemImages)
+admin.site.register(Order)
 

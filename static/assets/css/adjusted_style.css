@@ -1,0 +1,77 @@
+/*
+	*****************************************************************
+	*	This version is written by SMN Shuvo										
+	*****************************************************************
+*/
+/************************************
+	-------------------------[Table of contents]----------------------
+	------------------------------------------------------------------
+
+	[Let press Ctrl + f and type of paste the key, then press Enter to search the content ]
+  	content / #[keyword to find]
+    1. HEADER
+	  	1.1 Logo
+			1.1.1 Desktop Menu
+			1.1.2 Mobile Menu 
+		1.2 Navigation
+	2. Footer
+		2.1 Footer Logo
+	3. Category
+		3.1 Category Select
+	4. Product
+		4.1 Product Detail
+
+*************************************/
+
+/* HEADER */
+/*
+ * I have used an approximate value, change it according to your need
+ */
+
+.col-2{
+  align-content: left;
+}
+
+
+/************************************
+	Logo - Desktop Menu
+*************************************/
+.col-2 .logo img{
+  height: auto;
+  width: 120px;
+}
+/************************************
+	Logo - Mobile Menu
+*************************************/
+.mobile-menu_logo img{
+	height: auto;
+	width: 120px;
+}
+/************************************
+	Navigation
+*************************************/
+#main .navigation{
+  background-color: #fcfcfc;
+}
+
+/************************************
+	Category Select
+*************************************/
+
+
+/************************************
+	Footer Logo
+*************************************/
+.footer-logo img{
+	height: auto;
+	width: 120px;
+}
+
+/************************************
+	Product Detail
+*************************************/
+.shop-detail_info{
+	padding: 20px;
+}
+
+

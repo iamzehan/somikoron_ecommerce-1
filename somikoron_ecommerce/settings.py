@@ -13,8 +13,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from django.urls import reverse
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -27,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,18 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'crispy_forms',
     # allauth
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 
     # my_apps
     'customer',
     'shop',
 ]
 
+SITE_ID = 2
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,11 +67,11 @@ ROOT_URLCONF = 'somikoron_ecommerce.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
+        'DIRS'    : [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
-        'OPTIONS': {
+        'OPTIONS' : {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -80,18 +84,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'somikoron_ecommerce.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_somikoron',
-        'USER': 'postgres',
+        'ENGINE'  : 'django.db.backends.postgresql',
+        'NAME'    : 'db_somikoron',
+        'USER'    : 'postgres',
         'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST'    : '127.0.0.1',
+        'PORT'    : '5432',
     }
 }
 
@@ -120,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -133,7 +135,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -153,4 +154,34 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 
-SITE_ID = 1
+LOGIN_URL = '/accounts/login'
+# reverse('account_login')
+LOGIN_REDIRECT_URL = "/"
+
+
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email','public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'kr_KR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}}
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '629271397680203'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='e4a51b5b5c3e919ec82a2fdb5840a675' #app key
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

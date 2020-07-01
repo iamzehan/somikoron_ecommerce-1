@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'master.html' %}
 {% block body %}
 <!DOCTYPE html>
 <html lang="en">
@@ -111,7 +111,8 @@
                         <input class="no-round-input" id="quantity" type="number" min="0" value="1"> {{ object.unit }}
                       </div>
                       <div class="product-select">
-                        <button class="add-to-cart normal-btn outline">Add to Cart</button>
+                        <a class="add-to-cart normal-btn outline" href="{{ object.item.get_add_to_cart_url }}">Add to Cart</a>
+                        <a class="add-to-cart normal-btn outline" href="{{ object.item.get_remove_from_cart_url }}">Add to Cart</a>
                         <button class="add-to-compare normal-btn outline">+ Add to Compare</button>
                       </div>
                       <div class="product-share">

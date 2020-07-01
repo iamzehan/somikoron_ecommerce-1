@@ -3676,7 +3676,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
 .banner_v3 {
   margin-bottom: 30px; }
   .banner_v3 .banner-block {
-    /* padding: 125px 0; */
+    padding: 225px 0;
     background-image: url(../images/homepage05/banner_bg.png); }
     .banner_v3 .banner-block .banner-text h5 {
       margin-bottom: 15px; }

@@ -8,19 +8,28 @@
           content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
     <meta name="author" content="MARTECH | Deer Creative Theme" >
     {#for add-t-cart-demo#}
-{#    <script >document.getElementsByTagName("html")[0].className += " js";</script >#}
+    {#    <script >document.getElementsByTagName("html")[0].className += " js";</script >#}
     <link rel="stylesheet" href="{% static 'assets/css/add-to-cart-style.css' %}" >
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >
     <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" >
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous" ></script >
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" ></script >
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" ></script >
+    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"#}
+    {#          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" >#}
+    {#    <!-- JS, Popper.js, and jQuery -->#}
+    {#    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"#}
+    {#            crossorigin="anonymous" ></script >#}
+    {#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
+    {#            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" ></script >#}
+    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"#}
+    {#            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" ></script >#}
+    {#MDB#}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" >
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" >
     <link rel="stylesheet" href="{% static 'assets/css/custom_bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}" >
@@ -32,6 +41,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/icomoon.css' %}" >
     <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.min.css' %}" >
     <link rel="shortcut icon" href="{% static 'assets/images/shortcut_logo.png' %}" >
+    <link rel="stylesheet" href="{% static 'assets/css/adjusted_style.css' %}" >
     <title >{% block head_title %}{% endblock %}</title >
     {% block extra_head %}
     {% endblock %}
@@ -53,40 +63,40 @@
 
 {% block body %}
 {% endblock %}
-<a href="" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a>
+<a href="" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99" >Add To Cart</a >
 <div class="cd-cart cd-cart--empty js-cd-cart" >
-	<a href="#0" class="cd-cart__trigger text-replace">
-
-		<ul class="cd-cart__count"> <!-- cart items count -->
-			<li>0</li>
-			<li>0</li>
-		</ul> <!-- .cd-cart__count -->
-	</a>
-
-	<div class="cd-cart__content" >
-		<div class="cd-cart__layout">
-			<header class="cd-cart__header">
-				<h2>Cart</h2>
-				<span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
-			</header>
-
-			<div class="cd-cart__body">
-				<ul>
-					<!-- products added to the cart will be inserted here using JavaScript -->
-				</ul>
-			</div>
-
-			<footer class="cd-cart__footer">
-				<a href="#0" class="cd-cart__checkout">
-          <em>Checkout - $<span>0</span>
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
-            </svg>
-          </em>
-        </a>
-			</footer>
-		</div>
-	</div> <!-- .cd-cart__content -->
-</div> <!-- cd-cart -->
+    <a href="#0" class="cd-cart__trigger text-replace" >
+        <ul class="cd-cart__count" > <!-- cart items count -->
+            <li >0</li >
+            <li >0</li >
+        </ul > <!-- .cd-cart__count -->
+    </a >
+    <div class="cd-cart__content" >
+        <div class="cd-cart__layout" >
+            <header class="cd-cart__header" >
+                <h2 >Cart</h2 >
+                <span class="cd-cart__undo" >Item removed. <a href="#0" >Undo</a ></span >
+            </header >
+            <div class="cd-cart__body" >
+                <ul >
+                    <!-- products added to the cart will be inserted here using JavaScript -->
+                </ul >
+            </div >
+            <footer class="cd-cart__footer" >
+                <a href="#0" class="cd-cart__checkout" >
+                    <em >Checkout - $<span >0</span >
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" >
+                            <g fill="none" stroke="currentColor" >
+                                <line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12" />
+                                <polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 " />
+                            </g >
+                        </svg >
+                    </em >
+                </a >
+            </footer >
+        </div >
+    </div > <!-- .cd-cart__content -->
+</div > <!-- cd-cart -->
 {% block extra_body %}
 {% endblock %}
 
@@ -105,9 +115,8 @@
 <script src="{% static 'assets/js/numscroller-1.0.js' %}" ></script >
 <script src="{% static 'assets/js/vanilla-tilt.min.js' %}" ></script >
 <script src="{% static 'assets/js/main.js' %}" ></script >
-
 {#for add-t-cart-demo#}
-<script src="{% static 'assets/js/add-to-cart-util.js' %}"></script> <!-- util functions included in the CodyHouse framework -->
-<script src="{% static 'assets/js/add-to-cart-main.js' %}"></script>
+<script src="{% static 'assets/js/add-to-cart-util.js' %}" ></script > <!-- util functions included in the CodyHouse framework -->
+<script src="{% static 'assets/js/add-to-cart-main.js' %}" ></script >
 </body >
 </html >

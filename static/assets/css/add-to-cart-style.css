@@ -3572,7 +3572,7 @@ mark {
 }
 
 .cd-cart__trigger {
-    z-index: 51;
+    z-index: 151;
     height: 72px;
     width: 72px;
     overflow: visible
@@ -3688,7 +3688,7 @@ mark {
 }
 
 .cd-cart__content {
-    z-index: 50;
+    z-index: 150;
     width: 90%;
     max-width: 440px;
     height: 400px;

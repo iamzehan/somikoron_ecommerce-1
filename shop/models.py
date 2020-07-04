@@ -1,9 +1,11 @@
-from django.db.models.signals import post_save
 from django.conf import settings
 from django.db import models
-from django.db.models import Sum
 from django.shortcuts import reverse
-from django_countries.fields import CountryField
+
+ADDRESS_CHOICES = (
+    ('B', 'Billing'),
+    ('S', 'Shipping'),
+)
 
 
 class UserProfile(models.Model):
@@ -14,7 +16,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-
 
 
 class Category(models.Model):
@@ -31,20 +32,22 @@ class SubCategory(models.Model):
     )
 
     def __str__(self):
-        return self.sub_category_name + " ("+self.category.category_name+")"
+        return self.sub_category_name + " (" + self.category.category_name + ")"
+
 
 class Items(models.Model):
-    product_code = models.CharField(max_length=10,primary_key=True,unique=True)
+    product_code = models.CharField(max_length=10, primary_key=True, unique=True)
     title = models.CharField(max_length=100)
     price = models.FloatField()
     sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_DEFAULT, default="Others")
     # label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
+
     # image = models.ImageField(u'Images')
 
     def __str__(self):
-        return str(self.pk) +" "+ self.title
+        return str(self.pk) + " " + self.title
 
     def get_absolute_url(self):
         return reverse("shop:product", kwargs={
@@ -74,6 +77,7 @@ class ItemDetails(models.Model):
     update_date = models.DateTimeField(auto_now=True)
     total_views = models.IntegerField(default=0)
     slug = models.SlugField()
+
     def __str__(self):
         return self.item.title
 
@@ -84,9 +88,11 @@ class ItemDetails(models.Model):
         return reverse("shop:itemdetails", kwargs={
             'slug': self.slug
         })
+
     def get_discounted_price(self):
-        return ( self.item.price) - (
-                    (self.discount_offer * self.item.price) / 100)
+        return (self.item.price) - (
+                (self.discount_offer * self.item.price) / 100)
+
 
 class ItemImages(models.Model):
     item = models.ForeignKey(
@@ -95,7 +101,8 @@ class ItemImages(models.Model):
     image = models.ImageField(upload_to='media/images/')
 
     def __str__(self):
-        return str(self.pk) +" "+ self.item.title
+        return str(self.pk) + " " + self.item.title
+
 
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -117,7 +124,7 @@ class OrderItem(models.Model):
         return self.get_total_item_price() - self.get_total_discount_item_price()
 
     def get_final_price(self):
-        if self.item.itemdetails.discount_offer>0:
+        if self.item.itemdetails.discount_offer > 0:
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
 
@@ -130,10 +137,14 @@ class Order(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
-    # shipping_address = models.ForeignKey(
-    #     'Address', related_name='shipping_address', on_delete=models.SET_NULL, blank=True, null=True)
+    order_note = models.TextField(max_length=500, null=True, blank=True)
+    shipping_address = models.ForeignKey(
+        'Address', related_name='shipping_address', on_delete=models.SET_NULL, blank=True,
+        null=True)
+
     # billing_address = models.ForeignKey(
-    #     'Address', related_name='billing_address', on_delete=models.SET_NULL, blank=True, null=True)
+    #     'Address', related_name='billing_address', on_delete=models.SET_NULL, blank=True,
+    #     null=True)
     # payment = models.ForeignKey(
     #     'Payment', on_delete=models.SET_NULL, blank=True, null=True)
     # coupon = models.ForeignKey(
@@ -164,3 +175,21 @@ class Order(models.Model):
         #     total -= self.coupon.amount
         return total
 
+
+class Address(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    division = models.CharField(max_length=20)
+    district = models.CharField(max_length=30)
+    street_address = models.CharField(max_length=100)
+    apartment_and_house = models.CharField(max_length=100)
+    post_code = models.CharField(max_length=100)
+
+    # address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    # default = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        verbose_name_plural = 'Addresses'

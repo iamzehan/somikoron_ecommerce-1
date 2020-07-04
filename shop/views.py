@@ -4,24 +4,27 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic.base import View
-
-from .models import  *
+from django.utils import timezone
 # Create your views here.
 from django.views.generic import ListView, DetailView
-from django.utils import timezone
+from django.views.generic.base import View
+
+from .forms import CheckoutForm
+from .models import *
 
 
 class HomeView(ListView):
     template_name = 'shop/index.html'
     paginate_by = 8
     model = Items
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['mail'] = 'contact@somikoron.com'
         context['phone'] = '+8801772066066'
         context['phone'] = '+8801772066066'
         return context
+
 
 class ItemDetailsView(DetailView):
     template_name = 'shop/shop_detail.html'
@@ -32,6 +35,7 @@ class ItemDetailsView(DetailView):
         # item = Items.objects.get(pk='GR02')
         # context['images'] = ItemImages.objects.all()
         return context
+
 
 @login_required
 def add_to_cart(request, slug):
@@ -122,14 +126,15 @@ def remove_single_item_from_cart(request, slug):
             return redirect("shop:order-summary")
         else:
             messages.info(request, "This item was not in your cart")
-            return redirect("shop:product", slug=slug)
+            return redirect("shop:home", slug=slug)
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("core:product", slug=slug)
+        return redirect("shop:home", slug=slug)
 
 
 def add_to_cart_demo(request):
-    return render(request,'shop/add-to-cart-demo.html')
+    return render(request, 'shop/add-to-cart-demo.html')
+
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
@@ -142,3 +147,71 @@ class OrderSummaryView(LoginRequiredMixin, View):
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("/")
+
+
+class CheckoutView(LoginRequiredMixin, View):
+    def get(self, *args, **kwargs):
+        form = CheckoutForm()
+        order = Order.objects.get(user=self.request.user, ordered=False)
+        context = {
+            'form': form,
+            'object': order,
+        }
+        return render(self.request, 'shop/shop_checkout.html', context)
+
+    def post(self, *args, **kwargs):
+        form = CheckoutForm(self.request.POST or None)
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+            if form.is_valid():
+                division = form.cleaned_data.get('division')
+                district = form.cleaned_data.get('district')
+                street_address = form.cleaned_data.get('street_address')
+                apartment_and_house = form.cleaned_data.get('apartment_and_house')
+                post_code = form.cleaned_data.get('post_code')
+                order_notes = form.cleaned_data.get('order_notes')
+                payment_option = form.cleaned_data.get('payment_option')
+                print(payment_option)
+                if Address.objects.filter(user=self.request.user):
+                    shipping_address = Address.objects.get(user=self.request.user)
+                    shipping_address.division = division
+                    shipping_address.district = district
+                    shipping_address.street_address = street_address
+                    shipping_address.apartment_and_house = apartment_and_house
+                    shipping_address.post_code = post_code
+                    shipping_address.save()
+                else:
+                    shipping_address = Address(
+                        user=self.request.user,
+                        division=division,
+                        district=district,
+                        street_address=street_address,
+                        apartment_and_house=apartment_and_house,
+                        post_code=post_code,
+                    )
+                    shipping_address.save()
+
+                shipping_address = Address.objects.get(user= self.request.user)
+                order.shipping_address = shipping_address
+                order.order_note = order_notes
+                order.save()
+                # messages.success(self.request, "Order placed successfully")
+                context = {
+                    'object': order,
+                    'address': shipping_address
+                }
+                return render(self.request,'shop/shop_order_complete.html', context)
+            messages.success(self.request, "Failed! Form is invalid")
+            return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "You do not have an active order")
+            return redirect('shop:order-summary')
+
+class OrderCompleteView(View):
+    def get(self, *args, **kwargs):
+        return render(self.request, 'shop/shop_order_complete.html')
+
+
+class CattleshopView(View):
+    def get(self, *args, **kwargs):
+        return render(self.request, 'shop/special_offer.html')

@@ -151,7 +151,7 @@
                                                     src=" {{ order_item.item.images.all.0.image.url }} " alt=" product image " ></div >
                                         </td >
                                         <td class="product-name" >{{ order_item.item.title }}</td >
-                                        <td class="product-price" >{{ order_item.item.itemdetails.get_discounted_price }} Tk</td >
+                                        <td class="product-price" >{{ order_item.item.itemdetails.get_discounted_price|stringformat:".2f" }} Tk</td >
                                         <td class="product-quantity" >
                                             <a href="{% url 'shop:remove-single-item-from-cart' order_item.item.slug %}" ><i
                                                     class="icon_minus-06 ml-1" ></i ></a >
@@ -159,9 +159,9 @@
                                             {{ order_item.quantity }}
                                             <a href="{% url 'shop:add-to-cart' order_item.item.slug %}" ><i class="icon_plus mr-1" ></i ></a >
                                         </td >
-                                        <td class="product-total" >{{ order_item.get_total_discount_item_price }} Tk
+                                        <td class="product-total" >{{ order_item.get_total_discount_item_price|stringformat:".2f" }} Tk
                                             {% if order_item.item.itemdetails.discount_offer > 0 %}
-                                                <br ><span class="badge badge-primary" >Saved {{ order_item.get_amount_saved }}</span >
+                                                <br ><span class="badge badge-primary" >Saved {{ order_item.get_amount_saved|stringformat:".2f" }}</span >
                                             {% endif %}
                                         </td >
                                         <td class="product-clear" >
@@ -188,7 +188,7 @@
                                         <tbody >
                                         <tr >
                                             <th style="width: 40%;text-align: left" >SUBTOTAL</th >
-                                            <td >{{ object.get_total }}</td >
+                                            <td >{{ object.get_total|stringformat:".2f" }}</td >
                                         </tr >
                                         <tr >
                                             <th style="width: 40%;text-align: left" >SHIPPING</th >
@@ -203,12 +203,12 @@
                                         <tr >
                                             {% load mathfilters %}
                                             <th style="width: 40%;text-align: left" >TOTAL</th >
-                                            <td >{{ object.get_total|addition:100 |sub:10 }}</td >
+                                            <td >{{ object.get_total|addition:100 |sub:10|stringformat:".2f" }}</td >
                                         </tr >
                                         </tbody >
                                     </table >
                                     <div class="checkout-method" >
-                                        <button class="normal-btn" style="margin: 0px" >Proceed to Checkout</button >
+                                        <button onclick="location.href='{% url 'shop:checkout' %}'" class="normal-btn" style="margin: 0px" >Proceed to Checkout</button >
                                     </div >
                                 </div >
                             </div >

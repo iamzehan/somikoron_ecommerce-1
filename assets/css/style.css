@@ -2351,7 +2351,7 @@ a {
   justify-content: center; }
   #quickview .quickview-box {
     position: relative;
-    width: 1200px;
+    width: 1000px;
     min-height: 400px;
     background-color: #fff;
     padding: 80px; }

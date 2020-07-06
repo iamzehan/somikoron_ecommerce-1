@@ -1,5 +1,7 @@
-from django.urls import path, include
+from django.urls import path
+
 from . import views
+
 app_name = 'shop'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
@@ -13,4 +15,6 @@ urlpatterns = [
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
     path('order-complete/', views.OrderCompleteView.as_view(), name='order-complete'),
     path('cattle-shop/', views.CattleshopView.as_view(), name='cattle-shop'),
+    path('quick-view/', views.QuickView.as_view(), name='quick-view'),
+
 ]

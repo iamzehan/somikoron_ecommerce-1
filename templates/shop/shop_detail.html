@@ -23,7 +23,7 @@
                             <div class="website-search" >
                                 <div class="row no-gutters" >
                                     <div class="col-0 col-md-0 col-lg-4 col-xl-3" style="background-color: #cb241b; color: white" >
-                                        <div class="filter-search"  >
+                                        <div class="filter-search" >
                                             <div class="categories-select d-flex align-items-center justify-content-around" >
                                                 <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
                                             <div class="categories-select_box" >
@@ -167,12 +167,13 @@
                                                                                                                  href="#" ></a ><a
                                                 class="color bg-info" href="#" ></a >
                                         </div >
-                                        <div class="quantity-select" style="margin-bottom: 20px">
+                                        <div class="quantity-select" style="margin-bottom: 20px" >
                                             <label for="quantity" >Quatity:</label >
                                             <input class="no-round-input" id="quantity" type="number" min="0" value="1" >{{ object.unit }}
                                         </div >
                                         <div class="product-select" style="text-align: center" >
-                                            <a class="add-to-cart normal-btn outline" href="{{ object.item.get_add_to_cart_url }}" style="width: 100%">Add to Cart</a >
+                                            <a class="add-to-cart normal-btn outline" href="{{ object.item.get_add_to_cart_url }}"
+                                               style="width: 100%" >Add to Cart</a >
                                             <br ><a href="{{ object.item.get_remove_from_cart_url }}" > remove</a >
                                         </div >
                                         <div class="product-share" >
@@ -323,13 +324,20 @@
         <div class="partner" >
             <div class="container" >
                 <div class="partner_block d-flex justify-content-between" data-slick="{&quot;slidesToShow&quot;: 6}" >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}" alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
+                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
+                                                                           alt="partner logo" ></a ></div >
                 </div >
             </div >
         </div >

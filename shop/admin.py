@@ -24,4 +24,6 @@ admin.site.register(Items, ItemsAdmin)
 admin.site.register(ItemImages)
 admin.site.register(Order)
 admin.site.register(Address)
+admin.site.register(OwnerInfo)
+admin.site.register(CattleInfo)
 

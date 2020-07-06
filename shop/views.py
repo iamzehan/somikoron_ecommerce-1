@@ -213,5 +213,23 @@ class OrderCompleteView(View):
 
 
 class CattleshopView(View):
+
     def get(self, *args, **kwargs):
-        return render(self.request, 'shop/special_offer.html')
+        sub_category = SubCategory.objects.filter(category__category_id='cattle')
+        cattles = Items.objects.filter(sub_category__category__category_id='cattle')
+        print(cattles)
+        context = {
+            'cattles': cattles,
+            'sub_category': sub_category
+        }
+        return render(self.request, 'shop/special_offer.html', context)
+
+
+class QuickView(View):
+    def get(self, *args, **kwargs):
+        instance = get_object_or_404(Items, slug = 'cow1')
+        context={
+            'instance': instance
+        }
+        print(instance)
+        return render(self.request, 'shop/quick_view.html', context)

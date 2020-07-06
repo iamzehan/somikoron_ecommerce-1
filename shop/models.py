@@ -17,10 +17,17 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+class OwnerInfo(models.Model):
+    owner_name = models.CharField(max_length= 50)
+    phone = models.CharField(max_length=15)
+    address = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.owner_name
 
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
-
+    category_id = models.CharField(max_length=10)
     def __str__(self):
         return self.category_name
 
@@ -39,13 +46,15 @@ class Items(models.Model):
     product_code = models.CharField(max_length=10, primary_key=True, unique=True)
     title = models.CharField(max_length=100)
     price = models.FloatField()
-    sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_DEFAULT, default="Others")
+    sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_DEFAULT, default=1)
     # label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
-
+    item_owner = models.ForeignKey(OwnerInfo, on_delete=models.SET_NULL, \
+                                                                        null=True, blank=True)
     # image = models.ImageField(u'Images')
-
+    # class Meta:
+    #     ordering = ['-update_date']
     def __str__(self):
         return str(self.pk) + " " + self.title
 
@@ -76,6 +85,7 @@ class ItemDetails(models.Model):
     stock_quantity = models.IntegerField(null=True, blank=True)
     update_date = models.DateTimeField(auto_now=True)
     total_views = models.IntegerField(default=0)
+    additional_info = models.CharField(max_length=500, null=True, blank=True)
     slug = models.SlugField()
 
     def __str__(self):
@@ -93,6 +103,15 @@ class ItemDetails(models.Model):
         return (self.item.price) - (
                 (self.discount_offer * self.item.price) / 100)
 
+class CattleInfo(models.Model):
+    item = models.OneToOneField(Items, on_delete=models.CASCADE)
+    height = models.CharField(max_length=15, null=True, blank=True)
+    live_weight = models.FloatField(max_length=10,null=True, blank=True)
+    expected_weight = models.FloatField(max_length=10,null=True, blank=True)
+    Breed = models.CharField(max_length=30,null=True, blank=True)
+
+    def __str__(self):
+        return self.item.item_owner.owner_name +"-"+ self.item.title
 
 class ItemImages(models.Model):
     item = models.ForeignKey(
@@ -193,3 +212,4 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = 'Addresses'
+

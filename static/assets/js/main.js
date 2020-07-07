@@ -1,6 +1,58 @@
 //Add preload to DOM
 $('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>') 
 
+
+
+
+
+
+
+// ================================= Custom JS from Antu ============================
+function atcSidebar(){
+	document.getElementById('add_cart_sidebar').classList.add('atc_active');
+    document.querySelector('.sidebar_row').style.display="block";
+	var po = document.querySelector('.place_order');
+	if(po.style.display === "none"){
+		po.style.display = "block";
+	}else{
+		po.style.display = "block";
+	}
+}
+
+function closeSidebar(){
+	document.getElementById('add_cart_sidebar').classList.toggle('atc_active');
+}
+
+function clickCode(){
+	var hide = document.querySelector('.token_form');
+	if(hide.style.display==="none"){
+		hide.style.display="block";
+	}else{
+	 	hide.style.display="none";
+	}
+}
+
+function closeAddProduct(){
+	document.querySelector('.sidebar_row').style.display = "none";
+	var po = document.querySelector('.place_order');
+	if(po.style.display === "block"){
+		po.style.display = "none";
+	}else{
+		po.style.display = "none";
+	}
+	
+}
+
+function sidebarOPen(){
+	document.getElementById('add_cart_sidebar').classList.add('atc_active');
+	// document.querySelector('.place_order').style.display = "block";
+}
+
+// ================================= Custom JS End from Antu ============================
+
+
+
+
 //Wait for document loaded
 window.onload = function () {
 	

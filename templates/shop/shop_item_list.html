@@ -5,46 +5,19 @@
     <html lang="en" >
     <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
     <head >
-        <title >Exclusive</title >
-        <meta charset="UTF-8" >
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
-        <meta name="keywords"
-              content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
-        <meta name="author" content="MARTECH | Deer Creative Theme" >
-        {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >#}
+        <title >Somikoron | {{ s }}</title >
     </head >
+    <link rel="stylesheet" href="../../../code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" >
     <body >
     <div id="main" >
         <header class="coffee-2" >
             <div class="navigation-filter" >
                 <div class="container" >
                     <div class="row" >
-                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
-                            <div class="department-menu_block" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
-                                                                                                                                             departments<span ><i
-                                            class="arrow_carrot-down" ></i ></span ></div >
-                                <div class="department-dropdown-menu" >
-                                    <ul >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-1" ></i >Fresh Meat</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-2" ></i >Vegetables</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-3" ></i >Fruit & Nut Gifts</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-4" ></i >Fresh Berries</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-5" ></i >Ocean Foods</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-6" ></i >Butter & Eggs</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-7" ></i >Fastfood</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-8" ></i >Fresh Onion</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-9" ></i >Papayaya & Crisps</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-10" ></i >Oatmeal</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-11" ></i >Fresh Bananas</a ></li >
-                                    </ul >
-                                </div >
-                            </div >
-                        </div >
-                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
+                        <div class="col-12 col-md-12 col-lg-12 col-xl-12 order-1 order-md-2" >
                             <div class="website-search" >
                                 <div class="row no-gutters" >
-                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
+                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" style="background-color: #cb241b; color: white" >
                                         <div class="filter-search" >
                                             <div class="categories-select d-flex align-items-center justify-content-around" >
                                                 <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
@@ -92,13 +65,13 @@
                             <button class="no-round-btn" id="filter-sidebar--closebtn" >Close sidebar</button >
                             <div class="shop-sidebar_department" >
                                 <div class="department_top mini-tab-title underline" >
-                                    <h2 class="title" >Categories</h2 >
+                                    <h2 class="title" >Departments</h2 >
                                 </div >
                                 <div class="department_bottom" >
                                     <ul >
-                                        {% for sub_cat in sub_category %}
-                                            <li ><a class="department-link" href="shop_grid%2blist_3col.html" > {{ sub_cat.sub_category_name }}</a >
-                                            </li >
+                                        {% for subcat in sub_categories %}
+                                            <li ><a class="department-link" href="{{ subcat.get_absolute_url }}" > <i
+                                                    class="icon-{{ forloop.counter }}" ></i > {{ subcat.sub_category_name }}</a ></li >
                                         {% endfor %}
                                     </ul >
                                 </div >
@@ -118,43 +91,43 @@
                                     <div id="slider-range" ></div >
                                 </div >
                             </div >
-                            {#                            <div class="shop-sidebar_color-filter" >#}
-                            {#                                <div class="color-filter_top mini-tab-title underline" >#}
-                            {#                                    <h2 class="title" >Color</h2 >#}
-                            {#                                </div >#}
-                            {#                                <div class="color-filter_bottom" >#}
-                            {#                                    <div class="row" >#}
-                            {#                                        <div class="col-6" >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: black;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Black (12)</a >#}
-                            {#                                            </div >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: red;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Red (4)</a >#}
-                            {#                                            </div >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: orange;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Orange (8)</a >#}
-                            {#                                            </div >#}
-                            {#                                        </div >#}
-                            {#                                        <div class="col-6" >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: blue;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Blue (4)</a >#}
-                            {#                                            </div >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: green;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Green (9)</a >#}
-                            {#                                            </div >#}
-                            {#                                            <div class="color" >#}
-                            {#                                                <div class="visible-color" style="background-color: pink;" ></div >#}
-                            {#                                                <a href="shop_grid%2blist_3col.html" >Pink (12)</a >#}
-                            {#                                            </div >#}
-                            {#                                        </div >#}
-                            {#                                    </div >#}
-                            {#                                </div >#}
-                            {#                            </div >#}
+                            <div class="shop-sidebar_color-filter" >
+                                <div class="color-filter_top mini-tab-title underline" >
+                                    <h2 class="title" >Color</h2 >
+                                </div >
+                                <div class="color-filter_bottom" >
+                                    <div class="row" >
+                                        <div class="col-6" >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: black;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Black (12)</a >
+                                            </div >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: red;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Red (4)</a >
+                                            </div >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: orange;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Orange (8)</a >
+                                            </div >
+                                        </div >
+                                        <div class="col-6" >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: blue;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Blue (4)</a >
+                                            </div >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: green;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Green (9)</a >
+                                            </div >
+                                            <div class="color" >
+                                                <div class="visible-color" style="background-color: pink;" ></div >
+                                                <a href="shop_grid%2blist_3col.html" >Pink (12)</a >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
                             <div class="shop-sidebar_size" >
                                 <div class="size_top mini-tab-title underline" >
                                     <h2 class="title" >Popular size</h2 >
@@ -198,128 +171,7 @@
                     </div >
                     <div class="col-xl-9" >
                         <div class="shop-grid-list" >
-                            <!-- slider for offer -->
-                            <div class="offer-slider" >
-                                <div class="slider" >
-                                    <div class="full-fluid" >
-                                        <div class="slider_wrapper" >
-                                            <div class="slider-block"
-                                                 style="background-image: url('{% static 'assets/images/special_offer/bcow1.jpg' %}')" >
-                                                <div class="slider-content" >
-                                                    <div class="container" >
-                                                        <div class="row align-items-center justify-content-center" >
-                                                            <div class="col-12 col-md-5 col-xl-6" >
-                                                                <div class="slider-text d-flex flex-column align-items-center align-items-md-start text-right" >
-                                                                    <h5 data-animation="fadeInUp" data-delay=".2s" >উন্নত জাতের গরু</h5 >
-                                                                    <h1 data-animation="fadeInUp" data-delay=".3s" >গরু</h1 >
-                                                                    <h3 data-animation="fadeInUp" data-delay=".4s" >$14.00<span >/ pakage</span >
-                                                                    </h3 ><a class="normal-btn" href="shop_grid%2blist_3col.html"
-                                                                             data-animation="fadeInUp" data-delay=".4s" >কিনে নিন </a >
-                                                                </div >
-                                                            </div >
-                                                            <div class="col-12 col-md-6" >
-                                                                <div class="slider-img" data-animation="zoomIn" data-delay=".1s" >
-                                                                    {#                          <img src="{% static 'assets/images/special_offer/cow_face.webp' %}" alt="">#}
-                                                                    <div class="prallax-img" >
-                                                                        <div id="img-block" ><img class="img"
-                                                                                                  src="{% static 'assets/images/homepage01/slider_background_2.jpg/homepage01/slider_img_1.png' %}"
-                                                                                                  alt="" data-depth="1" ></div >
-                                                                    </div >
-                                                                </div >
-                                                            </div >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="slider-block"
-                                                 style="background-image: url('{% static "assets/images/special_offer/bcow.jpg" %}')" >
-                                                <div class="slider-content" >
-                                                    <div class="container" >
-                                                        <div class="row align-items-center justify-content-center" >
-                                                            <div class="col-12 col-md-5 col-xl-6" >
-                                                                <div class="slider-text d-flex flex-column align-items-center align-items-md-start" >
-                                                                    <h5 data-animation="fadeInUp" data-delay=".2s" >উন্নত গরু</h5 >
-                                                                    <h1 data-animation="fadeInUp" data-delay=".3s" >জাতের গরু</h1 >
-                                                                    <h3 data-animation="fadeInUp" data-delay=".4s" >$14.00<span >/ pakage</span >
-                                                                    </h3 ><a class="normal-btn" href="shop_grid%2blist_3col.html"
-                                                                             data-animation="fadeInUp" data-delay=".4s" >কিনে নিন </a >
-                                                                </div >
-                                                            </div >
-                                                            <div class="col-12 col-md-6" >
-                                                                <div class="slider-img" data-animation="zoomIn" data-delay=".1s" ><img
-                                                                        src="{% static 'assets/images/homepage01/slider_subbackground_133.png' %}"
-                                                                        alt="" >
-                                                                    {#                          <img class="img" src="{% static 'assets/images/special_offer/cow_face.webp' %}" alt="">#}
-                                                                </div >
-                                                            </div >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="slider-block"
-                                                 style="background-image: url('{% static "assets/images/special_offer/bcow2.jpg    " %}')" >
-                                                <div class="slider-content" >
-                                                    <div class="container" >
-                                                        <div class="row align-items-center justify-content-center" >
-                                                            <div class="col-12 col-md-5 col-xl-6" >
-                                                                <div class="slider-text d-flex flex-column align-items-center align-items-md-start" >
-                                                                    <h5 data-animation="fadeInUp" data-delay=".2s" >উন্নত</h5 >
-                                                                    <h1 data-animation="fadeInUp" data-delay=".3s" >জাতের গরু</h1 >
-                                                                    <h3 data-animation="fadeInUp" data-delay=".4s" >$14.00<span >/ pakage</span >
-                                                                    </h3 ><a class="normal-btn" href="shop_grid%2blist_3col.html"
-                                                                             data-animation="fadeInUp" data-delay=".4s" >কিনে নিন </a >
-                                                                </div >
-                                                            </div >
-                                                            <div class="col-12 col-md-6" >
-                                                                <div class="slider-img" data-animation="zoomIn" data-delay=".1s" ><img
-                                                                        src="{% static 'assets/images/homepage01/slider_subbackground_1444.png' %}"
-                                                                        alt="" >
-                                                                    {#                          <img class="img" src="{% static 'assets/images/special_offer/cow_face.webp' %}" alt="">#}
-                                                                </div >
-                                                            </div >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="benefit-block" >
-                                            <div class="container" >
-                                                <div class="our-benefits" >
-                                                    <div class="row" >
-                                                        <div class="col-12 col-md-4" >
-                                                            <div class="benefit-detail d-flex flex-column align-items-center" ><img
-                                                                    class="benefit-img"
-                                                                    src="{% static 'assets/images/homepage01/benefit-icon1.png' %}" alt="" >
-                                                                <h5 class="benefit-title" >উন্নত জাতের গরু </h5 >
-                                                                <p class="benefit-describle" >মাংসের মূল্য এবং চাহিদা বেশি</p >
-                                                            </div >
-                                                        </div >
-                                                        <div class="col-12 col-md-4" >
-                                                            <div class="benefit-detail d-flex flex-column align-items-center" ><img
-                                                                    class="benefit-img"
-                                                                    src="{% static 'assets/images/homepage01/benefit-icon2.png' %}" alt="" >
-                                                                <h5 class="benefit-title" >জাতের গরু </h5 >
-                                                                <p class="benefit-describle" >মাংসের মূল্য বেশি</p >
-                                                            </div >
-                                                        </div >
-                                                        <div class="col-12 col-md-4" >
-                                                            <div class="benefit-detail boderless d-flex flex-column align-items-center" ><img
-                                                                    class="benefit-img"
-                                                                    src="{% static 'assets/images/homepage01/benefit-icon3.png' %}" alt="" >
-                                                                <h5 class="benefit-title" >উন্নত গরু </h5 >
-                                                                <p class="benefit-describle" >মাংসের চাহিদা বেশি</p >
-                                                            </div >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                                <!-- End slider-->
-                            </div >
-                            <!-- end of slider -->
-                            <div class="shop-products" style="margin-top: 130px" >
+                            <div class="shop-products" >
                                 <div class="shop-products_top mini-tab-title underline" >
                                     <div class="row align-items-center" >
                                         <div class="col-6 col-xl-4" >
@@ -356,52 +208,33 @@
                                 </div >
                                 <div class="shop-products_bottom" >
                                     <div class="row no-gutters-sm" >
-                                        {% for cattle in cattles %}
+                                        {% for item in items %}
                                             <div class="col-6 col-md-4" >
                                                 <div class="product" >
-                                                    <div class="product-img_block" ><a class="product-img" href="{{ cattle.itemdetails.get_absolute_url }}" ><img
-                                                            src="{{ cattle.images.all.0.image.url }}" alt="" ></a >
+                                                    <div class="product-img_block" ><a class="product-img"
+                                                                                       href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.url }}" alt="" ></a >
                                                         {#                                                        <button class="quickview no-round-btn smooth" data-toggle="modal"#}
                                                         {#                                                                data-target="#quickViewModal" >Quick view#}
                                                         {#                                                        </button >#}
                                                     </div >
                                                     <div class="product-info_block" >
-                                                        <a class="product-name" href="" >{{ cattle.title }}</a >
+                                                        <a class="product-name" href="" >{{ item.title }}</a >
                                                         <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
                                                                 class="icon_star" ></i ><i class="icon_star" ></i ><i
                                                                 class="icon_star-half" ></i ><span >(5)</span >
                                                         </h5 >
-                                                        {% if cattle.itemdetails.discount_offer > 0 %}
+                                                        {% if item.itemdetails.discount_offer > 0 %}
                                                             <h3 class="product-price " style="text-align: center !important;" ><small
-                                                                    style="font-size: small" >৳</small > {{ cattle.itemdetails.get_discounted_price }}
-                                                                <del >{{ cattle.price }}</del >
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
                                                             </h3 >
                                                         {% else %}
                                                             <h3 class="product-price" style="text-align: center !important;" ><small
-                                                                    style="font-size: small" >৳</small > {{ cattle.price }}
+                                                                    style="font-size: small" >৳</small > {{ item.price }}
                                                             </h3 >
                                                         {% endif %}
                                                         <p class="product-describe" >
-                                                        <div >
-                                                            <div style="float: left" >Breed:</div >
-                                                            <div style="float: right" >{{ cattle.cattleinfo.Breed }}</div >
-                                                        </div >
-                                                        <br >
-                                                        <div >
-                                                            <div style="float: left" >Height:</div >
-                                                            <div style="float: right" >{{ cattle.cattleinfo.height }}</div >
-                                                        </div >
-                                                        <br >
-                                                        <div >
-                                                            <div style="float: left" >Live Weight:</div >
-                                                            <div style="float: right" >{{ cattle.cattleinfo.live_weight }}</div >
-                                                        </div >
-                                                        <br >
-                                                        <div >
-                                                            <div style="float: left" >Expected Weight:</div >
-                                                            <div style="float: right" >{{ cattle.cattleinfo.expected_weight }}</div >
-                                                        </div >
-                                                        <br >
                                                         </p >
                                                         <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                         <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
@@ -416,13 +249,13 @@
                                                     </div >
                                                     <div class="product-select_list" >
                                                         <p class="delivery-status" >Free delivery</p >
-                                                        {% if cattle.itemdetails.discount_offer > 0 %}
+                                                        {% if item.itemdetails.discount_offer > 0 %}
                                                             <h3 class="product-price" ><small
-                                                                    style="font-size: small" >৳</small > {{ cattle.itemdetails.get_discounted_price }}
-                                                                <del >{{ cattle.price }}</del >
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
                                                             </h3 >
                                                         {% else %}
-                                                            <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ cattle.price }}
+                                                            <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}
                                                             </h3 >
                                                         {% endif %}
                                                         <button class="add-to-cart normal-btn outline" >Add to Cart</button >
@@ -433,7 +266,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c6.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product02.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -443,10 +276,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -454,8 +288,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -470,7 +303,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c9.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product03.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -480,10 +313,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -491,8 +325,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -507,7 +340,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c8.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product04.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -517,10 +350,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -528,8 +362,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -544,7 +377,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c8.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product05.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -554,10 +387,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -565,8 +399,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -581,7 +414,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c4.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product06.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -591,10 +424,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -602,8 +436,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -618,7 +451,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/special_offer/c7.jpg' %}" alt="" ></a >
+                                                        src="assets/images/product/product07.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -628,10 +461,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -639,8 +473,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -655,7 +488,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product08.png' %}" alt="" ></a >
+                                                        src="assets/images/product/product08.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -665,10 +498,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -676,8 +510,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -692,7 +525,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product09.png' %}" alt="" ></a >
+                                                        src="assets/images/product/product09.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -702,10 +535,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -713,8 +547,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -729,7 +562,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product10.png' %}" alt="" ></a >
+                                                        src="assets/images/product/product10.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -739,10 +572,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -750,8 +584,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -766,7 +599,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product11.png' %}" alt="" ></a >
+                                                        src="assets/images/product/product11.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -776,10 +609,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -787,8 +621,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -803,7 +636,7 @@
                                         <div class="col-6 col-md-4" >
                                             <div class="product" >
                                                 <div class="product-img_block" ><a class="product-img" href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product12.png' %}" alt="" ></a >
+                                                        src="assets/images/product/product12.png" alt="" ></a >
                                                     <button class="quickview no-round-btn smooth" >Quick view</button >
                                                 </div >
                                                 <div class="product-info_block" >
@@ -813,10 +646,11 @@
                                                         <del >$35.00</del >
                                                     </h3 >
                                                     <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i class="icon_star-half" ></i ><span >(5)</span >
-                                                    </h5 >
+                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                            class="icon_star-half" ></i ><span >(5)</span ></h5 >
                                                     <p class="product-describe" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                                 eiusmod tempor niam</p >
+                                                                                 eiusmod
+                                                                                 tempor niam</p >
                                                     <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                     <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                 </div >
@@ -824,8 +658,7 @@
                                                     <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
                                                     <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
                                                     <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                    <button class="round-icon-btn" data-toggle="modal" data-target="#quickViewModal" ><i
-                                                            class="far fa-eye" ></i ></button >
+                                                    <button class="quickview round-icon-btn" ><i class="far fa-eye" ></i ></button >
                                                 </div >
                                                 <div class="product-select_list" >
                                                     <p class="delivery-status" >Free delivery</p >
@@ -865,27 +698,19 @@
         <div class="partner" >
             <div class="container" >
                 <div class="partner_block d-flex justify-content-between" data-slick="{&quot;slidesToShow&quot;: 6}" >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_02.png' %}"
-                                                                           alt="partner logo" ></a ></div >
-                    <div class="partner--logo" href="#" ><a href="#" ><img src="{% static 'assets/images/partner/partner_01.png' %}"
-                                                                           alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_01.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_02.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_01.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_02.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_01.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_02.png" alt="partner logo" ></a ></div >
+                    <div class="partner--logo" href="#" ><a href="#" ><img src="assets/images/partner/partner_01.png" alt="partner logo" ></a ></div >
                 </div >
             </div >
         </div >
         <!-- End partner-->
-    </div >
-
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:53 GMT -->
     </html >
+
 {% endblock %}

@@ -2,8 +2,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.template.loader import render_to_string
 from django.utils import timezone
 # Create your views here.
 from django.views.generic import ListView, DetailView
@@ -19,12 +20,23 @@ class HomeView(ListView):
     model = Items
 
     def get_context_data(self, **kwargs):
+        sub_categories = SubCategory.objects.all()
         context = super().get_context_data(**kwargs)
         context['mail'] = 'contact@somikoron.com'
-        context['phone'] = '+8801772066066'
+        context['sub_categories'] = get_subcategories()
         context['phone'] = '+8801772066066'
         return context
+def get_subcategories():
+    return SubCategory.objects.all()
 
+class ItemListView(View):
+    def get(self, *args, **kwargs):
+        items = Items.objects.filter(sub_category_id = kwargs['subid'])
+        context = {
+            'items': items,
+            'sub_categories': get_subcategories()
+        }
+        return render(self.request, 'shop/shop_item_list.html', context)
 
 class ItemDetailsView(DetailView):
     template_name = 'shop/shop_detail.html'
@@ -32,6 +44,7 @@ class ItemDetailsView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ItemDetailsView, self).get_context_data(**kwargs)
+        context['sub_categories'] = get_subcategories()
         # item = Items.objects.get(pk='GR02')
         # context['images'] = ItemImages.objects.all()
         return context
@@ -232,4 +245,12 @@ class QuickView(View):
             'instance': instance
         }
         print(instance)
-        return render(self.request, 'shop/quick_view.html', context)
+        return render(self.request, 'master.html', context)
+
+
+def quickview(request):
+    result = {'html': render_to_string('your-template.html', {})}
+    return HttpResponse(json.dumps(result, ensure_ascii=False),
+                        content_type='application/json')
+
+

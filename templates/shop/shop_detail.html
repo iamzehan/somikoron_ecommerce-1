@@ -10,8 +10,8 @@
         <meta name="keywords"
               content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
         <meta name="author" content="MARTECH | Deer Creative Theme" >
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >
-        <link rel="stylesheet" href="assets/css/adjusted_style.css" >
+        {#        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >#}
+        {#        <link rel="stylesheet" href="assets/css/adjusted_style.css" >#}
     </head >
     <body >
     <div id="main" >
@@ -58,7 +58,7 @@
                 <ul >
                     <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >
                     <li ><a class="breadcrumb-link" href="shop_grid%2blist_3col.html" >Shop</a ></li >
-                    <li ><a class="breadcrumb-link active" href="shop_detail.html" >Shop Detail Sidebar</a ></li >
+                    <li ><a class="breadcrumb-link active" href="shop_detail.html" >Item Details</a ></li >
                 </ul >
             </div >
         </div >
@@ -75,29 +75,11 @@
                                 </div >
                                 <div class="department_bottom" >
                                     <ul >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-1" > </i >Fresh Meat</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-2" > </i >Vegetables</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-3" > </i >Fruit & Nut Gifts</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-4" > </i >Fresh Berries</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-5" > </i >Ocean Foods</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-6" > </i >Butter & Eggs</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-7" > </i >Fastfood</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-8" > </i >Fresh Onion</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-9" > </i >Papayaya & Crisps</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-10" > </i >Oatmeal</a >
-                                        </li >
-                                        <li ><a class="department-link" href="shop_grid%2blist_3col.html" ><i class="icon-11" > </i >Fresh
-                                                                                                                                     Bananas</a >
-                                        </li >
+                                        {% for subcat in sub_categories %}
+                                            <li ><a class="department-link" href="{{ subcat.get_absolute_url }}" ><i
+                                                    class="icon-{{ forloop.counter }}" > </i >{{ subcat.sub_category_name }}</a >
+                                            </li >
+                                        {% endfor %}
                                     </ul >
                                 </div >
                             </div >
@@ -154,19 +136,34 @@
                                                 class="arrow_carrot-2right" ></i ></a ></p >
                                         <p class="delivery-status" >Free delivery</p >
                                         <div class="price-rate" >
-                                            <h3 class="product-price" >
-                                                <del >$35.00</del >
-                                                $14.00
-                                            </h3 >
-                                            <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                    class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                    class="icon_star-half" ></i ><span >(15)</span ></h5 >
+                                            {% if object.discount_offer > 0 %}
+                                                <h3 class="product-price " style="text-align: center !important;" >
+                                                    <small >৳</small > {{ object.get_discounted_price }}
+                                                    <del >{{ object.item.price }}</del >
+                                                </h3 >
+                                            {% else %}
+                                                <h3 class="product-price" style="text-align: center !important;" >
+                                                    <small >৳</small > {{ object.item.price }}
+                                                </h3 >
+                                            {% endif %}
+                                            <div style="float: right" >
+                                                <h5 class="product-rated" >
+                                                    {% if object.item.sub_category.category.category_id == 'cattle' %}<small >Owner Rating</small >
+                                                    {% endif %}
+                                                    <i class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                        class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                        class="icon_star-half" ></i ><span >(15)</span >
+                                                </h5 >
+                                            </div >
                                         </div >
-                                        <div class="color-select" >
-                                            <h5 >Select Color:</h5 ><a class="color bg-danger" href="#" ></a ><a class="color bg-success"
-                                                                                                                 href="#" ></a ><a
-                                                class="color bg-info" href="#" ></a >
-                                        </div >
+                                        {% if object.item.sub_category.category.category_id == 'cloth' %}
+                                            <div class="color-select" >
+                                                <h5 >Select Color:</h5 ><a class="color bg-danger" href="#" ></a ><a class="color bg-success"
+                                                                                                                     href="#" ></a ><a
+                                                    class="color bg-info" href="#" ></a >
+                                            </div >
+                                        {% endif %}
+
                                         <div class="quantity-select" style="margin-bottom: 20px" >
                                             <label for="quantity" >Quatity:</label >
                                             <input class="no-round-input" id="quantity" type="number" min="0" value="1" >{{ object.unit }}
@@ -197,24 +194,45 @@
                                                             <div class="col-12 col-md-6" >
                                                                 <div class="specifications_block" >
                                                                     <table class="shop_attributes table-bordered" >
-                                                                        <tbody >
-                                                                        <tr >
-                                                                            <th >Weight</th >
-                                                                            <td class="product_weight" >10 oz</td >
-                                                                        </tr >
-                                                                        <tr >
-                                                                            <th >Dimensions</th >
-                                                                            <td class="product_dimensions" >15 × 12 × 20 in</td >
-                                                                        </tr >
-                                                                        <tr >
-                                                                            <th >Color</th >
-                                                                            <td class="product_color" >Black, Blue, Gray, Green</td >
-                                                                        </tr >
-                                                                        <tr >
-                                                                            <th >Size</th >
-                                                                            <td class="product_size" >L, M, S, XL</td >
-                                                                        </tr >
-                                                                        </tbody >
+                                                                        {% if object.item.sub_category.category.category_id == 'cattle' %}
+                                                                            <tbody >
+                                                                            <tr >
+                                                                                <th >Breed</th >
+                                                                                <td class="product_weight" >{{ object.item.cattleinfo.Breed }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Height</th >
+                                                                                <td class="product_dimensions" >{{ object.item.cattleinfo.height }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Live Weight</th >
+                                                                                <td class="product_color" >{{ object.item.cattleinfo.live_weight }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Expected Weight</th >
+                                                                                <td class="product_size" >{{ object.item.cattleinfo.expected_weight }}</td >
+                                                                            </tr >
+                                                                            </tbody >
+                                                                        {% else %}
+                                                                            <tbody >
+                                                                            <tr >
+                                                                                <th >Color</th >
+                                                                                <td class="product_weight" >{{ object.color }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Size</th >
+                                                                                <td class="product_size" >{{ object.size }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Stock Quantity</th >
+                                                                                <td class="product_dimensions" >{{ object.stock_quantity }}</td >
+                                                                            </tr >
+                                                                            <tr >
+                                                                                <th >Additional Info</th >
+                                                                                <td class="product_color" >{{ object.additional_info }}</td >
+                                                                            </tr >
+                                                                            </tbody >
+                                                                        {% endif %}
                                                                     </table >
                                                                 </div >
                                                             </div >

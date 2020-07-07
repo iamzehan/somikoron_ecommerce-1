@@ -6,6 +6,7 @@ app_name = 'shop'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('itemdetails/<slug>', views.ItemDetailsView.as_view(), name='itemdetails'),
+    path('item-list/<subid>', views.ItemListView.as_view(), name='item-list'),
     path('add-to-cart/<slug>', views.add_to_cart, name='add-to-cart'),
     path('remove-from-cart/<slug>', views.remove_from_cart, name='remove-from-cart'),
     path('remove-single-item-from-cart/<slug>', views.remove_single_item_from_cart,
@@ -16,5 +17,4 @@ urlpatterns = [
     path('order-complete/', views.OrderCompleteView.as_view(), name='order-complete'),
     path('cattle-shop/', views.CattleshopView.as_view(), name='cattle-shop'),
     path('quick-view/', views.QuickView.as_view(), name='quick-view'),
-
 ]

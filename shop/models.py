@@ -41,6 +41,12 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.sub_category_name + " (" + self.category.category_name + ")"
 
+    def get_absolute_url(self):
+        print(self.pk)
+        return reverse("shop:item-list", kwargs={
+            'subid': self.pk
+        })
+
 
 class Items(models.Model):
     product_code = models.CharField(max_length=10, primary_key=True, unique=True)

@@ -23,6 +23,7 @@
 		4.2 Horizontal Padding
 		4.3 Product Promotion
 	5. Special Offer Slider
+	6. Category - Sub Category
 
 *************************************/
 
@@ -109,3 +110,63 @@
 .offer-slider .slider .slider_wrapper .slider-block .slider-content .slider-text h1 {
 	color: #fcfcfc;
 }
+
+
+/************************************
+	Category - Sub Category
+*************************************/
+
+/* category-menu */
+
+.vertical-nav {
+    height:auto;
+	list-style:none;
+	position: relative;
+	border-bottom: 1px dashed #ebebeb;
+}
+.vertical-nav li {
+    border: none;
+    display: inline-block;
+	clear:both;
+	
+}
+
+
+
+.vertical-nav li ul {
+    display: none;
+	padding: 0;
+}
+.vertical-nav li:hover ul {
+	display: block;
+}
+.vertical-nav li:hover .sub-menu
+{  
+	left: 100%;
+	margin-top: -30.5px;	
+	position: absolute;
+	box-shadow: 18px 18px 18px 0 rgba(0, 0, 0, 0.1);
+	animation:linear;
+	animation-name: left-to-right;
+	animation-duration: .1s;
+}
+.sub-menu li
+{
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-width: 180px;
+    z-index:1;
+}
+.sub-menu li a
+{
+    display:inline-block;
+    padding: 0 10px;
+}
+
+@keyframes left-to-right {
+    0% { left: 70%;}
+    100%{ left : 100%;}
+}
+
+/* ends */

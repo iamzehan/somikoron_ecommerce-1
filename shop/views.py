@@ -1,14 +1,18 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
 from django.utils import timezone
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
+from rest_framework import generics
+from .serializers import CartItemsSerializer
 
 from .forms import CheckoutForm
 from .models import *
@@ -20,23 +24,31 @@ class HomeView(ListView):
     model = Items
 
     def get_context_data(self, **kwargs):
-        sub_categories = SubCategory.objects.all()
+        try:
+            cartitems = Order.objects.get(user=self.request.user, ordered=False)
+        except:
+            cartitems= ''
         context = super().get_context_data(**kwargs)
         context['mail'] = 'contact@somikoron.com'
-        context['sub_categories'] = get_subcategories()
-        context['phone'] = '+8801772066066'
+        context['categories'] = get_categories()
+        context['cartitems'] = cartitems
         return context
+
+def get_categories():
+    return Category.objects.all()
 def get_subcategories():
     return SubCategory.objects.all()
 
+
 class ItemListView(View):
     def get(self, *args, **kwargs):
-        items = Items.objects.filter(sub_category_id = kwargs['subid'])
+        items = Items.objects.filter(sub_category_id=kwargs['subid'])
         context = {
-            'items': items,
-            'sub_categories': get_subcategories()
+            'items'         : items,
+            'categories': get_categories()
         }
         return render(self.request, 'shop/shop_item_list.html', context)
+
 
 class ItemDetailsView(DetailView):
     template_name = 'shop/shop_detail.html'
@@ -44,7 +56,7 @@ class ItemDetailsView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ItemDetailsView, self).get_context_data(**kwargs)
-        context['sub_categories'] = get_subcategories()
+        context['categories'] = get_categories()
         # item = Items.objects.get(pk='GR02')
         # context['images'] = ItemImages.objects.all()
         return context
@@ -154,7 +166,8 @@ class OrderSummaryView(LoginRequiredMixin, View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             context = {
-                'object': order
+                'object': order,
+                'categories': get_categories()
             }
             return render(self.request, 'shop/shop_cart.html', context)
         except ObjectDoesNotExist:
@@ -162,13 +175,27 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 
+# Demo
+@csrf_exempt
+def get_cart_items(request):
+    print(Order.objects.get(user=request.user, ordered=False))
+    items = Order.objects.get(user=request.user, ordered=False)
+    data = serializers.serialize('json', [items.items])
+    # data = serializers.serialize('json', cart)
+    print(data)
+    return HttpResponse(data, safe=False)
+
+
+# endDemo
+
 class CheckoutView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
         form = CheckoutForm()
         order = Order.objects.get(user=self.request.user, ordered=False)
         context = {
-            'form': form,
+            'form'  : form,
             'object': order,
+            'categories': get_categories()
         }
         return render(self.request, 'shop/shop_checkout.html', context)
 
@@ -204,21 +231,22 @@ class CheckoutView(LoginRequiredMixin, View):
                     )
                     shipping_address.save()
 
-                shipping_address = Address.objects.get(user= self.request.user)
+                shipping_address = Address.objects.get(user=self.request.user)
                 order.shipping_address = shipping_address
                 order.order_note = order_notes
                 order.save()
                 # messages.success(self.request, "Order placed successfully")
                 context = {
-                    'object': order,
+                    'object' : order,
                     'address': shipping_address
                 }
-                return render(self.request,'shop/shop_order_complete.html', context)
+                return render(self.request, 'shop/shop_order_complete.html', context)
             messages.success(self.request, "Failed! Form is invalid")
             return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect('shop:order-summary')
+
 
 class OrderCompleteView(View):
     def get(self, *args, **kwargs):
@@ -232,7 +260,7 @@ class CattleshopView(View):
         cattles = Items.objects.filter(sub_category__category__category_id='cattle')
         print(cattles)
         context = {
-            'cattles': cattles,
+            'cattles'     : cattles,
             'sub_category': sub_category
         }
         return render(self.request, 'shop/special_offer.html', context)
@@ -240,8 +268,8 @@ class CattleshopView(View):
 
 class QuickView(View):
     def get(self, *args, **kwargs):
-        instance = get_object_or_404(Items, slug = 'cow1')
-        context={
+        instance = get_object_or_404(Items, slug='cow1')
+        context = {
             'instance': instance
         }
         print(instance)
@@ -254,3 +282,11 @@ def quickview(request):
                         content_type='application/json')
 
 
+class CartItemView(generics.ListAPIView):
+    serializer_class = CartItemsSerializer
+    print(serializer_class)
+    def post(self, *args, **kwargs):
+        queryset = Order.objects.get(user=self.request.user, ordered=False)
+        # data = serializers.serialize('json', [queryset])
+        serializer = CartItemsSerializer(queryset)
+        return JsonResponse(serializer.data, safe=False,  )

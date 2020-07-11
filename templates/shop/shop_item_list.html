@@ -11,7 +11,7 @@
     <body >
     <div id="main" >
         <header class="coffee-2" >
-            <div class="navigation-filter" >
+            <div class="navigation-filter" style="margin-top: 65px" >
                 <div class="container" >
                     <div class="row" >
                         <div class="col-12 col-md-12 col-lg-12 col-xl-12 order-1 order-md-2" >
@@ -23,11 +23,9 @@
                                                 <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
                                             <div class="categories-select_box" >
                                                 <ul >
-                                                    <li >Fruit & Nut Gifts</li >
-                                                    <li >Fresh Berries</li >
-                                                    <li >Ocean Foods</li >
-                                                    <li >Butter & Eggs</li >
-                                                    <li >Ocean Foods</li >
+                                                    {% for cat in categories %}
+                                                        <li >{{ cat.category_name }}</li >
+                                                    {% endfor %}
                                                 </ul >
                                             </div >
                                         </div >
@@ -69,10 +67,11 @@
                                 </div >
                                 <div class="department_bottom" >
                                     <ul >
-                                        {% for subcat in sub_categories %}
-                                            <li ><a class="department-link" href="{{ subcat.get_absolute_url }}" > <i
-                                                    class="icon-{{ forloop.counter }}" ></i > {{ subcat.sub_category_name }}</a ></li >
+                                        {% for cat in categories %}
+                                            <li ><a class="department-link" href="{{ cat.get_absolute_url }}" > <i
+                                                    class="icon-{{ forloop.counter }}" ></i > {{ cat.category_name }}</a ></li >
                                         {% endfor %}
+                                        <!-- Nested div for requirement -->
                                     </ul >
                                 </div >
                             </div >
@@ -234,16 +233,21 @@
                                                                     style="font-size: small" >৳</small > {{ item.price }}
                                                             </h3 >
                                                         {% endif %}
+                                                        <div class="openSidebar" onclick="atcSidebar()" >
+                                                            <button class="all_btn" >Add to cart</button >
+                                                        </div >
                                                         <p class="product-describe" >
                                                         </p >
                                                         <h5 class="product-avaiable" >Avability: <span >5 In stock</span ></h5 >
                                                         <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
                                                     </div >
                                                     <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn" ><i class="icon_heart_alt" ></i ></button >
+                                                        <button class="add-to-wishlist round-icon-btn" title="Add to Favorite" ><i
+                                                                class="icon_heart_alt" ></i ></button >
                                                         <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn" ><i class="fas fa-random" ></i ></button >
-                                                        <button class="round-icon-btn" id="quickviewbtn" data-toggle="modal"
+                                                        <button class="add-to-compare round-icon-btn" title="Add to Compare" ><i
+                                                                class="fas fa-random" ></i ></button >
+                                                        <button class="round-icon-btn" id="quickviewbtn" title="Quick Details" data-toggle="modal"
                                                                 data-target="#quickViewModal" data-url="{% url 'shop:quick-view' %}" ><i
                                                                 class="far fa-eye" ></i ></button >
                                                     </div >

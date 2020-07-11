@@ -45,6 +45,7 @@ function closeAddProduct(){
 
 function sidebarOPen(){
 	document.getElementById('add_cart_sidebar').classList.add('atc_active');
+
 	// document.querySelector('.place_order').style.display = "block";
 }
 

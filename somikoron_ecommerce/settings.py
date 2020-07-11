@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'mathfilters',
+    'serializers',
+    'rest_framework',
     # allauth
     'django.contrib.sites',
     'allauth',
@@ -90,12 +92,19 @@ WSGI_APPLICATION = 'somikoron_ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE'  : 'django.db.backends.postgresql',
-        'NAME'    : 'db_somikoron',
-        'USER'    : 'postgres',
-        'PASSWORD': '1234',
-        'HOST'    : '127.0.0.1',
-        'PORT'    : '5432',
+        # 'ENGINE'  : 'django.db.backends.postgresql',
+        # 'NAME'    : 'db_somikoron',
+        # 'USER'    : 'postgres',
+        # 'PASSWORD': '1234',
+        # 'HOST'    : '127.0.0.1',
+        # 'PORT'    : '5432',
+
+        'ENGINE'  : 'django.db.backends.sqlite3',
+        'NAME'    : os.path.join(BASE_DIR, 'db.sqlite3'),
+        'HOST'    : '',
+        'PORT'    : '',
+        'USER'    : '',
+        'PASSWORD': '',
     }
 }
 
@@ -159,30 +168,29 @@ LOGIN_URL = '/accounts/login'
 # reverse('account_login')
 LOGIN_REDIRECT_URL = "/"
 
-
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
-       {'METHOD': 'oauth2',
-        'SCOPE': ['email','public_profile', 'user_friends'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'FIELDS': [
-            'id',
-            'email',
-            'name',
-            'first_name',
-            'last_name',
-            'verified',
-            'locale',
-            'timezone',
-            'link',
-            'gender',
-            'updated_time'],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_FUNC': lambda request: 'kr_KR',
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.4'}}
-#facebook
+         {'METHOD'        : 'oauth2',
+          'SCOPE'         : ['email', 'public_profile', 'user_friends'],
+          'AUTH_PARAMS'   : {'auth_type': 'reauthenticate'},
+          'FIELDS'        : [
+              'id',
+              'email',
+              'name',
+              'first_name',
+              'last_name',
+              'verified',
+              'locale',
+              'timezone',
+              'link',
+              'gender',
+              'updated_time'],
+          'EXCHANGE_TOKEN': True,
+          'LOCALE_FUNC'   : lambda request: 'kr_KR',
+          'VERIFIED_EMAIL': False,
+          'VERSION'       : 'v2.4'}}
+# facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '629271397680203'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET ='e4a51b5b5c3e919ec82a2fdb5840a675' #app key
-
+SOCIAL_AUTH_FACEBOOK_SECRET = 'e4a51b5b5c3e919ec82a2fdb5840a675'  # app key
+ACCOUNT_LOGOUT_ON_GET = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

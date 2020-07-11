@@ -173,9 +173,34 @@ time, mark, audio, video {
     -webkit-font-smoothing: antialiased;
     font-family: inherit;
     line-height: 1;
+
 }
 
 /*========================================== sidebar part start============================*/
+.closeSidebar{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    z-index: 99;
+    right: 20px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    background-color: #cb241b;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff !important;
+
+}
+
+
+.place_order{
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
 #add_cart_sidebar {
     top: 0 !important;
@@ -184,7 +209,8 @@ time, mark, audio, video {
     width: 300px;
     position: fixed;
     transition: .5s all;
-    right: -100%;
+    right: 0;
+    display: none;
     z-index: 999;
     background-image: linear-gradient(#fdfdd4, #fcfce2, #f8f8ec, #fdfdef, #ffffff);
     background-color: #fff;
@@ -196,24 +222,28 @@ time, mark, audio, video {
     transition: .5s all;
 }
 
-.closeSidebar {
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: -19px;
-    height: 70px;
-    width: 19px;
-    background-color: #cb241b;
-    border-radius: 2px;
-    cursor: pointer;
-}
+/*.closeSidebar {*/
+/*    position: absolute;*/
+/*    text-align: center;*/
+/*    top: 50%;*/
+/*    left: -19px;*/
+/*    height: 70px;*/
+/*    width: 19px;*/
+/*    background-color: #cb241b;*/
+/*    border-radius: 2px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .closeSidebar {
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 700;
-    line-height: 70px;
+    /*line-height: 70px;*/
     color: #fff;
     padding: 0px 3px;
+    margin-top: 9px;
+    margin-right: 0px;
+    background-color: #ee7869;
+    width: 50px;
 }
 
 .sidebar_row {
@@ -289,17 +319,17 @@ time, mark, audio, video {
     background-color: #eeeeee;
 }
 
-.special_code {
-    width: 100%;
-    background: transparent !important;
-    font-family: 'Cera Pro Medium';
-    font-size: 12px !important;
-    color: #484848 !important;
-    height: 30px;
-    border: none !important;
-    background-color: #f4f4f4f4 !important;
+.special_code{
+  width: 100%;
+  background: transparent !important;
+  font-family: 'Cera Pro Medium';
+  font-size: 12px !important;
+  outline: none !important;
+  color: #484848 !important;
+  height: 30px;
+  border: none !important;
+  background-color: #f4f4f4f4 !important;
 }
-
 .special_code span {
     color: #7f7f7f !important;
 }
@@ -327,13 +357,13 @@ time, mark, audio, video {
     width: 100%;
 }
 
-.place_order {
-    width: 100%;
-    display: none;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
+/*.place_order {*/
+/*    width: 100%;*/
+/*    display: none;*/
+/*    text-align: center;*/
+/*    padding-bottom: 10px;*/
+/*    padding-top: 10px;*/
+/*}*/
 
 .po_btn {
     display: inline-block;
@@ -412,7 +442,7 @@ time, mark, audio, video {
 
 .header_selected_product {
     font-family: 'Cera Pro Medium';
-    padding: 11px 0px;
+    padding: 12px 0px;
     height: 50px;
     width: 100%;
     background-color: #cb241b;

@@ -6,51 +6,45 @@ $('body').prepend('<div id="preload"><div class="preload-box"><div class="line">
 
 
 
-
 // ================================= Custom JS from Antu ============================
 function atcSidebar(){
-	document.getElementById('add_cart_sidebar').classList.add('atc_active');
+	// document.getElementById('add_cart_sidebar').style.display = "block";
     document.querySelector('.sidebar_row').style.display="block";
-	var po = document.querySelector('.place_order');
-	if(po.style.display === "none"){
-		po.style.display = "block";
-	}else{
-		po.style.display = "block";
-	}
+	// var po = document.querySelector('.place_order');
 }
+
+
+
+var sidebar = document.getElementById('add_cart_sidebar');
+window.onclick = function(event) {
+	if (event.target == sidebar) {
+		sidebar.style.display = "none";
+	}
+  }
+
+
 
 function closeSidebar(){
-	document.getElementById('add_cart_sidebar').classList.toggle('atc_active');
+	var x = document.getElementById("add_cart_sidebar");
+	x.style.display = "none";
 }
 
-function clickCode(){
-	var hide = document.querySelector('.token_form');
-	if(hide.style.display==="none"){
-		hide.style.display="block";
-	}else{
-	 	hide.style.display="none";
-	}
+function clickCode() {
+    var x = document.getElementById("hiddenform");
+    x.classList.toggle("token_form");
 }
+
 
 function closeAddProduct(){
 	document.querySelector('.sidebar_row').style.display = "none";
-	var po = document.querySelector('.place_order');
-	if(po.style.display === "block"){
-		po.style.display = "none";
-	}else{
-		po.style.display = "none";
-	}
-	
 }
 
 function sidebarOPen(){
-	document.getElementById('add_cart_sidebar').classList.add('atc_active');
-
+	document.getElementById('add_cart_sidebar').style.display = "block";
 	// document.querySelector('.place_order').style.display = "block";
 }
 
 // ================================= Custom JS End from Antu ============================
-
 
 
 

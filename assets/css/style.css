@@ -3674,7 +3674,8 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
 	Banner v3
 *************************************/
 .banner_v3 {
-  margin-bottom: 30px; }
+  margin-top: 60px;
+  margin-bottom: 70px; }
   .banner_v3 .banner-block {
     padding: 225px 0;
     background-image: url(../images/homepage05/banner_bg.png); }

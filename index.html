@@ -21,6 +21,9 @@
     <link rel="shortcut icon" href="assets/images/shortcut_logo.png">
     <!-- local css by Shuvo -->
     <link rel="stylesheet" href="assets/css/adjusted_style.css">
+    <!-- Slider -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
   </head>
   <body>
     <div id="main">
@@ -263,20 +266,107 @@
           <div class="row">
             <div class="col-xl-3"></div>
             <div class="col-12 col-xl-9">
-              <div class="banner-block"> 
-                <div class="row no-gutters justify-content-center align-items-md-center">
-                  <div class="col-10 col-md-5 col-xl-6">
-                    <div class="banner-text text-center text-md-left">
-                      <!--
-                      <h5 class="color-subtitle coffee">Fruit Fresh</h5>
-                      <h2 class="title">Orange Lemon</h2>
-                      <h3 class="price">$14.00 <span>/ Package</span></h3><a class="normal-btn coffee" href="shop_grid%2blist_3col.html">Shop now</a>
-                      -->
+              <main class="main">
+                <style>
+                  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+
+.container {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+  background: #ffffff;
+  border: none;
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+}
+.main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+  display: block;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .container .swiper-container .swiper-pagination-bullet {
+  opacity: 0.8;
+  background: #333333;
+}
+.main .container .swiper-container .swiper-pagination-bullet-active {
+  background: #ffffff;
+}
+.main .container .swiper-container .swiper-button-next,
+.main .container .swiper-container .swiper-button-prev {
+  background-image: none;
+  background-size: 0;
+  background-repeat: no-repeat;
+  background-position: 0;
+  margin-top: -1rem;
+}
+.main .container .swiper-container .swiper-button-next .arrow-icon,
+.main .container .swiper-container .swiper-button-prev .arrow-icon {
+  font-size: 2rem;
+  color: #ffffff;
+}
+                </style>
+                <div class="container">
+                  <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow1.jpg" alt="Image Slider">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow2.webp" alt="Image Slider">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow2.webp" alt="Image Slider">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow1.jpg" alt="Image Slider">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow2.webp" alt="Image Slider">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card-image">
+                          <img src="assets/images/special_offer/cow1.jpg" alt="Image Slider">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Scrollbar -->
+                    <div class="swiper-button-next">
+                      <i class="fas fa-chevron-circle-right arrow-icon"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                      <i class="fas fa-chevron-circle-left arrow-icon"></i>
                     </div>
                   </div>
-                  <div class="col-12 col-md-5 col-xl-5"></div>
                 </div>
-              </div>
+              </main>
             </div>
           </div>
         </div>
@@ -1415,6 +1505,9 @@
     <script src="assets/js/numscroller-1.0.js"></script>
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js'></script>
+    
+    <script src="assets/js/slider.js"></script>
   </body>
 
 <!-- Mirrored from afinda.vn/html/Ogami/homepage05.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->

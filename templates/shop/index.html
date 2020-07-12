@@ -128,7 +128,7 @@
                         <button class=" pl_btn" >Place order</button >
                     </div >
                     <div class="po_btn" >
-                        <button class=" pr_btn" >1200</button >
+                        <button class=" pr_btn" >{{ cartitems.get_total|stringformat:".1f" }}</button >
                     </div >
                 </div >
             </div >
@@ -136,8 +136,7 @@
             <div class="row justify-content-center text-center" >
                 <div class="col-md-12" >
                     <div class="header_selected_product text-left" >
-                        <h3 style="font-size: 13px; padding-left: 18px" ><i class="fa fa-shopping-cart"
-                                                                            aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span >
+                        <h3 style="font-size: 13px; padding-left: 18px" ><i class="fa fa-shopping-cart" aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span >
                             Items Selected</h3 >
                     </div >
                 </div >
@@ -169,6 +168,10 @@
                                 <div class="prduct_price" >
                                     <p id="product_price" style="margin-bottom: 0px !important; margin-top: 7px" >
                                         <span >৳</span >{{ item.get_total_discount_item_price|stringformat:".1f" }}
+                                        {% if item.item.itemdetails.discount_offer > 0 %}
+                                            <br ><span class="badge badge-primary"
+                                                       style="font-size: 10px;" >Saved {{ item.get_amount_saved|stringformat:".0f" }}</span >
+                                        {% endif %}
                                     </p >
                                     <div class="close_add_product" onclick="closeAddProduct()" >
                                         <a href="{{ item.item.get_remove_from_cart_url }}" >
@@ -539,71 +542,71 @@
                                     <div class="mini-product_bottom" >
                                         <div class="mini-product_block" >
                                             {% for item in object_list|slice:":3" %}
-                                                    <div class="mini-product coffee" >
-                                                        <div class="mini-product_img" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                                src="{{ item.images.all.0.image.url }}"
-                                                                alt="product image" ></a ></div >
-                                                        <div class="mini-product_info" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
-                                                            <p >
-                                                                {% if item.itemdetails.discount_offer > 0 %}
-                                                                    <small style="font-size: small" >৳</small >
-                                                                    {{ item.itemdetails.get_discounted_price }}
-                                                                    <del >{{ item.price }}</del >
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
 
-                                                                {% else %}
-                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
-                                                                {% endif %}
-                                                            </p >
-                                                        </div >
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
                                                     </div >
+                                                </div >
                                             {% endfor %}
                                         </div >
                                         <div class="mini-product_block" >
                                             {% for item in object_list|slice:"3:6" %}
-                                                    <div class="mini-product coffee" >
-                                                        <div class="mini-product_img" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                                src="{{ item.images.all.0.image.url }}"
-                                                                alt="product image" ></a ></div >
-                                                        <div class="mini-product_info" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
-                                                            <p >
-                                                                {% if item.itemdetails.discount_offer > 0 %}
-                                                                    <small style="font-size: small" >৳</small >
-                                                                    {{ item.itemdetails.get_discounted_price }}
-                                                                    <del >{{ item.price }}</del >
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
 
-                                                                {% else %}
-                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
-                                                                {% endif %}
-                                                            </p >
-                                                        </div >
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
                                                     </div >
+                                                </div >
                                             {% endfor %}
                                         </div >
                                         <div class="mini-product_block" >
                                             {% for item in object_list|slice:"6:10" %}
-                                                    <div class="mini-product coffee" >
-                                                        <div class="mini-product_img" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                                src="{{ item.images.all.0.image.url }}"
-                                                                alt="product image" ></a ></div >
-                                                        <div class="mini-product_info" ><a
-                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
-                                                            <p >
-                                                                {% if item.itemdetails.discount_offer > 0 %}
-                                                                    <small style="font-size: small" >৳</small >
-                                                                    {{ item.itemdetails.get_discounted_price }}
-                                                                    <del >{{ item.price }}</del >
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
 
-                                                                {% else %}
-                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
-                                                                {% endif %}
-                                                            </p >
-                                                        </div >
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
                                                     </div >
+                                                </div >
                                             {% endfor %}
                                         </div >
                                     </div >
@@ -986,7 +989,7 @@
                 <!-- End from the blog-->
             </div >
         </div >
-    </div>
+    </div >
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/homepage05.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
     </html >

@@ -3735,8 +3735,8 @@ header .navigation .navgition-menu ul .toggleable .menu-item:hover {
 }
 
 header .navigation .navgition-menu ul .toggleable .menu-item:after {
-    content: "\33";
-    font-family: 'ElegantIcons';
+    /*content: "\33";*/
+    /*font-family: 'ElegantIcons';*/
     margin-left: 10px;
 }
 

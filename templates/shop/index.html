@@ -34,7 +34,7 @@
                                                                                                                                              departments<span ><i
                                             class="arrow_carrot-up" ></i ></span ></div >
                                 <div class="department-dropdown-menu down" >
-                                    <ul style="height: 450px">
+                                    <ul style="height: 450px" >
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
@@ -43,7 +43,8 @@
                                                     <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
                                                     <ul class="sub-menu" >
                                                         {% for subcat in cat.subcategory_set.all %}
-                                                            <li ><a href="{{ subcat.get_absolute_url }}" > <i class="icon-2" ></i >{{ subcat.sub_category_name }}</a ></li >
+                                                            <li ><a href="{{ subcat.get_absolute_url }}" > <i
+                                                                    class="icon-2" ></i >{{ subcat.sub_category_name }}</a ></li >
                                                         {% endfor %}
                                                     </ul >
                                                 </li >
@@ -64,11 +65,9 @@
                                                             class="arrow_carrot-down" ></i ></div >
                                                     <div class="categories-select_box" >
                                                         <ul >
-                                                            <li >Fruit & Nut Gifts</li >
-                                                            <li >Fresh Berries</li >
-                                                            <li >Ocean Foods</li >
-                                                            <li >Butter & Eggs</li >
-                                                            <li >Ocean Foods</li >
+                                                            {% for cat in categories %}
+                                                                <li >{{ cat.category_name }}</li >
+                                                            {% endfor %}
                                                         </ul >
                                                     </div >
                                                 </div >
@@ -97,22 +96,22 @@
                     <h5 style="color: white" ><i class="fa fa-shopping-cart" aria-hidden="true" ></i >
                     </h5 >
                 </div >
-                <h6 style="color: white; margin-top: -10px; font-size: 12px"><span >{{ request.user|cart_item_count }}</span > Items</h6 >
+                <h6 style="color: white; margin-top: -10px; font-size: 12px" ><span >{{ request.user|cart_item_count }}</span > Items</h6 >
             </div >
-            <div class="float_price" style="background-color: rgb(253,240,177)">
+            <div class="float_price" style="background-color: rgb(253,240,177)" >
                 <h6 ><span >৳</span > {{ request.user|cart_total_count|stringformat:".0f" }}</h6 >
             </div >
         </div >
         <!-- =================================== Float Part End ====================== -->
         <!-- =================================== Sidebar  Part start====================== -->
-        <div id="add_cart_sidebar" class="px-1" style="margin-top: 57px; ">
-            <div class="closeSidebar" onclick="closeSidebar()" style="vertical-align: middle">Close</i>
+        <div id="add_cart_sidebar" class="px-1" style="margin-top: 57px; " >
+            <div class="closeSidebar" onclick="closeSidebar()" style="vertical-align: middle" >Close</i>
             </div >
             <div class="specialCode" >
                 <button class="special_code" onclick="clickCode()" > <span ><i class="fa fa-chevron-circle-up" aria-hidden="true" ></i >
                </span > Have a special code?
                 </button >
-                <div class="token_form px-2" id = "hiddenform">
+                <div class="token_form px-2" id="hiddenform" >
                     <form >
                         <div class="row justify-content-center text-center px-2" >
                             <div class="col-md-8 col-sm-8 py-2" >
@@ -137,14 +136,16 @@
             <div class="row justify-content-center text-center" >
                 <div class="col-md-12" >
                     <div class="header_selected_product text-left" >
-                        <h3 style="font-size: 13px; padding-left: 18px"><i class="fa fa-shopping-cart" aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span > Items Selected</h3 >
+                        <h3 style="font-size: 13px; padding-left: 18px" ><i class="fa fa-shopping-cart"
+                                                                            aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span >
+                            Items Selected</h3 >
                     </div >
                 </div >
             </div >
             <div class="row justify-content-center sidebar_row mb-1" >
-                <div class="col-md-12 col-sm-12" >
+                <div class="col-md-12 col-sm-12" style="overflow-y: scroll; height: 480px" >
                     {% for item in cartitems.items.all %}
-                        <div class="row justify-content-center px-0  py-2" style="padding-left: 22px !important;" >
+                        <div class="row justify-content-center px-0  py-2" style="padding-left: 30px !important;" >
                             <div class="col-md-2" >
                                 <div class="sidebar_image" >
                                     <img src="{{ item.item.images.all.0.image.url }}" alt="" >
@@ -167,12 +168,13 @@
                             <div class="col-md-5" >
                                 <div class="prduct_price" >
                                     <p id="product_price" style="margin-bottom: 0px !important; margin-top: 7px" >
-                                        <span >৳</span >{{  item.get_total_discount_item_price|stringformat:".1f" }}
+                                        <span >৳</span >{{ item.get_total_discount_item_price|stringformat:".1f" }}
                                     </p >
                                     <div class="close_add_product" onclick="closeAddProduct()" >
                                         <a href="{{ item.item.get_remove_from_cart_url }}" >
-                                            <i class="fas fa-trash" style="padding-right: 10px !important; font-size: 15px !important; color:#cd0d0d; " ></i >
-                                        </a>
+                                            <i class="fas fa-trash"
+                                               style="padding-right: 0px !important; font-size: 15px !important; color:#cd0d0d; " ></i >
+                                        </a >
                                     </div >
                                 </div >
                             </div >
@@ -215,8 +217,8 @@
                             <div class="benefit-detail d-flex flex-column align-items-center" ><img class="benefit-img"
                                                                                                     src="{% static 'assets/images/homepage04/benefit-icon1.png' %}"
                                                                                                     alt="" >
-                                <h5 class="benefit-title" >Free Shipping</h5 >
-                                <p class="benefit-describle" >For all order over 99$</p >
+                                <h5 class="benefit-title" >Fastest Delivery</h5 >
+                                <p class="benefit-describle" >Delivery within 2 hours inside Dhaka city</p >
                             </div >
                         </div >
                         <div class="col-12 col-md-4" >
@@ -245,19 +247,19 @@
                 <div class="row" >
                     <div class="col-12 col-md-4" >
                         <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});" ><img
-                                src="{% static 'assets/images/homepage05/banner_group_img_1.png' %}" alt="small banner" ></div >
+                                src="{% static 'assets/images/banner/roshmalai.png' %}" alt="small banner" ></div >
                     </div >
                     <div class="col-12 col-md-8" >
                         <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_2.png' %});" >
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
                                     <div class="banner-img text-center" ><img class="img-fluid"
-                                                                              src="{% static 'assets/images/homepage05/banner_group_img_2.png' %}"
+                                                                              src="{% static 'assets/images/banner/Grocessary.png' %}"
                                                                               alt="large banner" ></div >
                                 </div >
                                 <div class="col-10 col-sm-6 col-md-6" >
                                     <div class="banner-text text-center text-sm-left" >
-                                        <h3 >Offer <span >50% </span ><br > Off The Week </h3 >
+                                        <h3 >Find All <span >Grocery </span ><br > Items in One Place </h3 >
                                     </div >
                                 </div >
                             </div >
@@ -268,12 +270,12 @@
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
                                     <div class="banner-img text-center" ><img class="img-fluid"
-                                                                              src="{% static 'assets/images/homepage05/banner_group_img_3.png' %}"
+                                                                              src="{% static 'assets/images/banner/covid.png' %}"
                                                                               alt="large banner" ></div >
                                 </div >
                                 <div class="col-10 col-sm-6 col-md-6" >
                                     <div class="banner-text text-center text-sm-left" >
-                                        <h3 >Offer <span >70% </span ><br > Off The Week</h3 >
+                                        <h3 >Exclusive Discount on<br ><span >COVID-19 </span > Products</h3 >
                                     </div >
                                 </div >
                             </div >
@@ -281,7 +283,7 @@
                     </div >
                     <div class="col-12 col-md-4" >
                         <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});" ><img
-                                src="{% static 'assets/images/homepage05/banner_group_img_4.png' %}" alt="small banner" ></div >
+                                src="{% static 'assets/images/banner/cow.png' %}" alt="small banner" ></div >
                     </div >
                 </div >
             </div >
@@ -296,15 +298,13 @@
                     <div class="col-12" >
                         <div id="tab" >
                             <ul class="tab-control" >
-                                <li ><a class="active" href="#tab-1" >All</a ></li >
-                                <li ><a href="#tab-2" >Oranges</a ></li >
-                                <li ><a href="#tab-3" >Fresh Meat</a ></li >
-                                <li ><a href="#tab-4" >Vegetables</a ></li >
-                                <li ><a href="#tab-5" >Fastfood</a ></li >
+                                <li ><a class="active" href="#tab-1" >Ongoing Offers</a ></li >
+                                <li ><a href="#tab-2" >Somikoron Special</a ></li >
+                                <li ><a href="#tab-3" >Populer Products</a ></li >
                             </ul >
                             <div id="tab-1" >
                                 <div class="row no-gutters-sm" >
-                                    {% for item in object_list %}
+                                    {% for item in object_list|slice:":4" %}
                                         <div class="col-6 col-md-4 col-lg-3" >
                                             <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
                                                     class="img-fluid" src="{{ item.images.all.0.image.url }}"
@@ -319,16 +319,15 @@
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
                                                 {% endif %}
-                                                <div class="openSidebar" onclick="atcSidebar()" >
+                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
                                                     <button class="all_btn" >Add to cart</button >
                                                 </div >
                                                 <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee cd-add-to-cart js-cd-add-to-cart"
-                                                            onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
+                                                            class="icon_heart_alt" ></i ></button >
+                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
+                                                    <button class="quickview round-icon-btn coffee" title="Quick Details" ><i
+                                                            class="far fa-eye" ></i ></button >
                                                 </div >
                                             </div >
                                         </div >
@@ -366,1454 +365,628 @@
                                             </ul >
                                         </nav >
                                     {% endif %}
-
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product02.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product03.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Apple</h3 >
-                                            <h3 class="product-price" >$30.00
-                                                <del >$45.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product04.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product05.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product06.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product07.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Apple</h3 >
-                                            <h3 class="product-price" >$30.00
-                                                <del >$45.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product08.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
                                 </div >
                             </div >
                             <div id="tab-2" >
                                 <div class="row no-gutters-sm" >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product04.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product05.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
+                                    {% for item in object_list|dictsortreversed:"itemdetails.update_date"|slice:":4" %}
+                                        <div class="col-6 col-md-4 col-lg-3" >
+                                            <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                    class="img-fluid" src="{{ item.images.all.0.image.url }}"
+                                                    alt="{{ item.images.all.0.image.url }}" ></a >
+                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
+                                                <h3 class="product-name" >{{ item.title }}</h3 >
+                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                    <h3 class="product-price" ><small
+                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                        <del >{{ item.price }}</del >
+                                                    </h3 >
+                                                {% else %}
+                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
+                                                {% endif %}
+                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
+                                                    <button class="all_btn" >Add to cart</button >
+                                                </div >
+                                                <div class="product-select" >
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
+                                                            class="icon_heart_alt" ></i ></button >
+                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
+                                                    <button class="quickview round-icon-btn coffee" title="Quick Details" ><i
+                                                            class="far fa-eye" ></i ></button >
+                                                </div >
                                             </div >
                                         </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product02.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Apple</h3 >
-                                            <h3 class="product-price" >$30.00
-                                                <del >$45.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product01.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product05.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product08.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product04.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Apple</h3 >
-                                            <h3 class="product-price" >$30.00
-                                                <del >$45.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i ></button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-6 col-md-4 col-lg-3" >
-                                        <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                src="{% static 'assets/images/product/product06.png' %}" alt="" ></a >
-                                            <h5 class="product-type" >Oranges</h5 >
-                                            <h3 class="product-name" >Pure Pineapple</h3 >
-                                            <h3 class="product-price" >$14.00
-                                                <del >$35.00</del >
-                                            </h3 >
-                                            <div class="openSidebar" onclick="atcSidebar()" >
-                                                <button class="all_btn" >Add to cart</button >
-                                            </div >
-                                            <div class="product-select" >
-                                                <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i >
-                                                </button >
-                                                <button class="add-to-cart round-icon-btn coffee" ><i class="icon_bag_alt" ></i ></button >
-                                                <button class="add-to-compare round-icon-btn coffee" ><i class="fas fa-random" ></i >
-                                                </button >
-                                                <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                                            </div >
-                                        </div >
-                                    </div >
+                                    {% endfor %}
+
+
+                                    <!--Pagination-->
+
+                                    {% if is_paginated %}
+                                        <nav class="d-flex justify-content-center wow fadeIn" >
+                                            <ul class="pagination pg-blue" >
+                                                {% if page_obj.has_previous %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous" >
+                                                            <span aria-hidden="true" >&laquo;</span >
+                                                            <span class="sr-only" >Previous</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+
+                                                <li class="page-item active" >
+                                                    <a class="page-link" href="?page={{ page_obj.number }}" >{{ page_obj.number }}
+                                                        <span class="sr-only" >(current)</span >
+                                                    </a >
+                                                </li >
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next" >
+                                                            <span aria-hidden="true" >&raquo;</span >
+                                                            <span class="sr-only" >Next</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+                                            </ul >
+                                        </nav >
+                                    {% endif %}
                                 </div >
-                                <div id="tab-3" >
-                                    <div class="row no-gutters-sm" >
+                            </div >
+                            <div id="tab-3" >
+                                <div class="row no-gutters-sm" >
+                                    {% for item in object_list|dictsortreversed:"itemdetails.total_views"|slice:":4" %}
                                         <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product03.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
+                                            <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                    class="img-fluid" src="{{ item.images.all.0.image.url }}"
+                                                    alt="{{ item.images.all.0.image.url }}" ></a >
+                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
+                                                <h3 class="product-name" >{{ item.title }}</h3 >
+                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                    <h3 class="product-price" ><small
+                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                        <del >{{ item.price }}</del >
+                                                    </h3 >
+                                                {% else %}
+                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
+                                                {% endif %}
+                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
                                                     <button class="all_btn" >Add to cart</button >
                                                 </div >
                                                 <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
                                                             class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
+                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
+                                                    <button class="quickview round-icon-btn coffee" title="Quick Details" ><i
+                                                            class="far fa-eye" ></i ></button >
                                                 </div >
                                             </div >
                                         </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product02.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product05.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Apple</h3 >
-                                                <h3 class="product-price" >$30.00
-                                                    <del >$45.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product04.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product01.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product06.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product08.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Apple</h3 >
-                                                <h3 class="product-price" >$30.00
-                                                    <del >$45.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="shop_detail.html" ><img
-                                                    src="{% static 'assets/images/product/product07.png' %}" alt="" ></a >
-                                                <h5 class="product-type" >Oranges</h5 >
-                                                <h3 class="product-name" >Pure Pineapple</h3 >
-                                                <h3 class="product-price" >$14.00
-                                                    <del >$35.00</del >
-                                                </h3 >
-                                                <div class="openSidebar" onclick="atcSidebar()" >
-                                                    <button class="all_btn" >Add to cart</button >
-                                                </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-cart round-icon-btn coffee" ><i
-                                                            class="icon_bag_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i
-                                                            class="fas fa-random" ></i ></button >
-                                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i >
-                                                    </button >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div id="tab-4" >
-                                        <div class="row no-gutters-sm" >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product01.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product02.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product03.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Apple</h3 >
-                                                    <h3 class="product-price" >$30.00
-                                                        <del >$45.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product04.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product05.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product06.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product07.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Apple</h3 >
-                                                    <h3 class="product-price" >$30.00
-                                                        <del >$45.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-6 col-md-4 col-lg-3" >
-                                                <div class="product coffee" ><a class="product-img"
-                                                                                href="shop_detail.html" ><img
-                                                        src="{% static 'assets/images/product/product08.png' %}"
-                                                        alt="" ></a >
-                                                    <h5 class="product-type" >Oranges</h5 >
-                                                    <h3 class="product-name" >Pure Pineapple</h3 >
-                                                    <h3 class="product-price" >$14.00
-                                                        <del >$35.00</del >
-                                                    </h3 >
-                                                    <div class="openSidebar" onclick="atcSidebar()" >
-                                                        <button class="all_btn" >Add to cart</button >
-                                                    </div >
-                                                    <div class="product-select" >
-                                                        <button class="add-to-wishlist round-icon-btn coffee" ><i
-                                                                class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn coffee" ><i
-                                                                class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn coffee" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="quickview round-icon-btn coffee" ><i
-                                                                class="far fa-eye" ></i ></button >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div id="tab-5" >
-                                            <div class="row no-gutters-sm" >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product04.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product05.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product02.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Apple</h3 >
-                                                        <h3 class="product-price" >$30.00
-                                                            <del >$45.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product01.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product05.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product08.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product04.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Apple</h3 >
-                                                        <h3 class="product-price" >$30.00
-                                                            <del >$45.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                                <div class="col-6 col-md-4 col-lg-3" >
-                                                    <div class="product coffee" ><a class="product-img"
-                                                                                    href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product06.png' %}"
-                                                            alt="" ></a >
-                                                        <h5 class="product-type" >Oranges</h5 >
-                                                        <h3 class="product-name" >Pure Pineapple</h3 >
-                                                        <h3 class="product-price" >$14.00
-                                                            <del >$35.00</del >
-                                                        </h3 >
-                                                        <div class="openSidebar" onclick="atcSidebar()" >
-                                                            <button class="all_btn" >Add to cart</button >
-                                                        </div >
-                                                        <div class="product-select" >
-                                                            <button class="add-to-wishlist round-icon-btn coffee" >
-                                                                <i class="icon_heart_alt" ></i ></button >
-                                                            <button class="add-to-cart round-icon-btn coffee" >
-                                                                <i class="icon_bag_alt" ></i ></button >
-                                                            <button class="add-to-compare round-icon-btn coffee" >
-                                                                <i class="fas fa-random" ></i ></button >
-                                                            <button class="quickview round-icon-btn coffee" >
-                                                                <i class="far fa-eye" ></i ></button >
-                                                        </div >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
+                                    {% endfor %}
+
+
+                                    <!--Pagination-->
+
+                                    {% if is_paginated %}
+                                        <nav class="d-flex justify-content-center wow fadeIn" >
+                                            <ul class="pagination pg-blue" >
+                                                {% if page_obj.has_previous %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous" >
+                                                            <span aria-hidden="true" >&laquo;</span >
+                                                            <span class="sr-only" >Previous</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+
+                                                <li class="page-item active" >
+                                                    <a class="page-link" href="?page={{ page_obj.number }}" >{{ page_obj.number }}
+                                                        <span class="sr-only" >(current)</span >
+                                                    </a >
+                                                </li >
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next" >
+                                                            <span aria-hidden="true" >&raquo;</span >
+                                                            <span class="sr-only" >Next</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+                                            </ul >
+                                        </nav >
+                                    {% endif %}
                                 </div >
                             </div >
                         </div >
                     </div >
-                    <!-- End feature-products-->
-                    <div class="deal-of-week_v3" >
-                        <div class="container" >
-                            <div class="deal-of-week_block" >
-                                <div class="row align-items-center justify-content-center" >
-                                    <div class="col-10 col-lg-6" >
-                                        <div class="dow-img" ><img class="mymove"
-                                                                   src="{% static 'assets/images/homepage05/weel_deal_img.png' %}"
-                                                                   alt="" ></div >
-                                    </div >
-                                    <div class="col-12 col-sm-11 col-lg-5" >
-                                        <div class="dow-info text-center text-lg-left" >
-                                            <h2 class="title coffee-underline" >Deal Of The Week</h2 >
-                                            <h3 class="deal-price" >$19.00 <span >/ Package</span ></h3 >
-                                            <p >Lorem ipsum dolor sit amet, consectetur adipisiing elit,
-                                                sed do eiusmod tempor incididunt ut labore et </p >
-                                            <div class="d-flex justify-content-center justify-content-lg-start"
-                                                 id="event-countdown" ></div >
-                                            <a class="normal-btn coffee"
-                                               href="shop_grid%2blist_3col.html" >Shop now </a >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- End deak of the week v3-->
-                    <div class="home5-product-block" >
-                        <div class="container" >
-                            <div class="row" >
-                                <div class="col-12 col-lg-4" >
-                                    <div class="mini-latest-products mini-product-title" >
-                                        <div class="mini-product_top" >
-                                            <h5 >Latest Products</h5 >
-                                            <div class="mini-product_control" ></div >
-                                        </div >
-                                        <div class="mini-product_bottom" >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product01.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product02.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product03.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                                <div class="col-12 col-lg-4" >
-                                    <div class="top-rate-products mini-product-title" >
-                                        <div class="mini-product_top" >
-                                            <h5 >Top Rated Products</h5 >
-                                            <div class="mini-product_control" ></div >
-                                        </div >
-                                        <div class="mini-product_bottom" >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product04.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product05.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product06.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                                <div class="col-12 col-lg-4" >
-                                    <div class="review-products mini-product-title" >
-                                        <div class="mini-product_top" >
-                                            <h5 >Review Products</h5 >
-                                            <div class="mini-product_control" ></div >
-                                        </div >
-                                        <div class="mini-product_bottom" >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product07.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product08.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product09.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="mini-product_block" >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product13.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Fresh Met</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product14.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Coconut</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                                <div class="mini-product coffee" >
-                                                    <div class="mini-product_img" ><a
-                                                            href="shop_detail.html" ><img
-                                                            src="{% static 'assets/images/product/product15.png' %}"
-                                                            alt="product image" ></a ></div >
-                                                    <div class="mini-product_info" ><a
-                                                            href="shop_detail.html" >Venion</a >
-                                                        <p >$37.00
-                                                            <del >$45.00</del >
-                                                        </p >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- End home5 product block-->
-                    <div class="partner" >
-                        <div class="container" >
-                            <div class="partner_block d-flex justify-content-between"
-                                 data-slick="{&quot;slidesToShow&quot;: 6}" >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_01.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_02.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_01.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_02.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_01.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_02.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                                <div class="partner--logo" href="#" ><a href="#" ><img
-                                        src="{% static 'assets/images/partner/partner_01.png' %}"
-                                        alt="partner"
-                                        title="partner logo" ></a ></div >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- End partner-->
-                    <div class="from-blog" >
-                        <div class="container" >
-                            <div class="row" >
-                                <div class="col-12 text-center" >
-                                    <h1 class="title coffee-underline" >From The Blog</h1 >
-                                </div >
-                                <div class="col-12" >
-                                    <div class="news_wrapper" >
-                                        <div class="col-4" >
-                                            <div class="news-blog" >
-                                                <div class="news-blog_img" ><img
-                                                        src="{% static 'assets/images/homepage04/blog_img_1.png' %}"
-                                                        alt="blog img" >
-                                                </div >
-                                                <div class="news-blog_text" >
-                                                    <div class="news-credit" ><a class="credit date"
-                                                                                 href="blog_list_sidebar.html" >
-                                                        <i
-                                                                class="far fa-calendar" ></i >May
-                                                                                              4,2017</a ><a
-                                                            class="credit comment"
-                                                            href="blog_list_sidebar.html" >
-                                                        <i class="far fa-comments" ></i >5</a ></div >
-                                                    <a class="news-title" href="blog_list_sidebar.html" >Cooking
-                                                                                                         tips
-                                                                                                         make
-                                                                                                         cooking
-                                                                                                         simple</a >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-4" >
-                                            <div class="news-blog" >
-                                                <div class="news-blog_img" ><img
-                                                        src="{% static 'assets/images/homepage04/blog_img_2.png' %}"
-                                                        alt="blog img" >
-                                                </div >
-                                                <div class="news-blog_text" >
-                                                    <div class="news-credit" ><a class="credit date"
-                                                                                 href="blog_list_sidebar.html" >
-                                                        <i
-                                                                class="far fa-calendar" ></i >May
-                                                                                              4,2017</a ><a
-                                                            class="credit comment"
-                                                            href="blog_list_sidebar.html" >
-                                                        <i class="far fa-comments" ></i >5</a ></div >
-                                                    <a class="news-title" href="blog_list_sidebar.html" >6
-                                                                                                         ways
-                                                                                                         to
-                                                                                                         prepare
-                                                                                                         breakfast
-                                                                                                         for
-                                                                                                         30
-                                                                                                         minutes </a >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-4" >
-                                            <div class="news-blog" >
-                                                <div class="news-blog_img" ><img
-                                                        src="{% static 'assets/images/homepage04/blog_img_3.png' %}"
-                                                        alt="blog img" >
-                                                </div >
-                                                <div class="news-blog_text" >
-                                                    <div class="news-credit" ><a class="credit date"
-                                                                                 href="blog_list_sidebar.html" >
-                                                        <i
-                                                                class="far fa-calendar" ></i >May
-                                                                                              4,2017</a ><a
-                                                            class="credit comment"
-                                                            href="blog_list_sidebar.html" >
-                                                        <i class="far fa-comments" ></i >5</a ></div >
-                                                    <a class="news-title" href="blog_list_sidebar.html" >Visit
-                                                                                                         the
-                                                                                                         clean
-                                                                                                         farm
-                                                                                                         in
-                                                                                                         the
-                                                                                                         US </a >
-                                                </div >
-                                            </div >
-                                        </div >
-                                        <div class="col-4" >
-                                            <div class="news-blog" >
-                                                <div class="news-blog_img" ><img
-                                                        src="{% static 'assets/images/homepage04/blog_img_4.png' %}"
-                                                        alt="blog img" >
-                                                </div >
-                                                <div class="news-blog_text" >
-                                                    <div class="news-credit" ><a class="credit date"
-                                                                                 href="blog_list_sidebar.html" >
-                                                        <i
-                                                                class="far fa-calendar" ></i >May
-                                                                                              4,2017</a ><a
-                                                            class="credit comment"
-                                                            href="blog_list_sidebar.html" >
-                                                        <i class="far fa-comments" ></i >5</a ></div >
-                                                    <a class="news-title" href="blog_list_sidebar.html" >Visit
-                                                                                                         the
-                                                                                                         clean
-                                                                                                         farm
-                                                                                                         in
-                                                                                                         the
-                                                                                                         US </a >
-                                                </div >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                    <!-- End from the blog-->
                 </div >
+                <!-- End feature-products-->
+                <div class="deal-of-week_v3" style="margin-left: auto; margin-right: auto;" >
+                    <div class="container" >
+                        <div class="deal-of-week_block" >
+                            <div class="row align-items-center justify-content-center" >
+                                <div class="col-10 col-lg-6" >
+                                    <div class="dow-img" ><img class="mymove"
+                                                               src="{% static 'assets/images/homepage05/weel_deal_img.png' %}"
+                                                               alt="" ></div >
+                                </div >
+                                <div class="col-12 col-sm-11 col-lg-5" >
+                                    <div class="dow-info text-center text-lg-left" >
+                                        <h2 class="title coffee-underline" >Deal Of The Month</h2 >
+                                        <h3 class="deal-price" >Tk. 5000 <span >/ Package</span ></h3 >
+                                        <p >Somikoron 'WoW' offer is coming soon.... Keep in touch and get ready to grab the biggest offer of the
+                                            month!</p >
+                                        <div class="d-flex justify-content-center justify-content-lg-start"
+                                             id="event-countdown" ></div >
+                                        <a style="margin-left: 110px" class="normal-btn coffee"
+                                           href="" >Shop now </a >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End deak of the week v3-->
+                <div class="home5-product-block" >
+                    <div class="container" >
+                        <div class="row" >
+                            <div class="col-12 col-lg-4" >
+                                <div class="mini-latest-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Latest Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:":3" %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:"3:6" %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:"6:10" %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                            {% endfor %}
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="col-12 col-lg-4" >
+                                <div class="top-rate-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Top Rated Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list %}
+                                                {% if  forloop.counter < 4 %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="col-12 col-lg-4" >
+                                <div class="review-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Top Selling Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list %}
+                                                {% if  forloop.counter < 4 %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End home5 product block-->
+                <div class="partner" >
+                    <div class="container" >
+                        <div class="partner_block d-flex justify-content-between"
+                             data-slick="{&quot;slidesToShow&quot;: 6}" >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_01.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_02.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_01.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_02.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_01.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_02.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                            <div class="partner--logo" href="#" ><a href="#" ><img
+                                    src="{% static 'assets/images/partner/partner_01.png' %}"
+                                    alt="partner"
+                                    title="partner logo" ></a ></div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End partner-->
+                <div class="from-blog" >
+                    <div class="container" >
+                        <div class="row" >
+                            <div class="col-12 text-center" >
+                                <h1 class="title coffee-underline" >From The Blog</h1 >
+                            </div >
+                            <div class="col-12" >
+                                <div class="news_wrapper" >
+                                    <div class="col-4" >
+                                        <div class="news-blog" >
+                                            <div class="news-blog_img" ><img
+                                                    src="{% static 'assets/images/homepage04/blog_img_1.png' %}"
+                                                    alt="blog img" >
+                                            </div >
+                                            <div class="news-blog_text" >
+                                                <div class="news-credit" ><a class="credit date"
+                                                                             href="blog_list_sidebar.html" >
+                                                    <i
+                                                            class="far fa-calendar" ></i >May
+                                                                                          4,2017</a ><a
+                                                        class="credit comment"
+                                                        href="blog_list_sidebar.html" >
+                                                    <i class="far fa-comments" ></i >5</a ></div >
+                                                <a class="news-title" href="blog_list_sidebar.html" >Cooking
+                                                                                                     tips
+                                                                                                     make
+                                                                                                     cooking
+                                                                                                     simple</a >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <div class="col-4" >
+                                        <div class="news-blog" >
+                                            <div class="news-blog_img" ><img
+                                                    src="{% static 'assets/images/homepage04/blog_img_2.png' %}"
+                                                    alt="blog img" >
+                                            </div >
+                                            <div class="news-blog_text" >
+                                                <div class="news-credit" ><a class="credit date"
+                                                                             href="blog_list_sidebar.html" >
+                                                    <i
+                                                            class="far fa-calendar" ></i >May
+                                                                                          4,2017</a ><a
+                                                        class="credit comment"
+                                                        href="blog_list_sidebar.html" >
+                                                    <i class="far fa-comments" ></i >5</a ></div >
+                                                <a class="news-title" href="blog_list_sidebar.html" >6
+                                                                                                     ways
+                                                                                                     to
+                                                                                                     prepare
+                                                                                                     breakfast
+                                                                                                     for
+                                                                                                     30
+                                                                                                     minutes </a >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <div class="col-4" >
+                                        <div class="news-blog" >
+                                            <div class="news-blog_img" ><img
+                                                    src="{% static 'assets/images/homepage04/blog_img_3.png' %}"
+                                                    alt="blog img" >
+                                            </div >
+                                            <div class="news-blog_text" >
+                                                <div class="news-credit" ><a class="credit date"
+                                                                             href="blog_list_sidebar.html" >
+                                                    <i
+                                                            class="far fa-calendar" ></i >May
+                                                                                          4,2017</a ><a
+                                                        class="credit comment"
+                                                        href="blog_list_sidebar.html" >
+                                                    <i class="far fa-comments" ></i >5</a ></div >
+                                                <a class="news-title" href="blog_list_sidebar.html" >Visit
+                                                                                                     the
+                                                                                                     clean
+                                                                                                     farm
+                                                                                                     in
+                                                                                                     the
+                                                                                                     US </a >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <div class="col-4" >
+                                        <div class="news-blog" >
+                                            <div class="news-blog_img" ><img
+                                                    src="{% static 'assets/images/homepage04/blog_img_4.png' %}"
+                                                    alt="blog img" >
+                                            </div >
+                                            <div class="news-blog_text" >
+                                                <div class="news-credit" ><a class="credit date"
+                                                                             href="blog_list_sidebar.html" >
+                                                    <i
+                                                            class="far fa-calendar" ></i >May
+                                                                                          4,2017</a ><a
+                                                        class="credit comment"
+                                                        href="blog_list_sidebar.html" >
+                                                    <i class="far fa-comments" ></i >5</a ></div >
+                                                <a class="news-title" href="blog_list_sidebar.html" >Visit
+                                                                                                     the
+                                                                                                     clean
+                                                                                                     farm
+                                                                                                     in
+                                                                                                     the
+                                                                                                     US </a >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End from the blog-->
+            </div >
+        </div >
+    </div>
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/homepage05.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
     </html >

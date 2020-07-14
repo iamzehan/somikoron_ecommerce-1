@@ -75,12 +75,14 @@
                                             </div >
                                             <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
                                                 <div class="search-input" >
-                                                    <input class="no-round-input no-border" type="text" placeholder="What do you need" >
+                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET" value="{{request.GET.q}}">
+                                                    <input class="no-round-input no-border" type="text" name="q" value="{{request.GET.q}}" placeholder="What do you need"/>
+                                                    </form>
                                                 </div >
+
                                             </div >
                                             <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                                <button class="no-round-btn coffee" >Search</button >
-                                            </div >
+                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search" onclick="document.getElementById('search-form').submit();">Search</button>
                                         </div >
                                     </div >
                                 </div >

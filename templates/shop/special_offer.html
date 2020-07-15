@@ -56,22 +56,26 @@
                                                 <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
                                             <div class="categories-select_box" >
                                                 <ul >
-                                                    <li >Fruit & Nut Gifts</li >
-                                                    <li >Fresh Berries</li >
-                                                    <li >Ocean Foods</li >
-                                                    <li >Butter & Eggs</li >
-                                                    <li >Ocean Foods</li >
+                                                    {% for cat in categories %}
+                                                        <li >{{ cat.category_name }}</li >
+                                                    {% endfor %}
                                                 </ul >
                                             </div >
                                         </div >
                                     </div >
                                     <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
                                         <div class="search-input" >
-                                            <input class="no-round-input no-border" type="text" placeholder="What do you need" >
+                                            <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
+                                                  value="{{ request.GET.q }}" >
+                                                <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
+                                                       placeholder="What do you need" />
+                                            </form >
                                         </div >
                                     </div >
                                     <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                        <button class="no-round-btn" >Search</button >
+                                        <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
+                                                onclick="document.getElementById('search-form').submit();" >Search
+                                        </button >
                                     </div >
                                 </div >
                             </div >
@@ -80,7 +84,6 @@
                 </div >
             </div >
         </header >
-        <!-- End header-->
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
@@ -108,6 +111,7 @@
                                         list-style: none;
                                         text-decoration: none;
                                     }
+
                                     .container {
                                         max-width: 75rem;
                                         width: 100%;
@@ -178,17 +182,16 @@
                                                 <div class="card-image" >
                                                     <img src="{% static 'assets/images/banner/hBanner1.jpg ' %}" alt="Image Slider" ></div >
                                             </div >
-
-{#                                            <div class="swiper-slide" >#}
-{#                                                <div class="card-image" >#}
-{#                                                    <img src="{% static 'assets/images/special_offer/cow2.webp' %}" alt="Image Slider" >#}
-{#                                                </div >#}
-{#                                            </div >#}
-{#                                            <div class="swiper-slide" >#}
-{#                                                <div class="card-image" >#}
-{#                                                    <img src="{% static 'assets/images/special_offer/cow1.jpg' %}" alt="Image Slider" >#}
-{#                                                </div >#}
-{#                                            </div >#}
+                                            {#                                            <div class="swiper-slide" >#}
+                                            {#                                                <div class="card-image" >#}
+                                            {#                                                    <img src="{% static 'assets/images/special_offer/cow2.webp' %}" alt="Image Slider" >#}
+                                            {#                                                </div >#}
+                                            {#                                            </div >#}
+                                            {#                                            <div class="swiper-slide" >#}
+                                            {#                                                <div class="card-image" >#}
+                                            {#                                                    <img src="{% static 'assets/images/special_offer/cow1.jpg' %}" alt="Image Slider" >#}
+                                            {#                                                </div >#}
+                                            {#                                            </div >#}
                                         </div >
                                         <!-- Add Pagination -->
                                         <div class="swiper-pagination" ></div >
@@ -218,7 +221,7 @@
                                 <div class="shop-products_top mini-tab-title underline" >
                                     <div class="row align-items-center" >
                                         <div class="col-6 col-xl-4" >
-                                            <h6 class="title" style="font-size: 16px">কোরবানি স্পেশাল</h6 >
+                                            <h6 class="title" style="font-size: 16px" >কোরবানি স্পেশাল</h6 >
                                         </div >
                                         <div class="col-6 text-right" >
                                             <div id="show-filter-sidebar" >
@@ -261,7 +264,7 @@
                                                         {#                                                                data-target="#quickViewModal" >Quick view#}
                                                         {#                                                        </button >#}
                                                     </div >
-                                                    <div class="product-info_block" style="width: 100%; padding: 0px 20px">
+                                                    <div class="product-info_block" style="width: 100%; padding: 0px 20px" >
                                                         <a class="product-name" href="" >{{ item.title }}</a >
                                                         <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
                                                                 class="icon_star" ></i ><i class="icon_star" ></i ><i
@@ -298,7 +301,9 @@
                                                             <p hidden class="product__name" >{{ item.pk }}</p >
                                                             <p hidden class="product__title" >{{ item.title }}</p >
                                                             <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
-                                                            <button class="all_btn" data-action="ADD_TO_CART" style="margin-left: auto !important; margin-right: auto !important; ">Add to cart</button >
+                                                            <button class="all_btn" data-action="ADD_TO_CART"
+                                                                    style="margin-left: auto !important; margin-right: auto !important; " >Add to cart
+                                                            </button >
                                                         </div >
                                                         <p class="product-describe" >
                                                         </p >

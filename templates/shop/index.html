@@ -76,14 +76,18 @@
                                             </div >
                                             <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
                                                 <div class="search-input" >
-                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET" value="{{request.GET.q}}">
-                                                    <input class="no-round-input no-border" type="text" name="q" value="{{request.GET.q}}" placeholder="What do you need"/>
-                                                    </form>
+                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
+                                                          value="{{ request.GET.q }}" >
+                                                        <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
+                                                               placeholder="What do you need" />
+                                                    </form >
                                                 </div >
-
                                             </div >
                                             <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search" onclick="document.getElementById('search-form').submit();">Search</button>
+                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
+                                                        onclick="document.getElementById('search-form').submit();" >Search
+                                                </button >
+                                            </div >
                                         </div >
                                     </div >
                                 </div >
@@ -91,7 +95,6 @@
                         </div >
                     </div >
                 </div >
-            </div >
         </header >
         <div class="banner_v3" >
             <div class="container" >
@@ -239,9 +242,10 @@
                         <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_2.png' %});" >
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
-                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='food' %}'"><img class="img-fluid"
-                                                                              src="{% static 'assets/images/banner/Grocessary.png' %}"
-                                                                              alt="large banner" ></div >
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='food' %}'" ><img
+                                            class="img-fluid"
+                                            src="{% static 'assets/images/banner/Grocessary.png' %}"
+                                            alt="large banner" ></div >
                                 </div >
                                 <div class="col-10 col-sm-6 col-md-6" >
                                     <div class="banner-text text-center text-sm-left" >
@@ -252,20 +256,23 @@
                         </div >
                     </div >
                     <div class="col-12 col-md-4" >
-                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});" onclick="location.href='{% url 'shop:category-items' catid='somikoron' %}'" ><img
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});"
+                             onclick="location.href='{% url 'shop:category-items' catid='somikoron' %}'" ><img
                                 src="{% static 'assets/images/banner/roshmalai.png' %}" alt="small banner" ></div >
                     </div >
                     <div class="col-12 col-md-4" >
-                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});" onclick="location.href='{% url 'shop:category-items' catid='cattle' %}'"><img
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});"
+                             onclick="location.href='{% url 'shop:category-items' catid='cattle' %}'" ><img
                                 src="{% static 'assets/images/banner/cow.png' %}" alt="small banner" ></div >
                     </div >
                     <div class="col-12 col-md-8" >
                         <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_3.png' %});" >
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
-                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='covid19' %}'"><img class="img-fluid"
-                                                                              src="{% static 'assets/images/banner/covid.png' %}"
-                                                                              alt="large banner" ></div >
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='covid19' %}'" >
+                                        <img class="img-fluid"
+                                             src="{% static 'assets/images/banner/covid.png' %}"
+                                             alt="large banner" ></div >
                                 </div >
                                 <div class="col-10 col-sm-6 col-md-6" >
                                     <div class="banner-text text-center text-sm-left" >
@@ -300,15 +307,13 @@
                                             </div >
                                         </div >
                                         <div class="col-lg-8 col-8 col-md-8 inner_item" >
-                                            <p style="padding-top: 13px">{{ category.category_name }}</p >
+                                            <p style="padding-top: 13px" >{{ category.category_name }}</p >
                                         </div >
                                     </div >
                                 </a >
                             </div >
                         </div >
                     {% endfor %}
-
-
                 </div >
             </div >
         </section >

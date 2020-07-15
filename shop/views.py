@@ -43,9 +43,22 @@ def get_subcategories():
 class ItemListView(View):
     def get(self, *args, **kwargs):
         items = Items.objects.filter(sub_category_id=kwargs['subid'])
+        cat = Category.objects.get(subcategory=kwargs['subid'])
         context = {
             'items'         : items,
-            'categories': get_categories()
+            'categories': get_categories(),
+            'item_category': cat,
+        }
+        return render(self.request, 'shop/shop_item_list.html', context)
+
+class CategoryItemView(View):
+    def get(self, *args, **kwargs):
+        cat = Category.objects.get(category_id = kwargs['catid'])
+        items = Items.objects.filter(sub_category__category = cat)
+        context = {
+            'items'         : items,
+            'categories': get_categories(),
+            'item_category': cat,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -261,7 +274,7 @@ class CattleshopView(View):
         print(cattles)
         context = {
             'cattles'     : cattles,
-            'sub_category': sub_category
+            'categories': get_categories(),
         }
         return render(self.request, 'shop/special_offer.html', context)
 
@@ -290,3 +303,13 @@ class CartItemView(generics.ListAPIView):
         # data = serializers.serialize('json', [queryset])
         serializer = CartItemsSerializer(queryset)
         return JsonResponse(serializer.data, safe=False,  )
+
+# demo
+def cart_demo(request):
+    return render(request, 'shop/cart_demo.html')
+
+def about_us(request):
+    return render(request, 'shop/about_us.html', {'categories': get_categories()})
+
+def contact_us(request):
+    return render(request, 'shop/contact.html', {'categories': get_categories()})

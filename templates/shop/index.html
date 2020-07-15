@@ -38,15 +38,17 @@
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
-                                                <li ><a href="" ><i
+                                                <li ><a href="{{ cat.get_absolute_url }}" ><i
                                                         class="icon-{{ forloop.counter }}" ></i >{{ cat.category_name }}</a >
                                                     <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
-                                                    <ul class="sub-menu" >
-                                                        {% for subcat in cat.subcategory_set.all %}
-                                                            <li ><a href="{{ subcat.get_absolute_url }}" > <i
-                                                                    class="icon-2" ></i >{{ subcat.sub_category_name }}</a ></li >
-                                                        {% endfor %}
-                                                    </ul >
+                                                    {% if cat.subcategory_set.count > 0 and cat.category_name not in  cat.subcategory_set.all.0.sub_category_name %}
+                                                        <ul class="sub-menu" >
+                                                            {% for subcat in cat.subcategory_set.all %}
+                                                                <li ><a href="{{ subcat.get_absolute_url }}" > <i
+                                                                        class="icon-2" ></i >{{ subcat.sub_category_name }}</a ></li >
+                                                            {% endfor %}
+                                                        </ul >
+                                                    {% endif %}
                                                 </li >
                                             {% endfor %}
                                         </div >
@@ -89,124 +91,107 @@
                 </div >
             </div >
         </header >
-        <!-- =================================== Float Part start====================== -->
-        <div class="float_cart" onclick="sidebarOPen()" >
-            <div class="float_content" style="background-color: rgb(203, 36, 27)" >
-                <div class="float_icon" >
-                    <h5 style="color: white" ><i class="fa fa-shopping-cart" aria-hidden="true" ></i >
-                    </h5 >
-                </div >
-                <h6 style="color: white; margin-top: -10px; font-size: 12px" ><span >{{ request.user|cart_item_count }}</span > Items</h6 >
-            </div >
-            <div class="float_price" style="background-color: rgb(253,240,177)" >
-                <h6 ><span >৳</span > {{ request.user|cart_total_count|stringformat:".0f" }}</h6 >
-            </div >
-        </div >
-        <!-- =================================== Float Part End ====================== -->
-        <!-- =================================== Sidebar  Part start====================== -->
-        <div id="add_cart_sidebar" class="px-1" style="margin-top: 57px; " >
-            <div class="closeSidebar" onclick="closeSidebar()" style="vertical-align: middle" >Close</i>
-            </div >
-            <div class="specialCode" >
-                <button class="special_code" onclick="clickCode()" > <span ><i class="fa fa-chevron-circle-up" aria-hidden="true" ></i >
-               </span > Have a special code?
-                </button >
-                <div class="token_form px-2" id="hiddenform" >
-                    <form >
-                        <div class="row justify-content-center text-center px-2" >
-                            <div class="col-md-8 col-sm-8 py-2" >
-                                <input type="text" class="form-control token_input" id="exampleInputEmail1" placeholder="Enter code" >
-                            </div >
-                            <div class="col-md-4 col-sm-4 text-center py-2" >
-                                <button type="submit" class="btn bt-block  tokent_btn" >Go</button >
-                            </div >
-                        </div >
-                    </form >
-                </div >
-                <div class="place_order" >
-                    <div class="po_btn" >
-                        <button class=" pl_btn" >Place order</button >
-                    </div >
-                    <div class="po_btn" >
-                        <button class=" pr_btn" >{{ cartitems.get_total|stringformat:".1f" }}</button >
-                    </div >
-                </div >
-            </div >
-            <!-- ===================================== Sidebar Inner row Start=============================== -->
-            <div class="row justify-content-center text-center" >
-                <div class="col-md-12" >
-                    <div class="header_selected_product text-left" >
-                        <h3 style="font-size: 13px; padding-left: 18px" ><i class="fa fa-shopping-cart" aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span >
-                            Items Selected</h3 >
-                    </div >
-                </div >
-            </div >
-            <div class="row justify-content-center sidebar_row mb-1" >
-                <div class="col-md-12 col-sm-12" style="overflow-y: scroll; height: 480px" >
-                    {% for item in cartitems.items.all %}
-                        <div class="row justify-content-center px-0  py-2" style="padding-left: 30px !important;" >
-                            <div class="col-md-2" >
-                                <div class="sidebar_image" >
-                                    <img src="{{ item.item.images.all.0.image.url }}" alt="" >
-                                </div >
-                            </div >
-                            <div class="col-md-5" >
-                                <div class="selected_product" >
-                                    <p id="product_name" style="margin-bottom: 5px; width: 220px" >
-                                        {{ item.item.title }}
-                                    </p >
-                                    {#                                    <small >325/500gm</small >#}
-                                    <p id="quantitty" style="margin-top: 5px; margin-right: 0px !important;" >
-                                        <span >Qty :</span >
-                                        <input class="no-round-input"
-                                               style="width: 50px; height: 30px; padding: 5px !important; margin-right: 0px !important; text-align: center"
-                                               type="number" value="{{ item.quantity }}" />
-                                    </p >
-                                </div >
-                            </div >
-                            <div class="col-md-5" >
-                                <div class="prduct_price" >
-                                    <p id="product_price" style="margin-bottom: 0px !important; margin-top: 7px" >
-                                        <span >৳</span >{{ item.get_total_discount_item_price|stringformat:".1f" }}
-                                        {% if item.item.itemdetails.discount_offer > 0 %}
-                                            <br ><span class="badge badge-primary"
-                                                       style="font-size: 10px;" >Saved {{ item.get_amount_saved|stringformat:".0f" }}</span >
-                                        {% endif %}
-                                    </p >
-                                    <div class="close_add_product" onclick="closeAddProduct()" >
-                                        <a href="{{ item.item.get_remove_from_cart_url }}" >
-                                            <i class="fas fa-trash"
-                                               style="padding-right: 0px !important; font-size: 15px !important; color:#cd0d0d; " ></i >
-                                        </a >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    {% endfor %}
-                </div >
-            </div >
-            <!-- ===================================== Sidebar Inner row End =============================== -->
-        </div >
-        <!-- =================================== Sidebar  Part End ====================== -->
         <div class="banner_v3" >
             <div class="container" >
                 <div class="row" >
                     <div class="col-xl-3" ></div >
                     <div class="col-12 col-xl-9" >
-                        <div class="banner-block" >
-                            <div class="row no-gutters justify-content-center align-items-md-center" >
-                                <div class="col-10 col-md-5 col-xl-6" >
-                                    <div class="banner-text text-center text-md-left" >
-                                        <!--
-                                        <h5 class="color-subtitle coffee">Fruit Fresh</h5>
-                                        <h2 class="title">Orange Lemon</h2>
-                                        <h3 class="price">$14.00 <span>/ Package</span></h3><a class="normal-btn coffee" href="shop_grid%2blist_3col.html">Shop now</a>
-                                        -->
+                        <main class="main" >
+                            <style >
+                                * {
+                                    margin: 0;
+                                    padding: 0;
+                                    box-sizing: border-box;
+                                    list-style: none;
+                                    text-decoration: none;
+                                }
+
+
+                                .container {
+                                    max-width: 75rem;
+                                    width: 100%;
+                                    margin: 0 auto;
+                                }
+
+                                .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+                                    background: #ffffff;
+                                    border: none;
+                                    outline: none;
+                                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                                    border-radius: 2px;
+                                }
+
+                                .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+                                    display: block;
+                                    position: relative;
+                                    left: 0;
+                                    bottom: 0;
+                                    width: 100%;
+                                    height: auto;
+                                    -o-object-fit: cover;
+                                    object-fit: cover;
+                                }
+
+                                .main .container .swiper-container .swiper-pagination-bullet {
+                                    opacity: 0.8;
+                                    background: #333333;
+                                }
+
+                                .main .container .swiper-container .swiper-pagination-bullet-active {
+                                    background: #ffffff;
+                                }
+
+                                .main .container .swiper-container .swiper-button-next,
+                                .main .container .swiper-container .swiper-button-prev {
+                                    background-image: none;
+                                    background-size: 0;
+                                    background-repeat: no-repeat;
+                                    background-position: 0;
+                                    margin-top: -1rem;
+                                }
+
+                                .main .container .swiper-container .swiper-button-next .arrow-icon,
+                                .main .container .swiper-container .swiper-button-prev .arrow-icon {
+                                    font-size: 2rem;
+                                    color: #ffffff;
+                                }
+                            </style >
+                            <div class="container" >
+                                <div class="swiper-container" >
+                                    <div class="swiper-wrapper" >
+                                        <div class="swiper-slide" >
+                                            <div class="card-image" >
+                                                <img src="{% static 'assets/images/banner/hBanner2.jpg' %}" alt="Image Slider" >
+                                            </div >
+                                        </div >
+                                        <div class="swiper-slide" >
+                                            <div class="card-image" >
+                                                <img src="{% static 'assets/images/banner/hBanner3.jpg' %}" alt="Image Slider" >
+                                            </div >
+                                        </div >
+                                        <div class="swiper-slide" >
+                                            <div class="card-image" >
+                                                <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" alt="Image Slider" >
+                                            </div >
+                                        </div >
+                                        <div class="swiper-slide" >
+                                            <div class="card-image" >
+                                                <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" alt="Image Slider" >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination" ></div >
+                                    <!-- Add Scrollbar -->
+                                    <div class="swiper-button-next" >
+                                        <i class="fas fa-chevron-circle-right arrow-icon" ></i >
+                                    </div >
+                                    <div class="swiper-button-prev" >
+                                        <i class="fas fa-chevron-circle-left arrow-icon" ></i >
                                     </div >
                                 </div >
-                                <div class="col-12 col-md-5 col-xl-5" ></div >
                             </div >
-                        </div >
+                        </main >
                     </div >
                 </div >
             </div >
@@ -226,10 +211,10 @@
                         </div >
                         <div class="col-12 col-md-4" >
                             <div class="benefit-detail d-flex flex-column align-items-center" ><img class="benefit-img"
-                                                                                                    src="{% static 'assets/images/homepage04/benefit-icon2.png' %}"
+                                                                                                    src="{% static 'assets/images/homepage04/dow_icon_2.png' %}"
                                                                                                     alt="" >
-                                <h5 class="benefit-title" >Delivery On Time</h5 >
-                                <p class="benefit-describle" >If good have prolems</p >
+                                <h5 class="benefit-title" >Reasonably Priced</h5 >
+                                <p class="benefit-describle" >Best quality products at reasonable price</p >
                             </div >
                         </div >
                         <div class="col-12 col-md-4" >
@@ -248,15 +233,11 @@
         <div class="banner-group" >
             <div class="container" >
                 <div class="row" >
-                    <div class="col-12 col-md-4" >
-                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});" ><img
-                                src="{% static 'assets/images/banner/roshmalai.png' %}" alt="small banner" ></div >
-                    </div >
                     <div class="col-12 col-md-8" >
                         <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_2.png' %});" >
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
-                                    <div class="banner-img text-center" ><img class="img-fluid"
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='food' %}'"><img class="img-fluid"
                                                                               src="{% static 'assets/images/banner/Grocessary.png' %}"
                                                                               alt="large banner" ></div >
                                 </div >
@@ -268,11 +249,19 @@
                             </div >
                         </div >
                     </div >
+                    <div class="col-12 col-md-4" >
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});" onclick="location.href='{% url 'shop:category-items' catid='somikoron' %}'" ><img
+                                src="{% static 'assets/images/banner/roshmalai.png' %}" alt="small banner" ></div >
+                    </div >
+                    <div class="col-12 col-md-4" >
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});" onclick="location.href='{% url 'shop:category-items' catid='cattle' %}'"><img
+                                src="{% static 'assets/images/banner/cow.png' %}" alt="small banner" ></div >
+                    </div >
                     <div class="col-12 col-md-8" >
                         <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_3.png' %});" >
                             <div class="row d-flex align-items-center justify-content-center" >
                                 <div class="col-10 col-sm-5 col-md-6" >
-                                    <div class="banner-img text-center" ><img class="img-fluid"
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='covid19' %}'"><img class="img-fluid"
                                                                               src="{% static 'assets/images/banner/covid.png' %}"
                                                                               alt="large banner" ></div >
                                 </div >
@@ -284,14 +273,44 @@
                             </div >
                         </div >
                     </div >
-                    <div class="col-12 col-md-4" >
-                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});" ><img
-                                src="{% static 'assets/images/banner/cow.png' %}" alt="small banner" ></div >
-                    </div >
                 </div >
             </div >
         </div >
         <!-- End banner group-->
+        <section class="category" >
+            <div class="container" >
+                <div class="row justify-content-center py-5" >
+                    <div class="col-lg-6 col-md-6 text-center" >
+                        <div class="categori_heading" >
+                            <h2 >Product Categories</h2 >
+                        </div >
+                    </div >
+                </div >
+                <div class="row justify-content-center" >
+                    {% for category in categories %}
+                        <div class="col-lg-3  col-md-3 my-2" >
+                            <div class="inner_category mx-2" >
+                                <a href="{{ category.get_absolute_url }}" >
+                                    <div class="row justify-content-around d-flex align-items-center custom_category" >
+                                        <div class="col-lg-4 col-4 col-md-4" >
+                                            <div class="icons" >
+                                                <img src="{% static 'assets/images/custom_icons/flatIcon/' %}{{ category.category_id }}.png" alt="" >
+                                            </div >
+                                        </div >
+                                        <div class="col-lg-8 col-8 col-md-8 inner_item" >
+                                            <p style="padding-top: 13px">{{ category.category_name }}</p >
+                                        </div >
+                                    </div >
+                                </a >
+                            </div >
+                        </div >
+                    {% endfor %}
+
+
+                </div >
+            </div >
+        </section >
+        <br ><br >
         <div class="feature-products coffee" >
             <div class="container" >
                 <div class="row" >
@@ -306,24 +325,28 @@
                                 <li ><a href="#tab-3" >Populer Products</a ></li >
                             </ul >
                             <div id="tab-1" >
-                                <div class="row no-gutters-sm" >
-                                    {% for item in object_list|slice:":4" %}
-                                        <div class="col-6 col-md-4 col-lg-3" >
-                                            <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                    class="img-fluid" src="{{ item.images.all.0.image.url }}"
-                                                    alt="{{ item.images.all.0.image.url }}" ></a >
+                                <div class="row no-gutters-sm " >
+                                    {% for item in object_list|slice:":12" %}
+                                        <div class="col-6 col-md-4 col-lg-3 cartable" >
+                                            <div class="product coffee" >
+                                                <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                        class="img-fluid product__image" src="{{ item.images.all.0.image.url }}"
+                                                        alt="{{ item.images.all.0.image.url }}" ></a >
                                                 <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
                                                 <h3 class="product-name" >{{ item.title }}</h3 >
                                                 {% if item.itemdetails.discount_offer > 0 %}
-                                                    <h3 class="product-price" ><small
+                                                    <h3 class="product-price " ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
                                                         <del >{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
                                                 {% endif %}
-                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
-                                                    <button class="all_btn" >Add to cart</button >
+                                                <div class="openSidebar" >
+                                                    <p hidden class="product__name" >{{ item.pk }}</p >
+                                                    <p hidden class="product__title" >{{ item.title }}</p >
+                                                    <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" >Add to cart</button >
                                                 </div >
                                                 <div class="product-select" >
                                                     <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
@@ -387,8 +410,9 @@
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
                                                 {% endif %}
-                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
-                                                    <button class="all_btn" >Add to cart</button >
+                                                <div class="openSidebar" >
+                                                    <p hidden class="product__name" >{{ item.pk }}</p >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" >Add to cart</button >
                                                 </div >
                                                 <div class="product-select" >
                                                     <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
@@ -452,8 +476,8 @@
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
                                                 {% endif %}
-                                                <div class="openSidebar" onclick="location.href='{% url 'shop:add-to-cart' item.slug %}'" >
-                                                    <button class="all_btn" >Add to cart</button >
+                                                <div class="openSidebar" >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" >Add to cart</button >
                                                 </div >
                                                 <div class="product-select" >
                                                     <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
@@ -510,14 +534,14 @@
                             <div class="row align-items-center justify-content-center" >
                                 <div class="col-10 col-lg-6" >
                                     <div class="dow-img" ><img class="mymove"
-                                                               src="{% static 'assets/images/homepage05/weel_deal_img.png' %}"
+                                                               src="{% static 'assets/images/banner/weel_deal_img.png' %}"
                                                                alt="" ></div >
                                 </div >
                                 <div class="col-12 col-sm-11 col-lg-5" >
                                     <div class="dow-info text-center text-lg-left" >
                                         <h2 class="title coffee-underline" >Deal Of The Month</h2 >
-                                        <h3 class="deal-price" >Tk. 5000 <span >/ Package</span ></h3 >
-                                        <p >Somikoron 'WoW' offer is coming soon.... Keep in touch and get ready to grab the biggest offer of the
+                                        <h3 class="deal-price" >Combo <span > Package</span ></h3 >
+                                        <p >Somikoron 'Combo' offer is coming soon.... Keep in touch and get ready to grab the biggest offer of the
                                             month!</p >
                                         <div class="d-flex justify-content-center justify-content-lg-start"
                                              id="event-countdown" ></div >
@@ -874,122 +898,124 @@
                     </div >
                 </div >
                 <!-- End partner-->
-                <div class="from-blog" >
-                    <div class="container" >
-                        <div class="row" >
-                            <div class="col-12 text-center" >
-                                <h1 class="title coffee-underline" >From The Blog</h1 >
-                            </div >
-                            <div class="col-12" >
-                                <div class="news_wrapper" >
-                                    <div class="col-4" >
-                                        <div class="news-blog" >
-                                            <div class="news-blog_img" ><img
-                                                    src="{% static 'assets/images/homepage04/blog_img_1.png' %}"
-                                                    alt="blog img" >
-                                            </div >
-                                            <div class="news-blog_text" >
-                                                <div class="news-credit" ><a class="credit date"
-                                                                             href="blog_list_sidebar.html" >
-                                                    <i
-                                                            class="far fa-calendar" ></i >May
-                                                                                          4,2017</a ><a
-                                                        class="credit comment"
-                                                        href="blog_list_sidebar.html" >
-                                                    <i class="far fa-comments" ></i >5</a ></div >
-                                                <a class="news-title" href="blog_list_sidebar.html" >Cooking
-                                                                                                     tips
-                                                                                                     make
-                                                                                                     cooking
-                                                                                                     simple</a >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-4" >
-                                        <div class="news-blog" >
-                                            <div class="news-blog_img" ><img
-                                                    src="{% static 'assets/images/homepage04/blog_img_2.png' %}"
-                                                    alt="blog img" >
-                                            </div >
-                                            <div class="news-blog_text" >
-                                                <div class="news-credit" ><a class="credit date"
-                                                                             href="blog_list_sidebar.html" >
-                                                    <i
-                                                            class="far fa-calendar" ></i >May
-                                                                                          4,2017</a ><a
-                                                        class="credit comment"
-                                                        href="blog_list_sidebar.html" >
-                                                    <i class="far fa-comments" ></i >5</a ></div >
-                                                <a class="news-title" href="blog_list_sidebar.html" >6
-                                                                                                     ways
-                                                                                                     to
-                                                                                                     prepare
-                                                                                                     breakfast
-                                                                                                     for
-                                                                                                     30
-                                                                                                     minutes </a >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-4" >
-                                        <div class="news-blog" >
-                                            <div class="news-blog_img" ><img
-                                                    src="{% static 'assets/images/homepage04/blog_img_3.png' %}"
-                                                    alt="blog img" >
-                                            </div >
-                                            <div class="news-blog_text" >
-                                                <div class="news-credit" ><a class="credit date"
-                                                                             href="blog_list_sidebar.html" >
-                                                    <i
-                                                            class="far fa-calendar" ></i >May
-                                                                                          4,2017</a ><a
-                                                        class="credit comment"
-                                                        href="blog_list_sidebar.html" >
-                                                    <i class="far fa-comments" ></i >5</a ></div >
-                                                <a class="news-title" href="blog_list_sidebar.html" >Visit
-                                                                                                     the
-                                                                                                     clean
-                                                                                                     farm
-                                                                                                     in
-                                                                                                     the
-                                                                                                     US </a >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-4" >
-                                        <div class="news-blog" >
-                                            <div class="news-blog_img" ><img
-                                                    src="{% static 'assets/images/homepage04/blog_img_4.png' %}"
-                                                    alt="blog img" >
-                                            </div >
-                                            <div class="news-blog_text" >
-                                                <div class="news-credit" ><a class="credit date"
-                                                                             href="blog_list_sidebar.html" >
-                                                    <i
-                                                            class="far fa-calendar" ></i >May
-                                                                                          4,2017</a ><a
-                                                        class="credit comment"
-                                                        href="blog_list_sidebar.html" >
-                                                    <i class="far fa-comments" ></i >5</a ></div >
-                                                <a class="news-title" href="blog_list_sidebar.html" >Visit
-                                                                                                     the
-                                                                                                     clean
-                                                                                                     farm
-                                                                                                     in
-                                                                                                     the
-                                                                                                     US </a >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                </div >
+                {#                <div class="from-blog" >#}
+                {#                    <div class="container" >#}
+                {#                        <div class="row" >#}
+                {#                            <div class="col-12 text-center" >#}
+                {#                                <h1 class="title coffee-underline" >From The Blog</h1 >#}
+                {#                            </div >#}
+                {#                            <div class="col-12" >#}
+                {#                                <div class="news_wrapper" >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_1.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Cooking#}
+                {#                                                                                                     tips#}
+                {#                                                                                                     make#}
+                {#                                                                                                     cooking#}
+                {#                                                                                                     simple</a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_2.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >6#}
+                {#                                                                                                     ways#}
+                {#                                                                                                     to#}
+                {#                                                                                                     prepare#}
+                {#                                                                                                     breakfast#}
+                {#                                                                                                     for#}
+                {#                                                                                                     30#}
+                {#                                                                                                     minutes </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_3.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Visit#}
+                {#                                                                                                     the#}
+                {#                                                                                                     clean#}
+                {#                                                                                                     farm#}
+                {#                                                                                                     in#}
+                {#                                                                                                     the#}
+                {#                                                                                                     US </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_4.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Visit#}
+                {#                                                                                                     the#}
+                {#                                                                                                     clean#}
+                {#                                                                                                     farm#}
+                {#                                                                                                     in#}
+                {#                                                                                                     the#}
+                {#                                                                                                     US </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                </div >#}
+                {#                            </div >#}
+                {#                        </div >#}
+                {#                    </div >#}
+                {#                </div >#}
                 <!-- End from the blog-->
             </div >
         </div >
     </div >
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js' ></script >
+    <script src="{% static 'assets/js/slider.js' %}" ></script >
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/homepage05.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
     </html >

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # my_apps
     'customer',
     'shop',
+    'search',
 ]
 
 SITE_ID = 2

@@ -195,3 +195,10 @@ SOCIAL_AUTH_FACEBOOK_KEY = '629271397680203'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e4a51b5b5c3e919ec82a2fdb5840a675'  # app key
 ACCOUNT_LOGOUT_ON_GET = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+REST_FRAMEWORK = {
+    'DEFAULT_METADATA_CLASS': None,
+}
+if DEBUG:
+    # the default value
+    REST_FRAMEWORK['DEFAULT_METADATA_CLASS']: 'rest_framework.metadata.SimpleMetadata'

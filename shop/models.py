@@ -31,11 +31,16 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    def get_absolute_url(self):
+        return reverse("shop:category-items", kwargs={
+            'catid': self.category_id
+        })
+
 
 class SubCategory(models.Model):
     sub_category_name = models.CharField(max_length=100)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_DEFAULT, default='Others'
+        Category, on_delete=models.SET_NULL, null=True, blank = True
     )
 
     def __str__(self):
@@ -88,7 +93,7 @@ class ItemDetails(models.Model):
     color = models.CharField(max_length=50, null=True, blank=True)
     size = models.CharField(max_length=30, null=True, blank=True)
     unit = models.CharField(max_length=30, null=True, blank=True)
-    stock_quantity = models.IntegerField(null=True, blank=True)
+    stock_quantity = models.IntegerField(null=True, blank=True, default=1)
     update_date = models.DateTimeField(auto_now=True)
     total_views = models.IntegerField(default=0)
     additional_info = models.CharField(max_length=500, null=True, blank=True)
@@ -106,8 +111,10 @@ class ItemDetails(models.Model):
         })
 
     def get_discounted_price(self):
-        return (self.item.price) - (
-                (self.discount_offer * self.item.price) / 100)
+        if self.discount_offer>=1:
+            return self.item.price - self.discount_offer
+        else:
+            return (self.item.price) - (self.discount_offer * self.item.price)
 
 class CattleInfo(models.Model):
     item = models.OneToOneField(Items, on_delete=models.CASCADE)
@@ -121,7 +128,7 @@ class CattleInfo(models.Model):
 
 class ItemImages(models.Model):
     item = models.ForeignKey(
-        Items, on_delete=models.CASCADE, related_name='images'
+        Items, on_delete=models.CASCADE, related_name='images',null=True,blank=True
     )
     image = models.ImageField(upload_to='media/images/')
 

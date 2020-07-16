@@ -1,0 +1,335 @@
+
+    <div class="asd" >
+        <!-- =================================== Float Part start====================== -->
+        <div class="float_cart" onclick="sidebarOPen()" >
+            <div class="float_content" style="background-color: rgb(203, 36, 27)" >
+                <div class="float_icon" >
+                    <h5 style="color: white" ><i class="fa fa-shopping-cart" aria-hidden="true" ></i >
+                    </h5 >
+                </div >
+                <h6 style="color: white; margin-top: -10px; font-size: 12px" ><span >{{ request.user|cart_item_count }}</span > Items</h6 >
+            </div >
+            <div class="float_price" style="background-color: rgb(253,240,177)" >
+                <h6 ><span >৳</span > {{ request.user|cart_total_count|stringformat:".0f" }}</h6 >
+            </div >
+        </div >
+        <!-- =================================== Float Part End ====================== -->
+        <!-- =================================== Sidebar  Part start====================== -->
+        <div id="add_cart_sidebar" class="px-1" style="margin-top: 57px; " >
+            <div class="closeSidebar" onclick="closeSidebar()" style="vertical-align: middle" >Close</i>
+            </div >
+            <div class="specialCode" >
+                <button class="special_code" onclick="clickCode()" > <span ><i class="fa fa-chevron-circle-up" aria-hidden="true" ></i >
+               </span > Have a special code?
+                </button >
+                <div class="token_form px-2" id="hiddenform" >
+                    <form >
+                        <div class="row justify-content-center text-center px-2" >
+                            <div class="col-md-8 col-sm-8 py-2" >
+                                <input type="text" class="form-control token_input" id="exampleInputEmail1" placeholder="Enter code" >
+                            </div >
+                            <div class="col-md-4 col-sm-4 text-center py-2" >
+                                <button type="submit" class="btn bt-block  tokent_btn" >Go</button >
+                            </div >
+                        </div >
+                    </form >
+                </div >
+                <div class="place_order" >
+                    <div class="po_btn" >
+                        <button class=" pl_btn" >Place order</button >
+                    </div >
+                    {% if cartitems.get_total > 0 %}
+                        <div class="po_btn" >
+                            <button class=" pr_btn" >{{ cartitems.get_total|stringformat:".1f" }}</button >
+                        </div >
+                    {% else %}
+                        <div class="po_btn" >
+                            <button class=" pr_btn" >00</button >
+                        </div >
+                    {% endif %}
+                </div >
+            </div >
+            <!-- ===================================== Sidebar Inner row Start=============================== -->
+            <div class="row justify-content-center text-center" >
+                <div class="col-md-12" >
+                    <div class="header_selected_product text-left" >
+                        <h3 style="font-size: 13px; padding-left: 18px" ><i class="fa fa-shopping-cart"
+                                                                            aria-hidden="true" ></i ><span >{{ request.user|cart_item_count }}</span >
+                            Items Selected</h3 >
+                    </div >
+                </div >
+            </div >
+            <div class="row justify-content-center sidebar_row mb-1" >
+                <div class="col-md-12 col-sm-12 cart" style="overflow-y: scroll; height: 480px" >
+                    {% for item in cartitems.items.all %}
+                        <div class="row justify-content-center px-0  py-2" style="padding-left: 30px !important;" >
+                            <div class="col-md-2" >
+                                <div class="sidebar_image" >
+                                    <img src="{{ item.item.images.all.0.image.url }}" alt="" >
+                                </div >
+                            </div >
+                            <div class="col-md-5" >
+                                <div class="selected_product" >
+                                    <p id="product_name" style="margin-bottom: 5px; width: 220px" >
+                                        {{ item.item.title }}
+                                    </p >
+                                    {#                                    <small >325/500gm</small >#}
+                                    <p id="quantitty" style="margin-top: 5px; margin-right: 0px !important;" >
+                                        <span >Qty :</span >
+                                        <input class="no-round-input"
+                                               style="width: 50px; height: 30px; padding: 5px !important; margin-right: 0px !important; text-align: center"
+                                               type="number" value="{{ item.quantity }}" />
+                                    </p >
+                                </div >
+                            </div >
+                            <div class="col-md-5" >
+                                <div class="prduct_price" >
+                                    <p id="product_price" style="margin-bottom: 0px !important; margin-top: 7px" >
+                                        <span >৳</span >{{ item.get_total_discount_item_price|stringformat:".1f" }}
+                                        {% if item.item.itemdetails.discount_offer > 0 %}
+                                            <br ><span class="badge badge-primary"
+                                                       style="font-size: 10px;" >Saved {{ item.get_amount_saved|stringformat:".0f" }}</span >
+                                        {% endif %}
+                                    </p >
+                                    <div class="close_add_product" onclick="closeAddProduct()" >
+                                        <a href="{{ item.item.get_remove_from_cart_url }}" >
+                                            <i class="fas fa-trash"
+                                               style="padding-right: 0px !important; font-size: 15px !important; color:#cd0d0d; " ></i >
+                                        </a >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    {% endfor %}
+                </div >
+            </div >
+            <!-- ===================================== Sidebar Inner row End =============================== -->
+        </div >
+        <!-- =================================== Sidebar  Part End ====================== -->
+        <h2 class="text-center" >Products</h2 >
+        <div class="products" >
+            <!--
+                https://www.iconfinder.com/iconsets/beverage
+                Creative Commons (Attribution 3.0 Unported)
+                https://creativemarket.com/eucalyp
+            -->
+            <div class="product" >
+                <img class="product__image" src="img/products/beer.svg" alt="Beer" >
+                {#					<h2 class="product__name">Beer</h2>#}
+                <div class="product__name" ></div >
+                <h3 class="product__price" >6.00</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+            <div class="product" >
+                <img class="product__image" src="img/products/energy-drink.svg" alt="Energy Drink" >
+                <h2 class="product__name" >Energy Drink</h2 >
+                <h3 class="product__price" >5.00</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+            <div class="product" >
+                <img class="product__image" src="img/products/juice.svg" alt="Juice" >
+                <h2 class="product__name" >Juice</h2 >
+                <h3 class="product__price" >4.00</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+            <div class="product" >
+                <img class="product__image" src="img/products/milk.svg" alt="Milk" >
+                <h2 class="product__name" >Milk</h2 >
+                <h3 class="product__price" >2.50</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+            <div class="product" >
+                <img class="product__image" src="img/products/mineral-water.svg" alt="Mineral Water" >
+                <h2 class="product__name" >Mineral Water</h2 >
+                <h3 class="product__price" >1.00</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+            <div class="product" >
+                <img class="product__image" src="img/products/smoothie.svg" alt="Smoothie" >
+                <h2 class="product__name" >Smoothie</h2 >
+                <h3 class="product__price" >6.00</h3 >
+                <button class="btn btn--primary" data-action="ADD_TO_CART" >Add To Cart</button >
+            </div >
+        </div >
+        <section class="section" >
+{#            <h2 class="text-center" >Cart</h2 >#}
+            <div class="cart" ></div >
+        </section >
+    </div >
+
+    <script >
+        $(document).ready(function () {
+            'use strict';
+
+            let cart = (JSON.parse(localStorage.getItem('cart')) || []);
+
+            const cartDOM = document.querySelector('.cart');
+            const addToCartButtonsDOM = document.querySelectorAll('[data-action="ADD_TO_CART"]');
+
+            if (cart.length > 0) {
+                cart.forEach(cartItem => {
+                    const product = cartItem;
+
+                    cartDOM.insertAdjacentHTML('beforeend', `
+                      <div class="cart__item">
+                        <img class="cart__item__image" src="${product.image}" alt="${product.name}">
+                        <h3 class="cart__item__name">${product.name}</h3>
+                        <h3 class="cart__item__price">${product.price}</h3>
+                        <button class="btn btn--primary btn--small${(product.quantity === 1 ? ' btn--danger' : '')}" data-action="DECREASE_ITEM">&minus;</button>
+                        <h3 class="cart__item__quantity">${product.quantity}</h3>
+                        <button class="btn btn--primary btn--small" data-action="INCREASE_ITEM">&plus;</button>
+                        <button class="btn btn--danger btn--small" data-action="REMOVE_ITEM">&times;</button>
+                      </div>
+                    `);
+
+                    addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+                        const productDOM = addToCartButtonDOM.parentNode;
+
+                        if (productDOM.querySelector('.product__name').innerText === product.name) {
+                            addToCartButtonDOM.innerText = 'In Cart';
+                            addToCartButtonDOM.disabled = true;
+
+                            const cartItemsDOM = cartDOM.querySelectorAll('.cart__item');
+                            cartItemsDOM.forEach(cartItemDOM => {
+                                if (cartItemDOM.querySelector('.cart__item__name').innerText === product.name) {
+
+                                    cartItemDOM.querySelector('[data-action="INCREASE_ITEM"]').addEventListener('click', () => {
+                                        cart.forEach(cartItem => {
+                                            if (cartItem.name === product.name) {
+                                                cartItemDOM.querySelector('.cart__item__quantity').innerText = ++cartItem.quantity;
+                                                cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.remove('btn--danger');
+                                                localStorage.setItem('cart', JSON.stringify(cart));
+                                            }
+                                        });
+                                    });
+
+                                    cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').addEventListener('click', () => {
+                                        cart.forEach(cartItem => {
+                                            if (cartItem.name === product.name) {
+                                                if (cartItem.quantity > 1) {
+                                                    cartItemDOM.querySelector('.cart__item__quantity').innerText = --cartItem.quantity;
+                                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                                } else {
+                                                    cartItemDOM.classList.add('cart__item--removed');
+                                                    setTimeout(() => cartItemDOM.remove(), 250);
+                                                    cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                                    addToCartButtonDOM.innerText = 'Add To Cart';
+                                                    addToCartButtonDOM.disabled = false;
+                                                }
+
+                                                if (cartItem.quantity === 1) {
+                                                    cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn--danger');
+                                                }
+                                            }
+                                        });
+                                    });
+
+                                    cartItemDOM.querySelector('[data-action="REMOVE_ITEM"]').addEventListener('click', () => {
+                                        cart.forEach(cartItem => {
+                                            if (cartItem.name === product.name) {
+                                                cartItemDOM.classList.add('cart__item--removed');
+                                                setTimeout(() => cartItemDOM.remove(), 250);
+                                                cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                                localStorage.setItem('cart', JSON.stringify(cart));
+                                                addToCartButtonDOM.innerText = 'Add To Cart';
+                                                addToCartButtonDOM.disabled = false;
+                                            }
+                                        });
+                                    });
+
+                                }
+                            });
+                        }
+                    });
+
+                });
+            }
+
+            addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+                addToCartButtonDOM.addEventListener('click', () => {
+                    const productDOM = addToCartButtonDOM.parentNode;
+                    const product = {
+                        image: productDOM.querySelector('.product__image').getAttribute('src'),
+                        name: productDOM.querySelector('.product__name').innerText,
+                        price: productDOM.querySelector('.product__price').innerText,
+                        quantity: 1,
+                    };
+
+                    const isInCart = (cart.filter(cartItem => (cartItem.name === product.name)).length > 0);
+
+                    if (!isInCart) {
+                        cartDOM.insertAdjacentHTML('beforeend', `
+                            <div class="cart__item">
+                              <img class="cart__item__image" src="${product.image}" alt="${product.name}">
+                              <h3 class="cart__item__name">${product.name}</h3>
+                              <h3 class="cart__item__price">${product.price}</h3>
+                              <button class="btn btn--primary btn--small btn--danger${(product.quantity === 1 ? ' btn--danger' : '')}" data-action="DECREASE_ITEM">&minus;</button>
+                              <h3 class="cart__item__quantity">${product.quantity}</h3>
+                              <button class="btn btn--primary btn--small" data-action="INCREASE_ITEM">&plus;</button>
+                              <button class="btn btn--danger btn--small" data-action="REMOVE_ITEM">&times;</button>
+                            </div>
+                          `);
+
+                        cart.push(product);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        addToCartButtonDOM.innerText = 'In Cart';
+                        addToCartButtonDOM.disabled = true;
+
+                        const cartItemsDOM = cartDOM.querySelectorAll('.cart__item');
+                        cartItemsDOM.forEach(cartItemDOM => {
+                            if (cartItemDOM.querySelector('.cart__item__name').innerText === product.name) {
+
+                                cartItemDOM.querySelector('[data-action="INCREASE_ITEM"]').addEventListener('click', () => {
+                                    cart.forEach(cartItem => {
+                                        if (cartItem.name === product.name) {
+                                            cartItemDOM.querySelector('.cart__item__quantity').innerText = ++cartItem.quantity;
+                                            cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.remove('btn--danger');
+                                            localStorage.setItem('cart', JSON.stringify(cart));
+                                        }
+                                    });
+                                });
+
+                                cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').addEventListener('click', () => {
+                                    cart.forEach(cartItem => {
+                                        if (cartItem.name === product.name) {
+                                            if (cartItem.quantity > 1) {
+                                                cartItemDOM.querySelector('.cart__item__quantity').innerText = --cartItem.quantity;
+                                                localStorage.setItem('cart', JSON.stringify(cart));
+                                            } else {
+                                                cartItemDOM.classList.add('cart__item--removed');
+                                                setTimeout(() => cartItemDOM.remove(), 250);
+                                                cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                                localStorage.setItem('cart', JSON.stringify(cart));
+                                                addToCartButtonDOM.innerText = 'Add To Cart';
+                                                addToCartButtonDOM.disabled = false;
+                                            }
+
+                                            if (cartItem.quantity === 1) {
+                                                cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn--danger');
+                                            }
+                                        }
+                                    });
+                                });
+
+                                cartItemDOM.querySelector('[data-action="REMOVE_ITEM"]').addEventListener('click', () => {
+                                    cart.forEach(cartItem => {
+                                        if (cartItem.name === product.name) {
+                                            cartItemDOM.classList.add('cart__item--removed');
+                                            setTimeout(() => cartItemDOM.remove(), 250);
+                                            cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                            localStorage.setItem('cart', JSON.stringify(cart));
+                                            addToCartButtonDOM.innerText = 'Add To Cart';
+                                            addToCartButtonDOM.disabled = false;
+                                        }
+                                    });
+                                });
+
+                            }
+                        });
+                    }
+                });
+            });
+            alert('asjhjdhjsh');
+        });
+    </script >

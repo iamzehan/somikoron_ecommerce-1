@@ -2,15 +2,136 @@
 {% block nav %}
     {% load static %}
     {% load cart_template_tags %}
+    <style >
+        .flashbtn {
+            text-align: center;
+            margin-bottom: -10px;
+            width: 200px;
+            height: 35px;
+            background: linear-gradient(to left top, rgb(252, 243, 227) 50%, rgba(250, 234, 209, 0.95) 50%);
+            border-style: none;
+            color: #fff;
+            font-size: 15px !important;
+            letter-spacing: 3px;
+            font-family: 'Lato';
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            padding: 0px;
+            overflow: hidden;
+            transition: all .5s;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+        }
+
+        .flashbtn span {
+            position: absolute;
+            display: block;
+        }
+
+        .flashbtn span:nth-child(1) {
+            height: 3px;
+            width: 200px;
+            top: 0px;
+            left: -200px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), #cb241b);
+            border-top-right-radius: 1px;
+            border-bottom-right-radius: 1px;
+            animation: span1 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes span1 {
+            0% {
+                left: -200px
+            }
+            100% {
+                left: 200px;
+            }
+        }
+
+        .flashbtn span:nth-child(2) {
+            height: 70px;
+            width: 3px;
+            top: -70px;
+            right: 0px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #cb241b);
+            border-bottom-left-radius: 1px;
+            border-bottom-right-radius: 1px;
+            animation: span2 2s linear infinite;
+            animation-delay: 2s;
+        }
+
+        @keyframes span2 {
+            0% {
+                top: -70px;
+            }
+            100% {
+                top: 70px;
+            }
+        }
+
+        .flashbtn span:nth-child(3) {
+            height: 3px;
+            width: 200px;
+            right: -200px;
+            bottom: 0px;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0), #cb241b);
+            border-top-left-radius: 1px;
+            border-bottom-left-radius: 1px;
+            animation: span3 2s linear infinite;
+            animation-delay: 3s;
+        }
+
+        @keyframes span3 {
+            0% {
+                right: -200px;
+            }
+            100% {
+                right: 200px;
+            }
+        }
+
+        .flashbtn span:nth-child(4) {
+            height: 70px;
+            width: 3px;
+            bottom: -70px;
+            left: 0px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0), #cb241b);
+            border-top-right-radius: 1px;
+            border-top-left-radius: 1px;
+            animation: span4 2s linear infinite;
+            animation-delay: 4s;
+        }
+
+        @keyframes span4 {
+            0% {
+                bottom: -70px;
+            }
+            100% {
+                bottom: 70px;
+            }
+        }
+
+        .flashbtn:hover {
+            transition: all .5s;
+            transform: rotate(-3deg) scale(1.1);
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, .4);
+        }
+
+        .flashbtn:hover span {
+            animation-play-state: paused;
+        }
+    </style >
     <header class="coffee-2" >
         <nav class="navigation d-flex align-items-center fixed-top" style="padding: 10px;  background-color: whitesmoke" >
-            <div class="container" >
+            <div class="container" style="padding: 0px" >
                 <div class="row" >
                     <div class="col-2" ><a class="logo" href="{% url 'shop:home' %}" ><img src="{% static 'assets/images/logo.png' %}" alt="" ></a >
                     </div >
                     <div class="col-7" >
                         <div class="navgition-menu d-flex align-items-center justify-content-center" >
-                            <ul class="mb-0" >
+                            <ul class="mb-0"  >
                                 <li class="toggleable" ><a class="menu-item active" href="{% url 'shop:home' %}" >Home</a ></li >
                                 {#                                <li class="toggleable" ><a class="menu-item" href="shop_grid%2blist_3col.html" >Shop</a >#}
                                 {#                                    <ul class="sub-menu shop d-flex" >#}
@@ -36,36 +157,28 @@
                                 {#                                        </div >#}
                                 {#                                    </ul >#}
                                 {#                                </li >#}
-                                <li class="toggleable" ><a class="menu-item" href="blog_list_sidebar.html" >Blog</a >
+                                <li class="toggleable" ><a class="menu-item" href="" >Blog</a >
                                     <ul class="sub-menu" >
                                         <li >Coming Soon</li >
                                     </ul >
                                 </li >
-                                <li class="toggleable" ><a class="menu-item" href="#" >Pages</a >
-                                    <ul class="sub-menu" >
-                                        <li ><a href="login.html" >login</a ></li >
-                                        <li ><a href="register.html" >register</a ></li >
-                                        <li ><a href="faq.html" >FAQ</a ></li >
-                                        <li ><a href="coming_soon.html" >coming soon</a ></li >
-                                        <li ><a href="contact_us.html" >contact us</a ></li >
-                                        <li ><a href="404_error.html" >404 error</a ></li >
-                                    </ul >
+                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:about_us' %}" >About us</a ></li >
+                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:contact_us' %}" >Contact us</a ></li >
+                                <li class="toggleable" ><a class="menu-item flashbtn" href="{% url 'shop:cattle-shop' %}" >কোরবানি
+                                                                                                                           স্পেশাল<span ></span ><span ></span ><span ></span ><span ></span ></a >
                                 </li >
-                                <li class="toggleable" ><a class="menu-item" href="about_us.html" >About us</a >
-                                    <ul class="sub-menu" >
-                                        <li >Coming Soon</li >
-                                    </ul >
-                                </li >
-                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:cattle-shop' %}" >ঈদ স্পেশাল</a ></li >
                             </ul >
                         </div >
                     </div >
                     <div class="col-3" >
                         {% if user.is_authenticated %}
                             <div class="product-function d-flex align-items-center justify-content-end" >
-                                <div id="wishlist" ><a class="function-icon icon_heart_alt" href="#" ><span style="margin-left: 0px">0</span></a ></div >
+                                <div id="wishlist" ><a class="function-icon icon_heart_alt" href="#" style="color:#cb241b; " ><span
+                                        style="margin-left: 2px; font-size: 12px" > 0</span ></a >
+                                </div >
                                 <div id="cart" ><a class="function-icon icon_bag_alt"
-                                                   href="{% url 'shop:order-summary' %}" ><span style="margin-left: 0px">{{ request.user|cart_item_count }}</span ></a >
+                                                   style="color:#cb241b; " href="{% url 'shop:order-summary' %}" ><span
+                                        style="margin-left: 0px;font-size: 12px" >{{ request.user|cart_item_count }}</span ></a >
                                 </div >
                                 &nbsp;&nbsp;&nbsp;&nbsp;<div ><a class="function-icon " href="/accounts/logout" >Log out</a ></div >
                             </div >
@@ -111,59 +224,42 @@
                                 <button class="no-round-btn" id="mobile-menu--closebtn" >Close menu</button >
                                 <div class="mobile-menu_items" >
                                     <ul class="mb-0 d-flex flex-column" >
-                                        <li class="toggleable" ><a class="menu-item active" href="index.html" >Home</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
+                                        <li class="toggleable" ><a class="menu-item active" href="{% url 'shop:home' %}" >Home</a ></li >
+                                        <li class="toggleable" ><a class="menu-item" href="" >Blog</a >
                                             <ul class="sub-menu" >
-                                                <li ><a href="index.html" >Homepage 1</a ></li >
-                                                <li ><a href="homepage02.html" >Homepage 2</a ></li >
-                                                <li ><a href="homepage03.html" >Homepage 3</a ></li >
-                                                <li ><a href="homepage04.html" >Homepage 4</a ></li >
-                                                <li ><a href="homepage05.html" >Homepage 5</a ></li >
+                                                <li >Coming Soon</li >
                                             </ul >
                                         </li >
-                                        <li class="toggleable" ><a class="menu-item" href="shop_grid%2blist_3col.html" >Shop</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="shop_grid%2blist_fullwidth.html" >Shop grid fullwidth</a ></li >
-                                                <li ><a href="shop_grid%2blist_fullwidth.html" >Shop list fullwidth</a ></li >
-                                                <li ><a href="shop_grid%2blist_3col.html" >shop grid 3 column</a ></li >
-                                                <li ><a href="shop_grid%2blist_3col.html" >shop list 3 column</a ></li >
-                                                <li ><a href="shop_detail.html" >shop detail</a ></li >
-                                                <li ><a href="shop_detail_fullwidth.html" >shop detail fullwidth</a ></li >
-                                                <li ><a href="shop_checkout.html" >checkout</a ></li >
-                                                <li ><a href="shop_order_complete.html" >order complete</a ></li >
-                                                <li ><a href="shop_wishlist.html" >wishlist</a ></li >
-                                                <li ><a href="shop_compare.html" >compare</a ></li >
-                                                <li ><a href="shop_cart.html" >cart</a ></li >
-                                            </ul >
+                                        <li class="toggleable" ><a class="menu-item" href="{% url 'shop:about_us' %}" >About us</a >
+                                        <li class="toggleable" ><a class="menu-item" href="{% url 'shop:contact_us' %}" >Contact us</a >
                                         </li >
-                                        <li class="toggleable" ><a class="menu-item" href="blog_list_sidebar.html" >Blog</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="blog_list_sidebar.html" >Blog List Sidebar</a ></li >
-                                                <li ><a href="blog_grid_2col.html" >Blog Grid 2 column</a ></li >
-                                                <li ><a href="blog_grid_sidebar.html" >Blog Grid sidebar</a ></li >
-                                                <li ><a href="blog_masonry.html" >Blog masonry</a ></li >
-                                                <li ><a href="blog_grid_1col.html" >Blog Grid 1 column sidebar</a ></li >
-                                                <li ><a href="blog_detail_sidebar.html" >Blog detail sidebar</a ></li >
-                                            </ul >
-                                        </li >
-                                        <li class="toggleable" ><a class="menu-item" href="#" >Pages</a ><span class="sub-menu--expander" ><i
-                                                class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="login.html" >login</a ></li >
-                                                <li ><a href="register.html" >register</a ></li >
-                                                <li ><a href="faq.html" >FAQ</a ></li >
-                                                <li ><a href="coming_soon.html" >coming soon</a ></li >
-                                                <li ><a href="about_us.html" >about us</a ></li >
-                                                <li ><a href="contact_us.html" >contact us</a ></li >
-                                                <li ><a href="404_error.html" >404 error</a ></li >
-                                            </ul >
+                                        <li class="toggleable" ><a class="menu-item flashbtn" href="{% url 'shop:cattle-shop' %}"
+                                                                   style="max-height: 30px" >কোরবানি
+                                                                                             স্পেশাল<span ></span ><span ></span ><span ></span ><span ></span ></a >
                                         </li >
                                     </ul >
                                 </div >
                                 <div class="mobile-login" >
-                                    <h2 >My account</h2 ><a href="login.html" >Login</a ><a href="register.html" >Register</a >
+                                    {% if user.is_authenticated %}
+                                        <div id="mobile-menu_items" >
+                                            <a class=" " href="#" style="color:#cb241b; " >My Favorite<span
+                                                    style="margin-left: 2px; font-size: 12px" > 0 Items</span ></a >
+                                        </div >
+                                        <br >
+                                        <div id="mobile-menu_items" >
+                                            <a style="color:#cb241b; " href="{% url 'shop:order-summary' %}" >My Cart <span
+                                                    style="margin-left: 0px;font-size: 12px" >{{ request.user|cart_item_count }} Items</span ></a >
+                                        </div >
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div >
+                                            <a class="function-icon " href="/accounts/logout" >Log out</a >
+                                        </div >
+                                    {% else %}
+                                        <div id="mobile-menu_items" ><a class="function-icon fa-sign-in"
+                                                                        href="/accounts/signup" ><span >Signup</span ></a ></div >
+                                        <div id="mobile-menu_items" ><a class="function-icon "
+                                                                        href="/accounts/login" ><span >Login</span ></a ></div >
+                                    {% endif %}
                                 </div >
                                 <div class="mobile-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i
                                         class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i
@@ -192,38 +288,46 @@
 {% block footer %}
 
     <footer class="coffee" >
-        <div class="container" >
+        <div class="container" style="border-top: 1px solid #d5d3d3; padding-top: 20px;">
             <div class="row" >
                 <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left" >
                     <div class="footer-logo" ><img src="{% static 'assets/images/logo.png' %}" alt="" ></div >
                     <div class="footer-contact" >
-                        <p >Address: Dhanmondi, Dhaka</p >
-                        <p >Phone: +8801762850108</p >
-                        <p >Email: contact@somikoron.com</p >
+                        <p style="margin-bottom: 0px !important;" >Address: Dhanmondi, Dhaka</p >
+                        <p style="margin-bottom: 0px !important;" >Phone: +8801762850108</p >
+                        <p style="margin-bottom: 0px !important;" >Email: contact@somikoron.com</p >
                     </div >
-                    <div class="footer-social" ><a class="round-icon-btn coffee" href="#" ><i class="fab fa-facebook-f" > </i ></a ><a
-                            class="round-icon-btn coffee" href="#" ><i class="fab fa-twitter" ></i ></a ><a class="round-icon-btn coffee" href="#" ><i
-                            class="fab fa-invision" > </i ></a ><a class="round-icon-btn coffee" href="#" ><i class="fab fa-pinterest-p" ></i ></a >
+                    <div class="footer-social" >
+                        <a class="round-icon-btn coffee" href="https://www.facebook.com/somikoron/" ><i class="fab fa-facebook-f" > </i ></a >
+                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-twitter" ></i ></a >
+                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-invision" > </i ></a >
+                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-pinterest-p" ></i ></a >
                     </div >
                 </div >
                 <div class="col-md-8" >
                     <div class="row" >
                         <div class="col-12 col-sm-4 text-sm-center text-md-left" >
                             <div class="footer-quicklink" >
-                                <h5 >Infomation</h5 ><a href="about_us.html" >About us</a ><a href="checkout.html" >Check out</a ><a
-                                    href="contact.html" >Contact</a ><a href="about_us.html" >Service</a >
+                                <h5 >Infomation</h5 >
+                                <a href="{% url 'shop:about_us' %}" >About us</a >
+                                <a href="{% url 'shop:checkout' %}" >Check out</a >
+                                <a href="{% url 'shop:contact_us' %}" >Contact</a >
                             </div >
                         </div >
                         <div class="col-12 col-sm-4 text-sm-center text-md-left" >
                             <div class="footer-quicklink" >
-                                <h5 >My Account</h5 ><a href="login.html" >My Account</a ><a href="contact.html" >Contact</a ><a
-                                    href="shop_cart.html" >Shopping cart</a ><a href="shop_grid%2blist_3col.html" >Shop</a >
+                                <h5 >My Account</h5 >
+                                <a href="" >My Cart</a >
+                                <a href="" >My Favorite</a >
+                                <a href="" >Log Out</a >
                             </div >
                         </div >
                         <div class="col-12 col-sm-4 text-sm-center text-md-left" >
                             <div class="footer-quicklink" >
-                                <h5 >Quick Shop</h5 ><a href="about_us.html" >About us</a ><a href="checkout.html" >Check out</a ><a
-                                    href="contact.html" >Contact</a ><a href="about_us.html" >Service</a >
+                                <h5 >Quick Shop</h5 >
+                                <a href="{% url 'shop:about_us' %}" >About us</a >
+                                <a href="{% url 'shop:checkout' %}" >Check out</a >
+                                <a href="{% url 'shop:contact_us' %}" >Contact</a >
                             </div >
                         </div >
                     </div >

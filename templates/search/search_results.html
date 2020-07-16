@@ -1,206 +1,71 @@
-{% extends 'master.html' %}
-{% block nav %}
+{% extends 'shop/nav_footer.html' %}
 {% load static %}
 {% load cart_template_tags %}
- <header class="coffee-2" >
-        <nav class="navigation d-flex align-items-center fixed-top" style="padding: 10px;  background-color: whitesmoke" >
-            <div class="container" >
-                <div class="row" >
-                    <div class="col-2" ><a class="logo" href="{% url 'shop:home' %}" ><img src="{% static 'assets/images/logo.png' %}" alt="" ></a >
-                    </div >
-                    <div class="col-7" >
-                        <div class="navgition-menu d-flex align-items-center justify-content-center" >
-                            <ul class="mb-0" >
-                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:home' %}" >Home</a ></li >
-                                {#                                <li class="toggleable" ><a class="menu-item" href="shop_grid%2blist_3col.html" >Shop</a >#}
-                                {#                                    <ul class="sub-menu shop d-flex" >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Layout shop</h2 >#}
-                                {#                                            <li ><a href="shop_grid%2blist_fullwidth.html" >Shop grid fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_fullwidth.html" >Shop list fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_3col.html" >shop grid 3 column</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_3col.html" >shop list 3 column</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Detail shop</h2 >#}
-                                {#                                            <li ><a href="shop_detail_fullwidth.html" >shop detail fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_detail.html" >shop detail sidebar</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Pages shop</h2 >#}
-                                {#                                            <li ><a href="shop_checkout.html" >checkout</a ></li >#}
-                                {#                                            <li ><a href="shop_order_complete.html" >order complete</a ></li >#}
-                                {#                                            <li ><a href="shop_wishlist.html" >wishlist</a ></li >#}
-                                {#                                            <li ><a href="shop_compare.html" >compare</a ></li >#}
-                                {#                                            <li ><a href="shop_cart.html" >cart</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                    </ul >#}
-                                {#                                </li >#}
-                                <li class="toggleable" ><a class="menu-item" href="blog_list_sidebar.html" >Blog</a >
-                                    <ul class="sub-menu" >
-                                        <li >Coming Soon</li >
-                                    </ul >
-                                </li >
-                                <li class="toggleable" ><a class="menu-item" href="#" >Pages</a >
-                                    <ul class="sub-menu" >
-                                        <li ><a href="login.html" >login</a ></li >
-                                        <li ><a href="register.html" >register</a ></li >
-                                        <li ><a href="faq.html" >FAQ</a ></li >
-                                        <li ><a href="coming_soon.html" >coming soon</a ></li >
-                                        <li ><a href="contact_us.html" >contact us</a ></li >
-                                        <li ><a href="404_error.html" >404 error</a ></li >
-                                    </ul >
-                                </li >
-                                <li class="toggleable" ><a class="menu-item" href="about_us.html" >About us</a >
-                                    <ul class="sub-menu" >
-                                        <li >Coming Soon</li >
-                                    </ul >
-                                </li >
-                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:cattle-shop' %}" >ঈদ স্পেশাল</a ></li >
-                            </ul >
-                        </div >
-                    </div >
-                    <div class="col-3" >
-                        {% if user.is_authenticated %}
-                            <div class="product-function d-flex align-items-center justify-content-end" >
-                                <div id="wishlist" ><a class="function-icon icon_heart_alt" href="#" ><span style="margin-left: 0px">0</span></a ></div >
-                                <div id="cart" ><a class="function-icon icon_bag_alt"
-                                                   href="{% url 'shop:order-summary' %}" ><span style="margin-left: 0px">{{ request.user|cart_item_count }}</span ></a >
-                                </div >
-                                &nbsp;&nbsp;&nbsp;&nbsp;<div ><a class="function-icon " href="/accounts/logout" >Log out</a ></div >
-                            </div >
-                        {% else %}
-                            <div class="product-function d-flex align-items-center justify-content-end" >
-                                <div id="wishlist" ><a class="function-icon fa-sign-in" href="/accounts/signup" ><span >Signup</span ></a ></div >
-                                <div id="cart" ><a class="function-icon "
-                                                   href="/accounts/login" ><span >Login</span ></a ></div >
-                            </div >
-                        {% endif %}
-                    </div >
-                </div >
-            </div >
-        </nav >
-        <div id="mobile-menu" >
-            <div class="container" >
-                <div class="row " >
-                    <div class="col-3 " >
-                        <div class="mobile-menu_block d-flex align-items-center" ><a class="mobile-menu--control" href="#" ><i
-                                class="fas fa-bars" ></i ></a >
-                            <div id="ogami-mobile-menu" >
-                                <button class="no-round-btn" id="mobile-menu--closebtn" >Close menu</button >
-                                <div class="mobile-menu_items" >
-                                    <ul class="mb-0 d-flex flex-column" >
-                                        <li class="toggleable" ><a class="menu-item active" href="index.html" >Home</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="index.html" >Homepage 1</a ></li >
-                                                <li ><a href="homepage02.html" >Homepage 2</a ></li >
-                                                <li ><a href="homepage03.html" >Homepage 3</a ></li >
-                                                <li ><a href="homepage04.html" >Homepage 4</a ></li >
-                                                <li ><a href="homepage05.html" >Homepage 5</a ></li >
-                                            </ul >
-                                        </li >
-                                        <li class="toggleable" ><a class="menu-item" href="shop_grid%2blist_3col.html" >Shop</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="shop_grid%2blist_fullwidth.html" >Shop grid fullwidth</a ></li >
-                                                <li ><a href="shop_grid%2blist_fullwidth.html" >Shop list fullwidth</a ></li >
-                                                <li ><a href="shop_grid%2blist_3col.html" >shop grid 3 column</a ></li >
-                                                <li ><a href="shop_grid%2blist_3col.html" >shop list 3 column</a ></li >
-                                                <li ><a href="shop_detail.html" >shop detail</a ></li >
-                                                <li ><a href="shop_detail_fullwidth.html" >shop detail fullwidth</a ></li >
-                                                <li ><a href="shop_checkout.html" >checkout</a ></li >
-                                                <li ><a href="shop_order_complete.html" >order complete</a ></li >
-                                                <li ><a href="shop_wishlist.html" >wishlist</a ></li >
-                                                <li ><a href="shop_compare.html" >compare</a ></li >
-                                                <li ><a href="shop_cart.html" >cart</a ></li >
-                                            </ul >
-                                        </li >
-                                        <li class="toggleable" ><a class="menu-item" href="blog_list_sidebar.html" >Blog</a ><span
-                                                class="sub-menu--expander" ><i class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="blog_list_sidebar.html" >Blog List Sidebar</a ></li >
-                                                <li ><a href="blog_grid_2col.html" >Blog Grid 2 column</a ></li >
-                                                <li ><a href="blog_grid_sidebar.html" >Blog Grid sidebar</a ></li >
-                                                <li ><a href="blog_masonry.html" >Blog masonry</a ></li >
-                                                <li ><a href="blog_grid_1col.html" >Blog Grid 1 column sidebar</a ></li >
-                                                <li ><a href="blog_detail_sidebar.html" >Blog detail sidebar</a ></li >
-                                            </ul >
-                                        </li >
-                                        <li class="toggleable" ><a class="menu-item" href="#" >Pages</a ><span class="sub-menu--expander" ><i
-                                                class="icon_plus" ></i ></span >
-                                            <ul class="sub-menu" >
-                                                <li ><a href="login.html" >login</a ></li >
-                                                <li ><a href="register.html" >register</a ></li >
-                                                <li ><a href="faq.html" >FAQ</a ></li >
-                                                <li ><a href="coming_soon.html" >coming soon</a ></li >
-                                                <li ><a href="about_us.html" >about us</a ></li >
-                                                <li ><a href="contact_us.html" >contact us</a ></li >
-                                                <li ><a href="404_error.html" >404 error</a ></li >
-                                            </ul >
-                                        </li >
-                                    </ul >
-                                </div >
-                                <div class="mobile-login" >
-                                    <h2 >My account</h2 ><a href="login.html" >Login</a ><a href="register.html" >Register</a >
-                                </div >
-                                <div class="mobile-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i
-                                        class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i
-                                        class="fab fa-pinterest-p" > </i ></a ></div >
-                            </div >
-                            <div class="ogamin-mobile-menu_bg" ></div >
-                        </div >
-                    </div >
-                    <div class="col-6" >
-                        <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center" ><a href="#" ><img
-                                src="assets/images/logo.png" alt="" ></a ></div >
-                    </div >
-                    <div class="col-3" >
-                        <div class="mobile-product_function d-flex align-items-center justify-content-end" ><a class="function-icon icon_heart_alt"
-                                                                                                               href="wishlist.html" ></a ><a
-                                class="function-icon icon_bag_alt"
-                                href="{% url 'shop:order-summary' %}" ><span >{{ request.user|cart_item_count }}</span ></a ></div >
-                    </div >
-                </div >
-            </div >
-        </div >
-        <div class="navigation-filter" style="margin-top: 65px" >
+<!--Body-->
+{% if submitbutton == 'Search' and request.GET.q != ' ' %}
+    {% block body %}
+
+        <header class="coffee-2" style="margin-top: 65px !important;" >
+            <div class="navigation-filter" >
                 <div class="container" >
                     <div class="row" >
-                        <div class="col-12" >
-                            <div class="row" >
-                                <div class="col-12 order-1 order-md-2" >
-                                    <div class="website-search" >
-                                        <div class="row no-gutters" >
-                                            <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                                <div class="filter-search" >
-                                                    <div class="categories-select d-flex align-items-center justify-content-around" ><span >All Categories</span ><i
-                                                            class="arrow_carrot-down" ></i ></div >
-                                                    <div class="categories-select_box" >
-                                                        <ul >
-                                                            <li >Fruit & Nut Gifts</li >
-                                                            <li >Fresh Berries</li >
-                                                            <li >Ocean Foods</li >
-                                                            <li >Butter & Eggs</li >
-                                                            <li >Ocean Foods</li >
+                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
+                            <div class="department-menu_block" >
+                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
+                                                                                                                                             departments<span ><i
+                                            class="arrow_carrot-down" ></i ></span ></div >
+                                <div class="department-dropdown-menu" >
+                                    <ul >
+                                        <!-- Nested div for requirement -->
+                                        <div class="vertical-nav" >
+                                            {% for cat in categories %}
+                                                <li ><a href="" ><i
+                                                        class="icon-{{ forloop.counter }}" ></i >{{ cat.category_name }}</a >
+                                                    <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
+                                                    {% if cat.subcategory_set.count     > 0 %}
+                                                        <ul class="sub-menu" >
+                                                            {% for subcat in cat.subcategory_set.all %}
+                                                                <li ><a href="{{ subcat.get_absolute_url }}" > <i
+                                                                        class="icon-2" ></i >{{ subcat.sub_category_name }}</a ></li >
+                                                            {% endfor %}
                                                         </ul >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                                <div class="search-input" >
-                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET" value="{{request.GET.q}}">
-                                                    <input class="no-round-input no-border" type="text" name="q" value="{{request.GET.q}}" placeholder="What do you need"/>
-                                                    </form>
-                                                </div >
-
-                                            </div >
-                                            <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search" onclick="document.getElementById('search-form').submit();">Search</button>
-
+                                                    {% endif %}
+                                                </li >
+                                            {% endfor %}
+                                        </div >
+                                    </ul >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
+                            <div class="website-search" >
+                                <div class="row no-gutters" >
+                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
+                                        <div class="filter-search" >
+                                            <div class="categories-select d-flex align-items-center justify-content-around" >
+                                                <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
+                                            <div class="categories-select_box" >
+                                                <ul >
+                                                    {% for cat in categories %}
+                                                        <li >{{ cat.category_name }}</li >
+                                                    {% endfor %}
+                                                </ul >
                                             </div >
                                         </div >
-                                        </div>
+                                    </div >
+                                    <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
+                                        <div class="search-input" >
+                                            <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
+                                                  value="{{ request.GET.q }}" >
+                                                <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
+                                                       placeholder="What do you need" />
+                                            </form >
+                                        </div >
+                                    </div >
+                                    <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
+                                        <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
+                                                onclick="document.getElementById('search-form').submit();" >Search
+                                        </button >
                                     </div >
                                 </div >
                             </div >
@@ -208,117 +73,46 @@
                     </div >
                 </div >
             </div >
- </header>
-    <!-- End header-->
-{% endblock %}
-<!--Body-->
-{% if submitbutton == 'Search' and request.GET.q != ' ' %}
-    {% block body %}
-           <div class="container col-8 col-md-8 col-lg-5 col-xl-7"> <h6><b>Search results for {{ request.GET.q }}</b></h6></div>
-            <br/>
-        <div class="row">
-            {% for result in results %}
-             <div class="col-md-4 col-sm-12 col-lg-3 m-1" >
-                 <div class="product coffee" ><a class="product-img" href="{{ result.itemdetails.get_absolute_url }}" ><img
-                                                 class="img-fluid" src="{{ result.itemdetails.get_absolute_url }}"
-                                                 alt="{{ result.itemdetails.get_absolute_url }}" ></a >
-                     <h5 class="product-type" >{{ result.sub_category.category.category_name }}</h5 >
-                     <h3 class="product-name" >{{ result.title }}</h3 >
-                     {% if result.itemdetails.discount_offer > 0 %}
-                     <h3 class="product-price" ><small style="font-size: small" >৳</small >
-                         {{ result.itemdetails.get_discounted_price }}
-                         <del >{{ result.price }}</del >
-                     </h3 >
-                     {% else %}
-                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ result.price }}</h3 >
-                     {% endif %}
-                     <div class="openSidebar" onclick="atcSidebar()" >
-                         <button class="all_btn" >Add to cart</button >
-                     </div >
-                     <div class="product-select" >
-                         <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
-                         <button class="add-to-cart round-icon-btn coffee cd-add-to-cart js-cd-add-to-cart"
-                                 onclick="location.href='#'" ><i
-                                 class="icon_bag_alt" ></i ></button >
-                         <button class="add-to-compare round-icon-btn coffee" ><i class="fa-random" ></i ></button >
-                         <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
-                     </div >
-                 </div >
-             </div >
-            {% endfor %}
-              </div>
-        </div>
-{% endblock %}
+        </header >
+        <!-- End header-->
+        <div id="main" style="margin-top: 65px" >
+            <div class="container" >
+                <div class="container col-8 col-md-8 col-sm-5 col-xl-7" ><h6 ><b >Search results for {{ request.GET.q }}</b ></h6 ></div >
+                <br />
+                <div class="row" >
+                    {% for result in results %}
+                        <div class="col-6 col-md-4 col-lg-3 cartable" >
+                            <div class="product coffee" ><a class="product-img" href="{{ result.itemdetails.get_absolute_url }}" ><img
+                                    class="img-fluid" src="{{ result.images.all.0.image.url }}"
+                                    alt="{{ result.itemdetails.get_absolute_url }}" ></a >
+                                <h5 class="product-type" >{{ result.sub_category.category.category_name }}</h5 >
+                                <h3 class="product-name" >{{ result.title }}</h3 >
+                                {% if result.itemdetails.discount_offer > 0 %}
+                                    <h3 class="product-price" ><small style="font-size: small" >৳</small >
+                                        {{ result.itemdetails.get_discounted_price }}
+                                        <del >{{ result.price }}</del >
+                                    </h3 >
+                                {% else %}
+                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ result.price }}</h3 >
+                                {% endif %}
+                                <div class="openSidebar" onclick="atcSidebar()" >
+                                    <button class="all_btn" >Add to cart</button >
+                                </div >
+                                <div class="product-select" >
+                                    <button class="add-to-wishlist round-icon-btn coffee" ><i class="icon_heart_alt" ></i ></button >
+                                    <button class="add-to-cart round-icon-btn coffee cd-add-to-cart js-cd-add-to-cart"
+                                            onclick="location.href='#'" ><i
+                                            class="icon_bag_alt" ></i ></button >
+                                    <button class="add-to-compare round-icon-btn coffee" ><i class="fa-random" ></i ></button >
+                                    <button class="quickview round-icon-btn coffee" ><i class="far fa-eye" ></i ></button >
+                                </div >
+                            </div >
+                        </div >
+                    {% endfor %}
+                </div >
+            </div >
+        </div >
+    {% endblock %}
 {% else %}
-        <div class="container col-8 col-md-8 col-lg-5 col-xl-7"> <h6><b>No items found</b></h6></div>
+    <div class="container col-8 col-md-8 col-lg-5 col-xl-7" ><h6 ><b >No items found</b ></h6 ></div >
 {% endif %}
-{% block footer %}
-    <footer class="coffee" >
-        <div class="container" >
-            <div class="row" >
-                <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left" >
-                    <div class="footer-logo" ><img src="{% static 'assets/images/logo.png' %}" alt="" ></div >
-                    <div class="footer-contact" >
-                        <p >Address: Dhanmondi, Dhaka</p >
-                        <p >Phone: +8801762850108</p >
-                        <p >Email: contact@somikoron.com</p >
-                    </div >
-                    <div class="footer-social" ><a class="round-icon-btn coffee" href="#" ><i class="fab fa-facebook-f" > </i ></a ><a
-                            class="round-icon-btn coffee" href="#" ><i class="fab fa-twitter" ></i ></a ><a class="round-icon-btn coffee" href="#" ><i
-                            class="fab fa-invision" > </i ></a ><a class="round-icon-btn coffee" href="#" ><i class="fab fa-pinterest-p" ></i ></a >
-                    </div >
-                </div >
-                <div class="col-md-8" >
-                    <div class="row" >
-                        <div class="col-12 col-sm-4 text-sm-center text-md-left" >
-                            <div class="footer-quicklink" >
-                                <h5 >Infomation</h5 ><a href="about_us.html" >About us</a ><a href="checkout.html" >Check out</a ><a
-                                    href="contact.html" >Contact</a ><a href="about_us.html" >Service</a >
-                            </div >
-                        </div >
-                        <div class="col-12 col-sm-4 text-sm-center text-md-left" >
-                            <div class="footer-quicklink" >
-                                <h5 >My Account</h5 ><a href="login.html" >My Account</a ><a href="contact.html" >Contact</a ><a
-                                    href="shop_cart.html" >Shopping cart</a ><a href="shop_grid%2blist_3col.html" >Shop</a >
-                            </div >
-                        </div >
-                        <div class="col-12 col-sm-4 text-sm-center text-md-left" >
-                            <div class="footer-quicklink" >
-                                <h5 >Quick Shop</h5 ><a href="about_us.html" >About us</a ><a href="checkout.html" >Check out</a ><a
-                                    href="contact.html" >Contact</a ><a href="about_us.html" >Service</a >
-                            </div >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </div >
-        <div class="newletter" >
-            <div class="container" >
-                <div class="row justify-content-between align-items-center" >
-                    <div class="col-12 col-md-7" >
-                        <div class="newletter_text text-center text-md-left" >
-                            <h5 >Join Our Newsletter Now</h5 >
-                            <p >Get E-mail updates about our latest products and special offers.</p >
-                        </div >
-                    </div >
-                    <div class="col-12 col-md-5" >
-                        <div class="newletter_input" >
-                            <input class="round-input" type="text" placeholder="Enter your email" >
-                            <button >Subcribe</button >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </div >
-        <div class="footer-credit" >
-            <div class="container" >
-                <div class="footer-creadit_block d-flex flex-column flex-md-row justify-content-start justify-content-md-between align-items-baseline align-items-md-center" >
-                    <p class="author" >Copyright © 2020 Somikoron - All Rights Reserved.</p ><img class="payment-method"
-                                                                                                  src="assets/images/payment.png"
-                                                                                                  alt="" >
-                </div >
-            </div >
-        </div >
-    </footer >
-    <!-- End footer-->
-{% endblock %}

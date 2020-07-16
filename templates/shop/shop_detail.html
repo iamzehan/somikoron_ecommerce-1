@@ -104,7 +104,7 @@
                             <div class="row" >
                                 <div class="col-12" >
                                     <div id="show-filter-sidebar" >
-                                        <h5 ><i class="fas fa-bars" ></i >Show sidebar</h5 >
+                                        <h5 ><i class="fas fa-bars" ></i >Menu</h5 >
                                     </div >
                                 </div >
                                 <div class="col-12 col-lg-6" >
@@ -117,7 +117,7 @@
                                                 {#                            <div class="big-img_block"><img src="{%  static 'assets/images/shop/zoom_img_3.png' %}" alt="product image"></div>#}
                                             {% endfor %}
                                         </div >
-                                        <div class="slide-img" >
+                                        <div class="slide-img" style="max-height: max-content !important;">
                                             {% for  image in object.item.images.all %}
                                                 <div class="slide-img_block" ><img src="{{ image.image.url }}" alt="product image" ></div >
                                                 {#                        <div class="slide-img_block"><img src="{%  static 'assets/images/shop/zoom_img_2.png' %}" alt="product image"></div>#}
@@ -165,13 +165,12 @@
                                         {% endif %}
 
                                         <div class="quantity-select" style="margin-bottom: 20px" >
-                                            <label for="quantity" >Quatity:</label >
+                                            <label for="quantity" >Quantity:</label >
                                             <input class="no-round-input" id="quantity" type="number" min="0" value="1" >{{ object.unit }}
                                         </div >
                                         <div class="product-select" style="text-align: center" >
                                             <a class="add-to-cart normal-btn outline" href="{{ object.item.get_add_to_cart_url }}"
                                                style="width: 100%" >Add to Cart</a >
-                                            <br ><a href="{{ object.item.get_remove_from_cart_url }}" > remove</a >
                                         </div >
                                         <div class="product-share" >
                                             <h5 >Share link:</h5 ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i
@@ -223,10 +222,10 @@
                                                                                 <th >Size</th >
                                                                                 <td class="product_size" >{{ object.size }}</td >
                                                                             </tr >
-                                                                            <tr >
-                                                                                <th >Stock Quantity</th >
-                                                                                <td class="product_dimensions" >{{ object.stock_quantity }}</td >
-                                                                            </tr >
+{#                                                                            <tr >#}
+{#                                                                                <th >Stock Quantity</th >#}
+{#                                                                                <td class="product_dimensions" >{{ object.stock_quantity }}</td >#}
+{#                                                                            </tr >#}
                                                                             <tr >
                                                                                 <th >Additional Info</th >
                                                                                 <td class="product_color" >{{ object.additional_info }}</td >

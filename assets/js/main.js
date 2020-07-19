@@ -1,13 +1,15 @@
-//Add preload to DOM
-$('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>') 
+//Removed preload to DOM
+//$('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>') 
 
 //Wait for document loaded
 window.onload = function () {
 	
 	//Remove preload from DOM
+	/*
 	$('#preload').fadeOut('400', function(){
 		$(this).remove();
 	});
+	*/
 
 	//Main js file
 	$(document).ready(function() {

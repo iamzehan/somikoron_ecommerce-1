@@ -10,9 +10,17 @@
 const mCategoryMenu = window.matchMedia( "(max-width: 760px)" );
 if(mCategoryMenu.matches){
     // TODO: gotta change this to forEach
-    let categoryNav = document.querySelector('.vertical-nav');
-    let categoryItems = categoryNav.querySelector("li");
-    categoryItems.addEventListener('click', handleTouch);
+    let categoryNavs = document.querySelectorAll('.vertical-nav');
+    // if there are category that expands
+    if(categoryNavs!= null){
+        categoryNavs.forEach(categoryNav => {
+            // In some cases expandle category list can have temporary no category
+            if(categoryNav!=null){            
+                let categoryItems = categoryNav.querySelector("li");
+                categoryItems.addEventListener('click', handleTouch);
+            }
+        });
+    }
 }
 
 

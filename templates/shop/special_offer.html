@@ -15,17 +15,19 @@
     </head >
     <body >
     <div id="main" style="margin-top: 75px">
+
         <header class="coffee-2" >
-            <div class="navigation-filter"  >
+            <div class="navigation-filter" >
                 <div class="container" >
                     <div class="row" >
                         <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
                             <div class="department-menu_block down" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 74px"><i class="fas fa-bars" ></i >All
-                                                                                                                                             departments<span ><i
+                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 50px" ><i
+                                        class="fas fa-bars" ></i >All
+                                                                  departments<span ><i
                                             class="arrow_carrot-up" ></i ></span ></div >
                                 <div class="department-dropdown-menu down" >
-                                    <ul style="height: 460px" >
+                                    <ul style="height: 460px" class="department_ul">
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
@@ -41,6 +43,7 @@
                                                                     <i >
                                                                         <img STYLE="width: 20px" src="
 
+
                                                                                 {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
                                                                              alt="" >
                                                                     </i >{{ subcat.sub_category_name }}</a ></li >
@@ -54,139 +57,122 @@
                                 </div >
                             </div >
                         </div >
-                    </div >
-                </div >
-            </div>
-        </header >
-        {#        <div class="ogami-breadcrumb" >#}
-        {#            <div class="container" >#}
-        {#                <ul >#}
-        {#                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >#}
-        {#                    <li ><a class="breadcrumb-link active" href="index.html" >Shop</a ></li >#}
-        {#                </ul >#}
-        {#            </div >#}
-        {#        </div >#}
-        {#        <!-- End breadcrumb-->#}
-        <!-- Slider -->
-        <div class="fluid" style="margin-top: -104px">
-            <div class="row" >
-                <div class="col-xl-3" >
-                </div >
-                <div class="col-xl-12" >
-                    <!-- slider for offer -->
-                    <div class="offer-slider" style="margin: 0px; padding-bottom: 20px" >
-                        <div class="slider" >
-                            <main class="main" >
-                                <style >
-                                    * {
-                                        margin: 0;
-                                        padding: 0;
-                                        box-sizing: border-box;
-                                        list-style: none;
-                                        text-decoration: none;
-                                    }
-
-                                    .container {
-                                        max-width: 75rem;
-                                        width: 100%;
-                                        margin: 0 auto;
-                                    }
-
-                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
-                                        background: #ffffff;
-                                        border: none;
-                                        outline: none;
-                                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-                                        border-radius: 2px;
-                                    }
-
-                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
-                                        display: block;
-                                        position: relative;
-                                        left: 0;
-                                        bottom: 0;
-                                        width: 100%;
-                                        height: auto;
-                                        -o-object-fit: cover;
-                                        object-fit: cover;
-                                    }
-
-                                    .main .container .swiper-container .swiper-pagination-bullet {
-                                        opacity: 0.8;
-                                        background: #333333;
-                                    }
-
-                                    .main .container .swiper-container .swiper-pagination-bullet-active {
-                                        background: #ffffff;
-                                    }
-
-                                    .main .container .swiper-container .swiper-button-next,
-                                    .main .container .swiper-container .swiper-button-prev {
-                                        background-image: none;
-                                        background-size: 0;
-                                        background-repeat: no-repeat;
-                                        background-position: 0;
-                                        margin-top: -1rem;
-                                    }
-
-                                    .main .container .swiper-container .swiper-button-next .arrow-icon,
-                                    .main .container .swiper-container .swiper-button-prev .arrow-icon {
-                                        font-size: 2rem;
-                                        color: #ffffff;
-                                    }
-                                </style >
+                        <div class="col-12 col-md-8 col-lg-8 col-xl-8 order-1 order-md-1" >
+                            <div class="banner_v3"  >
                                 <div class="container" >
-                                    <div class="swiper-container" style="width: 75%;float: right;" >
-                                        <div class="swiper-wrapper" >
-                                            <div class="swiper-slide" >
-                                                <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy" alt="Image Slider" >
+                                    <div class="row" >
+                                        <div class="col-12 col-xl-12" >
+                                            <main class="main" >
+                                                <style >
+                                                    * {
+                                                        margin: 0;
+                                                        padding: 0;
+                                                        box-sizing: border-box;
+                                                        list-style: none;
+                                                        text-decoration: none;
+                                                    }
+
+
+                                                    .container {
+                                                        max-width: 75rem;
+                                                        width: 100%;
+                                                        margin: 0 auto;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+                                                        background: #ffffff;
+                                                        border: none;
+                                                        outline: none;
+                                                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                                                        border-radius: 2px;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+                                                        display: block;
+                                                        position: relative;
+                                                        left: 0;
+                                                        bottom: 0;
+                                                        width: 100%;
+                                                        height: auto;
+                                                        -o-object-fit: cover;
+                                                        object-fit: cover;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet {
+                                                        opacity: 0.8;
+                                                        background: #333333;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet-active {
+                                                        background: #ffffff;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next,
+                                                    .main .container .swiper-container .swiper-button-prev {
+                                                        background-image: none;
+                                                        background-size: 0;
+                                                        background-repeat: no-repeat;
+                                                        background-position: 0;
+                                                        margin-top: -1rem;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next .arrow-icon,
+                                                    .main .container .swiper-container .swiper-button-prev .arrow-icon {
+                                                        font-size: 2rem;
+                                                        color: #ffffff;
+                                                    }
+                                                </style >
+                                                <div class="container" >
+                                                    <div class="swiper-container" >
+                                                        <div class="swiper-wrapper" >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner2.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner3.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                        </div >
+                                                        <!-- Add Pagination -->
+                                                        <div class="swiper-pagination" ></div >
+                                                        <!-- Add Scrollbar -->
+                                                        <div class="swiper-button-next" >
+                                                            <i class="fas fa-chevron-circle-right arrow-icon" ></i >
+                                                        </div >
+                                                        <div class="swiper-button-prev" >
+                                                            <i class="fas fa-chevron-circle-left arrow-icon" ></i >
+                                                        </div >
+                                                    </div >
                                                 </div >
-                                            </div >
-                                            <div class="swiper-slide" >
-                                                <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner5.jpg' %}" loading="lazy" alt="Image Slider" >
-                                                </div >
-                                            </div >
-                                            <div class="swiper-slide" >
-                                                <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy" alt="Image Slider" >
-                                                </div >
-                                            </div >
-                                            <div class="swiper-slide" >
-                                                <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" alt="Image Slider" ></div >
-                                            </div >
-                                            {#                                            <div class="swiper-slide" >#}
-                                            {#                                                <div class="card-image" >#}
-                                            {#                                                    <img src="{% static 'assets/images/special_offer/cow2.webp' %}" alt="Image Slider" >#}
-                                            {#                                                </div >#}
-                                            {#                                            </div >#}
-                                            {#                                            <div class="swiper-slide" >#}
-                                            {#                                                <div class="card-image" >#}
-                                            {#                                                    <img src="{% static 'assets/images/special_offer/cow1.jpg' %}" alt="Image Slider" >#}
-                                            {#                                                </div >#}
-                                            {#                                            </div >#}
-                                        </div >
-                                        <!-- Add Pagination -->
-                                        <div class="swiper-pagination" ></div >
-                                        <!-- Add Scrollbar -->
-                                        <div class="swiper-button-next" >
-                                            <i class="fas fa-chevron-circle-right arrow-icon" ></i >
-                                        </div >
-                                        <div class="swiper-button-prev" >
-                                            <i class="fas fa-chevron-circle-left arrow-icon" ></i >
+                                            </main >
                                         </div >
                                     </div >
                                 </div >
-                            </main >
+                            </div >
+                            <!-- End banner v3-->
                         </div >
-                        <!-- End slider-->
                     </div >
                 </div >
             </div >
-        </div >
-        <div class="shop-layout" id="cattle_list">
+        </header >
+        <div class="shop-layout cattle_list" id="cattle_list">
             <div class="container" >
                 <div class="row" >
                     <div class="col-xl-12" >

@@ -464,8 +464,10 @@ header .navigation-filter .department-menu_block .department-dropdown-menu ul {
     width: 100%;
     transition: all .5s linear;
 }
-
-.animated {
+.cattle_list{
+    margin-top: 20px;
+}
+.animated_delivery {
     animation: up-down 1.5s ease-in-out infinite alternate-reverse both;
 }
 

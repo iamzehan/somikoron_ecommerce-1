@@ -23,18 +23,18 @@
         {#        </style >#}
     </head >
     <body >
-    <div id="main" >
+    <div id="main" style="margin-top: 70px">
         <header class="coffee-2" >
-            <div class="navigation-filter" style="margin-top: 65px" >
+            <div class="navigation-filter"  >
                 <div class="container" >
                     <div class="row" >
                         <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
                             <div class="department-menu_block down" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
+                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 50px"><i class="fas fa-bars" ></i >All
                                                                                                                                              departments<span ><i
                                             class="arrow_carrot-up" ></i ></span ></div >
                                 <div class="department-dropdown-menu down" >
-                                    <ul style="height: 450px" >
+                                    <ul style="height: 460px" >
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
@@ -61,47 +61,10 @@
                                 </div >
                             </div >
                         </div >
-                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
-                            <div class="row" >
-                                <div class="col-12 order-1 order-md-2" >
-                                    <div class="website-search" >
-                                        <div class="row no-gutters" >
-                                            <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                                <div class="filter-search" >
-                                                    <div class="categories-select d-flex align-items-center justify-content-around" ><span >All Categories</span ><i
-                                                            class="arrow_carrot-down" ></i ></div >
-                                                    <div class="categories-select_box" >
-                                                        <ul >
-                                                            {% for cat in categories %}
-                                                                <li >{{ cat.category_name }}</li >
-                                                            {% endfor %}
-                                                        </ul >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                                <div class="search-input" >
-                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
-                                                          value="{{ request.GET.q }}" >
-                                                        <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
-                                                               placeholder="What do you need" />
-                                                    </form >
-                                                </div >
-                                            </div >
-                                            <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
-                                                        onclick="document.getElementById('search-form').submit();" >Search
-                                                </button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
                     </div >
                 </div >
         </header >
-        <div class="banner_v3" >
+        <div class="banner_v3" style="margin-top: -50px">
             <div class="container" >
                 <div class="row" >
                     <div class="col-xl-3" ></div >
@@ -171,22 +134,22 @@
                                     <div class="swiper-wrapper" >
                                         <div class="swiper-slide" >
                                             <div class="card-image" >
-                                                <img src="{% static 'assets/images/banner/hBanner2.jpg' %}" alt="Image Slider" >
+                                                <img src="{% static 'assets/images/banner/hBanner2.jpg' %}"  loading="lazy" alt="Image Slider" >
                                             </div >
                                         </div >
                                         <div class="swiper-slide" >
                                             <div class="card-image" >
-                                                <img src="{% static 'assets/images/banner/hBanner3.jpg' %}" alt="Image Slider" >
+                                                <img src="{% static 'assets/images/banner/hBanner3.jpg' %}"  loading="lazy" alt="Image Slider" >
                                             </div >
                                         </div >
                                         <div class="swiper-slide" >
                                             <div class="card-image" >
-                                                <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" alt="Image Slider" >
+                                                <img src="{% static 'assets/images/banner/hBanner1.jpg' %}"  loading="lazy" alt="Image Slider" >
                                             </div >
                                         </div >
                                         <div class="swiper-slide" >
                                             <div class="card-image" >
-                                                <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" alt="Image Slider" >
+                                                <img src="{% static 'assets/images/banner/hBanner4.jpg' %}"  loading="lazy" alt="Image Slider" >
                                             </div >
                                         </div >
                                     </div >
@@ -363,7 +326,6 @@
                                                 <div class="product-select" >
                                                     <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
                                                             class="icon_heart_alt" ></i ></button >
-                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
                                                     <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"  data-url ="{% url 'shop:quick-view' item.slug %}" ><i
                                                                 class="far fa-eye" ></i ></button >
                                                 </div >

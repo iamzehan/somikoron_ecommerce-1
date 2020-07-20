@@ -18,7 +18,7 @@ class QuickViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Items
         fields = ('images','itemdetails', 'cattleinfo', 'title', 'price', 'sub_category', 'slug',
-                  'description', 'product_code', 'item_owner')
+                  'description', 'product_code', 'item_owner', 'pk')
         depth = 2
 
         # def get_discounted_price(self, obj):  # "get_" + field name

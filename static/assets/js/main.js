@@ -1,6 +1,6 @@
 //Add preload to DOM
-$('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>') 
-
+// $('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>')
+//
 
 
 

@@ -122,75 +122,99 @@
         .flashbtn:hover span {
             animation-play-state: paused;
         }
+
+        .partner--logo {
+            padding: 30px !important;
+        }
+    .col-2 .logo img{
+        width: 140px !important;
+        height: auto;
+    }
     </style >
     <header class="coffee-2" >
         <nav class="navigation d-flex align-items-center fixed-top" style="padding: 10px;  background-color: whitesmoke" >
             <div class="container" style="padding: 0px" >
                 <div class="row" >
-                    <div class="col-2" ><a class="logo" href="{% url 'shop:home' %}" ><img src="{% static 'assets/images/logo.png' %}" alt="" ></a >
+                    <div class="col-2" style="padding-left: 36px; " ><a class="logo"  href="{% url 'shop:home' %}" ><img
+                            src="{% static 'assets/images/logo.png' %}" alt="" ></a >
                     </div >
-                    <div class="col-7" >
-                        <div class="navgition-menu d-flex align-items-center justify-content-center" >
+                    <div class="col-lg-2 navgition-menu d-flex align-items-center justify-content-center" style="width: 20%">
                             <ul class="mb-0" >
-                                <li class="toggleable" ><a class="menu-item active" href="{% url 'shop:home' %}" >Home</a ></li >
-                                {#                                <li class="toggleable" ><a class="menu-item" href="shop_grid%2blist_3col.html" >Shop</a >#}
-                                {#                                    <ul class="sub-menu shop d-flex" >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Layout shop</h2 >#}
-                                {#                                            <li ><a href="shop_grid%2blist_fullwidth.html" >Shop grid fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_fullwidth.html" >Shop list fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_3col.html" >shop grid 3 column</a ></li >#}
-                                {#                                            <li ><a href="shop_grid%2blist_3col.html" >shop list 3 column</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Detail shop</h2 >#}
-                                {#                                            <li ><a href="shop_detail_fullwidth.html" >shop detail fullwidth</a ></li >#}
-                                {#                                            <li ><a href="shop_detail.html" >shop detail sidebar</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                        <div class="nav-column" >#}
-                                {#                                            <h2 >Pages shop</h2 >#}
-                                {#                                            <li ><a href="shop_checkout.html" >checkout</a ></li >#}
-                                {#                                            <li ><a href="shop_order_complete.html" >order complete</a ></li >#}
-                                {#                                            <li ><a href="shop_wishlist.html" >wishlist</a ></li >#}
-                                {#                                            <li ><a href="shop_compare.html" >compare</a ></li >#}
-                                {#                                            <li ><a href="shop_cart.html" >cart</a ></li >#}
-                                {#                                        </div >#}
-                                {#                                    </ul >#}
-                                {#                                </li >#}
-                                <li class="toggleable" ><a class="menu-item" href="" >Blog</a >
-                                    <ul class="sub-menu" >
-                                        <li >Coming Soon</li >
-                                    </ul >
-                                </li >
                                 <li class="toggleable" ><a class="menu-item flashbtn" href="{% url 'shop:cattle-shop' %}" >কোরবানি
                                                                                                                            স্পেশাল<span ></span ><span ></span ><span ></span ><span ></span ></a >
                                 </li >
-                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:about_us' %}" >About us</a ></li >
-                                <li class="toggleable" ><a class="menu-item" href="{% url 'shop:contact_us' %}" >Contact us</a ></li >
                             </ul >
                         </div >
-                    </div >
-                    <div class="col-3" >
-                        {% if user.is_authenticated %}
-                            <div class="product-function d-flex align-items-center justify-content-end" >
-                                <div id="wishlist" ><a class="function-icon icon_heart_alt" href="#" style="color:#cb241b; " ><span
-                                        style="margin-left: 2px; font-size: 12px" > 0</span ></a >
+                    <div class="col-lg-8" style="padding-left: 0px;">
+                        <header class="coffee-2" style="width: 100% !important;" >
+                            <div class="navigation-filter" >
+                                <div class="container" >
+                                    <div class="row" >
+                                        <div class="col-11 col-md-11 col-lg-11 col-xl-11 " style="padding-left: 0px">
+                                            <div class="website-search" >
+                                                <div class="row no-gutters" >
+                                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
+                                                        <div class="filter-search" >
+                                                            <div class="categories-select d-flex align-items-center justify-content-around" >
+                                                                <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
+                                                            <div class="categories-select_box" >
+                                                                <ul >
+                                                                    {% for cat in categories %}
+                                                                        <li >{{ cat.category_name }}</li >
+                                                                    {% endfor %}
+                                                                </ul >
+                                                            </div >
+                                                        </div >
+                                                    </div >
+                                                    <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
+                                                        <div class="search-input" >
+                                                            <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
+                                                                  value="{{ request.GET.q }}" >
+                                                                <input style="height: 40px" class="no-round-input no-border" type="text" name="q"
+                                                                       value="{{ request.GET.q }}"
+                                                                       placeholder="What do you need" />
+                                                            </form >
+                                                        </div >
+                                                    </div >
+                                                    <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
+                                                        <button style="height: 40px; padding: 10px" class="no-round-btn coffee" type="submit"
+                                                                name="submit" value="Search"
+                                                                onclick="document.getElementById('search-form').submit();" >Search
+                                                        </button >
+                                                    </div >
+                                                </div >
+                                            </div >
+                                        </div >
+                                        <div class="col-sm-1" style="float: right !important; padding-left: 0px" >
+                                            <div class="navgition-menu d-flex align-items-center justify-content-center" >
+                                                <ul class="mb-0" >
+                                                    <li class="toggleable text-left" ><a class="menu-item" href="" ><i class="fa fa-user" ></i ></a >
+                                                        <ul class="sub-menu  d-flex" style="min-width: 0px !important;" >
+                                                            <div class="nav-column" style="width: 110px !important;" >
+                                                                {% if request.user.is_authenticated %}
+                                                                    <h5 >Profile</h5 >
+                                                                    <li ><a href="{% url 'shop:order-summary' %}" ><i
+                                                                            class="fa fa-shopping-cart" ></i > Cart</a ></li >
+                                                                    <li ><a href="/accounts/logout" ><i class="fa fa-heart" ></i > Favourites</a >
+                                                                    </li >
+                                                                    <li ><a href="/delivery-status" ><i class="fa fa-check-circle" ></i > My
+                                                                                                                                          Orders</a >
+                                                                    </li >
+                                                                    <li ><a href="/accounts/logout" ><i class="fa fa-sign-out-alt" ></i > Log out</a >
+                                                                    </li >
+                                                                {% else %}
+                                                                    <a href="/user_login" ><i class="fa fa-user-plus" ></i > Log in</a >
+                                                                {% endif %}
+                                                            </div >
+                                                        </ul >
+                                                    </li >
+                                                </ul >
+                                            </div >
+                                        </div >
+                                    </div >
                                 </div >
-                                <div id="cart" ><a class="function-icon icon_bag_alt"
-                                                   style="color:#cb241b; " href="" ><span
-{#                                        {% url 'shop:order-summary' %}#}
-                                        style="margin-left: 0px;font-size: 12px" ></span ></a >
-                                    {# {{ request.user|cart_item_count }} #}
-                                </div >
-                                &nbsp;&nbsp;&nbsp;&nbsp;<div ><a class="function-icon " href="/accounts/logout" >Log out</a ></div >
                             </div >
-                        {% else %}
-                            <div class="product-function d-flex align-items-center justify-content-end" >
-                                <div id="wishlist" ><a class="function-icon fa-sign-in" href="/accounts/signup" ><span >Signup</span ></a ></div >
-                                <div id="cart" ><a class="function-icon "
-                                                   href="/accounts/login" ><span >Login</span ></a ></div >
-                            </div >
-                        {% endif %}
+                        </header >
                     </div >
                 </div >
             </div >
@@ -296,45 +320,53 @@
 
 {% block footer %}
     <div class="partner" >
-                    <div class="container" >
-                        <div class="partner_block d-flex justify-content-between"
-                             data-slick="{&quot;slidesToShow&quot;: 6}" >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/pran.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/square.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/aci.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/reckitt.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/pran.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/square.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/aci.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                            <div class="partner--logo" href="#" ><a href="#" ><img
-                                    src="{% static 'assets/images/partner/reckitt.png' %}"
-                                    alt="partner"
-                                    title="partner logo" ></a ></div >
-                        </div >
-                    </div >
-                </div >
-                <!-- End partner-->
+        <div class="container" >
+            <div class="partner_block d-flex justify-content-between"
+                 data-slick="{&quot;slidesToShow&quot;: 6}" >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/pran.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/square.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/fams.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/aci.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/reckitt.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/pran.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/square.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/fams.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/aci.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+                <div class="partner--logo" href="#" ><a href="#" ><img
+                        src="{% static 'assets/images/partner/reckitt.png' %}"
+                        alt="partner"
+                        title="partner logo" ></a ></div >
+            </div >
+        </div >
+    </div >
+    <!-- End partner-->
     <footer class="coffee" >
         <div class="container" style="border-top: 1px solid #d5d3d3; padding-top: 20px;" >
             <div class="row" >
@@ -346,10 +378,12 @@
                         <p style="margin-bottom: 0px !important;" >Email: contact@somikoron.com</p >
                     </div >
                     <div class="footer-social" >
-                        <a class="round-icon-btn coffee" href="https://www.facebook.com/somikoron/" ><i class="fab fa-facebook-f" > </i ></a >
-                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-twitter" ></i ></a >
-                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-invision" > </i ></a >
-                        <a class="round-icon-btn coffee" href="#" disabled="" ><i class="fab fa-pinterest-p" ></i ></a >
+                        <a class="round-icon-btn coffee" style="padding: 13px" href="https://www.facebook.com/somikoron/" ><i
+                                class="fab fa-facebook-f" > </i ></a >
+                        <a class="round-icon-btn coffee" style="padding: 13px" href="https://twitter.com/Somikoron_com" disabled="" ><i
+                                class="fab fa-twitter" ></i ></a >
+                        <a class="round-icon-btn coffee" style="padding: 13px" href="https://www.instagram.com/_somikoron/" disabled="" ><i
+                                class="fab fa-instagram" > </i ></a >
                     </div >
                 </div >
                 <div class="col-md-8" >

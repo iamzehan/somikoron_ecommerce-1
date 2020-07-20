@@ -1,5 +1,52 @@
 //Add preload to DOM
-$('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>') 
+// $('body').prepend('<div id="preload"><div class="preload-box"><div class="line"></div><div class="line"></div><div class="line"></div></div></div>')
+//
+
+
+
+
+
+// ================================= Custom JS from Antu ============================
+function atcSidebar(){
+	// document.getElementById('add_cart_sidebar').style.display = "block";
+    document.querySelector('.sidebar_row').style.display="block";
+	// var po = document.querySelector('.place_order');
+}
+
+
+
+var sidebar = document.getElementById('add_cart_sidebar');
+window.onclick = function(event) {
+	if (event.target == sidebar) {
+		sidebar.style.display = "none";
+	}
+  }
+
+
+
+function closeSidebar(){
+	var x = document.getElementById("add_cart_sidebar");
+	x.style.display = "none";
+}
+
+function clickCode() {
+    var x = document.getElementById("hiddenform");
+    x.classList.toggle("token_form");
+}
+
+
+function closeAddProduct(){
+	document.querySelector('.sidebar_row').style.display = "none";
+}
+
+function sidebarOPen(){
+	document.getElementById('add_cart_sidebar').style.display = "block";
+	// document.querySelector('.place_order').style.display = "block";
+}
+
+// ================================= Custom JS End from Antu ============================
+
+
 
 //Wait for document loaded
 window.onload = function () {

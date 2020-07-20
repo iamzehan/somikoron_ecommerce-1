@@ -14,23 +14,24 @@
         {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >#}
     </head >
     <body >
-    <div id="main" >
+    <div id="main" style="margin-top: 75px">
         <header class="coffee-2" >
-            <div class="navigation-filter" style="margin-top: 65px" >
+            <div class="navigation-filter"  >
                 <div class="container" >
                     <div class="row" >
                         <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
                             <div class="department-menu_block down" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
+                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 74px"><i class="fas fa-bars" ></i >All
                                                                                                                                              departments<span ><i
                                             class="arrow_carrot-up" ></i ></span ></div >
                                 <div class="department-dropdown-menu down" >
-                                    <ul style="height: 555px" >
+                                    <ul style="height: 460px" >
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
                                                 <li ><a href="{{ cat.get_absolute_url }}" ><i >
-                                                    <img style="width: 25px" src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png" alt="" >
+                                                    <img style="width: 25px" src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
+                                                         alt="" >
                                                 </i >{{ cat.category_name }}</a >
                                                     {% if cat.subcategory_set.count > 0 and cat.category_name not in  cat.subcategory_set.all.0.sub_category_name %}
                                                         <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
@@ -39,6 +40,7 @@
                                                                 <li ><a href="{{ subcat.get_absolute_url }}" >
                                                                     <i >
                                                                         <img STYLE="width: 20px" src="
+
                                                                                 {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
                                                                              alt="" >
                                                                     </i >{{ subcat.sub_category_name }}</a ></li >
@@ -52,57 +54,21 @@
                                 </div >
                             </div >
                         </div >
-                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
-                            <div class="row" >
-                                <div class="col-12 order-1 order-md-2" >
-                                    <div class="website-search" >
-                                        <div class="row no-gutters" >
-                                            <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                                <div class="filter-search" >
-                                                    <div class="categories-select d-flex align-items-center justify-content-around" ><span >All Categories</span ><i
-                                                            class="arrow_carrot-down" ></i ></div >
-                                                    <div class="categories-select_box" >
-                                                        <ul >
-                                                            {% for cat in categories %}
-                                                                <li >{{ cat.category_name }}</li >
-                                                            {% endfor %}
-                                                        </ul >
-                                                    </div >
-                                                </div >
-                                            </div >
-                                            <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                                <div class="search-input" >
-                                                    <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
-                                                          value="{{ request.GET.q }}" >
-                                                        <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
-                                                               placeholder="What do you need" />
-                                                    </form >
-                                                </div >
-                                            </div >
-                                            <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                                <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
-                                                        onclick="document.getElementById('search-form').submit();" >Search
-                                                </button >
-                                            </div >
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
                     </div >
                 </div >
+            </div>
         </header >
-{#        <div class="ogami-breadcrumb" >#}
-{#            <div class="container" >#}
-{#                <ul >#}
-{#                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >#}
-{#                    <li ><a class="breadcrumb-link active" href="index.html" >Shop</a ></li >#}
-{#                </ul >#}
-{#            </div >#}
-{#        </div >#}
-{#        <!-- End breadcrumb-->#}
+        {#        <div class="ogami-breadcrumb" >#}
+        {#            <div class="container" >#}
+        {#                <ul >#}
+        {#                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >#}
+        {#                    <li ><a class="breadcrumb-link active" href="index.html" >Shop</a ></li >#}
+        {#                </ul >#}
+        {#            </div >#}
+        {#        </div >#}
+        {#        <!-- End breadcrumb-->#}
         <!-- Slider -->
-        <div class="fluid" >
+        <div class="fluid" style="margin-top: -104px">
             <div class="row" >
                 <div class="col-xl-3" >
                 </div >
@@ -170,20 +136,21 @@
                                     }
                                 </style >
                                 <div class="container" >
-                                    <div class="swiper-container" style="width: 75%;float: right;">
+                                    <div class="swiper-container" style="width: 75%;float: right;" >
                                         <div class="swiper-wrapper" >
                                             <div class="swiper-slide" >
                                                 <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" alt="Image Slider" >
+                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy" alt="Image Slider" >
                                                 </div >
                                             </div >
                                             <div class="swiper-slide" >
                                                 <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner5.jpg' %}" alt="Image Slider" ></div >
+                                                    <img src="{% static 'assets/images/banner/hBanner5.jpg' %}" loading="lazy" alt="Image Slider" >
+                                                </div >
                                             </div >
                                             <div class="swiper-slide" >
                                                 <div class="card-image" >
-                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" alt="Image Slider" >
+                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy" alt="Image Slider" >
                                                 </div >
                                             </div >
                                             <div class="swiper-slide" >
@@ -219,7 +186,7 @@
                 </div >
             </div >
         </div >
-        <div class="shop-layout" >
+        <div class="shop-layout" id="cattle_list">
             <div class="container" >
                 <div class="row" >
                     <div class="col-xl-12" >
@@ -263,9 +230,9 @@
                                 <div class="shop-products_bottom" >
                                     <div class="row no-gutters-sm" >
                                         {% for item in cattles %}
-                                            <div class="col-6 col-md-4 cartable" >
-                                                <div class="product" >
-                                                    <div class="product-img_block" ><a class="product-img product__image"
+                                            <div class="col-6 col-md-4 " >
+                                                <div class="product cartable" >
+                                                    <div class="product-img_block" ><a class="product-img "
                                                                                        href="{{ item.itemdetails.get_absolute_url }}" ><img
                                                             src="{{ item.images.all.0.image.thumbnail.url }}" alt="" ></a >
                                                         {#                                                        <button class="quickview no-round-btn smooth" data-toggle="modal"#}
@@ -306,11 +273,14 @@
                                                         <br >
                                                         </p >
                                                         <div class="openSidebar" >
+                                                            <img hidden src="{{ item.images.all.0.image.thumbnail.url }}" alt="Image"
+                                                                 class="product__image" >
                                                             <p hidden class="product__name" >{{ item.pk }}</p >
                                                             <p hidden class="product__title" >{{ item.title }}</p >
                                                             <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
                                                             <button class="all_btn" data-action="ADD_TO_CART"
-                                                                    style="margin-left: auto !important; margin-right: auto !important; " >Add to cart
+                                                                    style="margin-left: auto !important; margin-right: auto !important; "
+                                                                    name="btn{{ item.pk }}" >Add to cart
                                                             </button >
                                                         </div >
                                                         <p class="product-describe" >
@@ -320,10 +290,8 @@
                                                     <div class="product-select" >
                                                         <button class="add-to-wishlist round-icon-btn" title="Add to Favorite" ><i
                                                                 class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn" title="Add to Compare" ><i
-                                                                class="fas fa-random" ></i ></button >
-                                                        <button class="round-icon-btn quickviewbtn" id="quickviewbtn" title="Quick Details"  data-url ="{% url 'shop:quick-view' item.slug %}" ><i
+                                                        <button class="round-icon-btn quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                                data-url="{% url 'shop:quick-view' item.slug %}" ><i
                                                                 class="far fa-eye" ></i ></button >
                                                     </div >
                                                     <div class="product-select_list" >
@@ -338,7 +306,7 @@
                                                             </h3 >
                                                         {% endif %}
 
-                                                        <p class="product-avaiable" >Avability: <span >5 In stock</span ></p >
+                                                        <p class="product-avaiable" >Avability: <span >In stock</span ></p >
                                                     </div >
                                                 </div >
                                             </div >
@@ -346,20 +314,27 @@
                                     </div >
                                 </div >
                                 <div class="shop-pagination" >
-                                    <ul >
-                                        <li >
-                                            <button class="no-round-btn smooth active" >1</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" >2</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" >3</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button >
-                                        </li >
-                                    </ul >
+                                    {% if cattles.has_other_pages %}
+                                        <ul  >
+                                            {% if cattles.has_previous %}
+                                                <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ cattles.previous_page_number }}#cattle_list'" >&laquo;</button ></li >
+                                            {% else %}
+{#                                                <li ><button class="no-round-btn smooth disabled" ><i class="arrow_carrot-2left" ></i ></button ></li>#}
+                                            {% endif %}
+                                            {% for i in cattles.paginator.page_range %}
+                                                {% if cattles.number == i %}
+                                                    <li  ><button class="no-round-btn smooth active disabled" >{{ i }} <span class=" sr-only" >(current)</span ></button ></li >
+                                                {% else %}
+                                                    <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ i }}#cattle_list'" >{{ i }}</button ></li >
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if cattles.has_next %}
+                                                <li  ><button class="no-round-btn smooth" onclick="location.href='?page={{ cattles.next_page_number }}#cattle_list'" >&raquo;</button ></li >
+                                            {% else %}
+{#                                                <li><button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button ></li>#}
+                                            {% endif %}
+                                        </ul >
+                                    {% endif %}
                                 </div >
                             </div >
                         </div >
@@ -368,16 +343,15 @@
             </div >
         </div >
         <!-- End shop layout-->
-
         <!-- End partner-->
     </div >
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js' ></script >
     <script src="{% static 'assets/js/slider.js' %}" ></script >
-    <script type="text/javascript">
-    $(document).ready(function () {
-        document.getElementById('floatcart').style.display = 'block'
-    })
-    </script>
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            document.getElementById('floatcart').style.display = 'block'
+        })
+    </script >
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:53 GMT -->
     </html >

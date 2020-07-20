@@ -13,49 +13,7 @@
         </style >
     </head >
     <body >
-    <div id="main" >
-
-        <header class="coffee-2" >
-            <div class="navigation-filter" style="margin-top: 65px" >
-                <div class="container" >
-                    <div class="row" >
-                        <div class="col-12 col-md-12 col-lg-12 col-xl-12 order-1 order-md-2" >
-                            <div class="website-search" >
-                                <div class="row no-gutters" >
-                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                        <div class="filter-search" >
-                                            <div class="categories-select d-flex align-items-center justify-content-around" >
-                                                <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
-                                            <div class="categories-select_box" >
-                                                <ul >
-                                                    {% for cat in categories %}
-                                                        <li >{{ cat.category_name }}</li >
-                                                    {% endfor %}
-                                                </ul >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                        <div class="search-input" >
-                                            <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
-                                                  value="{{ request.GET.q }}" >
-                                                <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
-                                                       placeholder="What do you need" />
-                                            </form >
-                                        </div >
-                                    </div >
-                                    <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                        <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
-                                                onclick="document.getElementById('search-form').submit();" >Search
-                                        </button >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </header >
+    <div id="main" style="margin-top: 70px" >
         <!-- End header-->
         <div class="ogami-breadcrumb" >
             <div class="container" >
@@ -154,25 +112,9 @@
                                     {{ form.district|as_crispy_field }}
                                 </div >
                             </div >
-                            <div class="form-row" >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputStreet" >Street address*</label >#}
-                                    {#                                    <input class="no-round-input-bg" id="inputStreet" type="text" required >#}
-                                    {{ form.apartment_and_house|as_crispy_field }}
-                                </div >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputZip" >Postcode / ZIP (optional)</label >#}
-                                    {#                                    <input class="no-round-input-bg" id="inputZip" type="text" >#}
-                                    <div class="form-row" >
-                                        <div class="form-group col-md-8" style=" margin-bottom: 0px;">
-                                            {{ form.street_address|as_crispy_field }}
-                                        </div >
-                                        <div class="form-group col-md-4" style=" margin-bottom: 0px;">
-                                            {{ form.post_code|as_crispy_field }}
-                                        </div >
-                                    </div >
-                                </div >
-                            </div >
+                            {#                                    <label for="inputZip" >Postcode / ZIP (optional)</label >#}
+                            {#                                    <input class="no-round-input-bg" id="inputZip" type="text" >#}
+
                             {#                        <div class="form-group" >#}
                             {#                            <label for="inputCity" >Town / City*</label >#}
                             {#                            <input class="no-round-input-bg" id="inputCity" type="text" required >#}
@@ -186,7 +128,7 @@
                                 <div class="form-group col-md-6" >
                                     {#                                    <label for="inputEmail" >Email address *</label >#}
                                     {#                                    <input class="no-round-input-bg" id="inputEmail" type="email" required >#}
-                                    {{ form.customer_email |as_crispy_field }}
+                                    {{ form.customer_email|as_crispy_field }}
                                 </div >
                             </div >
                             {#                            <h2 class="form-title" >Shipping Address</h2 >#}
@@ -194,6 +136,9 @@
                             {#                                <input id="differentAddress" type="checkbox" >#}
                             {#                                <label for="differentAddress" >Ship to a different address?</label >#}
                             {#                            </div >#}
+                            <div class="form-group" >
+                                {{ form.address|as_crispy_field }}
+                            </div >
                             <div class="form-group" >
                                 {#                                <label for="inputNote" >Order notes (optional)</label >#}
                                 {#                                <textarea class="textarea-form-bg" id="inputNote" name="" cols="30" rows="7" ></textarea >#}
@@ -212,7 +157,7 @@
                                                 <col span="1" style="width: 50%" >
                                                 <col span="1" style="width: 50%" >
                                             </colgroup >
-                                            <tbody  >
+                                            <tbody >
                                             <tr style=" height: 70px;" >
                                                 <th style="width: 40%;text-align: left" >SUBTOTAL</th >
                                                 <td >{{ object.get_total }}</td >
@@ -222,7 +167,7 @@
                                                 <td >
                                                     <p >{% if object.get_total >= 1000 %}
                                                         40 Tk
-                                                        {% else %}
+                                                    {% else %}
                                                         60 Tk
                                                     {% endif %} </p >
                                                 </td >
@@ -237,10 +182,10 @@
                                                 <td >
                                                     {% if object.get_total >= 1000 %}
                                                         {{ object.get_total|addition:40 |sub:0 }}
-                                                        {% else %}
+                                                    {% else %}
                                                         {{ object.get_total|addition:60 |sub:0 }}
                                                     {% endif %}
-                                                    </td >
+                                                </td >
                                             </tr >
                                             </tbody >
                                         </table >
@@ -267,11 +212,11 @@
             </div >
         </div >
     </div >
-    <script type="text/javascript">
-    $(document).ready(function () {
-        document.getElementById('floatcart').style.display = 'none';
-    })
-    </script>
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            document.getElementById('floatcart').style.display = 'none';
+        })
+    </script >
     </body >
     <!-- Mirrored from afinda.vn/html/Ogami/shop_checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:56 GMT -->
     </html >

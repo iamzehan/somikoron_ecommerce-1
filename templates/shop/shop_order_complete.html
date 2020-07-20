@@ -18,67 +18,7 @@
                 integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous" ></script >
     </head >
     <body >
-    <div id="main" >
-        <header class="coffee-2" >
-            <div class="navigation-filter" >
-                <div class="container" >
-                    <div class="row" >
-                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
-                            <div class="department-menu_block" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
-                                                                                                                                             departments<span ><i
-                                            class="arrow_carrot-down" ></i ></span ></div >
-                                <div class="department-dropdown-menu" >
-                                    <ul >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-1" ></i >Fresh Meat</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-2" ></i >Vegetables</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-3" ></i >Fruit & Nut Gifts</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-4" ></i >Fresh Berries</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-5" ></i >Ocean Foods</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-6" ></i >Butter & Eggs</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-7" ></i >Fastfood</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-8" ></i >Fresh Onion</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-9" ></i >Papayaya & Crisps</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" ><i class="icon-10" ></i >Oatmeal</a ></li >
-                                        <li ><a href="shop_grid%2blist_3col.html" > <i class="icon-11" ></i >Fresh Bananas</a ></li >
-                                    </ul >
-                                </div >
-                            </div >
-                        </div >
-                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
-                            <div class="website-search" >
-                                <div class="row no-gutters" >
-                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                        <div class="filter-search" >
-                                            <div class="categories-select d-flex align-items-center justify-content-around" >
-                                                <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
-                                            <div class="categories-select_box" >
-                                                <ul >
-                                                    <li >Fruit & Nut Gifts</li >
-                                                    <li >Fresh Berries</li >
-                                                    <li >Ocean Foods</li >
-                                                    <li >Butter & Eggs</li >
-                                                    <li >Ocean Foods</li >
-                                                </ul >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                        <div class="search-input" >
-                                            <input class="no-round-input no-border" type="text" placeholder="What do you need" >
-                                        </div >
-                                    </div >
-                                    <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                        <button class="no-round-btn" >Search</button >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </header >
-        <!-- End header-->
+    <div id="main" style="margin-top: 70px">
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
@@ -152,11 +92,11 @@
                                 <div id="invoice-mid" >
                                     <div class="info text-left" style="width: 50%" >
                                         <h2 >{{ request.user }}</h2 >
-                                        <p style="font-size: 10pt" >Apartment/House: {{ address.apartment_and_house }}<br >
+                                        <p style="font-size: 10pt" >Address: {{ address.address }}<br >
                                                                     Street Address: {{ address.street_address }}<br >
                                                                     Post/Zip Code: {{ address.post_code }}<br >
                                                                     District: {{ address.district }}<br >
-                                                                    Mobile: {{ address.post_code }}<br >
+                                                                    Mobile: {{ request.user.username }}<br >
                                                                     Email: {{ address.post_code }}<br >
                                         </p >
                                     </div >

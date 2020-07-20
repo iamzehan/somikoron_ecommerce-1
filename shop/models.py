@@ -9,6 +9,7 @@ ADDRESS_CHOICES = (
 )
 
 ORDER_STATUS = (
+    ('PLACED', 'Order Placed'),
     ('RECEIVED', 'Order Received'),
     ('SHIPPING', 'Order is on the way'),
     ('DONE', 'Order Completed'),
@@ -160,7 +161,7 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"{self.quantity} of {self.item.title}"
+        return f"{self.quantity} of {self.item}"
 
     def get_total_item_price(self):
         return self.quantity * self.item.price
@@ -191,6 +192,8 @@ class Order(models.Model):
         'Address', related_name='shipping_address', on_delete=models.SET_NULL, blank=True,
         null=True)
 
+    def __str__(self):
+        return f"{self.user} - {self.order_status}"
     # billing_address = models.ForeignKey(
     #     'Address', related_name='billing_address', on_delete=models.SET_NULL, blank=True,
     #     null=True)
@@ -231,9 +234,10 @@ class Address(models.Model):
                              on_delete=models.CASCADE)
     division = models.CharField(max_length=20)
     district = models.CharField(max_length=30)
-    street_address = models.CharField(max_length=100)
-    apartment_and_house = models.CharField(max_length=100)
-    post_code = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    customer_phone = models.CharField(max_length=15)
+
 
     # address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     # default = models.BooleanField(default=False)

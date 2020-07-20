@@ -24,4 +24,6 @@ urlpatterns = [
     path('about_us/', views.about_us, name='about_us'),
     path('contact_us/', views.contact_us, name='contact_us'),
     path('place-order/', views.plcae_order, name='place-order'),
+    path('delivery-status/', views.delivery_status, name='delivery-status'),
+    path('user_login/', views.user_login, name='user_login'),
 ]

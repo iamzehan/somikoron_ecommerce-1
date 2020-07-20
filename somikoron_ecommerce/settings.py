@@ -29,8 +29,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
+LOGIN_URL = 'shop:user_login'
+JET_PROJECT = 'hi_16'
+JET_TOKEN = '012f2afc-8c95-44e0-afd7-995d900926f3'
+JET_CORS_HEADERS = False
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +48,7 @@ INSTALLED_APPS = [
     'serializers',
     'rest_framework',
     'stdimage',
+    'feedparser',
     # allauth
     'django.contrib.sites',
     'allauth',
@@ -166,7 +173,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 
-LOGIN_URL = '/accounts/login'
+
 # reverse('account_login')
 LOGIN_REDIRECT_URL = "/"
 
@@ -203,3 +210,5 @@ REST_FRAMEWORK = {
 if DEBUG:
     # the default value
     REST_FRAMEWORK['DEFAULT_METADATA_CLASS']: 'rest_framework.metadata.SimpleMetadata'
+
+

@@ -8,80 +8,7 @@
         <title >Somikoron | {{ s }}</title >
     </head >
     <body >
-    <div id="main" >
-        <header class="coffee-2" style="margin-top: 65px !important;" >
-            <div class="navigation-filter" >
-                <div class="container" >
-                    <div class="row" >
-                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
-                            <div class="department-menu_block" >
-                                <div class="department-menu d-flex justify-content-between align-items-center" ><i class="fas fa-bars" ></i >All
-                                                                                                                                             departments<span ><i
-                                            class="arrow_carrot-down" ></i ></span ></div >
-                                <div class="department-dropdown-menu" >
-                                    <ul >
-                                        <!-- Nested div for requirement -->
-                                        <div class="vertical-nav" >
-                                            {% for cat in categories %}
-                                                <li ><a href="" ><i ><img style="width: 25px"
-                                                                          src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
-                                                                          alt="" ></i >{{ cat.category_name }}</a >
-                                                    <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
-                                                    {% if cat.subcategory_set.count     > 0 %}
-                                                        <ul class="sub-menu" >
-                                                            {% for subcat in cat.subcategory_set.all %}
-                                                                <li ><a href="{{ subcat.get_absolute_url }}" > <i >
-                                                                    <img style="width: 25px"
-                                                                         src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
-                                                                         alt="" >
-                                                                </i >{{ subcat.sub_category_name }}</a ></li >
-                                                            {% endfor %}
-                                                        </ul >
-                                                    {% endif %}
-                                                </li >
-                                            {% endfor %}
-                                        </div >
-                                    </ul >
-                                </div >
-                            </div >
-                        </div >
-                        <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2" >
-                            <div class="website-search" >
-                                <div class="row no-gutters" >
-                                    <div class="col-0 col-md-0 col-lg-4 col-xl-3" >
-                                        <div class="filter-search" >
-                                            <div class="categories-select d-flex align-items-center justify-content-around" >
-                                                <span >All Categories</span ><i class="arrow_carrot-down" ></i ></div >
-                                            <div class="categories-select_box" >
-                                                <ul >
-                                                    {% for cat in categories %}
-                                                        <li >{{ cat.category_name }}</li >
-                                                    {% endfor %}
-                                                </ul >
-                                            </div >
-                                        </div >
-                                    </div >
-                                    <div class="col-8 col-md-8 col-lg-5 col-xl-7" >
-                                        <div class="search-input" >
-                                            <form id="search-form" action="{% url 'search:searchitems' %}" method="GET"
-                                                  value="{{ request.GET.q }}" >
-                                                <input class="no-round-input no-border" type="text" name="q" value="{{ request.GET.q }}"
-                                                       placeholder="What do you need" />
-                                            </form >
-                                        </div >
-                                    </div >
-                                    <div class="col-4 col-md-4 col-lg-3 col-xl-2" >
-                                        <button class="no-round-btn coffee" type="submit" name="submit" value="Search"
-                                                onclick="document.getElementById('search-form').submit();" >Search
-                                        </button >
-                                    </div >
-                                </div >
-                            </div >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </header >
+    <div id="main" style="margin-top: 70px">
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
@@ -238,7 +165,7 @@
                     </div >
                     <div class="col-xl-9" >
                         <div class="shop-grid-list" >
-                            <div class="shop-products" >
+                            <div class="shop-products" id="product_list">
                                 <div class="shop-products_top mini-tab-title underline" >
                                     <div class="row align-items-center" >
                                         <div class="col-6 col-xl-4" >
@@ -318,9 +245,7 @@
                                                     <div class="product-select" >
                                                         <button class="add-to-wishlist round-icon-btn" title="Add to Favorite" ><i
                                                                 class="icon_heart_alt" ></i ></button >
-                                                        <button class="add-to-cart round-icon-btn" ><i class="icon_bag_alt" ></i ></button >
-                                                        <button class="add-to-compare round-icon-btn" title="Add to Compare" ><i
-                                                                class="fas fa-random" ></i ></button >
+
                                                         <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
                                                                 data-url="{% url 'shop:quick-view' item.slug %}" ><i
                                                                 class="far fa-eye" ></i ></button >
@@ -337,7 +262,7 @@
                                                             </h3 >
                                                         {% endif %}
 
-                                                        <p class="product-avaiable" >Avability: <span >5 In stock</span ></p >
+                                                        <p class="product-avaiable" >Avability: <span >In stock</span ></p >
                                                     </div >
                                                 </div >
                                             </div >
@@ -345,20 +270,29 @@
                                     </div >
                                 </div >
                                 <div class="shop-pagination" >
-                                    <ul >
-                                        <li >
-                                            <button class="no-round-btn smooth active" >1</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" >2</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" >3</button >
-                                        </li >
-                                        <li >
-                                            <button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button >
-                                        </li >
-                                    </ul >
+                                    {% if items.has_other_pages %}
+                                        <ul  >
+                                            {% if items.has_previous %}
+                                                <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ items.previous_page_number }}#product_list'" >&laquo;</button ></li >
+                                            {% else %}
+{#                                                <li ><button class="no-round-btn smooth disabled" ><i class="arrow_carrot-2left" ></i ></button ></li>#}
+                                            {% endif %}
+                                            {% for i in items.paginator.page_range %}
+                                                {% if items.number == i %}
+                                                    <li  ><button class="no-round-btn smooth active disabled" >{{ i }} <span class=" sr-only" >(current)</span ></button ></li >
+                                                {% else %}
+                                                    <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ i }}#product_list'" >{{ i }}</button ></li >
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if items.has_next %}
+                                                <li  ><button class="no-round-btn smooth" onclick="location.href='?page={{ items.next_page_number }}#product_list'" >&raquo;</button ></li >
+                                            {% else %}
+{#                                                <li><button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button ></li>#}
+                                            {% endif %}
+                                        </ul >
+                                    {% endif %}
+
+
                                 </div >
                             </div >
                         </div >

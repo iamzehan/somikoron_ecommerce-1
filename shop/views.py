@@ -1,10 +1,12 @@
 import json
-
+from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
@@ -15,9 +17,46 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 from rest_framework import generics
 
-from .forms import CheckoutForm
+from .forms import CheckoutForm, CreateUserForm
 from .models import *
 from .serializers import CartItemsSerializer, QuickViewSerializer
+
+
+def user_login(request):
+    # return render(request, 'shop/custom_login.html')
+
+    if request.user.is_authenticated:
+        return redirect('shop:home')
+    else:
+
+        if request.method == 'POST':
+            username= request.POST.get('username')
+            name = request.POST.get('name')
+            password = request.POST.get('password1')
+            if User.objects.filter(username=username).exists():
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                    return redirect('shop:home')
+                else:
+                    messages.info(request, 'Username OR password is incorrect')
+
+            else:
+                form = CreateUserForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    user = User.objects.get(username=username)
+
+                    login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                    messages.success(request, 'Account was created for ' + username)
+                    return redirect('shop:home')
+                else:
+                    messages.success(request, 'Please enter correctly ' )
+        form = CreateUserForm()
+        context = {'form': form}
+        return render(request, 'shop/custom_login.html', context)
+
+
 
 
 class HomeView(ListView):
@@ -47,7 +86,16 @@ def get_subcategories():
 
 class ItemListView(View):
     def get(self, *args, **kwargs):
-        items = Items.objects.filter(sub_category_id=kwargs['subid'])
+        item_list = Items.objects.filter(sub_category_id=kwargs['subid'])
+        page = self.request.GET.get('page', 1)
+
+        paginator = Paginator(item_list, 18)
+        try:
+            items = paginator.page(page)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        except EmptyPage:
+            items = paginator.page(paginator.num_pages)
         cat = Category.objects.get(subcategory=kwargs['subid'])
         context = {
             'items'        : items,
@@ -60,7 +108,16 @@ class ItemListView(View):
 class CategoryItemView(View):
     def get(self, *args, **kwargs):
         cat = Category.objects.get(category_id=kwargs['catid'])
-        items = Items.objects.filter(sub_category__category=cat)
+        item_list = Items.objects.filter(sub_category__category=cat)
+        page = self.request.GET.get('page', 1)
+
+        paginator = Paginator(item_list, 21)
+        try:
+            items = paginator.page(page)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        except EmptyPage:
+            items = paginator.page(paginator.num_pages)
         context = {
             'items'        : items,
             'categories'   : get_categories(),
@@ -81,7 +138,7 @@ class ItemDetailsView(DetailView):
         return context
 
 
-@login_required
+@login_required(login_url="/user_login")
 def add_to_cart(request, slug):
     item = get_object_or_404(Items, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(
@@ -114,7 +171,7 @@ def add_to_cart(request, slug):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-@login_required
+@login_required(login_url="/user_login/")
 def remove_from_cart(request, slug):
     item = get_object_or_404(Items, slug=slug)
     order_qs = Order.objects.filter(
@@ -145,7 +202,7 @@ def remove_from_cart(request, slug):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-@login_required
+@login_required(login_url="/user_login/")
 def remove_single_item_from_cart(request, slug):
     item = get_object_or_404(Items, slug=slug)
     order_qs = Order.objects.filter(
@@ -225,9 +282,7 @@ class CheckoutView(LoginRequiredMixin, View):
             if form.is_valid():
                 division = form.cleaned_data.get('division')
                 district = form.cleaned_data.get('district')
-                street_address = form.cleaned_data.get('street_address')
-                apartment_and_house = form.cleaned_data.get('apartment_and_house')
-                post_code = form.cleaned_data.get('post_code')
+                address = form.cleaned_data.get('address')
                 order_notes = form.cleaned_data.get('order_notes')
                 payment_option = form.cleaned_data.get('payment_option')
                 print(payment_option)
@@ -235,18 +290,14 @@ class CheckoutView(LoginRequiredMixin, View):
                     shipping_address = Address.objects.get(user=self.request.user)
                     shipping_address.division = division
                     shipping_address.district = district
-                    shipping_address.street_address = street_address
-                    shipping_address.apartment_and_house = apartment_and_house
-                    shipping_address.post_code = post_code
+                    shipping_address.address = address
                     shipping_address.save()
                 else:
                     shipping_address = Address(
                         user=self.request.user,
                         division=division,
                         district=district,
-                        street_address=street_address,
-                        apartment_and_house=apartment_and_house,
-                        post_code=post_code,
+                        address=address,
                     )
                     shipping_address.save()
 
@@ -277,7 +328,18 @@ class CattleshopView(View):
 
     def get(self, *args, **kwargs):
         sub_category = SubCategory.objects.filter(category__category_id='cattle')
-        cattles = Items.objects.filter(sub_category__category__category_id='cattle')
+        cattle_list = Items.objects.filter(sub_category__category__category_id='cattle')
+
+        page = self.request.GET.get('page', 1)
+
+        paginator = Paginator(cattle_list, 27)
+        try:
+            cattles = paginator.page(page)
+        except PageNotAnInteger:
+            cattles = paginator.page(1)
+        except EmptyPage:
+            cattles = paginator.page(paginator.num_pages)
+
         print(cattles)
         context = {
             'cattles'   : cattles,
@@ -288,15 +350,16 @@ class CattleshopView(View):
 
 class QuickView(generics.ListAPIView):
     # def get(self, *args, **kwargs):
-        # instance = get_object_or_404(Items, slug='cow1')
-        # context = {
-        #     'instance': instance
-        # }
-        # print(instance)
-        # return render(self.request, 'shop/quick_view.html', context)
+    # instance = get_object_or_404(Items, slug='cow1')
+    # context = {
+    #     'instance': instance
+    # }
+    # print(instance)
+    # return render(self.request, 'shop/quick_view.html', context)
 
     serializer_class = QuickViewSerializer
     print(serializer_class)
+
     def post(self, *args, **kwargs):
         queryset = Items.objects.get(slug=kwargs['slug'])
         # data = serializers.serialize('json', [queryset])
@@ -355,7 +418,7 @@ def plcae_order(request):
                 user=request.user,
                 ordered=False,
             )
-            order_item.quantity=cart_item['quantity']
+            order_item.quantity = cart_item['quantity']
             order_item.save()
             order_qs = Order.objects.filter(user=request.user, ordered=False)
             if order_qs.exists():
@@ -375,3 +438,7 @@ def plcae_order(request):
                 # return redirect("shop:itemdetails", slug=slug)
                 # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return HttpResponse('true')
+
+
+def delivery_status(request):
+    return render(request, 'shop/delivery_status.html', {'categories': get_categories()})

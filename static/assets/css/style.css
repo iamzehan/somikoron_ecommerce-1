@@ -317,8 +317,8 @@ padding: 5px 0px;
     right: 0;
     display: none;
     z-index: 999;
-    background-image: linear-gradient(#fdfdd4, #fcfce2, #f8f8ec, #fdfdef, #ffffff);
-    background-color: #fff;
+    /*background-image: linear-gradient(#fdfdd4, #fcfce2, #f8f8ec, #fdfdef, #ffffff);*/
+    background-color: #FFF5F5;
 
 }
 

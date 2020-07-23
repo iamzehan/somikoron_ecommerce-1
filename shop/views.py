@@ -22,7 +22,18 @@ from .forms import CheckoutForm, CreateUserForm, SignUpForm
 from .models import *
 from .serializers import CartItemsSerializer, QuickViewSerializer
 
-
+# Defined a global dictionary for sets of items
+we = "সমীকরণ.কম"
+page_titles = {
+  "category-page": we,
+  "sub-category-page": we,
+  "login-page": we + " ~ Log In",
+  "about-page": we + " - About Us",
+  "contact-page": we + " - Contact",
+  "cattle-page": we + " ~ Online Gorur Haat 2020",
+  "item-page": we + " ~ Buy Products at cheapest price"
+}
+DEMO = "REPLACE"
 def user_login(request):
     # return render(request, 'shop/custom_login.html')
 
@@ -48,10 +59,10 @@ def user_login(request):
                     messages.success(request, 'Account was created for ' + username)
                     return redirect('shop:home')
                 else:
-                    messages.warning(request, 'Please enter correctly ')
-        form = SignUpForm()
-        print(form)
-        context = {'form': form}
+                    messages.success(request, 'Please enter correctly ')
+        form = CreateUserForm()
+        context = {'form': form,
+                   'page_title': page_titles["login-page"]}
         return render(request, 'shop/custom_login.html', context)
 
 
@@ -101,6 +112,7 @@ class ItemListView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
+            'page_title': page_titles["sub-category-page"] + " - " + DEMO,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -122,6 +134,7 @@ class CategoryItemView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
+            'page_title': page_titles["category-page"] + " - " + DEMO,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -133,6 +146,7 @@ class ItemDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ItemDetailsView, self).get_context_data(**kwargs)
         context['categories'] = get_categories()
+        context['page_title'] = page_titles["item-page"] + DEMO
         # item = Items.objects.get(pk='GR02')
         # context['images'] = ItemImages.objects.all()
         return context
@@ -358,6 +372,7 @@ class CattleshopView(View):
         context = {
             'cattles'   : cattles,
             'categories': get_categories(),
+            'page_title': page_titles["cattle-page"]
         }
         return render(self.request, 'shop/special_offer.html', context)
 
@@ -404,11 +419,13 @@ def cart_demo(request):
 
 
 def about_us(request):
-    return render(request, 'shop/about_us.html', {'categories': get_categories()})
+    return render(request, 'shop/about_us.html', {'categories': get_categories(),
+                                                  'page_title': page_titles["about-page"]})
 
 
 def contact_us(request):
-    return render(request, 'shop/contact.html', {'categories': get_categories()})
+    return render(request, 'shop/contact.html', {'categories': get_categories(),
+                                                 'page_title': page_titles["contact-page"]})
 
 
 @csrf_exempt

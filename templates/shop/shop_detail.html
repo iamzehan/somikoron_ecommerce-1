@@ -4,7 +4,7 @@
     <html lang="en" >
     <head >
         {% load static %}
-        <title >Details</title >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
         <meta charset="UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
         <meta name="keywords"

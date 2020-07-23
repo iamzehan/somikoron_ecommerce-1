@@ -35,8 +35,8 @@ JET_TOKEN = '012f2afc-8c95-44e0-afd7-995d900926f3'
 JET_CORS_HEADERS = False
 
 INSTALLED_APPS = [
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

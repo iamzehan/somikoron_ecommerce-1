@@ -21,9 +21,19 @@
         {#                background: #cd0d0d;#}
         {#            }#}
         {#        </style >#}
+        <style >
+            #main {
+                margin-top: 75px !important;
+            }
+            @media (max-width: 575px) {
+                #main {
+                    margin-top: 0px !important;
+                }
+            }
+        </style >
     </head >
     <body >
-    <div id="main" style="margin-top: 75px" >
+    <div id="main" >
         <header class="coffee-2" >
             <div class="navigation-filter" >
                 <div class="container" >
@@ -35,7 +45,7 @@
                                                                   departments<span ><i
                                             class="arrow_carrot-up" ></i ></span ></div >
                                 <div class="department-dropdown-menu down" >
-                                    <ul style="height: 460px" class="department_ul">
+                                    <ul style="height: 460px" class="department_ul" >
                                         <!-- Nested div for requirement -->
                                         <div class="vertical-nav" >
                                             {% for cat in categories %}
@@ -50,8 +60,6 @@
                                                                 <li ><a href="{{ subcat.get_absolute_url }}" >
                                                                     <i >
                                                                         <img STYLE="width: 20px" src="
-
-
                                                                                 {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
                                                                              alt="" >
                                                                     </i >{{ subcat.sub_category_name }}</a ></li >
@@ -66,7 +74,7 @@
                             </div >
                         </div >
                         <div class="col-12 col-md-8 col-lg-8 col-xl-8 order-1 order-md-1" >
-                            <div class="banner_v3"  >
+                            <div class="banner_v3" >
                                 <div class="container" >
                                     <div class="row" >
                                         <div class="col-12 col-xl-12" >
@@ -308,22 +316,24 @@
                             <ul class="tab-control" >
                                 <li ><a class="active" href="#tab-1" >Ongoing Offers</a ></li >
                                 <li ><a href="#tab-2" >Somikoron Special</a ></li >
-                                <li ><a href="#tab-3" >Populer Products</a ></li >
+                                <li ><a href="#tab-3" >Popular Products</a ></li >
                             </ul >
                             <div id="tab-1" >
                                 <div class="row no-gutters-sm " >
-                                    {% for item in object_list|slice:":12" %}
+                                    {% for item in offer|slice:":12" %}
                                         <div class="col-6 col-md-4 col-lg-3 cartable" >
                                             <div class="product coffee" >
-                                                <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                        class="img-fluid product__image" src="{{ item.images.all.0.image.thumbnail.url }}"
-                                                        alt="{{ item.images.all.0.image.url }}" ></a >
+                                                <div class="product_images" >
+                                                    <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            class="img-fluid product__image" src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="{{ item.images.all.0.image.url }}" ></a >
+                                                </div >
                                                 <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
-                                                <h3 class="product-name" >{{ item.title }}</h3 >
+                                                <h3 class="product-name" onclick="location.href='{{ item.itemdetails.get_absolute_url }}'">{{ item.title }}</h3 >
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price " ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
-                                                        <del >{{ item.price }}</del >
+                                                        <del style="text-decoration: line-through;" >{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
@@ -381,7 +391,8 @@
                             </div >
                             <div id="tab-2" >
                                 <div class="row no-gutters-sm" >
-                                    {% for item in object_list|dictsortreversed:"itemdetails.update_date"|slice:":4" %}
+                                    {% for item in somikoron_items|slice:":4" %}
+                                        {#                                        dictsortreversed:"itemdetails.update_date"|#}
                                         <div class="col-6 col-md-4 col-lg-3" >
                                             <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
                                                     class="img-fluid" src="{{ item.images.all.0.image.thumbnail.url }}"
@@ -448,7 +459,7 @@
                             </div >
                             <div id="tab-3" >
                                 <div class="row no-gutters-sm" >
-                                    {% for item in object_list|dictsortreversed:"itemdetails.total_views"|slice:":4" %}
+                                    {% for item in popular|slice:":4" %}
                                         <div class="col-6 col-md-4 col-lg-3" >
                                             <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
                                                     class="img-fluid" src="{{ item.images.all.0.image.thumbnail.url }}"

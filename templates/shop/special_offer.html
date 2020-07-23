@@ -218,9 +218,11 @@
                                         {% for item in cattles %}
                                             <div class="col-6 col-md-4 " >
                                                 <div class="product cartable" >
-                                                    <div class="product-img_block" ><a class="product-img "
-                                                                                       href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                    <div class="product-img_block" >
+                                                        <div class="product_images" >
+                                                        <a class="product-img "href="{{ item.itemdetails.get_absolute_url }}" ><img
                                                             src="{{ item.images.all.0.image.thumbnail.url }}" alt="" ></a >
+                                                        </div>
                                                         {#                                                        <button class="quickview no-round-btn smooth" data-toggle="modal"#}
                                                         {#                                                                data-target="#quickViewModal" >Quick view#}
                                                         {#                                                        </button >#}

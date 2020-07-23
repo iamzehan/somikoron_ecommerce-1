@@ -5441,7 +5441,7 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
 
 .banner_v3 {
     margin-bottom: 26px;
-    width: 1022px;
+    width: 992px;
 }
 
 @media (max-width: 575px) {
@@ -5450,6 +5450,9 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
     }
     .department_ul{
         height: 100% !important;
+    }
+    #main{
+        margin-top: 0px !important;
     }
 }
 

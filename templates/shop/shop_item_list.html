@@ -12,8 +12,8 @@
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
-                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >
-                    <li ><a class="breadcrumb-link active" href="index.html" >Shop</a ></li >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}" > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active"  >Shop</a ></li >
                 </ul >
             </div >
         </div >
@@ -181,14 +181,14 @@
                                                 <div class="product-filter" >
                                                     <select class="select-form" id="sort" name="" >
                                                         <option value="A-Z" >A to Z</option >
-                                                        <option value="Z-A" >Z to A</option >
-                                                        <option value="High to low price" > ↓ Price</option >
-                                                        <option value="Low to height price" >↑ Price</option >
+{#                                                        <option value="Z-A" >Z to A</option >#}
+{#                                                        <option value="High to low price" > ↓ Price</option >#}
+{#                                                        <option value="Low to height price" >↑ Price</option >#}
                                                     </select >
                                                     <select class="select-form" id="sort" name="" >
-                                                        <option value="A-Z" >Show 10</option >
-                                                        <option value="Z-A" >Show 20</option >
-                                                        <option value="High to low price" >Show 30</option >
+                                                        <option value="A-Z" >Show 20</option >
+{#                                                        <option value="Z-A" >Show 20</option >#}
+{#                                                        <option value="High to low price" >Show 30</option >#}
                                                     </select >
                                                 </div >
                                                 <div class="view-method" >

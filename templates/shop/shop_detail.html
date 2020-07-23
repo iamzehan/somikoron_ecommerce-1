@@ -19,9 +19,8 @@
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
-                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >
-                    <li ><a class="breadcrumb-link" href="shop_grid%2blist_3col.html" >Shop</a ></li >
-                    <li ><a class="breadcrumb-link active" href="shop_detail.html" >Item Details</a ></li >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}" > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active" href="" >Item Details</a ></li >
                 </ul >
             </div >
         </div >
@@ -205,9 +204,9 @@
                                                                 </div >
                                                             </div >
                                                             <div class="col-12 col-md-6" >
-                                                                <div class="description-item_text" >
+                                                                <div class="description-item_text text-center" >
                                                                     <h2 >Product Description</h2 >
-                                                                    <p >{{ object.item.description }}</p >
+                                                                    <p style="width: 100%; overflow-x: scroll">{{ object.item.description }}</p >
                                                                 </div >
                                                             </div >
                                                         </div >
@@ -216,54 +215,6 @@
                                             </div >
                                             <div id="tab-3" >
                                                 <div class="customer-reviews_block" >
-                                                    <div class="customer-review" >
-                                                        <div class="row" >
-                                                            <div class="col-12 col-sm-3 col-lg-2" >
-                                                                <div class="customer-review_left" >
-                                                                    <div class="customer-review_img text-center" ><img class="img-fluid"
-                                                                                                                       src="{% static 'assets/images/shop/reviewer_01.png' %}"
-                                                                                                                       alt="customer image" ></div >
-                                                                    <div class="customer-rate" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                                            class="icon_star-half" ></i ></div >
-                                                                </div >
-                                                            </div >
-                                                            <div class="col-12 col-sm-9 col-lg-10" >
-                                                                <div class="customer-comment" >
-                                                                    <h5 class="comment-date" >27 Aug 2016</h5 >
-                                                                    <h3 class="customer-name" >Jenney Kelley</h3 >
-                                                                    <p class="customer-commented" >Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                                                                   elit, sed do eiusmod tempor incididunt ut labore et
-                                                                                                   dolore magna alation uidem dolore eu fugiat nulla
-                                                                                                   pariatur. </p >
-                                                                </div >
-                                                            </div >
-                                                        </div >
-                                                    </div >
-                                                    <div class="customer-review" >
-                                                        <div class="row" >
-                                                            <div class="col-12 col-sm-3 col-lg-2" >
-                                                                <div class="customer-review_left" >
-                                                                    <div class="customer-review_img text-center" ><img class="img-fluid"
-                                                                                                                       src="{% static 'assets/images/shop/reviewer_02.png' %}"
-                                                                                                                       alt="customer image" ></div >
-                                                                    <div class="customer-rate" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                                            class="icon_star" ></i ><i class="icon_star" ></i ><i
-                                                                            class="icon_star-half" ></i ></div >
-                                                                </div >
-                                                            </div >
-                                                            <div class="col-12 col-sm-9 col-lg-10" >
-                                                                <div class="customer-comment" >
-                                                                    <h5 class="comment-date" >27 Aug 2016</h5 >
-                                                                    <h3 class="customer-name" >Jenney Kelley</h3 >
-                                                                    <p class="customer-commented" >Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                                                                   elit, sed do eiusmod tempor incididunt ut labore et
-                                                                                                   dolore magna alation uidem dolore eu fugiat nulla
-                                                                                                   pariatur. </p >
-                                                                </div >
-                                                            </div >
-                                                        </div >
-                                                    </div >
                                                     <div class="add-review" >
                                                         <div class="add-review_top" >
                                                             <h2 >Add Review</h2 >

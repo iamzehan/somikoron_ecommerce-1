@@ -7,6 +7,7 @@
     <meta name="keywords"
           content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
     <meta name="author" content="MARTECH | Deer Creative Theme" >
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="{% static 'assets/images/custom_icons/fav.ico' %}" >
     {#MDB#}
     <!-- Font Awesome -->
@@ -40,10 +41,12 @@
     <title >{% block head_title %}{% endblock %}</title >
     {% block extra_head %}
     {% endblock %}
+
     <style >
-        a{
+        a {
             text-decoration: none !important;
         }
+
         .product .product-name {
             font-size: 16px;
         }
@@ -73,17 +76,33 @@
 <script src="{% static 'assets/js/mobile-menu-listener.js' %}" ></script >
 {#<script src="{% static 'assets/js/cart_js.js' %}" ></script >#}
 <!-- ManyChat -->
-<script src="//widget.manychat.com/114667473628110.js" async="async" ></script >
+{#<script src="//widget.manychat.com/114667473628110.js" async="async" ></script >#}
+{% block nav %}
+{% endblock %}
 
 {% if messages %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert" >
-        {% for message in messages %}
-            {{ message }}----------alert-{{ message.tags }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
-                <span aria-hidden="true" >&times;</span >
-            </button >
-        {% endfor %}
-    </div >
+    <script >
+        $(document).ready(function () {
+            $(".toast").toast({delay: 2500});
+            $(".toast").toast('show');
+        });
+    </script >
+    {% for message in messages %}
+        <div aria-live="polite" class="d-flex justify-content-center align-items-center" >
+            <div class="toast " role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 75;  z-index: 999" >
+                <div class="toast-header bg-{{ message.tags }}" style="color: white" >
+                    <strong class="mr-auto" >ALERT</strong >
+                    <small >just now</small >
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" >
+                        <span aria-hidden="true" >&times;</span >
+                    </button >
+                </div >
+                <div class="toast-body" >
+                    {{ message }}
+                </div >
+            </div >
+        </div >
+    {% endfor %}
 {% endif %}
 {% block qwuickcart %}
     <div class="asd" id="floatcartdiv" >
@@ -418,20 +437,20 @@
 
             addToCartButtonsDOM.forEach(addToCartButtonDOM => {
                 addToCartButtonDOM.addEventListener('click', () => {
-                    const productDOM = addToCartButtonDOM.closest(".cartable");
-                    const product = {
-                        image: productDOM.querySelector('.product__image').getAttribute('src'),
-                        name: productDOM.querySelector('.product__name').innerText,
-                        title: productDOM.querySelector('.product__title').innerText,
-                        price: productDOM.querySelector('.product__price').innerText,
-                        quantity: 1,
-                    };
-                    const isInCart = (cart.filter(cartItem => (cartItem.name === product.name)).length > 0);
-                    var table = document.getElementById('carttable');
-                    {#cartDOM.insertAdjacentHTML('beforeend',"<img src='${product.image}'>" );#}
-                    if (!isInCart) {
-                        {#cartDOM.insertAdjacentHTML( );#}
-                        var txt = `
+                        const productDOM = addToCartButtonDOM.closest(".cartable");
+                        const product = {
+                            image: productDOM.querySelector('.product__image').getAttribute('src'),
+                            name: productDOM.querySelector('.product__name').innerText,
+                            title: productDOM.querySelector('.product__title').innerText,
+                            price: productDOM.querySelector('.product__price').innerText,
+                            quantity: 1,
+                        };
+                        const isInCart = (cart.filter(cartItem => (cartItem.name === product.name)).length > 0);
+                        var table = document.getElementById('carttable');
+                        {#cartDOM.insertAdjacentHTML('beforeend',"<img src='${product.image}'>" );#}
+                        if (!isInCart) {
+                            {#cartDOM.insertAdjacentHTML( );#}
+                            var txt = `
                             <tr id="titlerow${product.name}"  style="width: 300px !important; " >
                                 <td colspan="3" style=" padding-bottom: 0px; width: 300px !important;" >${product.title}
                                     <a style="float: right" id="removeitem${product.name}">
@@ -451,23 +470,25 @@
                                 <th scope="col" style="text-align: right; padding-bottom: 22px">Tk. <span class="cart__item__price">${product.price}</span></th >
                             </tr >
                           `;
-                        $(table).find('tbody').append(txt);
-                        cart.push(product);
-                        carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
-                        document.getElementById('cart_total').innerHTML = carttotal + parseFloat(product.price * product.quantity);
-                        document.getElementById('floatcarttotal').innerHTML = carttotal + parseFloat(product.price * product.quantity);
-                        document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) + 1;
-                        document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) + 1;
-                        localStorage.setItem('cart', JSON.stringify(cart));
-                        addToCartButtonDOM.innerText = 'In Cart';
-                        addToCartButtonDOM.disabled = true;
-                        try {
-                            var btn = document.getElementsByName('btn' + product.name);
-                            btn.forEach(a => {
-                                a.innerText = 'In Cart';
-                                a.disabled = true;
-                            });
-                        } catch (e) {}
+                            $(table).find('tbody').append(txt);
+                            cart.push(product);
+                            carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
+                            document.getElementById('cart_total').innerHTML = carttotal + parseFloat(product.price * product.quantity);
+                            document.getElementById('floatcarttotal').innerHTML = carttotal + parseFloat(product.price * product.quantity);
+                            document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) + 1;
+                            document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) + 1;
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                            addToCartButtonDOM.innerText = 'In Cart';
+                            addToCartButtonDOM.disabled = true;
+                            try {
+                                var btn = document.getElementsByName('btn' + product.name);
+                                btn.forEach(a => {
+                                    a.innerText = 'In Cart';
+                                    a.disabled = true;
+                                });
+                            } catch (e) {
+                                console.log(e);
+                            }
                             if (document.getElementById('cart_total').innerText >= 1000) {
                                 document.getElementById('deliverycharge').innerText = 40;
                             } else {
@@ -500,41 +521,42 @@
 
                                     cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').addEventListener('click', () => {
                                         cart.forEach(cartItem => {
-                                            if (cartItem.name === product.name) {
-                                                if (cartItem.quantity > 1) {
-                                                    cartItemDOM.querySelector('.cart__item__quantity').innerText = --cartItem.quantity;
-                                                    cartItemDOM.querySelector('.cart__item__price').innerText = (cartItemDOM.querySelector('.cart__item__quantity').innerText) * cartItem.price
-                                                    carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
-                                                    document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price);
-                                                    document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price);
-                                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                                if (cartItem.name === product.name) {
+                                                    if (cartItem.quantity > 1) {
+                                                        cartItemDOM.querySelector('.cart__item__quantity').innerText = --cartItem.quantity;
+                                                        cartItemDOM.querySelector('.cart__item__price').innerText = (cartItemDOM.querySelector('.cart__item__quantity').innerText) * cartItem.price
+                                                        carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
+                                                        document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price);
+                                                        document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price);
+                                                        localStorage.setItem('cart', JSON.stringify(cart));
 
-                                                    if (document.getElementById('cart_total').innerText >= 1000) {
-                                                        document.getElementById('deliverycharge').innerText = 40;
+                                                        if (document.getElementById('cart_total').innerText >= 1000) {
+                                                            document.getElementById('deliverycharge').innerText = 40;
+                                                        } else {
+                                                            document.getElementById('deliverycharge').innerText = 60;
+                                                        }
                                                     } else {
-                                                        document.getElementById('deliverycharge').innerText = 60;
-                                                    }
-                                                } else {
-                                                    cartItemDOM.classList.add('cart__item--removed');
-                                                    setTimeout(() => cartItemDOM.remove(), 250);
-                                                    setTimeout(() => document.getElementById('titlerow' + product.name).remove(), 250);
-                                                    cart = cart.filter(cartItem => cartItem.name !== product.name);
-                                                    carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
-                                                    document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price);
-                                                    document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price);
-                                                    document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) - 1;
-                                                    document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) - 1;
-                                                    localStorage.setItem('cart', JSON.stringify(cart));
-                                                    addToCartButtonDOM.innerText = 'Add To Cart';
-                                                    addToCartButtonDOM.disabled = false;
+                                                        cartItemDOM.classList.add('cart__item--removed');
+                                                        setTimeout(() => cartItemDOM.remove(), 250);
+                                                        setTimeout(() => document.getElementById('titlerow' + product.name).remove(), 250);
+                                                        cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                                        carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
+                                                        document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price);
+                                                        document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price);
+                                                        document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) - 1;
+                                                        document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) - 1;
+                                                        localStorage.setItem('cart', JSON.stringify(cart));
+                                                        addToCartButtonDOM.innerText = 'Add To Cart';
+                                                        addToCartButtonDOM.disabled = false;
 
-                                                    try {
-                                                        var btn = document.getElementsByName('btn' + product.name);
-                                                        btn.forEach(a => {
-                                                            a.innerText = 'Add to Cart';
-                                                            a.disabled = false;
-                                                        });
-                                                    } catch (e) {}
+                                                        try {
+                                                            var btn = document.getElementsByName('btn' + product.name);
+                                                            btn.forEach(a => {
+                                                                a.innerText = 'Add to Cart';
+                                                                a.disabled = false;
+                                                            });
+                                                        } catch (e) {
+                                                        }
 
                                                         if (document.getElementById('cart_total').innerText >= 1000) {
                                                             document.getElementById('deliverycharge').innerText = 40;
@@ -553,27 +575,28 @@
 
                                     document.getElementById('removeitem' + product.name).addEventListener('click', () => {
                                         cart.forEach(cartItem => {
-                                            if (cartItem.name === product.name) {
-                                                cartItemDOM.classList.add('cart__item--removed');
-                                                setTimeout(() => cartItemDOM.remove(), 250);
-                                                setTimeout(() => document.getElementById('titlerow' + product.name).remove(), 250);
-                                                carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
-                                                document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price) * product.quantity;
-                                                document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price) * product.quantity;
-                                                document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) - 1;
-                                                document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) - 1;
-                                                cart = cart.filter(cartItem => cartItem.name !== product.name);
-                                                localStorage.setItem('cart', JSON.stringify(cart));
-                                                addToCartButtonDOM.innerText = 'Add To Cart';
-                                                addToCartButtonDOM.disabled = false;
+                                                if (cartItem.name === product.name) {
+                                                    cartItemDOM.classList.add('cart__item--removed');
+                                                    setTimeout(() => cartItemDOM.remove(), 250);
+                                                    setTimeout(() => document.getElementById('titlerow' + product.name).remove(), 250);
+                                                    carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
+                                                    document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price) * product.quantity;
+                                                    document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price) * product.quantity;
+                                                    document.getElementById('floatingtotalitems').innerHTML = parseFloat(document.getElementById('floatingtotalitems').innerHTML) - 1;
+                                                    document.getElementById('cartheadingtotalitems').innerHTML = parseFloat(document.getElementById('cartheadingtotalitems').innerHTML) - 1;
+                                                    cart = cart.filter(cartItem => cartItem.name !== product.name);
+                                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                                    addToCartButtonDOM.innerText = 'Add To Cart';
+                                                    addToCartButtonDOM.disabled = false;
 
-                                                try {
-                                                    var btn = document.getElementsByName('btn' + product.name);
-                                                    btn.forEach(a => {
-                                                        a.innerText = 'Add to Cart';
-                                                        a.disabled = false;
-                                                    });
-                                                } catch (e) {}
+                                                    try {
+                                                        var btn = document.getElementsByName('btn' + product.name);
+                                                        btn.forEach(a => {
+                                                            a.innerText = 'Add to Cart';
+                                                            a.disabled = false;
+                                                        });
+                                                    } catch (e) {
+                                                    }
 
                                                     if (document.getElementById('cart_total').innerText >= 1000) {
                                                         document.getElementById('deliverycharge').innerText = 40;
@@ -607,7 +630,7 @@
                         if (data) {
                             location.href = "{% url "shop:checkout" %}";
                         } else {
-                            alert("Please login first")
+                            {#$("#loginmodal").modal("show");#}
                             window.location.href = '/user_login';
                         }
                     }
@@ -615,16 +638,31 @@
             });
         });
     </script >
-    <!-- Small modal -->
-{#<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>#}
+<!-- Small modal -->
+    {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>#}
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <iframe src="http://127.0.0.1:8000/user_login"></iframe>
-    </div>
-  </div>
-</div>
+
+
+<!-- Modal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-sm" role="document" >
+            <div class="modal-content" >
+                <div class="modal-header" >
+                    <h5 class="modal-title" id="exampleModalLabel" >Place Order</h5 >
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                        <span aria-hidden="true" >&times;</span >
+                    </button >
+                </div >
+                <div class="modal-body" >
+                    <p >Please login and try again...</p ><br ><br >
+                    {#          <button type="button" class="btn btn-secondary" >Close</button>#}
+                    <button type="button" onclick="location.href='/user_login'" class=" no-round-btn btn-block" data-dismiss="modal" >LOGIN</button >
+                </div >
+                {#      <div class="modal-footer">#}
+                {#      </div>#}
+            </div >
+        </div >
+    </div >
 
 {% endblock %}
 {#                           <!-- Trigger the modal with a button -->#}
@@ -816,13 +854,13 @@
                     </div >
                 </div >
                 <div class="modal-footer" style="padding: 7px" >
-                    <div class="product-share text-left" style="float: left; width: 85%" >
-                        <span >Share link:</span >&nbsp; &nbsp;
-                        <a href="#" ><i class="fab fa-facebook-f" > </i ></a >&nbsp;&nbsp;
-                        <a href="#" ><i class="fab fa-twitter" ></i ></a >&nbsp;&nbsp;
-                        <a href="#" ><i class="fab fa-invision" > </i ></a >&nbsp;&nbsp;
-                        <a href="#" ><i class="fab fa-pinterest-p" ></i ></a >&nbsp;&nbsp;
-                    </div >
+                    {#                    <div class="product-share text-left" style="float: left; width: 85%" >#}
+                    {#                        <span >Share link:</span >&nbsp; &nbsp;#}
+                    {#                        <a href="#" ><i class="fab fa-facebook-f" > </i ></a >&nbsp;&nbsp;#}
+                    {#                        <a href="#" ><i class="fab fa-twitter" ></i ></a >&nbsp;&nbsp;#}
+                    {#                        <a href="#" ><i class="fab fa-invision" > </i ></a >&nbsp;&nbsp;#}
+                    {#                        <a href="#" ><i class="fab fa-pinterest-p" ></i ></a >&nbsp;&nbsp;#}
+                    {#                    </div >#}
                     <button type="button" id="hidemodal" class="btn btn-secondary" data-dismiss="modal" >Close</button >
                     {#                <button type="button" class="btn btn-primary" >Save changes</button >#}
                 </div >
@@ -833,93 +871,105 @@
 <script type="text/javascript" >
     $(document).ready(function () {
         $(".quickviewbtn").click(function () {
-            {#var modalDom = document.getElementById('modalcontent');#}
-            {#modalDom.insertAdjacentHTML('beforeend', ``);#}
-            $.ajax({
-                url: $(this).attr("data-url"),
-                type: 'post',
-                data: {csrfmiddlewaretoken: '{{ csrf_token }}',},
-                success: function (data) {
-                    console.log(data);
-                    console.log(data['images'][0]['image']);
-                    $("#ptitle").html("" + data['title']);
-                    $("#product__title").html("" + data['title']);
-                    $("#pcode").html("" + data['product_code']);
-                    $("#product__name").html("" + data['product_code']);
-                    $("#padditionalinfo").html("" + data['itemdetails']['additional_info']);
-                    $("#quickaddcartbtn").attr('name', 'btn' + data['pk'])
-                    if (data['sub_category']['category']['category_id'] === 'cattle') {
-                        $("#breed").html("" + data['cattleinfo']['Breed']);
-                        $("#height").html("" + data['cattleinfo']['height']);
-                        $("#liveweight").html("" + data['cattleinfo']['live_weight']);
-                        document.getElementById('productdetails').style.display = 'block';
-                        document.getElementById('cattledetails').style.display = 'block';
-                        $("#deliverycharges").html("Free Delivery")
-                    } else {
-                        document.getElementById('cattledetails').style.display = 'none';
-                        document.getElementById('productdetails').style.display = 'block';
-                        $("#deliverycharges").html("Delivery Charge: 60 Tk")
-                    }
-                    document.getElementById('exampleModalLongTitle').innerText = data['title'];
-                    $('.makeempty').empty();
-                    try {
-                        $("#bi1").attr("src", "" + data['images'][0]['image']);
-                    } catch (e) {
-                        $("#bi1").attr("src", "");
-                    }
-                    try {
-                        $("#bi2").attr("src", "" + data['images'][1]['image']);
-                    } catch (e) {
-                        $("#bi2").attr("src", "");
-                    }
-                    try {
-                        $("#bi3").attr("src", "" + data['images'][2]['image']);
-                    } catch (e) {
-                        $("#bi3").attr("src", "");
-                    }
-                    try {
-                        $("#si1").attr("src", "" + data['images'][0]['image']);
-                    } catch (e) {
-                        $("#si1").attr("src", "");
-                    }
-                    try {
-                        $("#si2").attr("src", "" + data['images'][1]['image']);
-                    } catch (e) {
-                        $("#si2").attr("src", "");
-                    }
-                    try {
-                        $("#si3").attr("src", "" + data['images'][2]['image']);
-                    } catch (e) {
-                        $("#si3").attr("src", "");
-                    }
-                    try {
-                        $("#product__image").attr("src", "" + data['images'][1]['image']);
-                    } catch (e) {
-                        $("#product__image").attr("src", "");
-                    }
+                {#var modalDom = document.getElementById('modalcontent');#}
+                {#modalDom.insertAdjacentHTML('beforeend', ``);#}
+                $.ajax({
+                        url: $(this).attr("data-url"),
+                        type: 'post',
+                        data: {csrfmiddlewaretoken: '{{ csrf_token }}',},
+                        success: function (data) {
+                            console.log(data);
+                            console.log(data['images'][0]['image']);
+                            $("#ptitle").html("" + data['title']);
+                            $("#product__title").html("" + data['title']);
+                            $("#pcode").html("" + data['product_code']);
+                            $("#product__name").html("" + data['product_code']);
+                            $("#padditionalinfo").html("" + data['itemdetails']['additional_info']);
+                            $("#quickaddcartbtn").attr('name', 'btn' + data['pk'])
+                            if (data['sub_category']['category']['category_id'] === 'cattle') {
+                                $("#breed").html("" + data['cattleinfo']['Breed']);
+                                $("#height").html("" + data['cattleinfo']['height']);
+                                $("#liveweight").html("" + data['cattleinfo']['live_weight']);
+                                document.getElementById('productdetails').style.display = 'block';
+                                document.getElementById('cattledetails').style.display = 'block';
+                                $("#deliverycharges").html("Free Delivery")
+                            } else {
+                                document.getElementById('cattledetails').style.display = 'none';
+                                document.getElementById('productdetails').style.display = 'block';
+                                $("#deliverycharges").html("Delivery Charge: 60 Tk")
+                            }
+                            document.getElementById('exampleModalLongTitle').innerText = data['title'];
+                            $('.makeempty').empty();
+                            try {
+                                $("#bi1").attr("src", "" + data['images'][0]['image']);
+                            } catch (e) {
+                                $("#bi1").attr("src", "");
+                            }
+                            try {
+                                $("#bi2").attr("src", "" + data['images'][1]['image']);
+                            } catch (e) {
+                                $("#bi2").attr("src", "");
+                            }
+                            try {
+                                $("#bi3").attr("src", "" + data['images'][2]['image']);
+                            } catch (e) {
+                                $("#bi3").attr("src", "");
+                            }
+                            try {
+                                $("#si1").attr("src", "" + data['images'][0]['image']);
+                            } catch (e) {
+                                $("#si1").attr("src", "");
+                            }
+                            try {
+                                $("#si2").attr("src", "" + data['images'][1]['image']);
+                            } catch (e) {
+                                $("#si2").attr("src", "");
+                            }
+                            try {
+                                $("#si3").attr("src", "" + data['images'][2]['image']);
+                            } catch (e) {
+                                $("#si3").attr("src", "");
+                            }
+                            try {
+                                $("#product__image").attr("src", "" + data['images'][0]['image']);
+                            } catch (e) {
+                                $("#product__image").attr("src", "");
+                            }
 
-                    if (data['itemdetails']['discount_offer'] > 0) {
-                        if (data['itemdetails']['discount_offer'] < 1) {
-                            $("#newprice").text(" " + data['price'] - (data['price'] * data['itemdetails']['discount_offer']));
-                            $("#product__price").text(" " + data['price'] - (data['price'] * data['itemdetails']['discount_offer']));
-                            $("#oldprice").text("Tk " + data['price']);
-                        } else {
-                            $("#newprice").text(" " + data['price'] - data['itemdetails']['discount_offer']);
-                            $("#product__price").text(" " + data['price'] - data['itemdetails']['discount_offer']);
-                            $("#oldprice").text("Tk " + data['price']);
+                            if (data['itemdetails']['discount_offer'] > 0) {
+                                if (data['itemdetails']['discount_offer'] < 1) {
+                                    $("#newprice").text(" " + data['price'] - (data['price'] * data['itemdetails']['discount_offer']));
+                                    $("#product__price").text(" " + data['price'] - (data['price'] * data['itemdetails']['discount_offer']));
+                                    $("#oldprice").text("Tk " + data['price']);
+                                } else {
+                                    $("#newprice").text(" " + data['price'] - data['itemdetails']['discount_offer']);
+                                    $("#product__price").text(" " + data['price'] - data['itemdetails']['discount_offer']);
+                                    $("#oldprice").text("Tk " + data['price']);
+                                }
+                            } else {
+                                $("#newprice").text(" " + data['price']);
+                                $("#product__price").text(" " + data['price']);
+                                $("#oldprice").text("");
+                            }
+                            var quickaddtocartDom = document.getElementById('quickaddcartbtn')
+                            quickaddtocartDom.innerText = 'Add to Cart'
+                            quickaddtocartDom.disabled = false;
+                            let carts = (JSON.parse(localStorage.getItem('cart')) || []);
+                            if (carts.length > 0) {
+                                carts.forEach(cartItem => {
+                                    const product = cartItem;
+                                    if (product.name === data['pk']) {
+                                        quickaddtocartDom.innerText = 'In Cart'
+                                        quickaddtocartDom.disabled = true;
+                                    }
+                                });
+                            }
                         }
-                    } else {
-                        $("#newprice").text(" " + data['price']);
-                        $("#product__price").text(" " + data['price']);
-                        $("#oldprice").text("");
                     }
-
-                }
-            });
-            $("#quickViewModal").modal("show");
-        });
-
-
+                );
+                $("#quickViewModal").modal("show");
+            }
+        );
         $("#quickViewModal").on('shown.bs.modal', function () {
             {#alert('The modal is fully shown.');#}
             try {
@@ -955,8 +1005,7 @@
 {#    });#}
 {#</script >#}
 
-{% block nav %}
-{% endblock %}
+
 
 {% block body %}
 {% endblock %}

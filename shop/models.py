@@ -161,7 +161,7 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"{self.quantity} of {self.item}"
+        return f"{self.quantity} x {self.item}"
 
     def get_total_item_price(self):
         return self.quantity * self.item.price
@@ -187,13 +187,15 @@ class Order(models.Model):
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
     order_note = models.TextField(max_length=500, null=True, blank=True)
-    order_status = models.CharField(max_length=20, choices=ORDER_STATUS, default='RECEIVED')
+    order_status = models.CharField(max_length=20, choices=ORDER_STATUS, default='PLACED')
+    payment_method = models.CharField(max_length=12, null=True, blank=True, default='CASH ON')
+    payment_status = models.CharField(max_length=12, null=True, blank=True, default='PENDING')
     shipping_address = models.ForeignKey(
         'Address', related_name='shipping_address', on_delete=models.SET_NULL, blank=True,
         null=True)
 
     def __str__(self):
-        return f"{self.user} - {self.order_status}"
+        return f"{self.user} - {self.ordered}- {self.order_status}"
     # billing_address = models.ForeignKey(
     #     'Address', related_name='billing_address', on_delete=models.SET_NULL, blank=True,
     #     null=True)
@@ -232,11 +234,12 @@ class Order(models.Model):
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    division = models.CharField(max_length=20)
-    district = models.CharField(max_length=30)
-    address = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
+    customer_name = models.CharField(max_length=20)
     customer_phone = models.CharField(max_length=15)
+    area = models.CharField(max_length=30)
+    address = models.CharField(max_length=200)
+
+
 
 
     # address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)

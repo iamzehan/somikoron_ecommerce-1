@@ -62,10 +62,10 @@ def user_login(request):
                     messages.success(request, 'Account was created for ' + username)
                     return redirect('shop:home')
                 else:
-                    messages.warning(request, 'Please enter correctly ')
-                    form = SignUpForm()
-                    print(form)
-                    context = {'form': form}
+                    messages.success(request, 'Please enter correctly ')
+        form = CreateUserForm()
+        context = {'form': form,
+                   'page_title': page_titles["login-page"]}
         return render(request, 'shop/custom_login.html', context)
 
 

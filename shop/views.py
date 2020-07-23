@@ -1,9 +1,10 @@
 import json
-from django.contrib.auth.models import User
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -17,7 +18,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 from rest_framework import generics
 
-from .forms import CheckoutForm, CreateUserForm
+from .forms import CheckoutForm, CreateUserForm, SignUpForm
 from .models import *
 from .serializers import CartItemsSerializer, QuickViewSerializer
 
@@ -39,25 +40,21 @@ def user_login(request):
     if request.user.is_authenticated:
         return redirect('shop:home')
     else:
-
         if request.method == 'POST':
-            username= request.POST.get('username')
-            name = request.POST.get('name')
-            password = request.POST.get('password1')
+            username = request.POST.get('Phone')
+            password = request.POST.get('Password')
             if User.objects.filter(username=username).exists():
                 user = authenticate(request, username=username, password=password)
                 if user is not None:
                     login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-                    return redirect('shop:home')
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
                 else:
                     messages.info(request, 'Username OR password is incorrect')
 
             else:
-                form = CreateUserForm(request.POST)
+                form = SignUpForm(request.POST)
                 if form.is_valid():
-                    form.save()
-                    user = User.objects.get(username=username)
-
+                    user = User.objects.create(username=username, password=password)
                     login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                     messages.success(request, 'Account was created for ' + username)
                     return redirect('shop:home')
@@ -67,8 +64,6 @@ def user_login(request):
         context = {'form': form,
                    'page_title': page_titles["login-page"]}
         return render(request, 'shop/custom_login.html', context)
-
-
 
 
 class HomeView(ListView):
@@ -82,7 +77,11 @@ class HomeView(ListView):
         except:
             cartitems = ''
         context = super().get_context_data(**kwargs)
-        context['mail'] = 'contact@somikoron.com'
+        context['somikoron_items'] = Items.objects.filter(
+            sub_category__category__category_id='somikoron')
+        context['popular'] = Items.objects.filter().order_by('-itemdetails__total_views')
+        context['offer'] = Items.objects.filter().order_by(
+            '-itemdetails__discount_offer')
         context['categories'] = get_categories()
         context['cartitems'] = cartitems
         return context
@@ -281,11 +280,20 @@ def get_cart_items(request):
 
 class CheckoutView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
+        try:
+            address = Address.objects.get(user=self.request.user)
+        except:
+            address = ''
         form = CheckoutForm()
-        order = Order.objects.get(user=self.request.user, ordered=False)
+        try:
+            orders = Order.objects.filter(user=self.request.user, ordered=False)
+            order = orders[0]
+        except:
+            order = ''
         context = {
             'form'      : form,
             'object'    : order,
+            'address'    : address,
             'categories': get_categories()
         }
         return render(self.request, 'shop/shop_checkout.html', context)
@@ -295,24 +303,29 @@ class CheckoutView(LoginRequiredMixin, View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
-                division = form.cleaned_data.get('division')
-                district = form.cleaned_data.get('district')
+                customer_name = form.cleaned_data.get('customer_name')
+                customer_phone = form.cleaned_data.get('customer_phone')
+                area = form.cleaned_data.get('area')
                 address = form.cleaned_data.get('address')
                 order_notes = form.cleaned_data.get('order_notes')
-                payment_option = form.cleaned_data.get('payment_option')
-                print(payment_option)
+                payment_method = form.cleaned_data.get('payment_option')
+                # print(payment_option)
                 if Address.objects.filter(user=self.request.user):
                     shipping_address = Address.objects.get(user=self.request.user)
-                    shipping_address.division = division
-                    shipping_address.district = district
+                    shipping_address.customer_name = customer_name
+                    shipping_address.customer_phone = customer_phone
+                    shipping_address.area = area
                     shipping_address.address = address
+                    shipping_address.payment_method = payment_method
                     shipping_address.save()
                 else:
                     shipping_address = Address(
                         user=self.request.user,
-                        division=division,
-                        district=district,
-                        address=address,
+                        customer_name=customer_name,
+                        customer_phone = customer_phone,
+                        area = area,
+                        address = address,
+                        payment_method = payment_method,
                     )
                     shipping_address.save()
 
@@ -459,4 +472,9 @@ def plcae_order(request):
 
 
 def delivery_status(request):
-    return render(request, 'shop/delivery_status.html', {'categories': get_categories()})
+    order = Order.objects.filter(user=request.user, ordered=True)
+    context = {
+        'categories': get_categories(),
+        'orders':order,
+    }
+    return render(request, 'shop/delivery_status.html',context )

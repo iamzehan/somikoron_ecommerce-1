@@ -6,10 +6,10 @@ var swiper = new Swiper(".swiper-container", {
   freeMode: true,
   grabCursor: true,
   loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  },
+  // pagination: {
+  //   el: ".swiper-pagination",
+  //   clickable: true
+  // },
   autoplay: {
     delay: 3000,
     disableOnInteraction: false

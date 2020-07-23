@@ -11,6 +11,9 @@
             .shop-checkout .form-group {
                 margin-bottom: 15px;
             }
+            .search-form{
+                margin-top: 0px !important;
+            }
         </style >
     </head >
     <body >
@@ -19,9 +22,8 @@
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
-                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >
-                    <li ><a class="breadcrumb-link" href="index.html" >Shop</a ></li >
-                    <li ><a class="breadcrumb-link active" href="index.html" >Shoping cart</a ></li >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}"  > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active" href="" >Shoping cart</a ></li >
                 </ul >
             </div >
         </div >
@@ -76,75 +78,35 @@
                             </div >
                             <br ><br >
                             <div class="form-row" >
-                                <div class="form-group col-md-6" >
-                                    <input class="no-round-input-bg" id="inputFirstName" disabled value="First Name: {{ request.user }}" type="text"
-                                           required >
+                                <div class="form-group col-md-5" >
+                                    {{ form.customer_name|as_crispy_field }}
                                 </div >
-                                <div class="form-group col-md-6" >
-                                    <input class="no-round-input-bg" id="inputLastName" type="text" disabled value="Last Name: {{ request.user }}"
-                                           required >
-                                </div >
-                            </div >
-                            <div class="form-row" >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputDistrict" >Division*</label >#}
-                                    {#                                    <select class="no-round-input-bg" id="inputDivision" >#}
-                                    {#                                        <option value="1" >Dhaka</option >#}
-                                    {#                                        <option value="2" >Barishal</option >#}
-                                    {#                                        <option value="3" >Rajshahi</option >#}
-                                    {#                                        <option value="4" >Khulna</option >#}
-                                    {#                                        <option value="5" >Sylhet</option >#}
-                                    {#                                        <option value="6" >Chattagram</option >#}
-                                    {#                                        <option value="6" >Rangpur</option >#}
-                                    {#                                    </select >#}
-                                    {{ form.division|as_crispy_field }}
-                                </div >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputDistrict" >District*</label >#}
-                                    {#                                    <select class="no-round-input-bg" id="inputDistrict" >#}
-                                    {#                                        <option value="1" >Dhaka</option >#}
-                                    {#                                        <option value="2" >Barishal</option >#}
-                                    {#                                        <option value="3" >Rajshahi</option >#}
-                                    {#                                        <option value="4" >Khulna</option >#}
-                                    {#                                        <option value="5" >Sylhet</option >#}
-                                    {#                                        <option value="6" >Chattagram</option >#}
-                                    {#                                        <option value="6" >Rangpur</option >#}
-                                    {#                                    </select >#}
-                                    {{ form.district|as_crispy_field }}
-                                </div >
-                            </div >
-                            {#                                    <label for="inputZip" >Postcode / ZIP (optional)</label >#}
-                            {#                                    <input class="no-round-input-bg" id="inputZip" type="text" >#}
-
-                            {#                        <div class="form-group" >#}
-                            {#                            <label for="inputCity" >Town / City*</label >#}
-                            {#                            <input class="no-round-input-bg" id="inputCity" type="text" required >#}
-                            {#                        </div >#}
-                            <div class="form-row" >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputPhone" >Phone*</label >#}
-                                    {#                                    <input class="no-round-input-bg" id="inputPhone" type="text" required >#}
+                                <div class="form-group col-md-7" >
                                     {{ form.customer_phone|as_crispy_field }}
                                 </div >
-                                <div class="form-group col-md-6" >
-                                    {#                                    <label for="inputEmail" >Email address *</label >#}
-                                    {#                                    <input class="no-round-input-bg" id="inputEmail" type="email" required >#}
-                                    {{ form.customer_email|as_crispy_field }}
-                                </div >
                             </div >
-                            {#                            <h2 class="form-title" >Shipping Address</h2 >#}
-                            {#                            <div class="form-group" >#}
-                            {#                                <input id="differentAddress" type="checkbox" >#}
-                            {#                                <label for="differentAddress" >Ship to a different address?</label >#}
-                            {#                            </div >#}
-                            <div class="form-group" >
-                                {{ form.address|as_crispy_field }}
+
+                            <div class="form-row" >
+                                <div class="form-group col-md-5" >
+                                    {{ form.area|as_crispy_field }}
+                                </div >
+                                <div class="form-group col-md-7" >
+                                    {{ form.address|as_crispy_field }}
+                                </div >
                             </div >
                             <div class="form-group" >
                                 {#                                <label for="inputNote" >Order notes (optional)</label >#}
                                 {#                                <textarea class="textarea-form-bg" id="inputNote" name="" cols="30" rows="7" ></textarea >#}
                                 {{ form.order_notes|as_crispy_field }}
                             </div >
+                            <script>
+                                 $(document).ready(function () {
+                                     $("#phone").val("{{ request.user.username }}")
+                                     $("#address").val("{{ address.address }}")
+                                     $("#area").val("{{ address.area }}")
+                                     $("#customer_name").val("{{ address.customer_name }}")
+                                 });
+                            </script>
                         </div >
                         <div class="col-12 col-md-6 col-lg-4 text-right" >
                             <div class="card" >
@@ -159,13 +121,13 @@
                                                 <col span="1" style="width: 50%" >
                                             </colgroup >
                                             <tbody >
-                                            <tr style=" height: 70px;" >
+                                            <tr style=" height: 50px;" >
                                                 <th style="width: 40%;text-align: left" >SUBTOTAL</th >
-                                                <td >{{ object.get_total }}</td >
+                                                <td style="text-align: right">{{ object.get_total }}</td >
                                             </tr >
-                                            <tr style="height: 70px; " >
+                                            <tr style="height: 50px; " >
                                                 <th style="width: 40%;text-align: left" >DELIVERY CHARGE</th >
-                                                <td >
+                                                <td style="text-align: right">
                                                     <p >{% if object.get_total >= 1000 %}
                                                         40 Tk
                                                     {% else %}
@@ -173,14 +135,14 @@
                                                     {% endif %} </p >
                                                 </td >
                                             </tr >
-                                            <tr style="height: 70px; " >
+                                            <tr style="height: 50px; " >
                                                 <th style="width: 40%;text-align: left" >Coupon Discount</th >
-                                                <td ><p >0</p ></td >
+                                                <td style="text-align: right"><p >0</p ></td >
                                             </tr >
-                                            <tr style="height: 65px; " >
+                                            <tr style="height: 60px; " >
                                                 {% load mathfilters %}
                                                 <th style="width: 40%;text-align: left" >TOTAL</th >
-                                                <td >
+                                                <td style="text-align: right">
                                                     {% if object.get_total >= 1000 %}
                                                         {{ object.get_total|addition:40 |sub:0 }}
                                                     {% else %}

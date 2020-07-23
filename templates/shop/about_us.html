@@ -9,7 +9,7 @@
         <div class="ogami-breadcrumb" >
             <div class="container" >
                 <ul >
-                    <li ><a class="breadcrumb-link" href="index.html" > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}" > <i class="fas fa-home" ></i >Home</a ></li >
                     <li ><a class="breadcrumb-link active" href="#" >About us</a ></li >
                 </ul >
             </div >
@@ -32,8 +32,8 @@
                             </div >
                         </div >
                         <div class="col-12 col-md-6" >
-                            <div class="our-story_video" ><img style="width: 500px; height: 350px" src="{% static 'assets/images/Goru-ad.jpg' %}" alt="play video" ><a
-                                    class="play-btn" href="https://www.youtube.com/watch?v=7e90gBu4pas" target="_blank" ><i class="fas fa-play" ></i ></a >
+                            <div class="our-story_video" ><img style="width: 500px; height: 350px" src="{% static 'assets/images/Goru-ad.jpg' %}" alt="play video" >
+{#                                <a class="play-btn" href="https://www.youtube.com/watch?v=7e90gBu4pas" target="_blank" ><i class="fas fa-play" ></i ></a >#}
                             </div >
                         </div >
                     </div >
@@ -54,9 +54,9 @@
                             <div class="our-number_block" >
                                 <div class="our-number_icon" ><img src="{% static 'assets/images/pages/about_us_icon_2.png' %}" alt="icon" ></div >
                                 <div class="our-number_info" >
-                                    <h1 class="nummber-increase" ><span class="numscroller" data-min="1" data-max="10" data-delay="5"
-                                                                        data-increment="10" >10</span ></h1 >
-                                    <p >Our Team</p >
+                                    <h1 class="nummber-increase" ><span class="numscroller" data-min="1"  data-delay="5"
+                                                                        >24x7</span ></h1 >
+                                    <p >Customer Service</p >
                                 </div >
                             </div >
                         </div >

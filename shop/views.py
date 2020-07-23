@@ -21,6 +21,11 @@ from .forms import CheckoutForm, CreateUserForm
 from .models import *
 from .serializers import CartItemsSerializer, QuickViewSerializer
 
+# Defined a global dictionary for sets of items
+page_titles = {
+  "category-page": "সমীকরণ.কম",
+  "sub-category-page": "সমীকরণ.কম",
+}
 
 def user_login(request):
     # return render(request, 'shop/custom_login.html')
@@ -122,7 +127,7 @@ class CategoryItemView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
-            'title': "test",
+            'page_title': page_titles["category-page"] + " - " + "DEMO",
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 

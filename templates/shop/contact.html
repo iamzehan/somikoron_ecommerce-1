@@ -6,7 +6,7 @@
     <head >
         <meta charset="UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <title >Contact Us</title >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
 
             <link href="{% static 'assets/cdn/css/contact_slick.min.css' %}" rel="stylesheet" />
             <link href="{% static 'assets/cdn/css/contact_slick-theme.min.css' %}" rel="stylesheet" />

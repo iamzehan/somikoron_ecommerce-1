@@ -122,6 +122,7 @@ class CategoryItemView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
+            'title': "test",
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 

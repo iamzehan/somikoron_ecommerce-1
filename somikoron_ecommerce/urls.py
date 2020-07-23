@@ -23,7 +23,7 @@ urlpatterns = [
                   path('accounts/', include('allauth.urls')),
                   path('', include('shop.urls', namespace='shop')),
                   path('search/', include('search.urls', namespace='search')),
-                  path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
-                  path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+                  # path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+                  # path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

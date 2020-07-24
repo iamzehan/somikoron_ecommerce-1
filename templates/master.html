@@ -367,6 +367,7 @@
 
                                             }
                                         }
+                                        updateQuantityOnButton(product);
 
                                         if (cartItem.quantity === 1) {
                                             cartItemDOM.querySelector('[data-action="DECREASE_ITEM"]').classList.add('btn--danger');
@@ -419,7 +420,7 @@
                         {#alert(pronameDom);#}
 
                         if (pronameDom === cartItem.name) {
-                            addToCartButtonDOM.innerText = 'In Cart';
+                            addToCartButtonDOM.innerText = `${cartItem.quantity} In Cart`;
                             addToCartButtonDOM.disabled = true;
 
                         }
@@ -493,7 +494,7 @@
                                 var btn = document.getElementsByName('btn' + product.name);
                                 btn.forEach(a => {
                                 // TODO: ADD ITEM COUNT BEFORE IN CART
-                                    a.innerText = 'In Cart';
+                                    a.innerText = `${product.quantity} In Cart`;
                                     a.disabled = true;
                                 });
                             } catch (e) {
@@ -519,12 +520,14 @@
                                                 document.getElementById('floatcarttotal').innerHTML = carttotal + parseFloat(product.price);
                                                 cartItemDOM.querySelector('.cart__item__price').innerText = (cartItemDOM.querySelector('.cart__item__quantity').innerText) * cartItem.price
                                                 localStorage.setItem('cart', JSON.stringify(cart));
-
+                                                // show increased item on button
+                                                updateQuantityOnButton(product);
                                                 if (document.getElementById('cart_total').innerText >= 1000) {
                                                     document.getElementById('deliverycharge').innerText = 40;
                                                 } else {
                                                     document.getElementById('deliverycharge').innerText = 60;
                                                 }
+
                                             }
                                         });
                                     });
@@ -539,7 +542,7 @@
                                                         document.getElementById('cart_total').innerHTML = carttotal - parseFloat(product.price);
                                                         document.getElementById('floatcarttotal').innerHTML = carttotal - parseFloat(product.price);
                                                         localStorage.setItem('cart', JSON.stringify(cart));
-
+                                                        updateQuantityOnButton(product);
                                                         if (document.getElementById('cart_total').innerText >= 1000) {
                                                             document.getElementById('deliverycharge').innerText = 40;
                                                         } else {
@@ -647,6 +650,20 @@
                 });
             });
         });
+
+        function updateQuantityOnButton(product){
+        console.log(1);
+        try {
+            var btn = document.getElementsByName('btn' + product.name);
+            btn.forEach(a => {
+            // TODO: ADD ITEM COUNT BEFORE IN CART
+            a.innerText = `${product.quantity} In Cart`;
+            a.disabled = true;
+            });
+            } catch (e) {
+                console.log(e);
+            }
+        }
     </script >
 <!-- Small modal -->
     {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>#}

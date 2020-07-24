@@ -25,15 +25,17 @@ from .serializers import CartItemsSerializer, QuickViewSerializer
 # Defined a global dictionary for sets of items
 we = "সমীকরণ.কম"
 page_titles = {
-  "category-page": we,
-  "sub-category-page": we,
-  "login-page": we + " ~ Log In",
-  "about-page": we + " - About Us",
-  "contact-page": we + " - Contact",
-  "cattle-page": we + " ~ Online Gorur Haat 2020",
-  "item-page": we + " ~ Buy Products at cheapest price"
+    "category-page"    : we,
+    "sub-category-page": we,
+    "login-page"       : we + " ~ Log In",
+    "about-page"       : we + " - About Us",
+    "contact-page"     : we + " - Contact",
+    "cattle-page"      : we + " ~ Online Gorur Haat 2020",
+    "item-page"        : we + " ~ Buy Products at cheapest price"
 }
 DEMO = "REPLACE"
+
+
 def user_login(request):
     # return render(request, 'shop/custom_login.html')
 
@@ -60,7 +62,7 @@ def user_login(request):
                     return redirect('shop:home')
                 else:
                     messages.success(request, 'Please enter correctly ')
-        form = CreateUserForm()
+        form = SignUpForm()
         context = {'form': form,
                    'page_title': page_titles["login-page"]}
         return render(request, 'shop/custom_login.html', context)
@@ -78,10 +80,13 @@ class HomeView(ListView):
             cartitems = ''
         context = super().get_context_data(**kwargs)
         context['somikoron_items'] = Items.objects.filter(
+            itemdetails__stock_quantity__gt=0,
             sub_category__category__category_id='somikoron')
-        context['popular'] = Items.objects.filter().order_by('-itemdetails__total_views')
-        context['offer'] = Items.objects.filter().order_by(
+        context['popular'] = Items.objects.filter(itemdetails__stock_quantity__gt=0).order_by(
+            '-itemdetails__total_views')
+        context['offer'] = Items.objects.filter(itemdetails__stock_quantity__gt=0).order_by(
             '-itemdetails__discount_offer')
+        context['all_items'] = Items.objects.filter(itemdetails__stock_quantity__gt=0)
         context['categories'] = get_categories()
         context['cartitems'] = cartitems
         return context
@@ -97,7 +102,8 @@ def get_subcategories():
 
 class ItemListView(View):
     def get(self, *args, **kwargs):
-        item_list = Items.objects.filter(sub_category_id=kwargs['subid'])
+        item_list = Items.objects.filter(sub_category_id=kwargs['subid'],
+                                         itemdetails__stock_quantity__gt=0)
         page = self.request.GET.get('page', 1)
 
         paginator = Paginator(item_list, 18)
@@ -112,7 +118,7 @@ class ItemListView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
-            'page_title': page_titles["sub-category-page"] + " - " + DEMO,
+            'page_title'   : page_titles["sub-category-page"] + " - " + DEMO,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -120,7 +126,8 @@ class ItemListView(View):
 class CategoryItemView(View):
     def get(self, *args, **kwargs):
         cat = Category.objects.get(category_id=kwargs['catid'])
-        item_list = Items.objects.filter(sub_category__category=cat)
+        item_list = Items.objects.filter(sub_category__category=cat,
+                                         itemdetails__stock_quantity__gt=0)
         page = self.request.GET.get('page', 1)
 
         paginator = Paginator(item_list, 21)
@@ -134,7 +141,7 @@ class CategoryItemView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
-            'page_title': page_titles["category-page"] + " - " + DEMO,
+            'page_title'   : page_titles["category-page"] + " - " + DEMO,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -293,7 +300,7 @@ class CheckoutView(LoginRequiredMixin, View):
         context = {
             'form'      : form,
             'object'    : order,
-            'address'    : address,
+            'address'   : address,
             'categories': get_categories()
         }
         return render(self.request, 'shop/shop_checkout.html', context)
@@ -322,10 +329,10 @@ class CheckoutView(LoginRequiredMixin, View):
                     shipping_address = Address(
                         user=self.request.user,
                         customer_name=customer_name,
-                        customer_phone = customer_phone,
-                        area = area,
-                        address = address,
-                        payment_method = payment_method,
+                        customer_phone=customer_phone,
+                        area=area,
+                        address=address,
+                        payment_method=payment_method,
                     )
                     shipping_address.save()
 
@@ -356,7 +363,7 @@ class CattleshopView(View):
 
     def get(self, *args, **kwargs):
         sub_category = SubCategory.objects.filter(category__category_id='cattle')
-        cattle_list = Items.objects.filter(sub_category__category__category_id='cattle')
+        cattle_list = Items.objects.filter(sub_category__category__category_id='cattle', itemdetails__stock_quantity__gt=0)
 
         page = self.request.GET.get('page', 1)
 
@@ -472,9 +479,9 @@ def plcae_order(request):
 
 
 def delivery_status(request):
-    order = Order.objects.filter(user=request.user, ordered=True)
+    order = Order.objects.filter(user=request.user, ordered=True).order_by('-ordered_date')
     context = {
         'categories': get_categories(),
-        'orders':order,
+        'orders'    : order,
     }
-    return render(request, 'shop/delivery_status.html',context )
+    return render(request, 'shop/delivery_status.html', context)

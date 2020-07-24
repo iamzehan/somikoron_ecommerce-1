@@ -108,13 +108,14 @@ DATABASES = {
         # 'PASSWORD': '1234',
         # 'HOST'    : '127.0.0.1',
         # 'PORT'    : '5432',
-
-        'ENGINE'  : 'django.db.backends.sqlite3',
-        'NAME'    : os.path.join(BASE_DIR, 'db.sqlite3'),
-        'HOST'    : '',
-        'PORT'    : '',
-        'USER'    : '',
-        'PASSWORD': '',
+        'TEST_CHARSET'  : "utf8",
+        'TEST_COLLATION': "utf8_general_ci",
+        'ENGINE'        : 'django.db.backends.sqlite3',
+        'NAME'          : os.path.join(BASE_DIR, 'db.sqlite3'),
+        'HOST'          : '',
+        'PORT'          : '',
+        'USER'          : '',
+        'PASSWORD'      : '',
     }
 }
 
@@ -174,7 +175,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 
-
 # reverse('account_login')
 LOGIN_REDIRECT_URL = "/"
 
@@ -211,5 +211,3 @@ REST_FRAMEWORK = {
 if DEBUG:
     # the default value
     REST_FRAMEWORK['DEFAULT_METADATA_CLASS']: 'rest_framework.metadata.SimpleMetadata'
-
-

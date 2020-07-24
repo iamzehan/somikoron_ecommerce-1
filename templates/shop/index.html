@@ -403,7 +403,7 @@
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price" ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
-                                                        <del >{{ item.price }}</del >
+                                                        <del style="text-decoration: line-through;">{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
@@ -470,7 +470,7 @@
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price" ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
-                                                        <del >{{ item.price }}</del >
+                                                        <del style="text-decoration: line-through;">{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
@@ -565,7 +565,7 @@
                                     </div >
                                     <div class="mini-product_bottom" >
                                         <div class="mini-product_block" >
-                                            {% for item in object_list|slice:":3" %}
+                                            {% for item in all_items|slice:":3" %}
                                                 <div class="mini-product coffee" >
                                                     <div class="mini-product_img" ><a
                                                             href="{{ item.itemdetails.get_absolute_url }}" ><img
@@ -577,7 +577,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del >{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -588,7 +588,7 @@
                                             {% endfor %}
                                         </div >
                                         <div class="mini-product_block" >
-                                            {% for item in object_list|slice:"3:6" %}
+                                            {% for item in all_items|slice:"3:6" %}
                                                 <div class="mini-product coffee" >
                                                     <div class="mini-product_img" ><a
                                                             href="{{ item.itemdetails.get_absolute_url }}" ><img
@@ -600,7 +600,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del >{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -611,7 +611,7 @@
                                             {% endfor %}
                                         </div >
                                         <div class="mini-product_block" >
-                                            {% for item in object_list|slice:"6:10" %}
+                                            {% for item in all_items|slice:"6:10" %}
                                                 <div class="mini-product coffee" >
                                                     <div class="mini-product_img" ><a
                                                             href="{{ item.itemdetails.get_absolute_url }}" ><img
@@ -623,7 +623,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del >{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -644,7 +644,7 @@
                                     </div >
                                     <div class="mini-product_bottom" >
                                         <div class="mini-product_block" >
-                                            {% for item in object_list %}
+                                            {% for item in all_items %}
                                                 {% if  forloop.counter < 4 %}
                                                     <div class="mini-product coffee" >
                                                         <div class="mini-product_img" ><a
@@ -657,7 +657,7 @@
                                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                                     <small style="font-size: small" >৳</small >
                                                                     {{ item.itemdetails.get_discounted_price }}
-                                                                    <del >{{ item.price }}</del >
+                                                                    <del style="text-decoration: line-through;">{{ item.price }}</del >
 
                                                                 {% else %}
                                                                     <small style="font-size: small" >৳</small > {{ item.price }}
@@ -755,7 +755,7 @@
                                     </div >
                                     <div class="mini-product_bottom" >
                                         <div class="mini-product_block" >
-                                            {% for item in object_list %}
+                                            {% for item in all_items %}
                                                 {% if  forloop.counter < 4 %}
                                                     <div class="mini-product coffee" >
                                                         <div class="mini-product_img" ><a
@@ -768,7 +768,7 @@
                                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                                     <small style="font-size: small" >৳</small >
                                                                     {{ item.itemdetails.get_discounted_price }}
-                                                                    <del >{{ item.price }}</del >
+                                                                    <del style="text-decoration: line-through;">{{ item.price }}</del >
 
                                                                 {% else %}
                                                                     <small style="font-size: small" >৳</small > {{ item.price }}

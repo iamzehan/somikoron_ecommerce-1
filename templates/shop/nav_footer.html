@@ -301,18 +301,7 @@
                         <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center" ><a href="#" ><img
                                 src="{% static 'assets/images/logo.png' %}" alt="" ></a ></div >
                     </div >
-                    <div class="col-3" >
-                        <div class="mobile-product_function d-flex align-items-center justify-content-end" >
-                            <a class="function-icon icon_heart_alt" href="" ></a >
-                            <a class="function-icon icon_bag_alt" href="{% url 'shop:order-summary' %}" >
-                                <span >
-                                    {% if user.is_authenticated %}
-                                        {{ request.user|cart_item_count }}
-                                    {% endif %}
-                            </span >
-                            </a >
-                        </div >
-                    </div >
+
                 </div >
                 <div class="row" style="margin-top: 15px">
                     <div class="col-8 " >

@@ -1,0 +1,928 @@
+product_code,title,price,slug,description,item_owner_id,sub_category_id
+S-GR0003,PRAN Chinigura Rice (5 kg),620.0,S-GR0003,"PRAN Chinigura Rice 
+Weight: 5 kg 
+Brand: Pran",1,2
+S_BC0024,Sepnil Natural Sanitizing Handwash - Marigold 200ml,90.0,s_bc0024,Sepnil Natural Sanitizing Handwash - Marigold 200ml,1,12
+S_BC0026,Sepnil Natural Sanitizing Handwash - Tea Oil 200ml,90.0,s_bc0026,Sepnil Natural Sanitizing Handwash - Tea Oil 200ml,1,12
+S_BC0028,Sepnil Fruity Sanitizing Hand Wash - Orange 200ml,95.0,s_bc0028,Sepnil Fruity Sanitizing Hand Wash - Orange,1,12
+S_BC0029,Sepnil Fruity Sanitizing Hand Wash - Apple 200ml,95.0,s_bc0029,Sepnil Fruity Sanitizing Hand Wash - Apple,1,12
+S_BC0031,Sepnil Instant Hand Sanitizer 50ml,90.0,s_bc0031,Sepnil Instant Hand Sanitizer 50ml,1,22
+S_BC0032,Sepnil Instant Hand Sanitizer 100ml,150.0,s_bc0032,Sepnil Instant Hand Sanitizer,1,22
+S_BC0033,Sepnil Instant Hand Sanitizer - with Pump 200ml,225.0,s_bc0033,Sepnil Instant Hand Sanitizer - with Pump,1,22
+S_BC0058,Dettol Antiseptic Liquid 50ml Glass Bottle,38.0,S_BC0058,Dettol Antiseptic Liquid 50ml Glass Bottle,1,22
+S_BC0059,Dettol Antiseptic Liquid 100ml Glass Bottle,52.0,S_BC0059,Dettol Antiseptic Liquid 100ml Glass Bottle,1,22
+S_BC0060,Dettol Antiseptic Liquid 750ml Brown,233.0,S_BC0060,Dettol Antiseptic Liquid 750ml Brown,1,22
+S_BC0061,Dettol Antiseptic Liquid Brown 5 Litre,1380.0,S_BC0061,Dettol Antiseptic Liquid Brown 5 Litre,1,22
+S_BC0062,Dettol Antibacterial Wet Wipes Single Pack,70.0,S_BC0062,Dettol Antibacterial Wet Wipes Single Pack,1,22
+S_BC0063,Dettol Instant Hand Sanitizer 50 ml,145.0,S_BC0063,Dettol Instant Hand Sanitizer 50 ml,1,22
+S_BC0064,Dettol Handwash Refill 170ml (Cool),65.0,S_BC0064,Dettol Handwash Refill 170ml (Cool),1,12
+S_BC0065,Dettol Handwash Refill 170ml  (AloeVera),65.0,S_BC0065,Dettol Handwash Refill 170ml  (AloeVera),1,12
+S_BC0066,Dettol Handwash Refill 170ml  Reenergize,65.0,S_BC0066,Dettol Handwash Refill 170ml  Reenergize,1,12
+S_BC0067,Dettol Handwash Refill 170ml  (Skincare),60.0,S_BC0067,Dettol Handwash Refill 170ml  (Skincare),1,12
+S_BC0068,Dettol Handwash Pump 200ml (AloeVera),100.0,S_BC0068,Dettol Handwash Pump 200ml (AloeVera),1,12
+S_BC0069,Dettol Handwash Pump 200ml (Skincare),95.0,S_BC0069,Dettol Handwash Pump 200ml (Skincare),1,12
+S_BC0070,Dettol Soap 30gm (Original),10.0,S_BC0070,Dettol Soap 30gm (Original),1,9
+S_BC0071,Dettol Soap 30gm (Skincare),10.0,S_BC0071,Dettol Soap 30gm (Skincare),1,9
+S_BC0072,Dettol Soap 75gm (Original),40.0,S_BC0072,Dettol Soap 75gm (Original),1,9
+S_BC0073,Dettol Soap 75gm ( Skincare),40.0,S_BC0073,Dettol Soap 75gm ( Skincare),1,9
+S_BC0074,Dettol Soap 75gm (Cool),40.0,S_BC0074,Dettol Soap 75gm (Cool),1,9
+S_BC0075,Dettol Soap Aloe Vera 75gm,38.0,S_BC0075,Dettol Soap Aloe Vera 75gm,1,9
+S_BC0076,Dettol Soap 125gm (Original),58.0,S_BC0076,Dettol Soap 125gm (Original),1,9
+S_BC0077,Dettol Soap 125gm (Skincare),58.0,S_BC0077,Dettol Soap 125gm (Skincare),1,9
+S_BC0078,Dettol Soap 125gm (Cool),58.0,S_BC0078,Dettol Soap 125gm (Cool),1,9
+S_BS0028,Ruchi Bar-B-Q Chanachur 150gm,35.0,s_bs0028,Ruchi Bar-B-Q Chanachur,1,14
+S_BS0030,Ruchi Bar-B-Q Chanachur 350gm,65.0,s_bs0030,Ruchi Bar-B-Q Chanachur,1,14
+S_BS0031,Ruchi Bar-B-Q Chanachur 600gm,100.0,s_bs0031,Ruchi Bar-B-Q Chanachur,1,14
+S_BS0061,Chopstick Instant Noodles (Yummy Masala) 496gm,130.0,s_bs0061,Chopstick Instant Noodles (Yummy Masala),1,13
+S_BS0077,Chopstick Instant Noodles (Deshi Masala) 248gm,66.0,s_bs0077,Chopstick Instant Noodles (Deshi Masala),1,13
+S_BS0081,Chopstick Instant Noodles (Deshi Masala) 496gm,130.0,s_bs0081,Chopstick Instant Noodles (Deshi Masala),1,13
+S_BS0085,Chopstick Instant Noodles (Deshi Masala) 744gm,200.0,s_bs0085,Chopstick Instant Noodles (Deshi Masala),1,13
+S_FA002,অষ্ট্রেলিয়ান ক্রস ষাঁড়,430000.0,s_fa002,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA003,অষ্ট্রেলিয়ান ষাঁড়,270000.0,s_fa003,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA004,অষ্ট্রেলিয়ান ষাঁড়,250000.0,s_fa004,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA005,অষ্ট্রেলিয়ান ষাঁড়,260000.0,s_fa005,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA009,অষ্ট্রেলিয়ান ষাঁড়,225000.0,s_fa009,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA010,অষ্ট্রেলিয়ান ষাঁড়,218000.0,s_fa010,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA011,অষ্ট্রেলিয়ান ষাঁড়,205000.0,s_fa011,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA026,সিন্ধি ষাঁড়,325000.0,s_fa026,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA035,সিন্ধি ষাঁড়,310000.0,s_fa035,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA107,সিন্ধি ষাঁড়,155000.0,s_fa107,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA112,সিন্ধি ষাঁড়,180000.0,s_fa112,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA113,সিন্ধি ষাঁড়,190000.0,s_fa113,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA115,সিন্ধি ষাঁড়,185000.0,s_fa115,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA116,সিন্ধি ষাঁড়,168000.0,s_fa116,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA117,সিন্ধি ষাঁড়,173000.0,s_fa117,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA118,সিন্ধি ষাঁড়,176000.0,s_fa118,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA119,সিন্ধি ষাঁড়,190000.0,s_fa119,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA121,সিন্ধি ষাঁড়,175000.0,s_fa121,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA122,নেপালি ষাঁড়,186000.0,s_fa122,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA123,নেপালি ষাঁড়,190000.0,s_fa123,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA124,সিন্ধি ষাঁড়,172000.0,s_fa124,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA126,সিন্ধি ষাঁড়,168000.0,s_fa126,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA128,সিন্ধি ষাঁড়,159000.0,s_fa128,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA134,অষ্ট্রেলিয়ান ক্রস ষাঁড়,240000.0,s_fa134,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA135,সিন্ধি ষাঁড়,215000.0,s_fa135,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA136,সিন্ধি ষাঁড়,193000.0,s_fa136,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA137,সিন্ধি ষাঁড়,176000.0,s_fa137,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA149,ইন্ডিয়ান বেইল ষাঁড়,230000.0,s_fa149,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA150,ইন্ডিয়ান বেইল ষাঁড়,210000.0,s_fa150,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA154,ইন্ডিয়ান বেইল ষাঁড়,200000.0,s_fa154,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA157,সিন্ধি ষাঁড়,160000.0,s_fa157,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA160,সিন্ধি ষাঁড়,160000.0,s_fa160,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA171,সিন্ধি ষাঁড়,160000.0,s_fa171,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA220,সিন্ধি ষাঁড়,175000.0,s_fa220,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA226,সাদা মহিষ,165000.0,s_fa226,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_FA227,সাদা মহিষ,160000.0,s_fa227,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",2,24
+S_GR0001,PRAN Chinigura Rice (1 kg),130.0,S_GR0001,"PRAN Chinigura Rice
+Weight: 1 kg
+Brand: Pran",1,2
+S_GR0002,PRAN Chinigura Rice (2 kg),255.0,S_GR0002,"PRAN Chinigura Rice 
+Weight: 2 kg 
+Brand: Pran",1,2
+S_GR0003,PRAN Chinigura Rice (5 kg),620.0,S_GR0003,PRAN Chinigura Rice (5 kg),1,2
+S_GR0004,PRAN Minicate (5 kg),370.0,S_GR0004,"PRAN Minicate 
+Weight: 5 kg 
+Brand: Pran",1,2
+S_GR0005,PRAN Mushur Daal (500gm),80.0,S_GR0005,"PRAN Mushur Daal
+Weight: 500gm
+Brand: Pran",1,5
+S_GR0006,PRAN Mushur Daal (1 Kg),160.0,S_GR0006,"PRAN Mushur Daal 
+Weight: 1kg
+Brand: Pran",1,5
+S_GR0007,PRAN Mung Daal (500gm),90.0,S_GR0007,PRAN MungDaal Weight: 500gm Brand: Pran,1,5
+S_GR0008,PRAN Mung Daal (1 Kg),170.0,S_GR0008,PRAN MungDaal Weight: 1kg Brand: Pran,1,5
+S_GR0009,PRAN Hot Tomato Sauce (550 gm),110.0,S_GR0009,"PRAN Hot Tomato Sauce
+Weight: 500gm
+Brand: PRAN",1,26
+S_GR0010,PRAN Hot Tomato Sauce (1000 gm),190.0,S_GR0010,PRAN Hot Tomato Sauce Weight: 500gm Brand: PRAN,1,26
+S_GR0011,PRAN Mustard Oil (500ml),118.0,S_GR0011,PRAN Mustard Oil Weight: 500ml Brand: PRAN,1,3
+S_GR0012,PRAN Mustard Oil 1000 ml,216.0,S_GR0012,PRAN Mustard Oil Weight: 1000ml Brand: PRAN,1,3
+S_GR0013,PRAN Turmeric Powder Jar (200 gm),90.0,S_GR0013,"PRAN Turmeric Powder Jar
+Weight: 200gm
+Brand: PRAN",1,4
+S_GR0014,PRAN Turmeric Powder 500gm pouch,200.0,S_GR0014,"PRAN Turmeric Powder
+Weight: 500gm
+Brand: PRAN",1,4
+S_GR0015,PRAN Chili Powder Jar (200 gm),95.0,S_GR0015,PRAN Chili Powder Weight: 200gm Brand: PRAN,1,4
+S_GR0016,PRAN Chili Powder Jar 500gm pouch,225.0,S_GR0016,PRAN Chili Powder Weight: 500gm Brand: PRAN,1,4
+S_GR0017,PRAN Cumin Powder Jar (200 gm),160.0,S_GR0017,PRAN CuminPowder Weight: 500gm Brand: PRAN,1,4
+S_GR0018,PRAN Coriander Powder Jar (200 gm),65.0,S_GR0018,PRAN Coriander Powder Weight: 200gm Brand: PRAN,1,4
+S_GR0019,Mr.Noodles Magic Masala Easy Instant 5 pack,85.0,S_GR0019,"Mr.Noodles Magic Masala Easy Instant
+Brand: PRAN",1,13
+S_GR0020,Mr.Noodles Magic Masala Easy Instant 62gm 8pack,130.0,S_GR0020,"Mr.Noodles Magic Masala Easy Instant
+Brand: PRAN",1,13
+S_GR0021,Chashi Aromatic Chinigura Rice 1kg,125.0,S_GR0021,Chashi Aromatic Chinigura Rice 1kg,1,2
+S_GR0022,Radhuni Mustard Oil 1000ml,235.0,S_GR0022,Radhuni Mustard Oil 1000ml,1,3
+S_GR0023,Rupchada Soyabean Oil 2ltr,216.0,S_GR0023,Rupchada Soyabean Oil 2ltr,1,3
+S_GR0024,Rupchada Soyabean Oil 5ltr,525.0,S_GR0024,Rupchada Soyabean Oil 5ltr,1,3
+S_GR0025,Teer Sugar 1kg,72.0,S_GR0035,Teer Sugar 1kg,1,6
+S_GR0026,Ispahani Mirzapore Best Leaf 200 gm,110.0,S_GR0026,Ispahani Mirzapore Best Leaf 200 gm,1,18
+S_GR0027,Ispahani Mirzapore Best Leaf 400 gm,210.0,S_GR0027,Ispahani Mirzapore Best Leaf 400 gm,1,18
+S_GR0028,Brooke Bond Taaza 400gm,199.0,S_GR0028,Brooke Bond Taaza 400gm,1,18
+S_GR0029,ACI Salt 1kg,38.0,S_GR0029,ACI Salt 1kg,1,4
+S_GR0030,Radhuni Turmeric Powder 200gm,90.0,S_GR0030,"Radhuni Turmeric Powder 200gm
+
+Square Food & Beverage Limited",1,4
+S_GR0031,Radhuni Chilli Powder 200gm,95.0,S_GR0031,"Radhuni Chilli Powder 200gm
+Square Food & Beverage Limited",1,4
+S_GR0032,Radhuni Coriander Powder 200gm,63.0,S_GR0032,"Radhuni Coriander Powder 200gm
+Square Food & Beverage Limited",1,4
+S_GR0033,Radhuni Cumin Powder 200gm,155.0,S_GR0033,"Radhuni Cumin Powder 200gm
+Square Food & Beverage Limited",1,4
+S_GR0034,Bashundhara Atta 1kg,36.0,S_GR0034,Bashundhara Atta 1kg,1,7
+S_GR0035,Bashundhara Maida 1kg,48.0,S_GR0035,Bashundhara Maida 1kg,1,7
+S_GR0036,Bashundhara Atta 2kg,70.0,S_GR0036,Bashundhara Atta 2kg,1,7
+S_GR0037,Bashundhara Maida 2kg,92.0,S_GR0037,Bashundhara Maida 2kg,1,7
+S_GR0038,Teer Whole wheat Atta 2kg,82.0,S_GR0038,Teer Whole wheat Atta 2kg,1,7
+S_GR0039,Diploma I-FCMP Foil 500gm,330.0,S_GR0039,Diploma I-FCMP Foil 500gm,1,6
+S_GR0040,Diploma I-FCMP Foil 1kg,650.0,S_GR0040,Diploma Instant Full Cream Milk Powder (Foil Pack) 1 kg,1,6
+S_GR0041,Nido FCMP   BIB 700gm,530.0,S_GR0041,Nido Fortigrow Full Cream Milk Powder BIB 700gm,1,6
+S_GR0042,Nido FCMP   BIB 350gm,270.0,S_GR0042,Nestlé NIDO Fortigrow Full Cream Milk Powder BIB,1,6
+S_GR0043,Nescafe Classic - Jar 50gm,165.0,S_GR0043,Nescafe Classic - Jar 50gm,1,18
+S_GR0044,Knorr Soup Classic Corn Chicken 24gm,40.0,S_GR0044,Knorr Soup Classic Corn Chicken 24gm,1,15
+S_GR0045,"ashundhara paper napkin 13*13,1 ply 80 pcs",48.0,S_GR0045,"ashundhara paper napkin 13*13,1 ply 80 pcs",1,10
+S_GR0046,Bashundhara Toilet Tissue Regular White,17.0,S_GR0046,Bashundhara Toilet Tissue Regular White,1,10
+S_GR0047,Teer Atta  1kg,36.0,S_GR0047,Teer Atta  1kg,1,7
+S_GR0048,Teer Atta  2kg,70.0,S_GR0048,Teer Atta  2kg,1,7
+S_GR0049,Teer Maida 2kg,92.0,S_GR0049,Teer Maida 2kg,1,7
+S_GR0053,Radhuni Turmeric Powder 100gm,48.0,s_gr0053,রাধুনী হলুদ গুড়াঁ,1,4
+S_GR0054,Radhuni Turmeric Powder(Pet Jar) 200gm,105.0,s_gr0054,রাধুনী হলুদের গুঁড়া,1,4
+S_GR0055,Radhuni Turmeric Powder 500gm,200.0,s_gr0055,Radhuni Turmeric Powder,1,4
+S_GR0056,Radhuni Chilli Powder 100gm,50.0,s_gr0056,Radhuni Chilli Powder,1,4
+S_GR0057,Radhuni Chilli Powder 500gm,225.0,s_gr0057,Radhuni Chilli Powder,1,4
+S_GR0058,Radhuni Cumin Powder 100gm,80.0,s_gr0058,জিরা গুড়াঁ,1,4
+S_GR0059,Radhuni Cumin Powder 500 gm,375.0,s-gr0059,জিরা গুঁড়া,1,4
+S_GR0060,Radhuni Kheer Mix,40.0,s_gr0060,"Radhuni Kheer Mix
+150gm",1,8
+S_GR0061,Radhuni Firni Mix,40.0,s_gr0061,"Radhuni Firni Mix
+150gm",1,8
+S_GR0062,Radhuni Chilli Powder(Pet Jar) 200gm,105.0,s_gr0062,Radhuni Chilli Powder,1,4
+S_GR0063,Radhuni Falooda Mix Vanilla Flavor,65.0,s_gr0063,"Radhuni Falooda Mix
+Vanilla Flavor
+150gm",1,8
+S_GR0064,Radhuni Jorda Mix,110.0,s_gr0064,"Radhuni Jorda Mix
+400gm",1,8
+S_GR0065,Radhuni Mango Falooda Mix,65.0,s_gr0065,Radhuni Mango Falooda Mix,1,8
+S_GR0066,Radhuni Coriander Powder 100gm,33.0,s_gr0066,ধনিয়া গুঁড়া,1,4
+S_GR0068,Radhuni Garam Masala,60.0,s_gr0068,"Garam Masala
+40 gm",1,4
+S_GR0069,Radhuni Mejbani Beef Masala 68gm,70.0,s_gr0069,Radhuni Mejbani Beef Masala,1,4
+S_GR0070,Radhuni Beef Masala 25gm,18.0,s_gr0070,"Radhuni Beef Masala
+25gm",1,4
+S_GR0073,Radhuni Beef Curry Masala 100gm,70.0,s_gr0073,Radhuni Beef Curry Masala,1,4
+S_GR0076,Radhuni Coriander Powder(Pet Jar) 200gm,73.0,s_gr0076,ধনিয়া গুঁড়া,1,4
+S_GR0078,Radhuni Fish Curry Masala 100gm,55.0,s_gr0078,Radhuni Fish Curry Masala,1,4
+S_GR0080,Radhuni Easy Mix Roast Masala 100gm,60.0,s_gr0080,Radhuni Easy Mix Roast Masala 100gm,1,4
+S_GR0084,Radhuni Chicken Masala 100gm,65.0,s_gr0084,Radhuni Chicken Masala,1,4
+S_GR0085,Radhuni Chicken Tandoori Masala 50gm,75.0,s_gr0085,Radhuni Chicken Tandoori Masala,1,4
+S_GR0088,Radhuni Chatpati Masala 50gm,40.0,s_gr0088,Radhuni Chatpati Masala,1,4
+S_GR0089,Radhuni Kabab Masala 50gm,90.0,s_gr0089,Radhuni Kabab Masala,1,4
+S_GR0090,Radhuni Biryani Masala 40gm,55.0,s_gr0090,Radhuni Biryani Masala,1,4
+S_GR0091,Radhuni Hyderabadi Biryani Masala 45gm,80.0,s_gr0091,Radhuni Hyderabadi Biryani Masala,1,4
+S_GR0092,Radhuni Kachchi Biryani Masala 40gm,60.0,s_gr0092,Radhuni Kachchi Biryani Masala,1,4
+S_GR0094,Radhuni Tehari Masala 40gm,45.0,s_gr0094,Radhuni Tehari Masala,1,4
+S_GR0095,Radhuni Coriander Powder 50mg,20.0,s_gr0095,ধনিয়া গুঁড়া,1,4
+S_GR0096,Radhuni Cumin Powder 50gm,43.0,s_gr0096,জিরা গুড়াঁ,1,4
+S_GR0097,Radhuni Kala Bhuna Masala,70.0,s_gr0097,Radhuni Kala Bhuna Masala,1,4
+S_GR0103,Radhuni Shemai,35.0,s_gr0103,Radhuni Shemai,1,7
+S_GR0106,Radhuni Panchforan,22.0,s_gr0106,Radhuni Panchforan,1,4
+S_GR0107,Radhuni Powdered Panchforan,22.0,s_gr0107,Radhuni Powdered Panchforan,1,4
+S_GR0108,Radhuni Turmeric Powder 200gm,90.0,s_gr108,রাধুনী হলুদের গুঁড়া,1,4
+S_GR0111,Radhuni Kasundi,45.0,s_gr0111,Radhuni Kasundi,1,8
+S_GR0112,Radhuni Coriander Powder 500gm,145.0,s_gr0112,ধনিয়া গুঁড়া,1,4
+S_GR0114,Radhuni Pure Mustard Oil 250ml,65.0,s_gr0114,Radhuni Pure Mustard Oil,1,3
+S_GR0115,Radhuni Pure Mustard Oil 500ml,125.0,s_gr0115,Radhuni Pure Mustard Oil,1,3
+S_GR0119,Radhuni Vinegar 280ml,40.0,s_gr0119,Radhuni Vinegar,1,8
+S_GR0122,Chashi Aromatic Chinigura Rice 2kg,250.0,s-gr0122,Chashi Aromatic Chinigura Rice,1,2
+S_GR0123,Chashi Aromatic Chinigura Rice 5kg,600.0,s-gr0123,Chashi Aromatic Chinigura Rice,1,2
+S_HB01,HoneyBee Special Honey 250 gm,280.0,S_HB01,HoneyBee Special Honey 250 gm,1,23
+S_HB02,HoneyBee Special Honey 500 gm,500.0,S_HB02,HoneyBee Special Honey 500 gm,1,23
+S_HB03,HoneyBee Special Honey  1kg,1000.0,S_HB03,HoneyBee Special Honey  1kg,1,23
+S_HB04,HoneyBee Special Ghee 250 gm,400.0,S_HB04,HoneyBee Special Ghee 250 gm,1,23
+S_HB05,HoneyBee Special Ghee 1kg,1500.0,S_HB05,HoneyBee Special Ghee 1kg,1,23
+S_HC0018,Harpic Bathroom Cleaning Liquid Floral 500ml,120.0,S_HC0018,Harpic Bathroom Cleaning Liquid Floral 500ml,1,25
+S_HC0019,Harpic Bathroom Cleaning Powder 200gm,42.0,S_HC0019,Harpic Bathroom Cleaning Powder 200gm,1,25
+S_HC0020,Harpic Bathroom Cleaning Powder 400gm,75.0,S_HC0020,Harpic Bathroom Cleaning Powder 400gm,1,25
+S_HC0021,Harpic Flushmatic In-cistern Toilet Cleaner 50gm,115.0,S_HC0021,Harpic Flushmatic In-cistern Toilet Cleaner 50gm,1,25
+S_HC0022,Harpic Flushmatic In-cistern Toilet Cleaner Twin Pack (50gm X 2) Offer,200.0,S_HC0022,Harpic Flushmatic In-cistern Toilet Cleaner Twin Pack (50gm X 2) Offer,1,25
+S_HC0023,Harpic Toilet Cleaning Powder with Malodor Control Technology 200gm,40.0,S_HC0023,Harpic Toilet Cleaning Powder with Malodor Control Technology 200gm,1,25
+S_HC0024,Harpic Toilet Cleaning Powder with Malodor Control Technology 400gm,70.0,S_HC0024,Harpic Toilet Cleaning Powder with Malodor Control Technology 400gm,,25
+S_HC0025,Harpic Toilet Cleaning Liquid 500ml,105.0,S_HC0025,Harpic Toilet Cleaning Liquid 500ml,1,25
+S_HC0026,Harpic Toilet Cleaning Liquid Fresh Citrus 500ml,105.0,S_HC0026,Harpic Toilet Cleaning Liquid Fresh Citrus 500ml,1,25
+S_HC0027,Harpic Toilet Cleaning Liquid 750ml,130.0,S_HC0027,Harpic Toilet Cleaning Liquid 750ml,1,25
+S_HC0028,Harpic Toilet Cleaning Liquid 1L,160.0,S_HC0028,Harpic Toilet Cleaning Liquid 1L,1,25
+S_HC0029,Lizol Disinfectant Surface Cleaner 500ml (Citrus ),140.0,S_HC0029,Lizol Disinfectant Surface Cleaner 500ml (Citrus ),1,25
+S_HC0030,izol Disinfectant Surface Cleaner 500ml ( Floral ),140.0,S_HC0030,izol Disinfectant Surface Cleaner 500ml ( Floral ),1,25
+S_HC0031,Lizol Disinfectant Surface Cleaner 500ml (Jasmine),140.0,S_HC0031,Lizol Disinfectant Surface Cleaner 500ml (Jasmine),1,25
+S_HC0032,Lizol Disinfectant Surface Cleaner 500ml (Lavander),140.0,S_HC0032,Lizol Disinfectant Surface Cleaner 500ml (Lavander),1,25
+S_HC0033,Lizol Disinfectant Surface Cleaner 975ml (Floral),245.0,S_HC0033,Lizol Disinfectant Surface Cleaner 975ml (Floral),1,25
+S_HC0034,Lizol Disinfectant Surface Cleaner 975ml (Citrus),245.0,S_HC0034,Lizol Disinfectant Surface Cleaner 975ml (Citrus),1,25
+S_HC0035,Mr. Brasso Glass & Household Cleaner Refill 350ml,110.0,S_HC0035,Mr. Brasso Glass & Household Cleaner Refill 350ml,1,25
+S_HC0036,Mr. Brasso Glass & Household Cleaner Spray 350ml,135.0,S_HC0036,Mr. Brasso Glass & Household Cleaner Spray 350ml,1,25
+S_HC0037,Trix Dishwashing Liquid Refill 250ml Sparkling Clean with Lemon Fragrance,55.0,S_HC0037,Trix Dishwashing Liquid Refill 250ml Sparkling Clean with Lemon Fragrance,1,25
+S_HC0038,Trix Dishwashing Liquid Bottle 500ml Sparkling Clean with Lemon Fragrance,105.0,S_HC0038,Trix Dishwashing Liquid Bottle 500ml Sparkling Clean with Lemon Fragrance,1,25
+S_K0201,দেশী ষাঁড়,132000.0,s_k0201,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0202,দেশী ষাঁড়,124000.0,s_k0202,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0301,দেশী ষাঁড়,203000.0,s_k0301,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0403,দেশী ষাঁড়,130000.0,s_k0403,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0501,দেশী ষাঁড়,140000.0,s_k0501,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0601,দেশী ষাঁড়,123000.0,s_k0601,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0602,দেশী ষাঁড়,130000.0,s_k0602,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0603,দেশী ষাঁড়,118000.0,s_k0603,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0604,দেশী ষাঁড়,110000.0,s_k0604,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0701,দেশী ষাঁড়,150000.0,s_k0701,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0801,দেশী ষাঁড়,170000.0,s_k0801,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0901,দেশী ষাঁড়,63000.0,s_k0901,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0902,দেশী ষাঁড়,73000.0,s_k0902,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K0903,দেশী ষাঁড়,63000.0,s_k0903,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1203,দেশী ষাঁড়,90000.0,s_k1203,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1304,দেশী ষাঁড়,82000.0,s_k1304,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1405,দেশী ষাঁড়,88000.0,s_k1405,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1501,দেশী ষাঁড়,82000.0,s_k1501,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1502,দেশী ষাঁড়,73000.0,s_k1502,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1601,দেশী ষাঁড়,79000.0,s_k1601,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1602,দেশী ষাঁড়,80000.0,s_K1602,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1701,দেশী ষাঁড়,118000.0,s_k1701,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1702,দেশী ষাঁড়,148000.0,s_k1702,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_K1801,দেশী ষাঁড়,230000.0,s_k1801,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+Note: The actual color of the physical product may slightly vary",1,27
+S_PA0020,দেশী ষাঁড়,132000.0,s_pa0020,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0022,দেশী ষাঁড়,128000.0,s_pa0022,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0023,দেশী ষাঁড়,128000.0,s_pa0023,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0026,দেশী ষাঁড়,152000.0,s_pa0026,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0027,দেশী ষাঁড়,152000.0,s_pa0027,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0030,দেশী ষাঁড়,170000.0,s_pa0030,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0032,ফ্রিজিয়ান ক্রস ষাঁড়,138000.0,s_pa0032,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0033,দেশী ষাঁড়,138000.0,s_pa0033,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0035,দেশী ষাঁড়,126000.0,s_pa0035,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_PA0036,দেশী ষাঁড়,152000.0,s_pa0036,"- সম্পূর্ণ অর্গানিক উপায়ে লালন-পালন করা
+- কোনো ক্ষতিকর রাসায়নিক বা ইনজেকশন প্রয়োগ করা হয়নি
+- গরু মোটাতাজা করা হয়েছে প্রকৃতির স্বাভাবিক নিয়ম মেনে
+- কাঁচা ঘাস, খৈইল, ভুষি ইত্যাদি ছিলো আমাদের গরুর নিত্যদিনের খাদ্য
+- নিজস্ব ব্যবস্থাপনায় ঘাস উৎপাদন করে গরুকে খাওয়ানো হয়েছে
+- সার্বক্ষণিক একজন পশু চিকিৎসকের তত্ত্বাবধানে লালন-পালন
+- দেশি জাতের গরুর সাথে এখানে পাবেন স্বনামধন্য বিদেশি জাতের এবং সংকর জাতের সুস্থ-সবল গরুগুলো
+- অনলাইনে অথবা খামারে এসে গরু কেনার সুযোগ
+- বিকাশে/ক্রেডিট কার্ডের মাধ্যমে/নগদে পেমেন্ট করার সুযোগ
+- ঢাকা শহরের যে কোনে জায়গায় স্বাস্থ্যবিধি মেনে হোম ডেলিভারির সুযোগ
+
+Note: The actual color of the physical product may slightly vary",3,24
+S_SF001,Sepnil Instant Hand Sanitizer 40ml,80.0,S_SF001,Sepnil Instant Hand Sanitizer 40ml,1,22
+S_SF002,Sepnil Instant Hand Sanitizer 200ml,220.0,S_SF002,Sepnil Instant Hand Sanitizer 200ml,1,22
+S_SF003,Jumper Pulse Oxy meter,1810.0,S_SF003,Jumper Pulse Oxy meter,1,22
+S_SF004,Dettol Antiseptic Liquid brown 500ml,165.0,S_SF004,Dettol Antiseptic Liquid brown 500ml,1,22
+S_SF006,Dettol Handwash ( cool 200ml Pump),100.0,S_SF006,Dettol Handwash ( cool 200ml Pump),1,12
+S_SF007,Dettol Handwash (gold (200ml Pump),100.0,S_SF007,Dettol Handwash (gold (200ml Pump),1,12
+S_SF008,Dettol Handwash (gold (170ml Refill),65.0,S_SF008,Dettol Handwash (gold (170 Refill),1,12
+S_SF009,Dettol Handwash ( Re-energize) (200ml pump),100.0,S_SF009,Dettol Handwash ( Re-energize) (200ml pump),1,12
+S_SF010,"Dettol Handwash ( Original, 170ml)",60.0,S_SF010,"Dettol Handwash ( Original, 170ml)",1,12
+S_SF011,"Dettol Handwash ( Original, 200ml Pump)",95.0,S_SF011,"Dettol Handwash ( Original, 200ml Pump)",1,12
+S_SF012,Sepnil Disinfectant Spray (300ml),350.0,S_SF012,Sepnil Disinfectant Spray (300ml),1,22
+S_SF013,Yingbo 5 layer  KN95 mask 1 pack(10pcs),900.0,S_SF013,Yingbo 5 layer  KN95 mask,1,22
+S_SF014,McCons  KN95 mask,135.0,S_SF014,McCons  KN95 mask,1,22
+S_SF015,AFK YK009 Pulse Oximetere,1250.0,S_SF015,AFK YK009 Pulse Oximetere,1,22
+S_SF016,IMDK C101A2 Pulse Oximetere,1600.0,S_SF016,IMDK C101A2 Pulse Oximetere,1,22
+S_SF017,DIKANG Medical Infrared Thermometer,2500.0,S_SF017,DIKANG Medical Infrared Thermometer,1,22
+S_SF018,Safety Goggles Standard,250.0,S_SF018,Safety Goggles Standard,1,22
+S_SF019,Safety Goggles Basic,80.0,S_SF019,Safety Goggles Basic,1,22
+S_SF020,OMRON Automatic Blood Pressure Monitor,5000.0,S_SF020,OMRON Automatic Blood Pressure Monitor,1,22
+S_SF021,Medisina Blood Pressure Machine,2900.0,S_SF021,Medisina Blood Pressure Machine,1,22
+S_SF022,Hongyi Brand Infrared Contact Less Thermometer,2300.0,S_SF022,Hongyi Brand Infrared Contact Less Thermometer,1,22
+S_SF023,IML Manual Pressure Machine,1250.0,S_SF023,IML Manual Pressure Machine,1,22
+S_SF024,NTFS Facial Steamer/ Electric Vaporizer,2600.0,S_SF024,NTFS Facial Steamer/ Electric Vaporizer,1,22
+S_SF025,Mediciser Respiratory Exerciser,850.0,S_SF025,Mediciser Respiratory Exerciser,1,22
+S_SF026,Face Mask (surgical) 1 box (50pcs),450.0,s_sf026,"Surgical, Disposable, One Time Use",1,22
+S_SF027,Hand Gloves Vinyl 1 box (100 pcs),980.0,s_sf027,MediFlex Safe-Touch Lightly Powdered,1,22
+S_SF028,Hand Gloves Latex 1 box (100 pcs ) M,1040.0,s_sf028,"HAN-CARE Gloves;
+
+ASTM Certified;
+
+Made In Malaysia;",1,22
+S_SF029,Hand Gloves Latex 1 box (100 pcs) L,1040.0,s_sf029,"HAN-CARE Gloves;
+
+ ASTM Certified; 
+
+Made In Malaysia;",1,22

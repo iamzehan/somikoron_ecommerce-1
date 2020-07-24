@@ -311,7 +311,8 @@
                                         document.getElementById('cart_total').innerHTML = carttotal + parseFloat(product.price);
                                         document.getElementById('floatcarttotal').innerHTML = carttotal + parseFloat(product.price);
                                         localStorage.setItem('cart', JSON.stringify(cart));
-
+                                        // show increased item on button
+                                        updateQuantityOnButton(product);
                                         if (document.getElementById('cart_total').innerText >= 1000) {
                                             document.getElementById('deliverycharge').innerText = 40;
                                         } else {

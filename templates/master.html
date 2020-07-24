@@ -473,9 +473,12 @@
                             $(table).find('tbody').append(txt);
                             /*
                             EXPAND THE CART WHEN FIRST TIME IS ADDED
+                            AT THIS MOMENT IT OPENS WHEN THE THE PRODUCT COUNT IS ZERO
+                            IF YOU REMOVE ALL THE OTHER PRODUCTS FROM THE LIST AND THEN ADD
+                            AGAIN, IT SHOULD WORK THE SAME
                             */
                             if(cart.length == 0){
-                                console.log("SHOULD EXPAND");
+                                sidebarOPen();
                             }
                             cart.push(product);
                             carttotal = parseFloat(document.getElementById('cart_total').innerHTML);

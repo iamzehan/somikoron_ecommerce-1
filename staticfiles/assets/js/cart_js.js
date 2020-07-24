@@ -1,7 +1,5 @@
 'use strict';
-
 let cart = (JSON.parse(localStorage.getItem('cart')) || []);
-
 const cartDOM = document.querySelector('.cart');
 const addToCartButtonsDOM = document.querySelectorAll('[data-action="ADD_TO_CART"]');
 
@@ -25,7 +23,7 @@ if (cart.length > 0) {
             const productDOM = addToCartButtonDOM.parentNode;
 
             if (productDOM.querySelector('.product__name').innerText === product.name) {
-                addToCartButtonDOM.innerText = 'In Cart';
+                addToCartButtonDOM.innerText = 'In Cart TEST';
                 addToCartButtonDOM.disabled = true;
 
                 const cartItemsDOM = cartDOM.querySelectorAll('.cart__item');

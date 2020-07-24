@@ -471,6 +471,12 @@
                             </tr >
                           `;
                             $(table).find('tbody').append(txt);
+                            /*
+                            EXPAND THE CART WHEN FIRST TIME IS ADDED
+                            */
+                            if(cart.length == 0){
+                                console.log("SHOULD EXPAND");
+                            }
                             cart.push(product);
                             carttotal = parseFloat(document.getElementById('cart_total').innerHTML);
                             document.getElementById('cart_total').innerHTML = carttotal + parseFloat(product.price * product.quantity);
@@ -483,6 +489,7 @@
                             try {
                                 var btn = document.getElementsByName('btn' + product.name);
                                 btn.forEach(a => {
+                                // TODO: ADD ITEM COUNT BEFORE IN CART
                                     a.innerText = 'In Cart';
                                     a.disabled = true;
                                 });

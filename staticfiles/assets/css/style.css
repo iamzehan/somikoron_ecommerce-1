@@ -179,75 +179,76 @@ time, mark, audio, video {
 /* =======================contact start====================== */
 
 
-.slide_one{
-  position: relative;
-  height: 100vh !important;
-  width: 100% !important;
-  background-position: center !important;
-  background-size: cover !important;
-  z-index: -99;
-  overflow: hidden;
-  -webkit-background-attachment: fixed !important;
-  background-attachment: fixed !important;
-}
-.overlay{
-  position: absolute;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 99;
-  overflow: hidden;
+.slide_one {
+    position: relative;
+    height: 100vh !important;
+    width: 100% !important;
+    background-position: center !important;
+    background-size: cover !important;
+    z-index: -99;
+    overflow: hidden;
+    -webkit-background-attachment: fixed !important;
+    background-attachment: fixed !important;
 }
 
-.overlay_content{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 2;
+.overlay {
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    overflow: hidden;
 }
 
-.overlay_content h2{
-  color: #fff;
-  font-family: 'Cera Pro Bold';
-  text-transform: uppercase;
-  font-size: 45px;
-  font-weight: 700;
-  letter-spacing: 2px;
+.overlay_content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-.email_phone li{
-  list-style-type: none !important;
-  font-family: 'Cera Pro Regular';
-  color: #fff;
-  font-size: 18px;
-  letter-spacing: 1px;
-  line-height: 18px;
-padding: 5px 0px;
-  cursor: pointer;
+.overlay_content h2 {
+    color: #fff;
+    font-family: 'Cera Pro Bold';
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.social_media_icon li{
-  list-style-type: none;
-  display: inline-block;
+.email_phone li {
+    list-style-type: none !important;
+    font-family: 'Cera Pro Regular';
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    padding: 5px 0px;
+    cursor: pointer;
 }
 
-.social_media_icon li i{
-  height: 35px;
-  width: 35px;
-  color: #cb241b;
-  line-height: 32px;
-  background-color: #fff;
-  margin: 0px 5px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  transition: .5s;
+.social_media_icon li {
+    list-style-type: none;
+    display: inline-block;
 }
 
-.follow h4{
-  color: #fff;
-  font-family: 'Cera Pro Regular';
+.social_media_icon li i {
+    height: 35px;
+    width: 35px;
+    color: #cb241b;
+    line-height: 32px;
+    background-color: #fff;
+    margin: 0px 5px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.follow h4 {
+    color: #fff;
+    font-family: 'Cera Pro Regular';
 }
 
 /*.form-control{*/
@@ -258,31 +259,34 @@ padding: 5px 0px;
 /*  border: 1px solid #cb241b !important;*/
 /*  border-radius: 2px !important;*/
 /*}*/
-.contact_btn{
-  height: 45px !important;
-  border-radius: 2px !important;
+.contact_btn {
+    height: 45px !important;
+    border-radius: 2px !important;
 }
-.feedback-bg h2{
-  font-size: 25px;
-  font-family: 'Cera Pro Regular' !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  color: #cb241b ;
+
+.feedback-bg h2 {
+    font-size: 25px;
+    font-family: 'Cera Pro Regular' !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #cb241b;
 }
-@media(max-width:575px){
-  .overlay_content h2{
-    font-size: 30px;
-  }
-  .email_phone li{
-    font-size: 12px;
-  }
+
+@media (max-width: 575px) {
+    .overlay_content h2 {
+        font-size: 30px;
+    }
+
+    .email_phone li {
+        font-size: 12px;
+    }
 }
 
 /* =======================contact end====================== */
 
 /*========================================== sidebar part start============================*/
-.closeSidebar{
+.closeSidebar {
     position: absolute;
     text-align: center;
     top: 0;
@@ -300,11 +304,11 @@ padding: 5px 0px;
 }
 
 
-.place_order{
-  width: 100%;
-  text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
+.place_order {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 #add_cart_sidebar {
@@ -425,17 +429,18 @@ padding: 5px 0px;
     background-color: #eeeeee;
 }
 
-.special_code{
-  width: 100%;
-  background: transparent !important;
-  font-family: 'Cera Pro Medium';
-  font-size: 12px !important;
-  outline: none !important;
-  color: #484848 !important;
-  height: 30px;
-  border: none !important;
-  background-color: #f4f4f4f4 !important;
+.special_code {
+    width: 100%;
+    background: transparent !important;
+    font-family: 'Cera Pro Medium';
+    font-size: 12px !important;
+    outline: none !important;
+    color: #484848 !important;
+    height: 30px;
+    border: none !important;
+    background-color: #f4f4f4f4 !important;
 }
+
 .special_code span {
     color: #7f7f7f !important;
 }
@@ -565,9 +570,10 @@ padding: 5px 0px;
 
 /*=========================================== button part start===============================*/
 button, input {
-  overflow: hidden !important;
- outline: none !important;
+    overflow: hidden !important;
+    outline: none !important;
 }
+
 .all_btn {
     display: inline-block;
     outline: none !important;
@@ -5430,7 +5436,24 @@ header.coffee-2 .navigation-filter .website-search .filter-search .categories-se
 	Banner v2
 *************************************/
 .banner_v2, .banner_v3 {
-    margin-top: 30px;
+    margin-top: 0px;
+}
+
+.banner_v3 {
+    margin-bottom: 26px;
+    width: 992px;
+}
+
+@media (max-width: 575px) {
+    .banner_v3 {
+        width: 100% !important;
+    }
+    .department_ul{
+        height: 100% !important;
+    }
+    #main{
+        margin-top: 0px !important;
+    }
 }
 
 .banner_v2 .banner-block, .banner_v3 .banner-block {
@@ -10544,40 +10567,41 @@ footer.coffee .newletter .newletter_input button:focus {
 }
 
 
-
-
-  .custom_category{
+.custom_category {
     text-align: center;
     border-radius: 4px;
     height: 60px;
     transition: all .5s linear;
-    -webkit-box-shadow: 0px 2px 21px -3px rgba(209,209,209,1);
-    -moz-box-shadow: 0px 2px 21px -3px rgba(209,209,209,1);
-    box-shadow: 0px 2px 21px -3px rgba(209,209,209,1);
-  }
-
-.custom_category:hover{
-  box-shadow: none !important;
-}
-.icons{
-  height: 40px;
-  width: 40px;
-}
-.icons img{
-  height: 100%;
-  width: 100%;
-}
-.inner_item p{
-  font-size: 18px;
-  font-family: 'Cera Pro regular';
-  color: #636363;
+    -webkit-box-shadow: 0px 2px 21px -3px rgba(209, 209, 209, 1);
+    -moz-box-shadow: 0px 2px 21px -3px rgba(209, 209, 209, 1);
+    box-shadow: 0px 2px 21px -3px rgba(209, 209, 209, 1);
 }
 
-.categori_heading h2{
-  font-size: 25px;
-  font-weight: 700;
-  color: #484848;
-  letter-spacing: 1px;
-  font-family: 'Cera Pro regular';
-  text-transform: uppercase;
+.custom_category:hover {
+    box-shadow: none !important;
+}
+
+.icons {
+    height: 40px;
+    width: 40px;
+}
+
+.icons img {
+    height: 100%;
+    width: 100%;
+}
+
+.inner_item p {
+    font-size: 18px;
+    font-family: 'Cera Pro regular';
+    color: #636363;
+}
+
+.categori_heading h2 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #484848;
+    letter-spacing: 1px;
+    font-family: 'Cera Pro regular';
+    text-transform: uppercase;
 }

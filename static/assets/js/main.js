@@ -5,7 +5,6 @@
 
 
 
-
 // ================================= Custom JS from Antu ============================
 function atcSidebar(){
 	// document.getElementById('add_cart_sidebar').style.display = "block";

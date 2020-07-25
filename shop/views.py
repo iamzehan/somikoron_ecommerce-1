@@ -38,7 +38,6 @@ DEMO = "REPLACE"
 
 def user_login(request):
     # return render(request, 'shop/custom_login.html')
-
     if request.user.is_authenticated:
         return redirect('shop:home')
     else:
@@ -56,7 +55,9 @@ def user_login(request):
             else:
                 form = SignUpForm(request.POST)
                 if form.is_valid():
-                    user = User.objects.create(username=username, password=password)
+                    user, created = User.objects.get_or_create(username=username)
+                    user.set_password(password)
+                    user.save()
                     login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                     messages.success(request, 'Account was created for ' + username)
                     return redirect('shop:home')
@@ -118,7 +119,7 @@ class ItemListView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
-            'page_title'   : page_titles["sub-category-page"] + " - " + DEMO,
+            'page_title'   : page_titles["sub-category-page"] + " - " + cat.category_name,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 
@@ -141,7 +142,7 @@ class CategoryItemView(View):
             'items'        : items,
             'categories'   : get_categories(),
             'item_category': cat,
-            'page_title'   : page_titles["category-page"] + " - " + DEMO,
+            'page_title'   : page_titles["category-page"] + " - " + cat.category_name,
         }
         return render(self.request, 'shop/shop_item_list.html', context)
 

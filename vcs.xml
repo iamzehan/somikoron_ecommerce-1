@@ -10,6 +10,10 @@
           <option name="url" value="https://github.com/iamzehan/somikoron_ecommerce-1.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://github.com" />
+          <option name="userName" value="iamzehan" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="F:\Projects" />

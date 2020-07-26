@@ -1,0 +1,991 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load cart_template_tags %}
+    <!DOCTYPE html>
+    <html lang="en" >
+    <head >
+        <title >{% block head_title %} সমীকরণ.কম - Online Shopping in Dhaka {% endblock %}</title >
+        {% load static %}
+        {#        <style type="text/css" >#}
+        {#            html {#}
+        {#                overflow: scroll;#}
+        {#                overflow-x: hidden;#}
+        {#            }#}
+        {##}
+        {#            ::-webkit-scrollbar {#}
+        {#                width: 3px; /* Remove scrollbar space */#}
+        {#                background: transparent; /* Optional: just make scrollbar invisible */#}
+        {#            }#}
+        {##}
+        {#            /* Optional: show position indicator in red */#}
+        {#            ::-webkit-scrollbar-thumb {#}
+        {#                background: #cd0d0d;#}
+        {#            }#}
+        {#        </style >#}
+        <style >
+            #main {
+                margin-top: 75px !important;
+            }
+            @media (max-width: 575px) {
+                #main {
+                    margin-top: 0px !important;
+                }
+            }
+        </style >
+    </head >
+    <body >
+    <div id="main" >
+        <header class="coffee-2" >
+            <div class="navigation-filter" >
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
+                            <div class="department-menu_block down" >
+                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 50px" ><i
+                                        class="fas fa-bars" ></i >All
+                                                                  departments<span ><i
+                                            class="arrow_carrot-up" ></i ></span ></div >
+                                <div class="department-dropdown-menu down" >
+                                    <ul style="height: 460px" class="department_ul" >
+                                        <!-- Nested div for requirement -->
+                                        <div class="vertical-nav" >
+                                            {% for cat in categories %}
+                                                <li ><a href="{{ cat.get_absolute_url }}" ><i >
+                                                    <img style="width: 25px" src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
+                                                         alt="" >
+                                                </i >{{ cat.category_name }}</a >
+                                                    {% if cat.subcategory_set.count > 0 and cat.category_name not in  cat.subcategory_set.all.0.sub_category_name %}
+                                                        <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
+                                                        <ul class="sub-menu" >
+                                                            {% for subcat in cat.subcategory_set.all %}
+                                                                <li ><a href="{{ subcat.get_absolute_url }}" >
+                                                                    <i >
+                                                                        <img STYLE="width: 20px" src="
+                                                                                {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
+                                                                             alt="" >
+                                                                    </i >{{ subcat.sub_category_name }}</a ></li >
+                                                            {% endfor %}
+                                                        </ul >
+                                                    {% endif %}
+                                                </li >
+                                            {% endfor %}
+                                        </div >
+                                    </ul >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-8 col-lg-8 col-xl-8 order-1 order-md-1" >
+                            <div class="banner_v3" >
+                                <div class="container" >
+                                    <div class="row" >
+                                        <div class="col-12 col-xl-12" >
+                                            <main class="main" >
+                                                <style >
+                                                    * {
+                                                        margin: 0;
+                                                        padding: 0;
+                                                        box-sizing: border-box;
+                                                        list-style: none;
+                                                        text-decoration: none;
+                                                    }
+
+
+                                                    .container {
+                                                        max-width: 75rem;
+                                                        width: 100%;
+                                                        margin: 0 auto;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+                                                        background: #ffffff;
+                                                        border: none;
+                                                        outline: none;
+                                                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                                                        border-radius: 2px;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+                                                        display: block;
+                                                        position: relative;
+                                                        left: 0;
+                                                        bottom: 0;
+                                                        width: 100%;
+                                                        height: auto;
+                                                        -o-object-fit: cover;
+                                                        object-fit: cover;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet {
+                                                        opacity: 0.8;
+                                                        background: #333333;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet-active {
+                                                        background: #ffffff;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next,
+                                                    .main .container .swiper-container .swiper-button-prev {
+                                                        background-image: none;
+                                                        background-size: 0;
+                                                        background-repeat: no-repeat;
+                                                        background-position: 0;
+                                                        margin-top: -1rem;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next .arrow-icon,
+                                                    .main .container .swiper-container .swiper-button-prev .arrow-icon {
+                                                        font-size: 2rem;
+                                                        color: #ffffff;
+                                                    }
+                                                </style >
+                                                <div class="container" >
+                                                    <div class="swiper-container" >
+                                                        <div class="swiper-wrapper" >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner2.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner3.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                        </div >
+                                                        <!-- Add Pagination -->
+                                                        <div class="swiper-pagination" ></div >
+                                                        <!-- Add Scrollbar -->
+                                                        <div class="swiper-button-next" >
+                                                            <i class="fas fa-chevron-circle-right arrow-icon" ></i >
+                                                        </div >
+                                                        <div class="swiper-button-prev" >
+                                                            <i class="fas fa-chevron-circle-left arrow-icon" ></i >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                            </main >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <!-- End banner v3-->
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </header >
+        <!-- End banner v3-->
+        <div class="benefit-block" >
+            <div class="container" >
+                <div class="our-benefits shadowless benefit-border" >
+                    <div class="row" >
+                        <div class="col-12 col-md-4" >
+                            <div class="benefit-detail d-flex flex-column align-items-center" ><img class="benefit-img"
+                                                                                                    src="{% static 'assets/images/homepage04/benefit-icon1.png' %}"
+                                                                                                    alt="" >
+                                <h5 class="benefit-title" >Fastest Delivery</h5 >
+                                <p class="benefit-describle" >Delivery within 2 hours inside Dhaka city</p >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-4" >
+                            <div class="benefit-detail d-flex flex-column align-items-center" ><img class="benefit-img"
+                                                                                                    src="{% static 'assets/images/homepage04/dow_icon_2.png' %}"
+                                                                                                    alt="" >
+                                <h5 class="benefit-title" >Reasonably Priced</h5 >
+                                <p class="benefit-describle" >Best quality products at reasonable price</p >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-4" >
+                            <div class="benefit-detail boderless d-flex flex-column align-items-center" ><img class="benefit-img"
+                                                                                                              src="{% static 'assets/images/homepage04/benefit-icon3.png' %}"
+                                                                                                              alt="" >
+                                <h5 class="benefit-title" >Secure Payment</h5 >
+                                <p class="benefit-describle" >100% secure payment</p >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End benefit block-->
+        <div class="banner-group" >
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-12 col-md-8" >
+                        <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_2.png' %});" >
+                            <div class="row d-flex align-items-center justify-content-center" >
+                                <div class="col-10 col-sm-5 col-md-6" >
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='food' %}'" ><img
+                                            class="img-fluid"
+                                            src="{% static 'assets/images/banner/Grocessary.png' %}"
+                                            alt="large banner" ></div >
+                                </div >
+                                <div class="col-10 col-sm-6 col-md-6" >
+                                    <div class="banner-text text-center text-sm-left" >
+                                        <h3 >Find All <span >Grocery </span ><br > Items in One Place </h3 >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                    <div class="col-12 col-md-4" >
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_1.png' %});"
+                             onclick="location.href='{% url 'shop:category-items' catid='somikoron' %}'" ><img
+                                src="{% static 'assets/images/banner/roshmalai.png' %}" alt="small banner" ></div >
+                    </div >
+                    <div class="col-12 col-md-4" >
+                        <div class="small-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_4.png' %});"
+                             onclick="location.href='{% url 'shop:category-items' catid='cattle' %}'" ><img
+                                src="{% static 'assets/images/banner/cow.png' %}" alt="small banner" ></div >
+                    </div >
+                    <div class="col-12 col-md-8" >
+                        <div class="large-banner" style="background-image: url({% static 'assets/images/homepage05/banner_group_bg_3.png' %});" >
+                            <div class="row d-flex align-items-center justify-content-center" >
+                                <div class="col-10 col-sm-5 col-md-6" >
+                                    <div class="banner-img text-center" onclick="location.href='{% url 'shop:category-items' catid='covid19' %}'" >
+                                        <img class="img-fluid"
+                                             src="{% static 'assets/images/banner/covid.png' %}"
+                                             alt="large banner" ></div >
+                                </div >
+                                <div class="col-10 col-sm-6 col-md-6" >
+                                    <div class="banner-text text-center text-sm-left" >
+                                        <h3 >Exclusive Discount on<br ><span >COVID-19 </span > Products</h3 >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End banner group-->
+        <section class="category" >
+            <div class="container" >
+                <div class="row justify-content-center py-5" >
+                    <div class="col-lg-6 col-md-6 text-center" >
+                        <div class="categori_heading" >
+                            <h2 >Product Categories</h2 >
+                        </div >
+                    </div >
+                </div >
+                <div class="row justify-content-center" >
+                    {% for category in categories %}
+                        <div class="col-lg-3  col-md-3 my-2" >
+                            <div class="inner_category mx-2" >
+                                <a href="{{ category.get_absolute_url }}" >
+                                    <div class="row justify-content-around d-flex align-items-center custom_category" >
+                                        <div class="col-lg-4 col-4 col-md-4" >
+                                            <div class="icons" >
+                                                <img src="{% static 'assets/images/custom_icons/flatIcon/' %}{{ category.category_id }}.png" alt="" >
+                                            </div >
+                                        </div >
+                                        <div class="col-lg-8 col-8 col-md-8 inner_item" >
+                                            <p style="padding-top: 13px" >{{ category.category_name }}</p >
+                                        </div >
+                                    </div >
+                                </a >
+                            </div >
+                        </div >
+                    {% endfor %}
+                </div >
+            </div >
+        </section >
+        <br ><br >
+        <div class="feature-products coffee" >
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-12 text-center" >
+                        <h1 class="title mx-auto" >Featured Product</h1 >
+                    </div >
+                    <div class="col-12" >
+                        <div id="tab" >
+                            <ul class="tab-control" >
+                                <li ><a class="active" href="#tab-1" >Ongoing Offers</a ></li >
+                                <li ><a href="#tab-2" >Somikoron Special</a ></li >
+                                <li ><a href="#tab-3" >Popular Products</a ></li >
+                            </ul >
+                            <div id="tab-1" >
+                                <div class="row no-gutters-sm " >
+                                    {% for item in offer|slice:":12" %}
+                                        <div class="col-6 col-md-4 col-lg-3 cartable" >
+                                            <div class="product coffee" >
+                                                <div class="product_images" >
+                                                    <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            class="img-fluid product__image" src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="{{ item.images.all.0.image.url }}" ></a >
+                                                </div >
+                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
+                                                <h3 class="product-name" onclick="location.href='{{ item.itemdetails.get_absolute_url }}'">{{ item.title }}</h3 >
+                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                    <h3 class="product-price " ><small
+                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                        <del style="text-decoration: line-through;" >{{ item.price }}</del >
+                                                    </h3 >
+                                                {% else %}
+                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
+                                                {% endif %}
+                                                <div class="openSidebar" >
+                                                    <p hidden class="product__name" >{{ item.pk }}</p >
+                                                    <p hidden class="product__title" >{{ item.title }}</p >
+                                                    <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" name="btn{{ item.pk }}" >Add to cart</button >
+                                                </div >
+                                                <div class="product-select" >
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
+                                                            class="icon_heart_alt" ></i ></button >
+                                                    <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                            data-url="{% url 'shop:quick-view' item.slug %}" ><i
+                                                            class="far fa-eye" ></i ></button >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    {% endfor %}
+
+
+                                    <!--Pagination-->
+
+                                    {% if is_paginated %}
+                                        <nav class="d-flex justify-content-center wow fadeIn" >
+                                            <ul class="pagination pg-blue" >
+                                                {% if page_obj.has_previous %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous" >
+                                                            <span aria-hidden="true" >&laquo;</span >
+                                                            <span class="sr-only" >Previous</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+
+                                                <li class="page-item active" >
+                                                    <a class="page-link" href="?page={{ page_obj.number }}" >{{ page_obj.number }}
+                                                        <span class="sr-only" >(current)</span >
+                                                    </a >
+                                                </li >
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next" >
+                                                            <span aria-hidden="true" >&raquo;</span >
+                                                            <span class="sr-only" >Next</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+                                            </ul >
+                                        </nav >
+                                    {% endif %}
+                                </div >
+                            </div >
+                            <div id="tab-2" >
+                                <div class="row no-gutters-sm" >
+                                    {% for item in somikoron_items|slice:":4" %}
+                                        {#                                        dictsortreversed:"itemdetails.update_date"|#}
+                                        <div class="col-6 col-md-4 col-lg-3" >
+                                            <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                    class="img-fluid" src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                    alt="{{ item.images.all.0.image.url }}" ></a >
+                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
+                                                <h3 class="product-name" >{{ item.title }}</h3 >
+                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                    <h3 class="product-price" ><small
+                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                        <del >{{ item.price }}</del >
+                                                    </h3 >
+                                                {% else %}
+                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
+                                                {% endif %}
+                                                <div class="openSidebar" >
+                                                    <p hidden class="product__name" >{{ item.pk }}</p >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" name="btn{{ item.pk }}" >Add to cart</button >
+                                                </div >
+                                                <div class="product-select" >
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
+                                                            class="icon_heart_alt" ></i ></button >
+                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
+                                                    <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                            data-url="{% url 'shop:quick-view' item.slug %}" ><i
+                                                            class="far fa-eye" ></i ></button >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    {% endfor %}
+
+
+                                    <!--Pagination-->
+
+                                    {% if is_paginated %}
+                                        <nav class="d-flex justify-content-center wow fadeIn" >
+                                            <ul class="pagination pg-blue" >
+                                                {% if page_obj.has_previous %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous" >
+                                                            <span aria-hidden="true" >&laquo;</span >
+                                                            <span class="sr-only" >Previous</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+
+                                                <li class="page-item active" >
+                                                    <a class="page-link" href="?page={{ page_obj.number }}" >{{ page_obj.number }}
+                                                        <span class="sr-only" >(current)</span >
+                                                    </a >
+                                                </li >
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next" >
+                                                            <span aria-hidden="true" >&raquo;</span >
+                                                            <span class="sr-only" >Next</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+                                            </ul >
+                                        </nav >
+                                    {% endif %}
+                                </div >
+                            </div >
+                            <div id="tab-3" >
+                                <div class="row no-gutters-sm" >
+                                    {% for item in popular|slice:":4" %}
+                                        <div class="col-6 col-md-4 col-lg-3" >
+                                            <div class="product coffee" ><a class="product-img" href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                    class="img-fluid" src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                    alt="{{ item.images.all.0.image.url }}" ></a >
+                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
+                                                <h3 class="product-name" >{{ item.title }}</h3 >
+                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                    <h3 class="product-price" ><small
+                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                        <del >{{ item.price }}</del >
+                                                    </h3 >
+                                                {% else %}
+                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
+                                                {% endif %}
+                                                <div class="openSidebar" >
+                                                    <button class="all_btn" data-action="ADD_TO_CART" name="btn{{ item.pk }}" >Add to cart</button >
+                                                </div >
+                                                <div class="product-select" >
+                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
+                                                            class="icon_heart_alt" ></i ></button >
+                                                    <button class="add-to-compare round-icon-btn coffee" ><i class="far fa-random" ></i ></button >
+                                                    <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                            data-url="{% url 'shop:quick-view' item.slug %}" ><i
+                                                            class="far fa-eye" ></i ></button >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    {% endfor %}
+
+
+                                    <!--Pagination-->
+
+                                    {% if is_paginated %}
+                                        <nav class="d-flex justify-content-center wow fadeIn" >
+                                            <ul class="pagination pg-blue" >
+                                                {% if page_obj.has_previous %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous" >
+                                                            <span aria-hidden="true" >&laquo;</span >
+                                                            <span class="sr-only" >Previous</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+
+                                                <li class="page-item active" >
+                                                    <a class="page-link" href="?page={{ page_obj.number }}" >{{ page_obj.number }}
+                                                        <span class="sr-only" >(current)</span >
+                                                    </a >
+                                                </li >
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="page-item" >
+                                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next" >
+                                                            <span aria-hidden="true" >&raquo;</span >
+                                                            <span class="sr-only" >Next</span >
+                                                        </a >
+                                                    </li >
+                                                {% endif %}
+                                            </ul >
+                                        </nav >
+                                    {% endif %}
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End feature-products-->
+                <div class="deal-of-week_v3" style="margin-left: auto; margin-right: auto;" >
+                    <div class="container" >
+                        <div class="deal-of-week_block" >
+                            <div class="row align-items-center justify-content-center" >
+                                <div class="col-10 col-lg-6" >
+                                    <div class="dow-img" ><img class="mymove"
+                                                               src="{% static 'assets/images/banner/weel_deal_img.png' %}"
+                                                               alt="" ></div >
+                                </div >
+                                <div class="col-12 col-sm-11 col-lg-5" >
+                                    <div class="dow-info text-center text-lg-left" >
+                                        <h2 class="title coffee-underline" >Deal Of The Month</h2 >
+                                        <h3 class="deal-price" >Combo <span > Package</span ></h3 >
+                                        <p >Somikoron 'Combo' offer is coming soon.... Keep in touch and get ready to grab the biggest offer of the
+                                            month!</p >
+                                        <div class="d-flex justify-content-center justify-content-lg-start"
+                                             id="event-countdown" ></div >
+                                        <a style="margin-left: 110px" class="normal-btn coffee"
+                                           href="" >Shop now </a >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End deak of the week v3-->
+                <div class="home5-product-block" >
+                    <div class="container" >
+                        <div class="row" >
+                            <div class="col-12 col-lg-4" >
+                                <div class="mini-latest-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Latest Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:":3" %}
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
+                                                    </div >
+                                                </div >
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:"3:6" %}
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
+                                                    </div >
+                                                </div >
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list|slice:"6:10" %}
+                                                <div class="mini-product coffee" >
+                                                    <div class="mini-product_img" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="product image" ></a ></div >
+                                                    <div class="mini-product_info" ><a
+                                                            href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                        <p >
+                                                            {% if item.itemdetails.discount_offer > 0 %}
+                                                                <small style="font-size: small" >৳</small >
+                                                                {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+
+                                                            {% else %}
+                                                                <small style="font-size: small" >৳</small > {{ item.price }}
+                                                            {% endif %}
+                                                        </p >
+                                                    </div >
+                                                </div >
+                                            {% endfor %}
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="col-12 col-lg-4" >
+                                <div class="top-rate-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Top Rated Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list %}
+                                                {% if  forloop.counter < 4 %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <div class="col-12 col-lg-4" >
+                                <div class="review-products mini-product-title" >
+                                    <div class="mini-product_top" >
+                                        <h5 >Top Selling Products</h5 >
+                                        <div class="mini-product_control" ></div >
+                                    </div >
+                                    <div class="mini-product_bottom" >
+                                        <div class="mini-product_block" >
+                                            {% for item in object_list %}
+                                                {% if  forloop.counter < 4 %}
+                                                    <div class="mini-product coffee" >
+                                                        <div class="mini-product_img" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                                src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                                alt="product image" ></a ></div >
+                                                        <div class="mini-product_info" ><a
+                                                                href="{{ item.itemdetails.get_absolute_url }}" >{{ item.title }}</a >
+                                                            <p >
+                                                                {% if item.itemdetails.discount_offer > 0 %}
+                                                                    <small style="font-size: small" >৳</small >
+                                                                    {{ item.itemdetails.get_discounted_price }}
+                                                                    <del >{{ item.price }}</del >
+
+                                                                {% else %}
+                                                                    <small style="font-size: small" >৳</small > {{ item.price }}
+                                                                {% endif %}
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                        <div class="mini-product_block" >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product13.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Fresh Met</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product14.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Coconut</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                            <div class="mini-product coffee" >
+                                                <div class="mini-product_img" ><a
+                                                        href="shop_detail.html" ><img
+                                                        src="{% static 'assets/images/product/product15.png' %}"
+                                                        alt="product image" ></a ></div >
+                                                <div class="mini-product_info" ><a
+                                                        href="shop_detail.html" >Venion</a >
+                                                    <p >$37.00
+                                                        <del >$45.00</del >
+                                                    </p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <!-- End home5 product block-->
+                {#                <div class="from-blog" >#}
+                {#                    <div class="container" >#}
+                {#                        <div class="row" >#}
+                {#                            <div class="col-12 text-center" >#}
+                {#                                <h1 class="title coffee-underline" >From The Blog</h1 >#}
+                {#                            </div >#}
+                {#                            <div class="col-12" >#}
+                {#                                <div class="news_wrapper" >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_1.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Cooking#}
+                {#                                                                                                     tips#}
+                {#                                                                                                     make#}
+                {#                                                                                                     cooking#}
+                {#                                                                                                     simple</a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_2.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >6#}
+                {#                                                                                                     ways#}
+                {#                                                                                                     to#}
+                {#                                                                                                     prepare#}
+                {#                                                                                                     breakfast#}
+                {#                                                                                                     for#}
+                {#                                                                                                     30#}
+                {#                                                                                                     minutes </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_3.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Visit#}
+                {#                                                                                                     the#}
+                {#                                                                                                     clean#}
+                {#                                                                                                     farm#}
+                {#                                                                                                     in#}
+                {#                                                                                                     the#}
+                {#                                                                                                     US </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                    <div class="col-4" >#}
+                {#                                        <div class="news-blog" >#}
+                {#                                            <div class="news-blog_img" ><img#}
+                {#                                                    src="{% static 'assets/images/homepage04/blog_img_4.png' %}"#}
+                {#                                                    alt="blog img" >#}
+                {#                                            </div >#}
+                {#                                            <div class="news-blog_text" >#}
+                {#                                                <div class="news-credit" ><a class="credit date"#}
+                {#                                                                             href="blog_list_sidebar.html" >#}
+                {#                                                    <i#}
+                {#                                                            class="far fa-calendar" ></i >May#}
+                {#                                                                                          4,2017</a ><a#}
+                {#                                                        class="credit comment"#}
+                {#                                                        href="blog_list_sidebar.html" >#}
+                {#                                                    <i class="far fa-comments" ></i >5</a ></div >#}
+                {#                                                <a class="news-title" href="blog_list_sidebar.html" >Visit#}
+                {#                                                                                                     the#}
+                {#                                                                                                     clean#}
+                {#                                                                                                     farm#}
+                {#                                                                                                     in#}
+                {#                                                                                                     the#}
+                {#                                                                                                     US </a >#}
+                {#                                            </div >#}
+                {#                                        </div >#}
+                {#                                    </div >#}
+                {#                                </div >#}
+                {#                            </div >#}
+                {#                        </div >#}
+                {#                    </div >#}
+                {#                </div >#}
+                <!-- End from the blog-->
+            </div >
+        </div >
+    </div >
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js' ></script >
+    <script src="{% static 'assets/js/slider.js' %}" ></script >
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            document.getElementById('floatcart').style.display = 'block'
+        })
+    </script >
+    </body >
+    <!-- Mirrored from afinda.vn/html/Ogami/homepage05.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
+    </html >
+{% endblock %}

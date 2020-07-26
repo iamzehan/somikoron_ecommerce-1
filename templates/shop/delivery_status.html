@@ -1,0 +1,206 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en" >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
+    <head >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
+    </head >
+    <body >
+    <div id="main" style="margin-top: 70px" >
+        <section class="d-flex align-items-center py-5" >
+            <div class="container text-center" >
+                <div class="row justify-content-center pb-5" >
+                    <div class="col-lg-12 text-center" >
+                        <div class="deli_header" >
+                            <h2 >Order Details</h2 >
+                        </div >
+                    </div >
+                </div >
+                <div class="row justify-content-center text-center" >
+                    <div class="col-lg-12" >
+                        <ul class="progressbar" >
+                            <li >
+                                <div class="check_icon" >
+                                    <i class="fa fa-check icon " aria-hidden="true" ></i >
+                                </div >
+                                <p >awaiting action</p >
+                            </li >
+                            <li >
+                                <div class="check_icon" >
+                                    <i class="fa fa-check icon " aria-hidden="true" ></i >
+                                </div >
+                                <p >acknowledge</p >
+                            </li >
+                            <li >
+                                <div class="check_icon" >
+                                    <i class="fa fa-check icon " aria-hidden="true" ></i >
+                                </div >
+                                <p >processing</p >
+                            </li >
+                            <li >
+                                <div class="check_icon" >
+                                    <i class="fa fa-check icon " aria-hidden="true" ></i >
+                                </div >
+                                <p >delivered</p >
+                            </li >
+                        </ul >
+                    </div >
+                </div >
+            </div >
+        </section >
+        <!-- ============================================================ Item part start ======================== -->
+        <section class="item_part d-flex align-items-center py-5" >
+            <div class="container" >
+                <div class="row justify-content-center m-auto" >
+                    <div class="col-lg-6 order-2 order-lg-1" style="padding-right: 40px" >
+                        <div class="timeline pb-5" >
+                            <h4 >Order Timeline</h4 >
+                        </div >
+                        <!-- ================================ Auto Increment Row Start=========================== -->
+                        <div class="row justify-content-center" >
+                            <ul class="status" >
+                                <li >
+                                    <div class="up_time" >
+                                        <p ><span >3:23pm</span ></p >
+                                    </div >
+                                    <div class="status_content" >
+                                        <h4 >Delivered</h4 >
+                                        <span >23 july </span >
+                                        <span class="m_time" >3:23pm</span >
+                                        <p >Order marked as delevered by customer by - customer </p >
+                                    </div >
+                                </li >
+                            </ul >
+                        </div >
+                        <!-- ================================ Auto Increment Row End =========================== -->
+                        <!-- ================================ This rows has been used for testing purposes =========================== -->
+                        <div class="row justify-content-center text-left" >
+                            <ul class="status" >
+                                <li >
+                                    <div class="up_time" >
+                                        <p ><span >4:23pm</span ></p >
+                                    </div >
+                                    <div class="status_content" >
+                                        <h4 > Picked</h4 >
+                                        <span >23 july </span >
+                                        <span class="m_time" >4:23pm</span >
+                                        <p >PO sent to seller. Confirm by Antu - Somikoron </p >
+                                    </div >
+                                </li >
+                            </ul >
+                        </div >
+                        <div class="row justify-content-center" >
+                            <ul class="status" >
+                                <li >
+                                    <div class="up_time" >
+                                        <p ><span >5:23pm</span ></p >
+                                    </div >
+                                    <div class="status_content" >
+                                        <h4 > Processing</h4 >
+                                        <span class="m_time" >5:23pm</span >
+                                        <span >23 july </span >
+                                        <p >Payment complete.Order selected for processing - Somikoron. </p >
+                                    </div >
+                                </li >
+                            </ul >
+                        </div >
+                        <!-- ================================ This row has been used for testing purposes End=========================== -->
+                    </div >
+                    <div class="col-lg-6 order-1 order-lg-2" style="margin-top: 100px; " >
+                        <div class="row justify-content-center" >
+                            <div class="col-lg-12 col-sm-3 col-12 " >
+                                <div class="pr_img" >
+                                    <span >
+                                        <img src="{{ orders.1.items.all.0.item.images.all.0.image.url }}" style="width: 20%; height: auto" alt=""
+                                             class="animated_delivery" >
+                                        <img src="{{ orders.0.items.all.0.item.images.all.0.image.url }}" style="width: 20%;height: auto"" alt=""
+                                             class="animated_delivery" >
+                                        <img src="{{ orders.3.items.all.0.item.images.all.0.image.url }}" style="width: 20%;height: auto"" alt=""
+                                                                                                         class="animated_delivery" >
+
+                                    </span >
+                                    <div class="overlay_image" >
+                                        <div class="information" >
+                                            <h2 >Item Information</h2 >
+                                        </div >
+                                        <div class="product_info" >
+                                            <h4 >Name : </h4 >
+                                            <h4 >quantity : 200x2</h4 >
+                                            <h4 >Total : 400</h4 >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </section >
+        <!-- ============================================================ Item part End ======================== -->
+        <!-- ========================================================Previous Item Start ======================== -->
+        <section class="py-5 d-flex align-items-center" >
+            <div class="container" >
+                <div class="row justify-content-center" >
+                    <div class="col-lg-8 pb-5" >
+                        <div class="prev_head" >
+                            <h2 >Previous Ordered Items</h2 >
+                        </div >
+                    </div >
+                </div >
+                <div class="row justify-content-center" >
+                    <div class="col-lg-6 px-3" >
+                        <div class="ordered_styling pb-3 " >
+                            <div class="order_image" >
+                                <img src="{% static 'assets/images/product/product02.png' %}" alt="previous Item" class="animated_delivery" >
+                            </div >
+                            <div >
+                                <ul class="ordered" >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >ID</h4 >
+                                        </div >
+                                        <p >#002233</p >
+                                    </li >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >product</h4 >
+                                        </div >
+                                        <p >fruits</p >
+                                    </li >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >quantity</h4 >
+                                        </div >
+                                        <p >200x2</p >
+                                    </li >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >price</h4 >
+                                        </div >
+                                        <p >250</p >
+                                    </li >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >total</h4 >
+                                        </div >
+                                        <p >350</p >
+                                    </li >
+                                    <li >
+                                        <div class="order_title" >
+                                            <h4 >date</h4 >
+                                        </div >
+                                        <p >20 july</p >
+                                    </li >
+                                </ul >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </section >
+    </div >
+    </body >
+    </html >
+{% endblock %}

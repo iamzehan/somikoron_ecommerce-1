@@ -1,0 +1,147 @@
+{#{% extends 'master.html' %}#}
+{% block body %}
+    {% load static %}
+
+
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/html" >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_order_complete.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:56 GMT -->
+    <head >
+{#        <title >Order Complete</title >#}
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
+        <meta name="keywords"
+              content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
+        <meta name="author" content="MARTECH | Deer Creative Theme" >
+        <link rel="stylesheet" href="{% static 'assets/css/invoice_style.css' %}" >
+        {#        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"#}
+        {#                integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous" ></script >#}
+    </head >
+    <body >
+
+        <!-- End order step-->
+        {% load mathfilters %}
+        <div class="order-complete" >
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-12 justify-content-center align-items-center text-center" >
+                        <div id="invoiceholder" style="padding-top: 0px !important;">
+                            <div id="headerimage" ></div >
+                            <div id="invoice" class="effect2" >
+                                <div id="invoice-top" style="" >
+                                    <div class="logo" ><img src="{% static 'assets/images/logo.png' %}" alt="" style="width: 200px !important;" >
+                                    </div >
+                                    <div class="" style="float: right; padding-right: 20px" >
+                                        <h1 style="padding: 0px; margin: 0px; color: #cb241b" >Invoice #{{ object.id }}</h1 >
+                                        <p >Issued: {% now "jS F Y H:i" %} </br>
+
+                                            {#                                            {% now "SHORT_DATETIME_FORMAT" %}#}
+                                        </p >
+                                    </div ><!--End Title-->
+                                </div ><!--End InvoiceTop-->
+                                <div id="invoice-bot" >
+                                    <div id="table" >
+                                        <table >
+                                            <tr class="tabletitle" >
+                                                <td class="item" style="width: 43%" ><h2 style="color: white" >Item</h2 ></td >
+                                                <td class="Rate" style="width: 20%" ><h2 style="color: white" >Rate</h2 ></td >
+                                                <td class="Hours" style="width: 17%" ><h2 style="color: white" >Quantity</h2 ></td >
+                                                <td class="subtotal" style="width: 20%" ><h2 style="color: white" >Price</h2 ></td >
+                                            </tr >
+                                            {% for order_item in object.items.all %}
+                                                <tr class="service" >
+                                                    <td class="tableitem" ><p class="itemtext"
+                                                                              style="text-align: left" >{{ order_item.item.title }}</p ></td >
+                                                    <td class="tableitem " ><p class="itemtext" style="text-align: right; padding-right: 20px">
+                                                         {{ order_item.item.itemdetails.get_discounted_price|stringformat:".1f" }}</p ></td >
+                                                    <td class="tableitem" ><p class="itemtext" style="text-align: center;">{{ order_item.quantity }}</p ></td >
+                                                    <td class="tableitem" style="text-align: right; padding-right: 20px" ><p class="itemtext text-right" >
+                                                         {{ order_item.get_total_discount_item_price|stringformat:".1f" }}</p ></td >
+                                                </tr >
+                                            {% endfor %}
+                                        </table >
+                                    </div ><!--End Table-->
+                                    <div style="width: 100%; height: 200px; padding-top: 20px" >
+                                        <div style="width: 60%; float: left" >
+                                            <div class="info text-left" style="width: 50%; padding-top: 30px" >
+                                                <h2 style="text-decoration: underline; padding-bottom: 5px">Delivery Address</h2 >
+                                                <h4 >Name: {{ address.customer_name }}</h4 >
+                                                <h4> Area: {{ address.area }}</h4>
+                                                <p style="width: 100%" >Address: {{ address.address }}<br >
+                                                                            Mobile: {{ address.customer_phone }}<br >
+                                                </p >
+                                            </div >
+                                        </div >
+                                        <div style="width: 40%; float: right; " >
+                                            <table class="table table-bordered " >
+                                                <tr >
+                                                    <td >Sub Total</td >
+                                                    <td style="text-align: right; padding-right: 20px">{{ object.get_total|stringformat:".0f" }}</td >
+                                                </tr >
+                                                <tr >
+                                                    <td >Delivery Charge</td >
+                                                    <td style="text-align: right; padding-right: 20px">
+                                                        {% if object.get_total >= 1000 %}
+                                                            40
+                                                        {% else %}
+                                                            60
+                                                        {% endif %}
+                                                    </td >
+                                                </tr >
+                                                <tr >
+                                                    <td >Coupon Discount</td >
+                                                    <td style="text-align: right; padding-right: 20px">0</td >
+                                                </tr >
+                                                <tr >
+                                                    <td class="font-weight-bold"><h4>Grand Total</h4></td >
+                                                    <td class="font-weight-bold" style="text-align: right; padding-right: 20px"><h4>
+                                                        {% if object.get_total >= 1000 %}
+                                                            Tk. {{ object.get_total|addition:40 |sub:0|stringformat:".0f" }}
+                                                        {% else %}
+                                                            Tk. {{ object.get_total|addition:60 |sub:0|stringformat:".0f" }}
+                                                        {% endif %}
+                                                    </h4>
+                                                    </td >
+                                                </tr >
+                                            </table >
+                                        </div >
+                                    </div ></div>
+                                    <div id="" style="position: relative; padding: 0px 40px">
+                                        <p class="legal" style="padding-bottom: 20px; width: 100%"><strong >Thanks for your order!</strong > 
+                                        </p >
+                                    </div >
+                                </div ><!--End InvoiceBot-->
+                            </div ><!--End Invoice-->
+
+                        </div ><!-- End Invoice Holder-->
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End order complete-->
+    {#    <script language="javascript" >#}
+    {#        var cache_width = $('#invoiceholder').width(); //Criado um cache do CSS#}
+    {#        var a4 = [595.28, 841.89]; // Widht e Height de uma folha a4#}
+    {##}
+    {#        $(document).on("click", '#export', function () {#}
+    {#            // Setar o width da div no formato a4#}
+    {#            $("#invoiceholder").width((a4[0] * 1.33333) - 80).css('max-width', 'none');#}
+    {##}
+    {#            // Aqui ele cria a imagem e cria o pdf#}
+    {#            html2canvas($('#invoiceholder'), {#}
+    {#                onrendered: function (canvas) {#}
+    {#                    var img = canvas.toDataURL("image/jpeg", 1.0);#}
+    {#                    //var doc = new jsPDF({ unit: 'px', format: 'a4' });//this line error#}
+    {#                    var doc = new jsPDF('landscape'); // default is portrait#}
+    {#                    doc.addImage(img, 'JPEG', 20, 20);#}
+    {#                    doc.save('NOME-DO-PDF.pdf');#}
+    {#                    //Retorna ao CSS normal#}
+    {#                    $('#renderPDF').width(cache_width);#}
+    {#                }#}
+    {#            });#}
+    {#        });#}
+    {#    </script >#}
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_order_complete.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:56 GMT -->
+    </body >
+    </html >
+{% endblock %}

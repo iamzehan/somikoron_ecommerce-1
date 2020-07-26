@@ -1,0 +1,231 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load static %}
+    <head >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
+
+    <body >
+    <div id="main" >
+        <div class="ogami-breadcrumb" >
+            <div class="container" >
+                <ul >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}" > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active" href="#" >About us</a ></li >
+                </ul >
+            </div >
+        </div >
+        <!-- End breadcrumb-->
+        <div class="about-us" >
+            <div class="container" >
+                <div class="our-story" >
+                    <div class="row" >
+                        <div class="col-12 col-md-6" >
+                            <div class="our-story_text" >
+                                <h1 class="title green-underline" >The Story About Us</h1 >
+                                <p >
+                                    Somikoron is an e-commerce site where you can explore variety of products; from groceries to your basic needs with
+                                    lots of option for each product. We are always in the process of learning and progressing.
+                                </p >
+                                <p >We are guided by three principles: customer obsession rather than competitor focus, commitment to operational
+                                    excellence and long-term thinking.
+                                </p >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-6" >
+                            <div class="our-story_video" ><img style="width: 500px; height: 350px" src="{% static 'assets/images/Goru-ad.jpg' %}" alt="play video" >
+{#                                <a class="play-btn" href="https://www.youtube.com/watch?v=7e90gBu4pas" target="_blank" ><i class="fas fa-play" ></i ></a >#}
+                            </div >
+                        </div >
+                    </div >
+                </div >
+                <div class="our-number" >
+                    <div class="row" >
+                        <div class="col-md-4" >
+                            <div class="our-number_block" >
+                                <div class="our-number_icon" ><img src="{% static 'assets/images/pages/about_us_icon_1.png' %}" alt="icon" ></div >
+                                <div class="our-number_info" >
+                                    <h1 class="nummber-increase" ><span class="numscroller" data-min="1" data-max="100" data-delay="5"
+                                                                        data-increment="10" >100</span >%</h1 >
+                                    <p >Happy Clients</p >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="col-md-4" >
+                            <div class="our-number_block" >
+                                <div class="our-number_icon" ><img src="{% static 'assets/images/pages/about_us_icon_2.png' %}" alt="icon" ></div >
+                                <div class="our-number_info" >
+                                    <h1 class="nummber-increase" ><span class="numscroller" data-min="1"  data-delay="5"
+                                                                        >24x7</span ></h1 >
+                                    <p >Customer Service</p >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="col-md-4" >
+                            <div class="our-number_block" >
+                                <div class="our-number_icon" ><img src="{% static 'assets/images/pages/about_us_icon_3.png' %}" alt="icon" ></div >
+                                <div class="our-number_info" >
+                                    <h1 class="nummber-increase" >+<span class="numscroller" data-min="1" data-max="16" data-delay="5"
+                                                                          data-increment="10" >20</span ></h1 >
+                                    <p >Brands</p >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+            <div class="full-fluid" >
+                <div class="why-choose-us" >
+                    <div class="container" >
+                        <div class="row justify-content-center" >
+                            <div class="col-sm-8 col-md-4 align-self-end" >
+                                <div class="wcu_img" ><img src="{% static 'assets/images/banner/weel_deal_img.png' %}" alt="image" ></div >
+                            </div >
+                            <div class="col-sm-10 col-md-8" >
+                                <div class="wcu-wrapper" >
+                                    <div class="row" >
+                                        <div class="col-12" >
+                                            <h1 class="title green-underline" >Why Choose Us</h1 >
+                                        </div >
+                                        <div class="col-12" >
+                                            <div class="row" >
+                                                <div class="col-lg-6" >
+                                                    <div class="wcu-block" >
+                                                        <div class="wcu_icon" >
+                                                            <div class="icon-detail" ><img
+                                                                    src="{% static 'assets/images/homepage01/dow_icon_3.png' %}" alt="" ></div >
+                                                        </div >
+                                                        <div class="wcu_intro" >
+                                                            <h5 >Better product selection </h5 >
+                                                            <p >We always bring the best products; our customers find the market’s best possible
+                                                                purchase options in our place.
+                                                            </p >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                                <div class="col-lg-6" >
+                                                    <div class="wcu-block" >
+                                                        <div class="wcu_icon" >
+                                                            <div class="icon-detail" ><img
+                                                                    src="{% static 'assets/images/homepage01/dow_icon_2.png' %}" alt="" ></div >
+                                                        </div >
+                                                        <div class="wcu_intro" >
+                                                            <h5 >Best prices</h5 >
+                                                            <p >Enjoy the best prices of the market for wide range of products.</p >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                                <div class="col-lg-6" >
+                                                    <div class="wcu-block" >
+                                                        <div class="wcu_icon" >
+                                                            <div class="icon-detail" ><img
+                                                                    src="{% static 'assets/images/homepage01/dow_icon_4.png' %}" alt="" ></div >
+                                                        </div >
+                                                        <div class="wcu_intro" >
+                                                            <h5 >Fastest and safe delivery</h5 >
+                                                            <p >Enjoy fastest and safe “same day delivery” on your doorsteps.</p >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                                <div class="col-lg-6" >
+                                                    <div class="wcu-block" >
+                                                        <div class="wcu_icon" >
+                                                            <div class="icon-detail" ><img
+                                                                    src="{% static 'assets/images/homepage01/dow_icon_1.png' %}" alt="" ></div >
+                                                        </div >
+                                                        <div class="wcu_intro" >
+                                                            <h5 >We care: </h5 >
+                                                            <p >“Customer Experience” matter the most to us. We care, we listen!! We constantly strive to know our customers better. </p >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+{#            <div class="container" >#}
+{#                <div class="our-farmer" >#}
+{#                    <h1 class="title green-underline" >Our Team</h1 >#}
+{#                    <div class="row text-center" style="margin-left: 180px">#}
+{#                        <div class="col-sm-6 col-lg-2" >#}
+{#                            <div class="our-farmer-block our-farmer-block--1" >#}
+{#                                <div class="farmer-img" ><img src="{% static 'assets/images/sir.JPG' %}" alt="farmer" ></div >#}
+{#                                <div class="farmer-contact_wrapper" >#}
+{#                                    <div class="farmer-contact" >#}
+{#                                        <h2 >Md. Shohel Arman</h2 >#}
+{#                                        <h5 >CEO</h5 >#}
+{#                                        <div class="farmer-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-pinterest-p" ></i ></a ></div >#}
+{#                                    </div >#}
+{#                                </div >#}
+{#                            </div >#}
+{#                        </div >#}
+{#                        <div class="col-sm-6 col-lg-2" >#}
+{#                            <div class="our-farmer-block our-farmer-block--2" >#}
+{#                                <div class="farmer-img" ><img src="{% static 'assets/images/pages/farmer_2.png' %}" alt="farmer" ></div >#}
+{#                                <div class="farmer-contact_wrapper" >#}
+{#                                    <div class="farmer-contact" >#}
+{#                                        <h2 >Nitu Rawnak</h2 >#}
+{#                                        <h5 >Managing Director</h5 >#}
+{#                                        <div class="farmer-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-pinterest-p" ></i ></a ></div >#}
+{#                                    </div >#}
+{#                                </div >#}
+{#                            </div >#}
+{#                        </div >#}
+{#                        <div class="col-sm-6 col-lg-2" >#}
+{#                            <div class="our-farmer-block our-farmer-block--3" >#}
+{#                                <div class="farmer-img" ><img src="{% static 'assets/images/saleh.JPG' %}" alt="farmer" ></div >#}
+{#                                <div class="farmer-contact_wrapper" >#}
+{#                                    <div class="farmer-contact" >#}
+{#                                        <h2 >Hafeezur Rahman Saleh</h2 >#}
+{#                                        <h5 >Head of IT</h5 >#}
+{#                                        <div class="farmer-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-pinterest-p" ></i ></a ></div >#}
+{#                                    </div >#}
+{#                                </div >#}
+{#                            </div >#}
+{#                        </div >#}
+{#                        <div class="col-sm-6 col-lg-2" >#}
+{#                            <div class="our-farmer-block our-farmer-block--4" >#}
+{#                                <div class="farmer-img" ><img  src="{% static 'assets/images/monzu.JPG' %}" alt="farmer" ></div >#}
+{#                                <div class="farmer-contact_wrapper" >#}
+{#                                    <div class="farmer-contact" >#}
+{#                                        <h2 >Naziur Rahman Monzu</h2 >#}
+{#                                        <h5 >Head of Operations</h5 >#}
+{#                                        <div class="farmer-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-pinterest-p" ></i ></a ></div >#}
+{#                                    </div >#}
+{#                                </div >#}
+{#                            </div >#}
+{#                        </div >#}
+{#                        <div class="col-sm-6 col-lg-2" STYLE="text-align: center">#}
+{#                            <div class="our-farmer-block our-farmer-block--4" >#}
+{#                                <div class="farmer-img" ><img src="{% static 'assets/images/pages/farmer_1.png' %}" alt="farmer" ></div >#}
+{#                                <div class="farmer-contact_wrapper" >#}
+{#                                    <div class="farmer-contact" >#}
+{#                                        <h2 >Shouman Barua Shuvo</h2 >#}
+{#                                        <h5 >Head of Business Development</h5 >#}
+{#                                        <div class="farmer-social" ><a href="#" ><i class="fab fa-facebook-f" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-twitter" ></i ></a ><a href="#" ><i class="fab fa-invision" > </i ></a ><a href="#" ><i#}
+{#                                                class="fab fa-pinterest-p" ></i ></a ></div >#}
+{#                                    </div >#}
+{#                                </div >#}
+{#                            </div >#}
+{#                        </div >#}
+{#                    </div >#}
+{#                </div >#}
+{#            </div >#}
+        </div >
+        <!-- End about us-->
+    </div>
+    </body >
+{% endblock %}

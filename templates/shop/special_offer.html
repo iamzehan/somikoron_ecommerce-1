@@ -1,0 +1,346 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en" >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
+    <head >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
+        <meta name="keywords"
+              content="blog, business, clean, clear, cooporate, creative, design web, flat, marketing, minimal, portfolio, shop, shopping, unique" >
+        <meta name="author" content="MARTECH | Deer Creative Theme" >
+        {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script >#}
+    </head >
+    <body >
+    <div id="main" style="margin-top: 75px">
+
+        <header class="coffee-2" >
+            <div class="navigation-filter" >
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1" >
+                            <div class="department-menu_block down" >
+                                <div class="department-menu d-flex justify-content-between align-items-center" style="height: 50px" ><i
+                                        class="fas fa-bars" ></i >All
+                                                                  departments<span ><i
+                                            class="arrow_carrot-up" ></i ></span ></div >
+                                <div class="department-dropdown-menu down" >
+                                    <ul style="height: 460px" class="department_ul">
+                                        <!-- Nested div for requirement -->
+                                        <div class="vertical-nav" >
+                                            {% for cat in categories %}
+                                                <li ><a href="{{ cat.get_absolute_url }}" ><i >
+                                                    <img style="width: 25px" src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
+                                                         alt="" >
+                                                </i >{{ cat.category_name }}</a >
+                                                    {% if cat.subcategory_set.count > 0 and cat.category_name not in  cat.subcategory_set.all.0.sub_category_name %}
+                                                        <i class="fa fa-chevron-right float-right" aria-hidden="true" ></i >
+                                                        <ul class="sub-menu" >
+                                                            {% for subcat in cat.subcategory_set.all %}
+                                                                <li ><a href="{{ subcat.get_absolute_url }}" >
+                                                                    <i >
+                                                                        <img STYLE="width: 20px" src="
+
+
+                                                                                {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
+                                                                             alt="" >
+                                                                    </i >{{ subcat.sub_category_name }}</a ></li >
+                                                            {% endfor %}
+                                                        </ul >
+                                                    {% endif %}
+                                                </li >
+                                            {% endfor %}
+                                        </div >
+                                    </ul >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="col-12 col-md-8 col-lg-8 col-xl-8 order-1 order-md-1" >
+                            <div class="banner_v3"  >
+                                <div class="container" >
+                                    <div class="row" >
+                                        <div class="col-12 col-xl-12" >
+                                            <main class="main" >
+                                                <style >
+                                                    * {
+                                                        margin: 0;
+                                                        padding: 0;
+                                                        box-sizing: border-box;
+                                                        list-style: none;
+                                                        text-decoration: none;
+                                                    }
+
+
+                                                    .container {
+                                                        max-width: 75rem;
+                                                        width: 100%;
+                                                        margin: 0 auto;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
+                                                        background: #ffffff;
+                                                        border: none;
+                                                        outline: none;
+                                                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                                                        border-radius: 2px;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image img {
+                                                        display: block;
+                                                        position: relative;
+                                                        left: 0;
+                                                        bottom: 0;
+                                                        width: 100%;
+                                                        height: auto;
+                                                        -o-object-fit: cover;
+                                                        object-fit: cover;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet {
+                                                        opacity: 0.8;
+                                                        background: #333333;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-pagination-bullet-active {
+                                                        background: #ffffff;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next,
+                                                    .main .container .swiper-container .swiper-button-prev {
+                                                        background-image: none;
+                                                        background-size: 0;
+                                                        background-repeat: no-repeat;
+                                                        background-position: 0;
+                                                        margin-top: -1rem;
+                                                    }
+
+                                                    .main .container .swiper-container .swiper-button-next .arrow-icon,
+                                                    .main .container .swiper-container .swiper-button-prev .arrow-icon {
+                                                        font-size: 2rem;
+                                                        color: #ffffff;
+                                                    }
+                                                </style >
+                                                <div class="container" >
+                                                    <div class="swiper-container" >
+                                                        <div class="swiper-wrapper" >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner2.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner3.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner1.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                            <div class="swiper-slide" >
+                                                                <div class="card-image" >
+                                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy"
+                                                                         alt="Image Slider" >
+                                                                </div >
+                                                            </div >
+                                                        </div >
+                                                        <!-- Add Pagination -->
+                                                        <div class="swiper-pagination" ></div >
+                                                        <!-- Add Scrollbar -->
+                                                        <div class="swiper-button-next" >
+                                                            <i class="fas fa-chevron-circle-right arrow-icon" ></i >
+                                                        </div >
+                                                        <div class="swiper-button-prev" >
+                                                            <i class="fas fa-chevron-circle-left arrow-icon" ></i >
+                                                        </div >
+                                                    </div >
+                                                </div >
+                                            </main >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                            <!-- End banner v3-->
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </header >
+        <div class="shop-layout cattle_list" id="cattle_list">
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-xl-12" >
+                        <div class="shop-grid-list" >
+                            <!-- end of slider -->
+                            <div class="shop-products" >
+                                <div class="shop-products_top mini-tab-title underline" >
+                                    <div class="row align-items-center" >
+                                        <div class="col-6 col-xl-4" >
+                                            <h6 class="title" style="font-size: 16px" >কোরবানি স্পেশাল</h6 >
+                                        </div >
+                                        <div class="col-6 text-right" >
+                                            <div id="show-filter-sidebar" >
+                                                <h5 ><i class="fas fa-bars" ></i >Menu</h5 >
+                                            </div >
+                                        </div >
+                                        <div class="col-12 col-xl-8" >
+                                            <div class="product-option" >
+                                                <div class="product-filter" >
+                                                    <select class="select-form" id="sort" name="" >
+                                                        <option value="A-Z" >A to Z</option >
+                                                        <option value="Z-A" >Z to A</option >
+                                                        <option value="High to low price" >High to low price</option >
+                                                        <option value="Low to height price" >Low to height</option >
+                                                    </select >
+                                                    <select class="select-form" id="sort" name="" >
+                                                        <option value="A-Z" >Show 10</option >
+                                                        <option value="Z-A" >Show 20</option >
+                                                        <option value="High to low price" >Show 30</option >
+                                                    </select >
+                                                </div >
+                                                <div class="view-method" >
+                                                    <p class="active" id="grid-view" ><i class="fas fa-th-large" ></i ></p >
+                                                    <p id="list-view" ><i class="fas fa-list" ></i ></p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <!--Using column-->
+                                </div >
+                                <div class="shop-products_bottom" >
+                                    <div class="row no-gutters-sm" >
+                                        {% for item in cattles %}
+                                            <div class="col-6 col-md-4 " >
+                                                <div class="product cartable" >
+                                                    <div class="product-img_block" >
+                                                        <div class="product_images" >
+                                                        <a class="product-img "href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}" alt="" ></a >
+                                                        </div>
+                                                        {#                                                        <button class="quickview no-round-btn smooth" data-toggle="modal"#}
+                                                        {#                                                                data-target="#quickViewModal" >Quick view#}
+                                                        {#                                                        </button >#}
+                                                    </div >
+                                                    <div class="product-info_block" style="width: 100%; padding: 0px 20px" >
+                                                        <a class="product-name" href="" >{{ item.title }}</a >
+                                                        <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                                class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                                class="icon_star-half" ></i ><span >(5)</span >
+                                                        </h5 >
+                                                        {% if item.itemdetails.discount_offer > 0 %}
+                                                            <h3 class="product-price " style="text-align: center !important;" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+                                                            </h3 >
+                                                        {% else %}
+                                                            <h3 class="product-price" style="text-align: center !important;" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.price }}
+                                                            </h3 >
+                                                        {% endif %}
+                                                        <p class="product-describe" >
+                                                        <div >
+                                                            <div style="float: left" >Breed:</div >
+                                                            <div style="float: right" >{{ item.cattleinfo.Breed }}</div >
+                                                        </div >
+                                                        <br >
+                                                        <div >
+                                                            <div style="float: left" >Height:</div >
+                                                            <div style="float: right" >{{ item.cattleinfo.height }}</div >
+                                                        </div >
+                                                        <br >
+                                                        <div >
+                                                            <div style="float: left" >Weight:</div >
+                                                            <div style="float: right" >{{ item.cattleinfo.live_weight }}</div >
+                                                        </div >
+                                                        <br >
+                                                        </p >
+                                                        <div class="openSidebar" >
+                                                            <img hidden src="{{ item.images.all.0.image.thumbnail.url }}" alt="Image"
+                                                                 class="product__image" >
+                                                            <p hidden class="product__name" >{{ item.pk }}</p >
+                                                            <p hidden class="product__title" >{{ item.title }}</p >
+                                                            <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
+                                                            <button class="all_btn" data-action="ADD_TO_CART"
+                                                                    style="margin-left: auto !important; margin-right: auto !important; "
+                                                                    name="btn{{ item.pk }}" >Add to cart
+                                                            </button >
+                                                        </div >
+                                                        <p class="product-describe" >
+                                                        </p >
+                                                        <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
+                                                    </div >
+                                                    <div class="product-select" >
+                                                        <button class="add-to-wishlist round-icon-btn" title="Add to Favorite" ><i
+                                                                class="icon_heart_alt" ></i ></button >
+                                                        <button class="round-icon-btn quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                                data-url="{% url 'shop:quick-view' item.slug %}" ><i
+                                                                class="far fa-eye" ></i ></button >
+                                                    </div >
+                                                    <div class="product-select_list" >
+                                                        <p class="delivery-status" >Free delivery</p >
+                                                        {% if item.itemdetails.discount_offer > 0 %}
+                                                            <h3 class="product-price" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+                                                            </h3 >
+                                                        {% else %}
+                                                            <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}
+                                                            </h3 >
+                                                        {% endif %}
+
+                                                        <p class="product-avaiable" >Avability: <span >In stock</span ></p >
+                                                    </div >
+                                                </div >
+                                            </div >
+                                        {% endfor %}
+                                    </div >
+                                </div >
+                                <div class="shop-pagination" >
+                                    {% if cattles.has_other_pages %}
+                                        <ul  >
+                                            {% if cattles.has_previous %}
+                                                <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ cattles.previous_page_number }}#cattle_list'" >&laquo;</button ></li >
+                                            {% else %}
+{#                                                <li ><button class="no-round-btn smooth disabled" ><i class="arrow_carrot-2left" ></i ></button ></li>#}
+                                            {% endif %}
+                                            {% for i in cattles.paginator.page_range %}
+                                                {% if cattles.number == i %}
+                                                    <li  ><button class="no-round-btn smooth active disabled" >{{ i }} <span class=" sr-only" >(current)</span ></button ></li >
+                                                {% else %}
+                                                    <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ i }}#cattle_list'" >{{ i }}</button ></li >
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if cattles.has_next %}
+                                                <li  ><button class="no-round-btn smooth" onclick="location.href='?page={{ cattles.next_page_number }}#cattle_list'" >&raquo;</button ></li >
+                                            {% else %}
+{#                                                <li><button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button ></li>#}
+                                            {% endif %}
+                                        </ul >
+                                    {% endif %}
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End shop layout-->
+        <!-- End partner-->
+    </div >
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js' ></script >
+    <script src="{% static 'assets/js/slider.js' %}" ></script >
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            document.getElementById('floatcart').style.display = 'block'
+        })
+    </script >
+    </body >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:53 GMT -->
+    </html >
+{% endblock %}

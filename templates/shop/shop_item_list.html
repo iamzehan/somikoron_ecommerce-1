@@ -1,0 +1,315 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en" >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:51 GMT -->
+    <head >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
+    </head >
+    <body >
+    <div id="main" style="margin-top: 70px">
+        <div class="ogami-breadcrumb" >
+            <div class="container" >
+                <ul >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}" > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active"  >Shop</a ></li >
+                </ul >
+            </div >
+        </div >
+        <!-- End breadcrumb-->
+        <section class="category" >
+            <div class="container" >
+                {#                <div class="row justify-content-center py-5" >#}
+                {#                    <div class="col-lg-6 col-md-6 text-center" >#}
+                {#                        <div class="categori_heading" >#}
+                {#                            <h2 >Product Categories</h2 >#}
+                {#                        </div >#}
+                {#                    </div >#}
+                {#                </div >#}
+                <div class="row justify-content-left" >
+                    {% for sub_category in item_category.subcategory_set.all %}
+                        <div class="col-lg-3  col-md-3 my-2" >
+                            <div class="inner_category mx-2" >
+                                <a href="{{ sub_category.get_absolute_url }}" >
+                                    <div class="row justify-content-around d-flex align-items-center custom_category" >
+                                        <div class="col-lg-4 col-4 col-md-4" >
+                                            <div class="icons" >
+                                                <img src="{% static 'assets/images/custom_icons/flatIcon/' %}{{ item_category.category_id }}.png"
+                                                     alt="" >
+                                            </div >
+                                        </div >
+                                        <div class="col-lg-8 col-8 col-md-8 inner_item" >
+                                            <p style="padding-top: 13px" >{{ sub_category.sub_category_name }}</p >
+                                        </div >
+                                    </div >
+                                </a >
+                            </div >
+                        </div >
+                    {% endfor %}
+                </div >
+            </div >
+        </section >
+        <br ><br >
+        <div class="shop-layout" >
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-xl-3" >
+                        <div class="shop-sidebar" >
+                            <button class="no-round-btn" id="filter-sidebar--closebtn" >Close sidebar</button >
+                            <div class="shop-sidebar_department" >
+                                <div class="department_top mini-tab-title underline" >
+                                    <h2 class="title" >Departments</h2 >
+                                </div >
+                                <div class="department_bottom" >
+                                    <ul >
+                                        {% for cat in categories %}
+                                            <li ><a class="department-link subdept" href="{{ cat.get_absolute_url }}" > <i >
+                                                <img style="width: 20px" src="{% static 'assets/images/custom_icons/' %}{{ cat.category_id }}.png"
+                                                     alt="" >&nbsp; &nbsp;
+                                            </i >  {{ cat.category_name }}</a ></li >
+                                        {% endfor %}
+                                        <!-- Nested div for requirement -->
+                                    </ul >
+                                </div >
+                            </div >
+                            {#                            <div class="shop-sidebar_price-filter" >#}
+                            {#                                <div class="price-filter_top mini-tab-title underline" >#}
+                            {#                                    <h2 class="title" >Filter By Price</h2 >#}
+                            {#                                </div >#}
+                            {#                                <div class="price-filter_bottom" >#}
+                            {#                                    <p >#}
+                            {#                                        <label for="amount" >Price range:</label >#}
+                            {#                                    <div class="filter-group" >#}
+                            {#                                        <input id="amount" type="text" readonly="" >#}
+                            {#                                        <button class="normal-btn" >Fiter</button >#}
+                            {#                                    </div >#}
+                            {#                                    </p>#}
+                            {#                                    <div id="slider-range" ></div >#}
+                            {#                                </div >#}
+                            {#                            </div >#}
+                            {#                            <div class="shop-sidebar_color-filter" >#}
+                            {#                                <div class="color-filter_top mini-tab-title underline" >#}
+                            {#                                    <h2 class="title" >Color</h2 >#}
+                            {#                                </div >#}
+                            {#                                <div class="color-filter_bottom" >#}
+                            {#                                    <div class="row" >#}
+                            {#                                        <div class="col-6" >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: black;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Black (12)</a >#}
+                            {#                                            </div >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: red;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Red (4)</a >#}
+                            {#                                            </div >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: orange;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Orange (8)</a >#}
+                            {#                                            </div >#}
+                            {#                                        </div >#}
+                            {#                                        <div class="col-6" >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: blue;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Blue (4)</a >#}
+                            {#                                            </div >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: green;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Green (9)</a >#}
+                            {#                                            </div >#}
+                            {#                                            <div class="color" >#}
+                            {#                                                <div class="visible-color" style="background-color: pink;" ></div >#}
+                            {#                                                <a href="shop_grid%2blist_3col.html" >Pink (12)</a >#}
+                            {#                                            </div >#}
+                            {#                                        </div >#}
+                            {#                                    </div >#}
+                            {#                                </div >#}
+                            {#                            </div >#}
+                            {#                            <div class="shop-sidebar_size" >#}
+                            {#                                <div class="size_top mini-tab-title underline" >#}
+                            {#                                    <h2 class="title" >Popular size</h2 >#}
+                            {#                                </div >#}
+                            {#                                <div class="size_bottom" >#}
+                            {#                                    <form >#}
+                            {#                                        <div class="size" >#}
+                            {#                                            <input type="checkbox" id="large" >#}
+                            {#                                            <label for="large" >Large</label >#}
+                            {#                                        </div >#}
+                            {#                                        <div class="size" >#}
+                            {#                                            <input type="checkbox" id="medium" >#}
+                            {#                                            <label for="medium" >Medium</label >#}
+                            {#                                        </div >#}
+                            {#                                        <div class="size" >#}
+                            {#                                            <input type="checkbox" id="small" >#}
+                            {#                                            <label for="small" >Small</label >#}
+                            {#                                        </div >#}
+                            {#                                        <div class="size" >#}
+                            {#                                            <input type="checkbox" id="tiny" >#}
+                            {#                                            <label for="tiny" >Tiny</label >#}
+                            {#                                        </div >#}
+                            {#                                    </form >#}
+                            {#                                </div >#}
+                            {#                            </div >#}
+                            <div class="shop-sidebar_tag" >
+                                <div class="tag_top mini-tab-title underline" >
+                                    <h2 class="title" >Product tag</h2 >
+                                </div >
+                                <div class="tag_bottom" >
+                                    {% for sub_category in item_category.subcategory_set.all %}
+                                        <a class="tag-btn" href="{{ sub_category.get_absolute_url }}" >{{ sub_category.sub_category_name }}</a >
+                                    {% endfor %}
+                                </div >
+                            </div >
+                        </div >
+                        <div class="filter-sidebar--background" style="display: none" ></div >
+                    </div >
+                    <div class="col-xl-9" >
+                        <div class="shop-grid-list" >
+                            <div class="shop-products" id="product_list">
+                                <div class="shop-products_top mini-tab-title underline" >
+                                    <div class="row align-items-center" >
+                                        <div class="col-6 col-xl-4" >
+                                            <h6 style="font-size: 18px" class="title" >{{ items.all.0.sub_category.sub_category_name }}</h6 >
+                                        </div >
+                                        <div class="col-6 text-right" >
+                                            <div id="show-filter-sidebar" >
+                                                <h5 ><i class="fas fa-bars" ></i >Menu</h5 >
+                                            </div >
+                                        </div >
+                                        <div class="col-12 col-xl-8" >
+                                            <div class="product-option" >
+                                                <div class="product-filter" >
+                                                    <select class="select-form" id="sort" name="" >
+                                                        <option value="A-Z" >A to Z</option >
+{#                                                        <option value="Z-A" >Z to A</option >#}
+{#                                                        <option value="High to low price" > ↓ Price</option >#}
+{#                                                        <option value="Low to height price" >↑ Price</option >#}
+                                                    </select >
+                                                    <select class="select-form" id="sort" name="" >
+                                                        <option value="A-Z" >Show 20</option >
+{#                                                        <option value="Z-A" >Show 20</option >#}
+{#                                                        <option value="High to low price" >Show 30</option >#}
+                                                    </select >
+                                                </div >
+                                                <div class="view-method" >
+                                                    <p class="active" id="grid-view" ><i class="fas fa-th-large" ></i ></p >
+                                                    <p id="list-view" ><i class="fas fa-list" ></i ></p >
+                                                </div >
+                                            </div >
+                                        </div >
+                                    </div >
+                                    <!--Using column-->
+                                </div >
+                                <div class="shop-products_bottom" >
+                                    <div class="row no-gutters-sm" >
+                                        {% for item in items %}
+                                            <div class="col-6 col-md-4 cartable" >
+                                                <div class="product" >
+                                                    <div class="product-img_block" ><a class="product-img "
+                                                                                       href="{{ item.itemdetails.get_absolute_url }}" ><img
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}" alt="" ></a >
+                                                        {#                                                        <button class="quickview no-round-btn smooth" data-toggle="modal"#}
+                                                        {#                                                                data-target="#quickViewModal" >Quick view#}
+                                                        {#                                                        </button >#}
+                                                    </div >
+                                                    <div class="product-info_block" >
+                                                        <a class="product-name" href="" >{{ item.title }}</a >
+                                                        <h5 class="product-rated" ><i class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                                class="icon_star" ></i ><i class="icon_star" ></i ><i
+                                                                class="icon_star-half" ></i ><span >(5)</span >
+                                                        </h5 >
+                                                        {% if item.itemdetails.discount_offer > 0 %}
+                                                            <h3 class="product-price " style="text-align: center !important;" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+                                                            </h3 >
+                                                        {% else %}
+                                                            <h3 class="product-price" style="text-align: center !important;" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.price }}
+                                                            </h3 >
+                                                        {% endif %}
+                                                        <div class="openSidebar" >
+                                                            <img class="product__image" hidden src="{{ item.images.all.0.image.thumbnail.url }}" >
+                                                            <p hidden class="product__name" >{{ item.pk }}</p >
+                                                            <p hidden class="product__title" >{{ item.title }}</p >
+                                                            <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
+                                                            <button class="all_btn" data-action="ADD_TO_CART"
+                                                                    style="margin-left: auto !important; margin-right: auto !important; "
+                                                                    name="btn{{ item.pk }}" >Add to cart
+                                                            </button >
+                                                        </div >
+                                                        <p class="product-describe" >
+                                                        </p >
+                                                        <button class="add-to-wishlist button-borderless" ><i class="icon_heart_alt" ></i ></button >
+                                                    </div >
+                                                    <div class="product-select" >
+                                                        <button class="add-to-wishlist round-icon-btn" title="Add to Favorite" ><i
+                                                                class="icon_heart_alt" ></i ></button >
+
+                                                        <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
+                                                                data-url="{% url 'shop:quick-view' item.slug %}" ><i
+                                                                class="far fa-eye" ></i ></button >
+                                                    </div >
+                                                    <div class="product-select_list" >
+                                                        <p class="delivery-status" >Free delivery</p >
+                                                        {% if item.itemdetails.discount_offer > 0 %}
+                                                            <h3 class="product-price" ><small
+                                                                    style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
+                                                                <del >{{ item.price }}</del >
+                                                            </h3 >
+                                                        {% else %}
+                                                            <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}
+                                                            </h3 >
+                                                        {% endif %}
+
+                                                        <p class="product-avaiable" >Avability: <span >In stock</span ></p >
+                                                    </div >
+                                                </div >
+                                            </div >
+                                        {% endfor %}
+                                    </div >
+                                </div >
+                                <div class="shop-pagination" >
+                                    {% if items.has_other_pages %}
+                                        <ul  >
+                                            {% if items.has_previous %}
+                                                <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ items.previous_page_number }}#product_list'" >&laquo;</button ></li >
+                                            {% else %}
+{#                                                <li ><button class="no-round-btn smooth disabled" ><i class="arrow_carrot-2left" ></i ></button ></li>#}
+                                            {% endif %}
+                                            {% for i in items.paginator.page_range %}
+                                                {% if items.number == i %}
+                                                    <li  ><button class="no-round-btn smooth active disabled" >{{ i }} <span class=" sr-only" >(current)</span ></button ></li >
+                                                {% else %}
+                                                    <li ><button class="no-round-btn smooth" onclick="location.href='?page={{ i }}#product_list'" >{{ i }}</button ></li >
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if items.has_next %}
+                                                <li  ><button class="no-round-btn smooth" onclick="location.href='?page={{ items.next_page_number }}#product_list'" >&raquo;</button ></li >
+                                            {% else %}
+{#                                                <li><button class="no-round-btn smooth" ><i class="arrow_carrot-2right" ></i ></button ></li>#}
+                                            {% endif %}
+                                        </ul >
+                                    {% endif %}
+
+
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End shop layout-->
+        <script type="text/javascript" >
+            $(document).ready(function () {
+                document.getElementById('floatcart').style.display = 'block'
+            })
+        </script >
+        <!-- End partner-->
+    </div >
+    </body >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_grid+list_3col.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:53 GMT -->
+    </html >
+
+{% endblock %}

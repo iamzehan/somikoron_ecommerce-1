@@ -1,0 +1,187 @@
+{% extends 'shop/nav_footer.html' %}
+{% block body %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en" >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:56 GMT -->
+    <head >
+        <title >{% block head_title %} {{page_title}} {% endblock %}</title >
+        <style >
+            .shop-checkout .form-group {
+                margin-bottom: 15px;
+            }
+            .search-form{
+                margin-top: 0px !important;
+            }
+        </style >
+    </head >
+    <body >
+    <div id="main" style="margin-top: 70px" >
+        <!-- End header-->
+        <div class="ogami-breadcrumb" >
+            <div class="container" >
+                <ul >
+                    <li ><a class="breadcrumb-link" href="{% url 'shop:home' %}"  > <i class="fas fa-home" ></i >Home</a ></li >
+                    <li ><a class="breadcrumb-link active" href="" >Shoping cart</a ></li >
+                </ul >
+            </div >
+        </div >
+        <!-- End breadcrumb-->
+        <div class="order-step" >
+            <div class="container" >
+                <div class="row" >
+                    <div class="col-12" >
+                        <div class="order-step_block" >
+                            <div class="row no-gutters" >
+                                <div class="col-12 col-md-4" >
+                                    <div class="step-block step-block--1" >
+                                        <div class="step" >
+                                            <h2 >Shopping Cart</h2 ><span >01</span >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="col-12 col-md-4" >
+                                    <div class="step-block active" >
+                                        <div class="step" >
+                                            <h2 >Check Out</h2 ><span >02</span >
+                                        </div >
+                                    </div >
+                                </div >
+                                <div class="col-12 col-md-4" >
+                                    <div class="step-block" >
+                                        <div class="step" >
+                                            <h2 >Order Completed</h2 ><span >03</span >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <!-- End order step-->
+        <div class="shop-checkout" >
+            <div class="container" >
+                {#                <form>#}
+                {#                    {% csrf_token %}#}
+                {#                    {{ form|crispy }}#}
+                {#                    <button class="btn btn-primary" type="submit"> Submit</button>#}
+                {#                </form>#}
+                <form method="post" >
+                    {% csrf_token %}
+                    <div class="row" >
+                        <div class="col-12 col-lg-8" >
+                            <div class="card-header" >
+                                <h5 style="text-align: center" >Delivery details</h5 >
+                            </div >
+                            <br ><br >
+                            <div class="form-row" >
+                                <div class="form-group col-md-5" >
+                                    {{ form.customer_name|as_crispy_field }}
+                                </div >
+                                <div class="form-group col-md-7" >
+                                    {{ form.customer_phone|as_crispy_field }}
+                                </div >
+                            </div >
+
+                            <div class="form-row" >
+                                <div class="form-group col-md-5" >
+                                    {{ form.area|as_crispy_field }}
+                                </div >
+                                <div class="form-group col-md-7" >
+                                    {{ form.address|as_crispy_field }}
+                                </div >
+                            </div >
+                            <div class="form-group" >
+                                {#                                <label for="inputNote" >Order notes (optional)</label >#}
+                                {#                                <textarea class="textarea-form-bg" id="inputNote" name="" cols="30" rows="7" ></textarea >#}
+                                {{ form.order_notes|as_crispy_field }}
+                            </div >
+                            <script>
+                                 $(document).ready(function () {
+                                     $("#phone").val("{{ request.user.username }}")
+                                     $("#address").val("{{ address.address }}")
+                                     $("#area").val("{{ address.area }}")
+                                     $("#customer_name").val("{{ address.customer_name }}")
+                                 });
+                            </script>
+                        </div >
+                        <div class="col-12 col-md-6 col-lg-4 text-right" >
+                            <div class="card" >
+                                <div class="card-header" >
+                                    <h5 style="text-align: center" >Your Order</h5 >
+                                </div >
+                                <div class="card-body " style="margin-top:-20px " >
+                                    <div class="cart-total_block" style="font-family: Cera Pro Regular" >
+                                        <table class="table" >
+                                            <colgroup >
+                                                <col span="1" style="width: 50%" >
+                                                <col span="1" style="width: 50%" >
+                                            </colgroup >
+                                            <tbody >
+                                            <tr style=" height: 50px;" >
+                                                <th style="width: 40%;text-align: left" >SUBTOTAL</th >
+                                                <td style="text-align: right">{{ object.get_total }}</td >
+                                            </tr >
+                                            <tr style="height: 50px; " >
+                                                <th style="width: 40%;text-align: left" >DELIVERY CHARGE</th >
+                                                <td style="text-align: right">
+                                                    <p >{% if object.get_total >= 1000 %}
+                                                        40 Tk
+                                                    {% else %}
+                                                        60 Tk
+                                                    {% endif %} </p >
+                                                </td >
+                                            </tr >
+                                            <tr style="height: 50px; " >
+                                                <th style="width: 40%;text-align: left" >Coupon Discount</th >
+                                                <td style="text-align: right"><p >0</p ></td >
+                                            </tr >
+                                            <tr style="height: 60px; " >
+                                                {% load mathfilters %}
+                                                <th style="width: 40%;text-align: left" >TOTAL</th >
+                                                <td style="text-align: right">
+                                                    {% if object.get_total >= 1000 %}
+                                                        {{ object.get_total|addition:40 |sub:0 }}
+                                                    {% else %}
+                                                        {{ object.get_total|addition:60 |sub:0 }}
+                                                    {% endif %}
+                                                </td >
+                                            </tr >
+                                            </tbody >
+                                        </table >
+                                        <div class="form-group" >
+                                            <div class="checkout-method text-left" >
+                                                {#                                                <div class="form-group" style="float: left" >#}
+                                                {#                                                    <input type="radio" name="paymethod" id="shipping" value="option1" checked >#}
+                                                {#                                                    <label for="shipping" >Cash on delivery</label >#}
+                                                {#                                                </div >#}
+                                                {#                                                <div class="form-group" style="float:right;" >#}
+                                                {#                                                    <input type="radio" name="paymethod" id="bkash" value="option2" >#}
+                                                {#                                                    <label for="bkash" >bKash Payment</label >#}
+                                                {#                                                </div >#}
+                                                {{ form.payment_option|as_crispy_field }}
+                                                <button class="normal-btn" style="margin: 0px; width: 100%" >Proceed to Checkout</button >
+                                            </div >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </form >
+            </div >
+        </div >
+    </div >
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            document.getElementById('floatcart').style.display = 'none';
+        })
+    </script >
+    </body >
+    <!-- Mirrored from afinda.vn/html/Ogami/shop_checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jun 2020 12:00:56 GMT -->
+    </html >
+
+{% endblock %}

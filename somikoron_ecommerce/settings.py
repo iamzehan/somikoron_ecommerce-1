@@ -198,10 +198,10 @@ SOCIALACCOUNT_PROVIDERS = \
           'EXCHANGE_TOKEN': True,
           'LOCALE_FUNC'   : lambda request: 'kr_KR',
           'VERIFIED_EMAIL': False,
-          'VERSION'       : 'v2.4'}}
+          'VERSION'       : 'v7.0'}}
 # facebook
-SOCIAL_AUTH_FACEBOOK_KEY = '629271397680203'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'e4a51b5b5c3e919ec82a2fdb5840a675'  # app key
+# SOCIAL_AUTH_FACEBOOK_KEY = '629271397680203'  # App ID
+# SOCIAL_AUTH_FACEBOOK_SECRET = 'e4a51b5b5c3e919ec82a2fdb5840a675'  # app key
 ACCOUNT_LOGOUT_ON_GET = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 TIME_ZONE = "Asia/Dhaka"

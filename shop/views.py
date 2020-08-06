@@ -316,7 +316,7 @@ class CheckoutView(LoginRequiredMixin, View):
                 area = form.cleaned_data.get('area')
                 address = form.cleaned_data.get('address')
                 order_notes = form.cleaned_data.get('order_notes')
-                payment_method = form.cleaned_data.get('payment_option')
+                # payment_method = form.cleaned_data.get('payment_option')
                 # print(payment_option)
                 if Address.objects.filter(user=self.request.user):
                     shipping_address = Address.objects.get(user=self.request.user)
@@ -324,7 +324,7 @@ class CheckoutView(LoginRequiredMixin, View):
                     shipping_address.customer_phone = customer_phone
                     shipping_address.area = area
                     shipping_address.address = address
-                    shipping_address.payment_method = payment_method
+                    # shipping_address.payment_method = payment_method
                     shipping_address.save()
                 else:
                     shipping_address = Address(
@@ -333,7 +333,7 @@ class CheckoutView(LoginRequiredMixin, View):
                         customer_phone=customer_phone,
                         area=area,
                         address=address,
-                        payment_method=payment_method,
+                        # payment_method=payment_method,
                     )
                     shipping_address.save()
 

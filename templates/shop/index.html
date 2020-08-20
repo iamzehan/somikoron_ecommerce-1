@@ -26,6 +26,7 @@
             #main {
                 margin-top: 75px !important;
             }
+
             @media (max-width: 575px) {
                 #main {
                     margin-top: 0px !important;
@@ -61,6 +62,7 @@
                                                                 <li ><a href="{{ subcat.get_absolute_url }}" >
                                                                     <i >
                                                                         <img STYLE="width: 20px" src="
+
                                                                                 {% static 'assets/images/custom_icons/flatIcon/' %}{{ cat.category_id }}.png"
                                                                              alt="" >
                                                                     </i >{{ subcat.sub_category_name }}</a ></li >
@@ -160,12 +162,12 @@
                                                                          alt="Image Slider" >
                                                                 </div >
                                                             </div >
-                                                            <div class="swiper-slide" >
-                                                                <div class="card-image" >
-                                                                    <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy"
-                                                                         alt="Image Slider" >
-                                                                </div >
-                                                            </div >
+                                                            <!--<div class="swiper-slide" >-->
+                                                            <!--    <div class="card-image" >-->
+                                                            <!--        <img src="{% static 'assets/images/banner/hBanner4.jpg' %}" loading="lazy"-->
+                                                            <!--             alt="Image Slider" >-->
+                                                            <!--    </div >-->
+                                                            <!--</div >-->
                                                         </div >
                                                         <!-- Add Pagination -->
                                                         <div class="swiper-pagination" ></div >
@@ -322,15 +324,64 @@
                             <div id="tab-1" >
                                 <div class="row no-gutters-sm " >
                                     {% for item in offer|slice:":12" %}
-                                        <div class="col-6 col-md-4 col-lg-3 cartable" >
+                                        <div class="col-md-3 col-lg-3 cartable" >
                                             <div class="product coffee" >
+                                                <div class="cart_overlay" >
+                                                    <div class="overlay_top_price" >
+                                                        <p >৳ 160</p >
+                                                    </div >
+                                                    <div class="overlay_first" >
+                                                        <h2 >Add to cart</h2 >
+                                                        <i
+                                                                class="fa fa-arrow-down down overlay_animated"
+                                                                aria-hidden="true"
+                                                        ></i >
+                                                        <div class="shopping_bag" >
+                                                            <i class="fa fa-cart-plus bag" aria-hidden="true" ></i >
+                                                        </div >
+                                                    </div >
+                                                    <div class="overlay_second" >
+                                                        <ul class="cart_plus" >
+                                                            <li >
+                                                                <i class="fa fa-minus minus" aria-hidden="true" ></i >
+                                                            </li >
+                                                            <li >
+                                                                <div class="increment_products" >
+                                                                    <span >1</span >
+                                                                </div >
+                                                                <i
+                                                                        class="fa fa-cart-plus second_bag"
+                                                                        aria-hidden="true"
+                                                                ></i >
+                                                            </li >
+                                                            <li ><i class="fa fa-plus plus" aria-hidden="true" ></i ></li >
+                                                        </ul >
+                                                    </div >
+                                                    <div class="view_details" >
+                                                        <button class="btn-block btn_details" >view details</button >
+                                                    </div >
+                                                </div >
+                                                <!-- ================================ offer part start =========================== -->
+                                                <div class="offer" >
+                                                    <p ><span >30%</span ></p >
+                                                    <div id="circles" ></div >
+                                                </div >
+                                                <!-- ================================ offer part end =========================== -->
                                                 <div class="product_images" >
-                                                    <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img
-                                                            class="img-fluid product__image" src="{{ item.images.all.0.image.thumbnail.url }}"
-                                                            alt="{{ item.images.all.0.image.url }}" ></a >
+                                                    <a class="product-img" href="{{ item.itemdetails.get_absolute_url }}"
+                                                    ><img
+                                                            class="img-fluid product__image"
+                                                            src="{{ item.images.all.0.image.thumbnail.url }}"
+                                                            alt="product image"
+                                                    /></a >
                                                 </div >
                                                 <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >
-                                                <h3 class="product-name" onclick="location.href='{{ item.itemdetails.get_absolute_url }}'">{{ item.title }}</h3 >
+                                                <h3
+                                                        class="product-name"
+                                                        onclick="location.href='{{ item.itemdetails.get_absolute_url }}'"
+                                                >
+                                                    {{ item.title }}
+                                                </h3 >
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price " ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
@@ -339,21 +390,65 @@
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
                                                 {% endif %}
+                                                <!-- <div class="product-select">
+                                                          <button
+                                                            class="add-to-wishlist round-icon-btn coffee"
+                                                            title="Add to Favorite"
+                                                          >
+                                                            <i class="icon_heart_alt"></i>
+                                                          </button>
+                                                          <button
+                                                            class="round-icon-btn coffee quickviewbtn"
+                                                            id="quickviewbtn"
+                                                            title="Quick Details"
+                                                            data-url="/quick-view/S_SF013"
+                                                          >
+                                                            <i class="far fa-eye"></i>
+                                                          </button>
+                                                        </div> -->
+                                            </div >
+                                            <div class="cart_btn" >
                                                 <div class="openSidebar" >
                                                     <p hidden class="product__name" >{{ item.pk }}</p >
                                                     <p hidden class="product__title" >{{ item.title }}</p >
                                                     <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >
                                                     <button class="all_btn" data-action="ADD_TO_CART" name="btn{{ item.pk }}" >Add to cart</button >
                                                 </div >
-                                                <div class="product-select" >
-                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i
-                                                            class="icon_heart_alt" ></i ></button >
-                                                    <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"
-                                                            data-url="{% url 'shop:quick-view' item.slug %}" ><i
-                                                            class="far fa-eye" ></i ></button >
-                                                </div >
                                             </div >
                                         </div >
+{#                                        <div class="col-6 col-md-4 col-lg-3 cartable" >#}
+{#                                            <div class="product coffee" >#}
+{#                                                <div class="product_images" >#}
+{#                                                    <a class="product-img " href="{{ item.itemdetails.get_absolute_url }}" ><img#}
+{#                                                            class="img-fluid product__image" src="{{ item.images.all.0.image.thumbnail.url }}"#}
+{#                                                            alt="{{ item.images.all.0.image.url }}" ></a >#}
+{#                                                </div >#}
+{#                                                <h5 class="product-type" >{{ item.sub_category.category.category_name }}</h5 >#}
+{#                                                <h3 class="product-name"#}
+{#                                                    onclick="location.href='{{ item.itemdetails.get_absolute_url }}'" >{{ item.title }}</h3 >#}
+{#                                                {% if item.itemdetails.discount_offer > 0 %}#}
+{#                                                    <h3 class="product-price " ><small#}
+{#                                                            style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}#}
+{#                                                        <del style="text-decoration: line-through;" >{{ item.price }}</del >#}
+{#                                                    </h3 >#}
+{#                                                {% else %}#}
+{#                                                    <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >#}
+{#                                                {% endif %}#}
+{#                                                <div class="openSidebar" >#}
+{#                                                    <p hidden class="product__name" >{{ item.pk }}</p >#}
+{#                                                    <p hidden class="product__title" >{{ item.title }}</p >#}
+{#                                                    <p hidden class="product__price" >{{ item.itemdetails.get_discounted_price }}</p >#}
+{#                                                    <button class="all_btn" data-action="ADD_TO_CART" name="btn{{ item.pk }}" >Add to cart</button >#}
+{#                                                </div >#}
+{#                                                <div class="product-select" >#}
+{#                                                    <button class="add-to-wishlist round-icon-btn coffee" title="Add to Favorite" ><i#}
+{#                                                            class="icon_heart_alt" ></i ></button >#}
+{#                                                    <button class="round-icon-btn coffee quickviewbtn" id="quickviewbtn" title="Quick Details"#}
+{#                                                            data-url="{% url 'shop:quick-view' item.slug %}" ><i#}
+{#                                                            class="far fa-eye" ></i ></button >#}
+{#                                                </div >#}
+{#                                            </div >#}
+{#                                        </div >#}
                                     {% endfor %}
 
 
@@ -403,7 +498,7 @@
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price" ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
-                                                        <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                        <del style="text-decoration: line-through;" >{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
@@ -470,7 +565,7 @@
                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                     <h3 class="product-price" ><small
                                                             style="font-size: small" >৳</small > {{ item.itemdetails.get_discounted_price }}
-                                                        <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                        <del style="text-decoration: line-through;" >{{ item.price }}</del >
                                                     </h3 >
                                                 {% else %}
                                                     <h3 class="product-price" ><small style="font-size: small" >৳</small > {{ item.price }}</h3 >
@@ -577,7 +672,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;" >{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -600,7 +695,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;" >{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -623,7 +718,7 @@
                                                             {% if item.itemdetails.discount_offer > 0 %}
                                                                 <small style="font-size: small" >৳</small >
                                                                 {{ item.itemdetails.get_discounted_price }}
-                                                                <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                                <del style="text-decoration: line-through;" >{{ item.price }}</del >
 
                                                             {% else %}
                                                                 <small style="font-size: small" >৳</small > {{ item.price }}
@@ -657,7 +752,7 @@
                                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                                     <small style="font-size: small" >৳</small >
                                                                     {{ item.itemdetails.get_discounted_price }}
-                                                                    <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                                    <del style="text-decoration: line-through;" >{{ item.price }}</del >
 
                                                                 {% else %}
                                                                     <small style="font-size: small" >৳</small > {{ item.price }}
@@ -768,7 +863,7 @@
                                                                 {% if item.itemdetails.discount_offer > 0 %}
                                                                     <small style="font-size: small" >৳</small >
                                                                     {{ item.itemdetails.get_discounted_price }}
-                                                                    <del style="text-decoration: line-through;">{{ item.price }}</del >
+                                                                    <del style="text-decoration: line-through;" >{{ item.price }}</del >
 
                                                                 {% else %}
                                                                     <small style="font-size: small" >৳</small > {{ item.price }}

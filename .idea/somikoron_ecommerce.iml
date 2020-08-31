@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv_somikoron1" />
       <excludeFolder url="file://$MODULE_DIR$/vnv_somikoron_ecommerce" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (venv_somikoron)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (somikoron_ecommerce)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

@@ -109,26 +109,6 @@
                                                          {{ order_item.get_total_discount_item_price|stringformat:".1f" }}</p ></td >
                                                 </tr >
                                             {% endfor %}
-
-                                            {#                                            <tr class="tabletitle" style="color: white" >#}
-                                            {#                                                <td style="border: yellow solid" ><h2 style="color: white;" >Grand Total:#}
-                                            {#                                                    {% if object.get_total >= 1000 %}#}
-                                            {#                                                        {{ object.get_total|addition:40 |sub:0|stringformat:".2f" }}#}
-                                            {#                                                        {% else %}#}
-                                            {#                                                        {{ object.get_total|addition:60 |sub:0|stringformat:".2f" }}#}
-                                            {#                                                    {% endif %}#}
-                                            {#                                                    </h2 >#}
-                                            {#                                                </td >#}
-                                            {#                                                <td ><h2 style="color: white" >Delivery:#}
-                                            {#                                                    {% if object.get_total >= 1000 %}#}
-                                            {#                                                                               40#}
-                                            {#                                                    {% else %}#}
-                                            {#                                                                               60#}
-                                            {#                                                    {% endif %}</h2 ></td >#}
-                                            {#                                                <td class="Rate" ><h2 style="color: white" >Coupon: -0</h2 ></td >#}
-                                            {#                                                <td class="payment" ><h2 style="color: white" >Total: {{ object.get_total|stringformat:".2f" }}</h2 >#}
-                                            {#                                                </td >#}
-                                            {#                                            </tr >#}
                                         </table >
                                     </div ><!--End Table-->
                                     <div style="width: 100%; height: 200px; padding-top: 20px" >

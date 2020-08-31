@@ -1,0 +1,4 @@
+id,ref_code,start_date,ordered_date,ordered,order_note,shipping_address_id,user_id,order_status,payment_method,payment_status
+23,,2020-07-21 06:38:52,2020-07-21 06:38:52,1,If you want to deliver in day time Please deliver in this address. Or after 9 pm you can deliver to Mohammadpur address whichever is convenient for you.,9,20,DONE,CASH ON,PENDING
+25,,2020-07-21 18:42:59,2020-07-21 18:42:59,1,,11,23,DONE,CASH ON,PENDING
+31,,2020-07-22 10:42:08,2020-07-22 10:42:08,1,,12,26,RECEIVED,CASH ON,PENDING

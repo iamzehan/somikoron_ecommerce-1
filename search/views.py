@@ -16,7 +16,7 @@ def searchitems(request):
                       | Q(title__icontains=query[0]) & Q(sub_category__category__category_name__icontains=query[n-1])\
 
 
-            results = Items.objects.filter(matchup).distinct()
+            results = Items.objects.filter(matchup, itemdetails__stock_quantity__gt=0,).distinct()
             context={'results': results,
                      'submitbutton': submitbutton}
 

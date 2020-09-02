@@ -54,9 +54,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.discord',
+    # 'allauth.socialaccount.providers.discord',
     'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
 
     # my_apps
     'customer',
@@ -167,8 +167,8 @@ STATICFILES_DIRS = (
 STATIC_ROOT = 'staticfiles'
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static")
@@ -180,10 +180,10 @@ LOGIN_REDIRECT_URL = "/"
 
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
-         {'METHOD'        : 'oauth2',
-          'SCOPE'         : ['email', 'public_profile', 'user_friends'],
-          'AUTH_PARAMS'   : {'auth_type': 'reauthenticate'},
-          'FIELDS'        : [
+         {'METHOD': 'oauth2',
+          'SCOPE': ['email','public_profile', 'user_friends'],
+          'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+          'FIELDS': [
               'id',
               'email',
               'name',
@@ -196,9 +196,9 @@ SOCIALACCOUNT_PROVIDERS = \
               'gender',
               'updated_time'],
           'EXCHANGE_TOKEN': True,
-          'LOCALE_FUNC'   : lambda request: 'kr_KR',
+          'LOCALE_FUNC': lambda request: 'kr_KR',
           'VERIFIED_EMAIL': False,
-          'VERSION'       : 'v7.0'}}
+          'VERSION': 'v2.4'}}
 # facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '875295476329648'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '7904dbc8149ec875329da6d611fbb49a'  # app key

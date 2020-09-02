@@ -18,7 +18,11 @@
       <excludeFolder url="file://$MODULE_DIR$/venv_somikoron1" />
       <excludeFolder url="file://$MODULE_DIR$/vnv_somikoron_ecommerce" />
     </content>
+<<<<<<< Updated upstream
     <orderEntry type="jdk" jdkName="Python 3.7 (somikoron_ecommerce)" jdkType="Python SDK" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.8 (somikoronenv) (2)" jdkType="Python SDK" />
+>>>>>>> Stashed changes
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
